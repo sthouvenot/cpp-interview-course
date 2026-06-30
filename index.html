@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 10-Week C++ Interview Course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F7FB;--ink:#1B1838;--ink-soft:#3a3660;--sidebar:#161235;--sidebar-2:#221a4a;
+    --card:#FFFFFF;--line:#E7E8F2;--muted:#6f6b8c;--code-bg:#15122E;--code-line:#2a2550;
+    --c-comment:#7C8AAE;--c-string:#5BE3B3;--c-num:#FFB86B;--c-key:#FF7CC0;--c-type:#7FB4FF;--c-text:#E9E7FB;
+    --easy:#16A34A;--med:#D97706;--hard:#E11D48;--easy-bg:#E7F6ED;--med-bg:#FBF0DC;--hard-bg:#FBE4EA;
+    --accent:#6366F1;--shadow:0 1px 2px rgba(20,16,50,.04),0 8px 24px -12px rgba(20,16,50,.18);--radius:18px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:auto}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter",system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;display:flex;min-height:100vh}
+  code,pre{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  .sidebar{width:288px;flex:0 0 288px;background:var(--sidebar);background-image:radial-gradient(120% 60% at 0% 0%,var(--sidebar-2),transparent 60%);color:#cfc9ee;position:sticky;top:0;height:100vh;overflow-y:auto;padding:24px 16px 30px;display:flex;flex-direction:column;gap:16px;z-index:50}
+  .brand{display:flex;align-items:center;gap:11px;padding:0 6px;text-decoration:none}
+  .brand .mark{width:38px;height:38px;border-radius:11px;flex:0 0 38px;background:linear-gradient(135deg,#FF7CC0,#7FB4FF 55%,#5BE3B3);display:grid;place-items:center;color:#161235;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:18px;box-shadow:0 6px 18px -6px rgba(127,180,255,.6)}
+  .brand h1{font-family:"Space Grotesk",sans-serif;font-size:15.5px;line-height:1.2;margin:0;color:#fff;font-weight:600}
+  .brand span{font-size:11.5px;color:#9d96c9}
+  .progress{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:13px 14px;display:flex;align-items:center;gap:13px;margin:2px 4px 0}
+  .ring{position:relative;width:46px;height:46px;flex:0 0 46px}
+  .ring svg{transform:rotate(-90deg)}
+  .ring .val{position:absolute;inset:0;display:grid;place-items:center;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:13px;color:#fff}
+  .progress .lbl{font-size:12px;color:#a59ed0;line-height:1.35}
+  .progress .lbl b{color:#fff;font-weight:600}
+  nav{display:flex;flex-direction:column;gap:2px;margin-top:2px}
+  nav .group{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#7a73a8;padding:13px 12px 5px;font-weight:600}
+  nav a{display:flex;align-items:center;gap:10px;text-decoration:none;color:#c4bde9;padding:7px 12px;border-radius:10px;font-size:13px;font-weight:450;transition:background .15s,color .15s;position:relative}
+  nav a .num{font-family:"JetBrains Mono",monospace;font-size:10.5px;color:#6f68a0;min-width:18px;font-weight:500;transition:color .15s}
+  nav a .dot{width:7px;height:7px;border-radius:50%;background:var(--ac,#6366F1);opacity:.5;flex:0 0 7px;transition:opacity .15s,transform .15s}
+  nav a:hover{background:rgba(255,255,255,.05);color:#fff}
+  nav a.active{background:linear-gradient(90deg,rgba(255,255,255,.09),rgba(255,255,255,.02));color:#fff;font-weight:500}
+  nav a.active .dot{opacity:1;transform:scale(1.3)}
+  nav a.active .num{color:#fff}
+  nav a.active::before{content:"";position:absolute;left:-16px;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:0 3px 3px 0;background:var(--ac,#6366F1)}
+  .side-foot{margin-top:auto;padding:14px 12px 0;font-size:11.5px;color:#7a73a8;line-height:1.5}
+  main{flex:1;min-width:0;max-width:1000px;margin:0 auto;padding:0 clamp(20px,5vw,68px)}
+  .topbar{display:none}
+  #page{padding:6px 0 0;min-height:80vh}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .anim{animation:fade .34s ease}
+  .hero{padding:62px 0 30px}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
+  .hero h2{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(34px,5.5vw,54px);line-height:1.04;letter-spacing:-.02em;margin:0 0 18px}
+  .hero h2 em{font-style:normal;background:linear-gradient(115deg,#FF5D73,#8B5CF6 50%,#0EA5E9);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:18px;color:var(--ink-soft);max-width:62ch;margin:0 0 16px}
+  .hero p.lead2{font-size:15px;color:var(--muted);max-width:60ch;margin:0 0 26px}
+  .startrow{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+  .btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:600;font-size:14px;padding:12px 20px;border-radius:11px;transition:transform .12s,box-shadow .12s;cursor:pointer;border:none}
+  .btn.primary{background:var(--ink);color:#fff;box-shadow:0 8px 22px -10px rgba(27,24,56,.7)}
+  .btn.primary:hover{transform:translateY(-2px)}
+  .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:#cdcde0;transform:translateY(-2px)}
+  .planbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:36px}
+  .planbar .pb{background:#fff;border:1px solid var(--line);border-radius:13px;padding:14px 15px;box-shadow:var(--shadow);text-decoration:none;display:block;transition:transform .12s,border-color .12s}
+  .planbar .pb:hover{transform:translateY(-3px);border-color:#cdcde0}
+  .planbar .pb .wk{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--accent);font-weight:600;letter-spacing:.05em}
+  .planbar .pb .ti{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;margin-top:5px;line-height:1.3;color:var(--ink)}
+  .lesson-head{padding:46px 0 2px}
+  .lh-meta{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+  .lh-week{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#fff;background:var(--accent);padding:5px 12px;border-radius:20px;font-weight:600}
+  .lh-count{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+  .lh-title{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(30px,5vw,46px);letter-spacing:-.02em;margin:0;line-height:1.04}
+  .soonpill{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--muted);background:#fff;border:1px dashed #cfd0e2;border-radius:20px;padding:4px 12px;margin:16px 0 2px}
+  .pager{display:flex;justify-content:space-between;gap:14px;margin:54px 0 72px;border-top:1px solid var(--line);padding-top:24px}
+  .pager .pg{display:flex;flex-direction:column;gap:3px;text-decoration:none;padding:13px 18px;border:1px solid var(--line);border-radius:13px;background:#fff;max-width:47%;transition:transform .12s,border-color .12s,box-shadow .12s}
+  .pager .pg:hover{transform:translateY(-2px);border-color:#cdcde0;box-shadow:var(--shadow)}
+  .pager .pg span{font-size:11.5px;color:var(--muted);font-weight:600}
+  .pager .pg b{font-family:"Space Grotesk",sans-serif;font-size:15px;color:var(--ink);line-height:1.2}
+  .pager .pg.next{text-align:right;margin-left:auto;align-items:flex-end}
+  .pager .pg.start{border-color:color-mix(in srgb,var(--accent) 40%,#fff);background:color-mix(in srgb,var(--accent) 7%,#fff)}
+  .lesson{margin-top:12px}
+  .lesson p{font-size:16.5px;color:var(--ink-soft);margin:0 0 18px;max-width:72ch}
+  .lesson p code,.lesson li code{font-size:13.5px;background:#ECEDF6;color:#3a2f72;padding:2px 6px;border-radius:6px}
+  .subhead{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:21px;color:var(--ink);margin:36px 0 13px;display:flex;align-items:center;gap:11px;letter-spacing:-.01em}
+  .subhead::before{content:"";width:18px;height:3px;border-radius:3px;background:var(--accent);flex:0 0 18px}
+  .lesson ul{margin:0 0 18px;padding-left:0;list-style:none;max-width:72ch}
+  .lesson ul li{position:relative;padding-left:26px;margin-bottom:11px;font-size:16px;color:var(--ink-soft)}
+  .lesson ul li::before{content:"";position:absolute;left:4px;top:10px;width:7px;height:7px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+  .lesson ul li b{color:var(--ink);font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .cue{display:flex;gap:13px;background:color-mix(in srgb,var(--accent) 9%,#fff);border:1px solid color-mix(in srgb,var(--accent) 22%,#fff);border-left:4px solid var(--accent);border-radius:13px;padding:15px 17px;margin:22px 0}
+  .cue .ic{flex:0 0 auto;font-size:18px;line-height:1.3}
+  .cue p{margin:0;font-size:15px;color:var(--ink);max-width:none}
+  .cue p b{font-family:"Space Grotesk",sans-serif;font-weight:600}
+  .note{display:flex;gap:13px;border-radius:13px;padding:15px 17px;margin:22px 0;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow)}
+  .note .ic{flex:0 0 auto;font-size:18px;line-height:1.35}
+  .note .nbody{font-size:15px;color:var(--ink-soft)}
+  .note .nbody strong{font-family:"Space Grotesk",sans-serif;font-weight:600;color:var(--ink);display:block;margin-bottom:3px}
+  .note.idea{background:linear-gradient(120deg,color-mix(in srgb,var(--accent) 12%,#fff),#fff);border-color:color-mix(in srgb,var(--accent) 25%,#fff)}
+  .note.pit{background:#FFF6F7;border-color:#F6D5DC}
+  .note.pit .nbody strong{color:var(--hard)}
+  pre{margin:0;padding:14px 16px;background:var(--code-bg);overflow-x:auto;border-radius:12px}
+  pre code{font-size:13px;line-height:1.6;color:var(--c-text);white-space:pre}
+  .codeblock{margin:20px 0}
+  .tok-c{color:var(--c-comment);font-style:italic}.tok-s{color:var(--c-string)}.tok-n{color:var(--c-num)}.tok-k{color:var(--c-key)}.tok-t{color:var(--c-type)}
+  .worked{border:1px solid var(--line);border-radius:15px;overflow:hidden;margin:24px 0;box-shadow:var(--shadow);background:#fff}
+  .worked .whead{padding:12px 16px;background:var(--accent);color:#fff;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:14px;display:flex;align-items:center;gap:9px}
+  .worked .whead .wt{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+  .worked .wexp{padding:14px 16px 4px;font-size:15px;color:var(--ink-soft)}
+  .worked pre{border-radius:0;margin-top:8px}
+  .svg-wrap{background:#fff;border:1px solid var(--line);border-radius:15px;padding:22px 22px 16px;margin:24px 0;box-shadow:var(--shadow)}
+  .svg-wrap svg{display:block;width:100%;height:auto}
+  .svg-wrap .cap{font-size:13px;color:var(--muted);margin-top:13px;text-align:center;line-height:1.45}
+  .svg-wrap .cap b{color:var(--ink-soft)}
+  .complexity{display:inline-flex;align-items:center;gap:9px;font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:9px;padding:7px 13px;margin:4px 0}
+  .complexity b{color:var(--accent)}
+  .probwrap{margin-top:28px}
+  .probwrap .pl{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:12px}
+  .probs{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+  .prob{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:9px;transition:transform .13s,box-shadow .13s,border-color .13s;position:relative;overflow:hidden}
+  .prob::after{content:"";position:absolute;left:0;top:0;height:3px;width:100%;background:var(--db)}
+  .prob:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#d8d8e8}
+  .badge{align-self:flex-start;font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:20px;font-family:"JetBrains Mono",monospace}
+  .badge.easy{color:var(--easy);background:var(--easy-bg)}.badge.med{color:var(--med);background:var(--med-bg)}.badge.hard{color:var(--hard);background:var(--hard-bg)}
+  .prob .pname{font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:15px;line-height:1.25}
+  .prob .go{margin-top:auto;font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px;font-weight:500}
+  .prob .chk{position:absolute;top:13px;right:13px;width:22px;height:22px;border-radius:7px;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;transition:all .15s;z-index:2}
+  .prob .chk:hover{border-color:var(--db)}
+  .prob .chk.done{background:var(--db);border-color:var(--db)}
+  .prob .chk svg{width:13px;height:13px;stroke:#fff;stroke-width:3;fill:none;opacity:0;transition:opacity .15s}
+  .prob .chk.done svg{opacity:1}
+  .pcard{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:6px;margin:16px 0;box-shadow:var(--shadow);overflow:hidden}
+  .pcard .ptitle{display:flex;align-items:center;gap:10px;padding:13px 14px 11px;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:15.5px}
+  .pcard .ptitle .pin{width:9px;height:9px;border-radius:3px;background:var(--accent)}
+  .pitem{display:grid;grid-template-columns:minmax(150px,230px) 1fr;border-top:1px solid var(--line)}
+  @media (max-width:680px){.pitem{grid-template-columns:1fr}}
+  .pitem .plabel{padding:13px 16px;font-size:13.5px;color:var(--ink-soft);display:flex;align-items:center;background:#fbfbfe}
+  .pitem pre{border-radius:0}
+  .cheatgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+  @media (max-width:760px){.cheatgrid{grid-template-columns:1fr}}
+  .ccard{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+  .ccard .chead{padding:13px 16px;font-family:"Space Grotesk",sans-serif;font-weight:600;font-size:15px;color:#fff;background:var(--cc);display:flex;align-items:center;gap:9px}
+  .crow{display:flex;align-items:center;gap:10px;padding:9px 12px 9px 16px;border-top:1px solid var(--line)}
+  .crow:first-of-type{border-top:none}
+  .crow .clabel{font-size:12px;color:var(--muted);flex:0 0 38%;line-height:1.3}
+  .crow code{flex:1;font-size:12.5px;color:var(--ink);background:#f6f6fb;padding:6px 9px;border-radius:7px;overflow-x:auto;white-space:nowrap}
+  .crow .copy{flex:0 0 auto;width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;color:var(--muted);transition:all .13s}
+  .crow .copy:hover{color:var(--cc);border-color:var(--cc)}.crow .copy svg{width:14px;height:14px}.crow .copy.copied{background:var(--cc);color:#fff;border-color:var(--cc)}
+  .demo{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px;margin:24px 0;box-shadow:var(--shadow)}
+  .demo .dlabel{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .cells{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:8px}
+  .cell{width:46px;height:46px;border-radius:11px;background:#f2f2f8;border:1.5px solid var(--line);display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-weight:600;font-size:15px;color:var(--ink-soft);position:relative;transition:all .3s ease}
+  .cell.win{background:color-mix(in srgb,var(--accent) 16%,#fff);border-color:var(--accent);color:var(--ink)}
+  .cell.lp,.cell.rp{background:var(--ink);color:#fff;border-color:var(--ink);transform:translateY(-3px)}
+  .cell .ptr{position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:600;color:var(--ink)}
+  .demo .readout{margin-top:30px;font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink-soft);min-height:20px}
+  .demo .readout b{color:var(--accent)}
+  .demo .dctrl{display:flex;gap:9px;margin-top:16px}
+  .demo .dctrl button{font-family:"Inter",sans-serif;font-size:13px;font-weight:600;padding:9px 16px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--ink);transition:all .13s}
+  .demo .dctrl button:hover{border-color:var(--accent);color:var(--accent)}
+  .demo .dctrl button.run{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .demo .dctrl button.run:hover{filter:brightness(1.06);color:#fff}
+  :focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;border-radius:6px}
+  @media (max-width:900px){
+    body{display:block}
+    .sidebar{position:fixed;left:0;top:0;transform:translateX(-100%);transition:transform .25s ease;box-shadow:0 0 40px rgba(0,0,0,.3)}
+    .sidebar.open{transform:translateX(0)}
+    .topbar{display:flex;align-items:center;gap:13px;position:sticky;top:0;background:rgba(246,247,251,.9);backdrop-filter:blur(10px);padding:13px 18px;border-bottom:1px solid var(--line);z-index:40}
+    .topbar .mark{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,#FF7CC0,#7FB4FF 55%,#5BE3B3);display:grid;place-items:center;color:#161235;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:15px}
+    .topbar b{font-family:"Space Grotesk",sans-serif;font-size:15px;flex:1}
+    .hamb{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer}
+    .hamb svg{width:20px;height:20px;stroke:var(--ink);stroke-width:2}
+    main{margin:0;padding:0 20px}.hero{padding:30px 0 26px}.lesson-head{padding:26px 0 2px}.probs{grid-template-columns:1fr}
+    .pager .pg{max-width:48%}
+    .scrim{position:fixed;inset:0;background:rgba(20,16,40,.4);z-index:45;opacity:0;pointer-events:none;transition:opacity .2s}.scrim.show{opacity:1;pointer-events:auto}
+  }
+</style>
+</head>
+<body>
+<div class="topbar"><div class="mark">{}</div><b>C++ Course</b><button class="hamb" id="hamb" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="#/"><div class="mark">{}</div><div><h1>The 10-Week<br>C++ Interview Course</h1><span>concepts &#8594; patterns, interleaved</span></div></a>
+  <div class="progress"><div class="ring"><svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="4"/><circle id="ringFill" cx="23" cy="23" r="19" fill="none" stroke="#5BE3B3" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="119.4"/></svg><div class="val" id="ringVal">0%</div></div><div class="lbl"><b id="doneCount">0</b> of <b id="totalCount">0</b><br>problems solved</div></div>
+  <nav id="nav"></nav>
+  <div class="side-foot">Each lesson is its own page. Use the sidebar or the Next button at the bottom of every page.</div>
+</aside>
+<main><div id="page"></div></main>
+<script>
+const KW=new Set(["for","while","do","if","else","return","int","char","bool","void","auto","const","true","false","nullptr","new","delete","class","struct","public","private","protected","using","double","long","unsigned","static","virtual","template","typename","this","break","continue","size_t","constexpr","noexcept","override"]);
+const TY=new Set(["vector","string","unordered_map","unordered_set","map","set","pair","stack","queue","priority_queue","deque","greater","less","ListNode","TreeNode","unique_ptr","shared_ptr","weak_ptr","thread","mutex","atomic","function","cout"]);
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+function highlight(code){
+  const re=/(\/\/[^\n]*)|("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')|(\b\d+\.?\d*\b)|([A-Za-z_]\w*)|(\s+)|([^\sA-Za-z0-9_]+)/g;
+  let out="",m;
+  while((m=re.exec(code))){
+    if(m[1])out+='<span class="tok-c">'+esc(m[1])+'</span>';
+    else if(m[2])out+='<span class="tok-s">'+esc(m[2])+'</span>';
+    else if(m[3])out+='<span class="tok-n">'+m[3]+'</span>';
+    else if(m[4]){const w=m[4];out+=KW.has(w)?'<span class="tok-k">'+w+'</span>':TY.has(w)?'<span class="tok-t">'+w+'</span>':esc(w);}
+    else if(m[5])out+=m[5];else out+=esc(m[6]);
+  }
+  return out;
+}
+const SVG={};
+SVG.bigo=`<svg viewBox="0 0 620 350" role="img" aria-label="Big-O growth rates">
+<rect x="55" y="20" width="510" height="280" fill="#FBFBFE" stroke="#EDEEF6"/>
+<line x1="55" y1="300" x2="565" y2="300" stroke="#C9CAD9" stroke-width="1.5"/><line x1="55" y1="20" x2="55" y2="300" stroke="#C9CAD9" stroke-width="1.5"/>
+<text x="310" y="335" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#6f6b8c">input size  n  &#8594;</text>
+<text x="20" y="160" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#6f6b8c" transform="rotate(-90 20 160)">operations &#8593;</text>
+<polyline points="60,300 560,297" fill="none" stroke="#16A34A" stroke-width="2.5"/>
+<polyline points="60,300 120,284 210,275 330,266 450,260 560,255" fill="none" stroke="#14B8A6" stroke-width="2.5"/>
+<polyline points="60,300 560,112" fill="none" stroke="#0EA5E9" stroke-width="2.5"/>
+<polyline points="60,300 160,252 260,202 360,158 460,114 555,70" fill="none" stroke="#8B5CF6" stroke-width="2.5"/>
+<polyline points="60,300 150,268 230,222 300,160 355,98 405,44 432,26" fill="none" stroke="#FF8A3D" stroke-width="2.5"/>
+<polyline points="60,300 112,288 152,252 188,186 212,108 232,42 242,20" fill="none" stroke="#E11D48" stroke-width="2.5"/>
+<text x="566" y="298" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#16A34A">O(1)</text>
+<text x="566" y="256" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#0d9488">O(log n)</text>
+<text x="566" y="115" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#0EA5E9">O(n)</text>
+<text x="500" y="60" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#8B5CF6">O(n log n)</text>
+<text x="392" y="30" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#FF8A3D">O(n&#178;)</text>
+<text x="246" y="20" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#E11D48">O(2&#8319;)</text></svg>`;
+SVG.pointer=`<svg viewBox="0 0 620 220" role="img" aria-label="A pointer holds the address of a variable">
+<text x="150" y="40" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12.5" fill="#5B5BD6">int* p = &amp;x;</text>
+<rect x="60" y="70" width="180" height="56" rx="10" fill="#fff" stroke="#5B5BD6"/>
+<text x="150" y="60" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#6f6b8c">p</text>
+<text x="150" y="104" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#5B5BD6">0x7ffe&#8230;a4</text>
+<text x="150" y="148" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8a86a8">holds an address</text>
+<rect x="400" y="70" width="160" height="56" rx="10" fill="#EEF0FF" stroke="#5B5BD6" stroke-width="2"/>
+<text x="480" y="60" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#6f6b8c">x</text>
+<text x="480" y="106" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#1B1838">42</text>
+<text x="480" y="148" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#8a86a8">at address 0x7ffe&#8230;a4</text>
+<path d="M240 98 H398" stroke="#5B5BD6" stroke-width="2" marker-end="url(#arp)"/>
+<text x="320" y="88" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#5B5BD6">*p &#8594; 42</text>
+<text x="320" y="118" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#8a86a8">dereference follows the arrow</text>
+<defs><marker id="arp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#5B5BD6"/></marker></defs></svg>`;
+SVG.heap=`<svg viewBox="0 0 620 210" role="img" aria-label="Stack versus heap memory">
+<rect x="24" y="30" width="270" height="156" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="159" y="54" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#16A34A">the stack</text>
+<text x="159" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#3c6b4f">local variables live here</text>
+<rect x="70" y="92" width="178" height="26" rx="6" fill="#fff" stroke="#a9d6bb"/><text x="159" y="110" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">int x = 42;</text>
+<rect x="70" y="124" width="178" height="26" rx="6" fill="#fff" stroke="#a9d6bb"/><text x="159" y="142" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">int* p;</text>
+<text x="159" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5e8a6f">freed automatically at scope end</text>
+<rect x="326" y="30" width="270" height="156" rx="12" fill="#F4F2FF" stroke="#d9d2f5"/>
+<text x="461" y="54" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#6D5BD0">the heap</text>
+<text x="461" y="78" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#5b4f86">new gives you memory here</text>
+<rect x="372" y="92" width="178" height="40" rx="7" fill="#EDE9FC" stroke="#8B5CF6"/><text x="461" y="116" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6D5BD0">new int(5)</text>
+<text x="461" y="158" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#7d72a6">you must delete it yourself</text>
+<text x="461" y="174" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#b06">forget &#8594; memory leak</text></svg>`;
+SVG.copyref=`<svg viewBox="0 0 620 250" role="img" aria-label="Pass by value vs reference">
+<rect x="20" y="20" width="280" height="210" rx="12" fill="#FFF5F6" stroke="#F6D5DC"/>
+<text x="160" y="46" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#E11D48">pass by value  &#8594; a COPY</text>
+<rect x="45" y="66" width="100" height="44" rx="8" fill="#fff" stroke="#d9b0ba"/><text x="95" y="93" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#1B1838">original</text>
+<rect x="175" y="66" width="100" height="44" rx="8" fill="#FCE7EC" stroke="#E11D48" stroke-dasharray="4 3"/><text x="225" y="93" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#E11D48">duplicate</text>
+<path d="M148 88 H172" stroke="#E11D48" stroke-width="2" marker-end="url(#ar)"/>
+<text x="160" y="150" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#7a3b46">every element copied</text>
+<text x="160" y="170" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" font-weight="600" fill="#E11D48">O(n) wasted work</text>
+<text x="160" y="206" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#9c6671">void f(vector&lt;int&gt; v)</text>
+<rect x="320" y="20" width="280" height="210" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="460" y="46" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#16A34A">pass by const&amp;  &#8594; no copy</text>
+<rect x="345" y="66" width="100" height="44" rx="8" fill="#fff" stroke="#a9d6bb"/><text x="395" y="93" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#1B1838">original</text>
+<circle cx="520" cy="88" r="20" fill="#E7F6ED" stroke="#16A34A"/><text x="520" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">f()</text>
+<path d="M500 88 H447" stroke="#16A34A" stroke-width="2" marker-end="url(#ar2)"/>
+<text x="460" y="150" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#3c6b4f">just points at the same data</text>
+<text x="460" y="170" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" font-weight="600" fill="#16A34A">O(1) — free</text>
+<text x="460" y="206" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#5e8a6f">void f(const vector&lt;int&gt;&amp; v)</text>
+<defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#E11D48"/></marker><marker id="ar2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker></defs></svg>`;
+SVG.hash=`<svg viewBox="0 0 620 270" role="img" aria-label="How a hash map works">
+<text x="70" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">keys</text>
+<rect x="30" y="50" width="84" height="38" rx="8" fill="#fff" stroke="#E7E8F2"/><text x="72" y="74" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#1B1838">"cat"</text>
+<rect x="30" y="110" width="84" height="38" rx="8" fill="#fff" stroke="#E7E8F2"/><text x="72" y="134" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#1B1838">"dog"</text>
+<rect x="30" y="170" width="84" height="38" rx="8" fill="#fff" stroke="#E7E8F2"/><text x="72" y="194" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#1B1838">"ant"</text>
+<rect x="240" y="96" width="120" height="68" rx="12" fill="#FF5D73" opacity="0.12" stroke="#FF5D73"/><text x="300" y="126" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#d23a52">hash(key)</text><text x="300" y="146" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#9c4a5a">key &#8594; index</text>
+<path d="M114 69 C170 69 190 118 238 122" stroke="#c9cad9" stroke-width="1.6" fill="none"/>
+<path d="M114 129 H238" stroke="#c9cad9" stroke-width="1.6" fill="none"/>
+<path d="M114 189 C170 189 190 142 238 138" stroke="#c9cad9" stroke-width="1.6" fill="none"/>
+<text x="500" y="34" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">buckets (array)</text>
+<g font-family="JetBrains Mono,monospace" font-size="12">
+<rect x="440" y="46" width="140" height="30" fill="#FBFBFE" stroke="#E7E8F2"/><text x="452" y="66" fill="#9d9ab0">[0]</text>
+<rect x="440" y="76" width="140" height="30" fill="#FFF0F2" stroke="#FF5D73"/><text x="452" y="96" fill="#9d9ab0">[1]</text><text x="500" y="96" fill="#1B1838">"cat"</text>
+<rect x="440" y="106" width="140" height="30" fill="#FBFBFE" stroke="#E7E8F2"/><text x="452" y="126" fill="#9d9ab0">[2]</text>
+<rect x="440" y="136" width="140" height="30" fill="#FFF0F2" stroke="#FF5D73"/><text x="452" y="156" fill="#9d9ab0">[3]</text><text x="500" y="156" fill="#1B1838">"ant"</text>
+<rect x="440" y="166" width="140" height="30" fill="#FFF0F2" stroke="#FF5D73"/><text x="452" y="186" fill="#9d9ab0">[4]</text><text x="500" y="186" fill="#1B1838">"dog"</text></g>
+<path d="M360 122 H438" stroke="#FF5D73" stroke-width="1.8" marker-end="url(#arh)"/>
+<defs><marker id="arh" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#FF5D73"/></marker></defs></svg>`;
+SVG.stack=`<svg viewBox="0 0 620 250" role="img" aria-label="A stack is last-in first-out">
+<text x="150" y="30" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#2DD4A7">LIFO — last in, first out</text>
+<g font-family="JetBrains Mono,monospace" font-size="14">
+<rect x="90" y="180" width="120" height="36" rx="6" fill="#fff" stroke="#2DD4A7"/><text x="150" y="204" text-anchor="middle" fill="#1B1838">3  (bottom)</text>
+<rect x="90" y="142" width="120" height="36" rx="6" fill="#fff" stroke="#2DD4A7"/><text x="150" y="166" text-anchor="middle" fill="#1B1838">7</text>
+<rect x="90" y="104" width="120" height="36" rx="6" fill="#E9FBF4" stroke="#2DD4A7" stroke-width="2"/><text x="150" y="128" text-anchor="middle" fill="#0f9b78" font-weight="600">5  (top)</text></g>
+<path d="M270 122 h70" stroke="#16A34A" stroke-width="2" marker-end="url(#sp)"/><text x="305" y="112" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#16A34A">push()</text>
+<path d="M340 168 h-70" stroke="#E11D48" stroke-width="2" marker-end="url(#sp2)"/><text x="305" y="190" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#E11D48">pop()</text>
+<text x="470" y="118" font-family="Inter,sans-serif" font-size="13" fill="#3a3660">You only ever touch</text>
+<text x="470" y="138" font-family="Inter,sans-serif" font-size="13" fill="#3a3660">the top — push on,</text>
+<text x="470" y="158" font-family="Inter,sans-serif" font-size="13" fill="#3a3660">pop off, both O(1).</text>
+<defs><marker id="sp" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker><marker id="sp2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#E11D48"/></marker></defs></svg>`;
+SVG.binsearch=`<svg viewBox="0 0 620 250" role="img" aria-label="Binary search halves the range">
+<text x="310" y="26" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#6f6b8c">searching a sorted array for target = 23</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<text x="20" y="64" fill="#9d9ab0" font-size="11">round 1</text>
+<g transform="translate(70,46)">
+<rect x="0" y="0" width="56" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="28" y="22" text-anchor="middle" fill="#1B1838">5</text>
+<rect x="56" y="0" width="56" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="84" y="22" text-anchor="middle" fill="#1B1838">11</text>
+<rect x="112" y="0" width="56" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="140" y="22" text-anchor="middle" fill="#1B1838">17</text>
+<rect x="168" y="0" width="56" height="34" fill="#14B8A6" stroke="#0f9b88"/><text x="196" y="22" text-anchor="middle" fill="#fff" font-weight="600">23</text>
+<rect x="224" y="0" width="56" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="252" y="22" text-anchor="middle" fill="#1B1838">29</text>
+<rect x="280" y="0" width="56" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="308" y="22" text-anchor="middle" fill="#1B1838">35</text>
+<rect x="336" y="0" width="56" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="364" y="22" text-anchor="middle" fill="#1B1838">41</text>
+<text x="308" y="-6" text-anchor="middle" font-size="10" fill="#FF8A3D">mid &#8594; 29 &gt; 23, go left</text></g>
+<text x="20" y="130" fill="#9d9ab0" font-size="11">round 2</text>
+<g transform="translate(70,112)">
+<rect x="0" y="0" width="56" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="28" y="22" text-anchor="middle" fill="#1B1838">5</text>
+<rect x="56" y="0" width="56" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="84" y="22" text-anchor="middle" fill="#1B1838">11</text>
+<rect x="112" y="0" width="56" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="140" y="22" text-anchor="middle" fill="#1B1838">17</text>
+<rect x="168" y="0" width="56" height="34" fill="#14B8A6" stroke="#0f9b88"/><text x="196" y="22" text-anchor="middle" fill="#fff" font-weight="600">23</text>
+<rect x="224" y="0" width="112" height="34" fill="#EEEFF6" stroke="#dfe0ea"/><text x="280" y="22" text-anchor="middle" fill="#b9bac9">discarded</text>
+<rect x="336" y="0" width="56" height="34" fill="#EEEFF6" stroke="#dfe0ea"/>
+<text x="84" y="-6" text-anchor="middle" font-size="10" fill="#FF8A3D">mid &#8594; 11 &lt; 23, go right</text></g>
+<text x="20" y="196" fill="#9d9ab0" font-size="11">round 3</text>
+<g transform="translate(70,178)">
+<rect x="0" y="0" width="112" height="34" fill="#EEEFF6" stroke="#dfe0ea"/>
+<rect x="112" y="0" width="56" height="34" fill="#EEEFF6" stroke="#dfe0ea"/>
+<rect x="168" y="0" width="56" height="34" fill="#16A34A" stroke="#0f7a36"/><text x="196" y="22" text-anchor="middle" fill="#fff" font-weight="600">23 &#10003;</text>
+<rect x="224" y="0" width="168" height="34" fill="#EEEFF6" stroke="#dfe0ea"/>
+<text x="196" y="-6" text-anchor="middle" font-size="10" fill="#16A34A">found in 3 steps</text></g></g></svg>`;
+SVG.raii=`<svg viewBox="0 0 620 250" role="img" aria-label="RAII and ownership">
+<rect x="24" y="30" width="250" height="190" rx="12" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="44" y="58" font-family="JetBrains Mono,monospace" font-size="15" fill="#FF7CC0">{</text>
+<text x="232" y="206" font-family="JetBrains Mono,monospace" font-size="15" fill="#FF7CC0">}</text>
+<rect x="60" y="78" width="178" height="46" rx="9" fill="#E9FBF4" stroke="#2DD4A7"/><text x="149" y="100" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#0f9b78">Resource acquired</text><text x="149" y="116" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3c6b4f">in the constructor</text>
+<path d="M149 124 V176" stroke="#c9cad9" stroke-width="1.6" stroke-dasharray="4 3"/>
+<rect x="60" y="158" width="178" height="40" rx="9" fill="#FFF0F2" stroke="#FF5D73"/><text x="149" y="183" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#d23a52">freed automatically at } </text>
+<text x="149" y="240" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">scope ends &#8594; cleanup is guaranteed</text>
+<rect x="306" y="30" width="290" height="86" rx="12" fill="#F4F2FF" stroke="#d9d2f5"/>
+<text x="451" y="54" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#6D5BD0">unique_ptr — one owner</text>
+<circle cx="356" cy="86" r="14" fill="#fff" stroke="#8B5CF6"/><text x="356" y="90" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#6D5BD0">ptr</text>
+<rect x="486" y="72" width="86" height="28" rx="7" fill="#EDE9FC" stroke="#8B5CF6"/><text x="529" y="91" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6D5BD0">object</text>
+<path d="M370 86 H484" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arr)"/>
+<rect x="306" y="128" width="290" height="92" rx="12" fill="#EAF6FF" stroke="#bfe1f7"/>
+<text x="451" y="152" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#0c7fc4">shared_ptr — counted owners</text>
+<circle cx="346" cy="186" r="13" fill="#fff" stroke="#0EA5E9"/><circle cx="346" cy="210" r="13" fill="#fff" stroke="#0EA5E9"/>
+<rect x="486" y="178" width="86" height="28" rx="7" fill="#DDF0FB" stroke="#0EA5E9"/><text x="529" y="197" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0c7fc4">object</text>
+<text x="450" y="192" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0c7fc4">count = 2</text>
+<path d="M359 186 C410 184 440 192 484 192" stroke="#0EA5E9" stroke-width="1.8" fill="none"/>
+<path d="M359 210 C410 212 440 196 484 194" stroke="#0EA5E9" stroke-width="1.8" fill="none"/>
+<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#8B5CF6"/></marker></defs></svg>`;
+SVG.move=`<svg viewBox="0 0 620 220" role="img" aria-label="Copy versus move">
+<rect x="20" y="24" width="280" height="176" rx="12" fill="#FFF5F6" stroke="#F6D5DC"/>
+<text x="160" y="48" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#E11D48">copy — duplicate the buffer</text>
+<rect x="50" y="70" width="90" height="34" rx="7" fill="#fff" stroke="#d9b0ba"/><text x="95" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">a &#8594; [data]</text>
+<rect x="180" y="70" width="90" height="34" rx="7" fill="#FCE7EC" stroke="#E11D48"/><text x="225" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#E11D48">b &#8594; [data]</text>
+<rect x="50" y="128" width="90" height="22" rx="5" fill="#F1F1F7" stroke="#e2e2ec"/><rect x="180" y="128" width="90" height="22" rx="5" fill="#FBDDE4" stroke="#E11D48" stroke-dasharray="3 2"/>
+<text x="160" y="180" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#7a3b46">two full buffers — O(n)</text>
+<rect x="320" y="24" width="280" height="176" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="460" y="48" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#16A34A">move — steal the pointer</text>
+<rect x="350" y="70" width="90" height="34" rx="7" fill="#fff" stroke="#a9d6bb"/><text x="395" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#9d9ab0">a &#8594; (empty)</text>
+<rect x="480" y="70" width="90" height="34" rx="7" fill="#E7F6ED" stroke="#16A34A"/><text x="525" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">b &#8594; [data]</text>
+<rect x="415" y="128" width="120" height="22" rx="5" fill="#E7F6ED" stroke="#16A34A"/><text x="475" y="143" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#16A34A">one buffer, reused</text>
+<text x="460" y="180" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#3c6b4f">no copying — O(1)</text></svg>`;
+const plan=[
+  ["Week 1","Foundations · Big-O · Pointers","how"],
+  ["Week 2","Arrays · Two Pointers · Windows","arrays"],
+  ["Week 3","Stack · Binary Search · RAII · Moves","stack"],
+  ["Week 4–5","Lists · Trees · Tries","linked"],
+  ["Week 6–7","Heaps · Backtracking · Graphs","heaps"],
+  ["Week 8–9","DP · Intervals","dp"],
+  ["Week 10","System design · Behavioral","sysdesign"],
+];
+const p=h=>({t:"p",h}),sub=t=>({t:"h",t2:t}),ul=items=>({t:"ul",items}),code=c=>({t:"code",c});
+const note=(ic,title,h)=>({t:"note",ic,title,h}),idea=(title,h)=>({t:"idea",title,h}),pit=(title,h)=>({t:"pit",title,h});
+const svg=(key,cap)=>({t:"svg",key,cap}),worked=(title,exp,c)=>({t:"worked",title,exp,c}),cue=h=>({t:"cue",h}),cx=h=>({t:"cx",h});
+const course=[
+{group:"Orientation",num:"·",id:"how",color:"#6366F1",title:"How interviews actually work",blocks:[
+  p(`A coding interview is not a test of how much computer science you remember. It's a 35-minute window where someone watches you take a vague problem, ask the right questions, pick an approach, write working code, and reason about whether it's correct and efficient — all while talking. The code is maybe half the score. The rest is the thinking they can hear.`),
+  p(`That's good news for you. You ship real C++ in a game engine; you already debug, reason about performance, and write code under pressure. What's rusty is the narrow, artificial skill of mapping a word problem to one of a dozen reusable patterns and coding it cleanly on the spot. That skill is fully learnable, and it's exactly what this course drills.`),
+  sub("The loop to run on every problem"),
+  ul([
+    `<b>Clarify first.</b> Restate the problem in your words. Ask about input size, types, duplicates, empty inputs, and sorted-ness. Confirm one tiny example by hand. This alone separates strong candidates — it shows you don't code on assumptions.`,
+    `<b>Brute force out loud.</b> Say the obvious O(n²) or exponential approach before you write anything. It proves you understand the problem and gives you a correctness baseline to improve from.`,
+    `<b>Find the pattern.</b> "It's sorted → two pointers or binary search." "I need fast lookups → a hash map." Recognizing the pattern is the whole game, and it's what the pattern lessons train.`,
+    `<b>Code it, narrating.</b> Talk through each line. Silence reads as being stuck; narration reads as competence even when you pause to think.`,
+    `<b>Test it yourself.</b> Walk a small example through your code, out loud, before you say "done." Catch your own bug and you look senior; let them catch it and you look careless.`,
+  ]),
+  idea("The one habit that matters most","Think before you type, and say what you're thinking. Interviewers can't grade silent brilliance — they grade the reasoning you externalize. Treat every problem as a conversation, not a quiz."),
+  sub("How this course is built"),
+  p(`Ten weeks, concepts and patterns interleaved. The order is deliberate: you'll learn a C++ idea, then immediately hit the patterns that use it. Pointers come <em>before</em> Two Pointers and linked lists; memory and ownership come <em>before</em> the data structures that lean on them. Don't skip the foundations — Big-O and the memory model are the lens you'll view every later problem through.`),
+  p(`Each lesson is its own page. Move with the sidebar, or the Previous / Next buttons at the bottom of every page. For each pattern, read the lesson, do the Easy to feel the shape, the Medium to make it stick, and the Hard only when the Medium feels routine. Check problems off and watch the ring fill.`),
+]},
+{group:"Week 1 · Foundations",num:"∞",id:"bigo",color:"#0EA5E9",title:"Big-O & Complexity",badge:"Week 1 · Foundations",blocks:[
+  cue(`Almost every interview ends with "what's the time and space complexity?" If you can't answer crisply, a correct solution still loses points. This is the vocabulary the whole field speaks in.`),
+  p(`Big-O describes how the work an algorithm does <em>grows</em> as the input gets bigger. It deliberately ignores constant factors and hardware. We don't care that one machine is twice as fast; we care that doubling the input doubles the work (linear), barely changes it (logarithmic), or quadruples it (quadratic). That growth shape is what decides whether your code finishes in milliseconds or melts on a large input.`),
+  svg("bigo","The same input size, wildly different costs. The gap between O(n) and O(n²) is small for tiny inputs and catastrophic for large ones — which is why interviewers push you from one to the other."),
+  sub("The growth rates you must know on sight"),
+  ul([
+    `<b>O(1) — constant.</b> The work doesn't depend on input size. Array index, hash map lookup, pushing to a stack. The gold standard.`,
+    `<b>O(log n) — logarithmic.</b> Each step throws away half the remaining data. Binary search, balanced-tree operations. Doubling n adds just one step — absurdly scalable.`,
+    `<b>O(n) — linear.</b> You touch each element a constant number of times. A single loop over an array. Usually the target for "process every item" problems.`,
+    `<b>O(n log n) — linearithmic.</b> The speed limit for comparison sorting (<code>sort()</code>), and where many "sort then sweep" solutions land.`,
+    `<b>O(n²) — quadratic.</b> A loop inside a loop — every pair. Fine for small n, a red flag for large n. Most pattern work is about escaping this.`,
+    `<b>O(2ⁿ) / O(n!) — exponential / factorial.</b> Trying every subset or permutation. Backtracking lives here; you survive it only by pruning hard.`,
+  ]),
+  sub("How to actually compute it"),
+  p(`Count the loops over the input and how they nest. One pass over the array is O(n). A loop nested inside another, both over the array, is O(n·n) = O(n²). A loop that halves its range each step contributes a log n factor. Sequential (non-nested) steps add, so O(n) + O(n) is still O(n); nested steps multiply. And we keep only the dominant term: O(n² + n) is just O(n²), because for large n the n² swamps everything else.`),
+  worked("Reading complexity off code","Two nested loops over the same array means every pair is visited — n choices for i times n for j. That's the classic O(n²) you'll be asked to beat.",
+`vector<int> v = {...};            // size n
+for (int i = 0; i < v.size(); i++) {       // runs n times
+    for (int j = i + 1; j < v.size(); j++) // runs ~n times each
+        if (v[i] + v[j] == target)         // O(1) work inside
+            return {i, j};
+}
+// total: n * n = O(n^2) time, O(1) extra space`),
+  sub("Don't forget space"),
+  p(`Space complexity counts the <em>extra</em> memory you allocate as input grows — not the input itself. A hash map holding up to n entries is O(n) space. Recursion costs O(depth) for the call stack: a balanced tree is O(log n) deep, a linked list recursion is O(n) deep. Interviewers love the time-vs-space trade: Two Sum goes from O(n²) time / O(1) space to O(n) time / O(n) space by spending memory on a hash map to buy speed.`),
+  sub("Amortized complexity — the one interviewers use to separate the field"),
+  p(`Some operations are <em>usually</em> cheap but <em>occasionally</em> expensive, and amortized analysis describes their average cost across a whole sequence of calls. The textbook example is <code>vector::push_back</code>. A vector keeps a fixed-size buffer; most push_backs just drop the new element into an empty slot — O(1). But when the buffer fills up, the vector allocates a bigger one (typically <em>double</em> the size), copies every existing element across, and frees the old buffer — an O(n) operation. So a single push_back is, every so often, genuinely O(n).`),
+  p(`Yet because the capacity <em>doubles</em> each time, those expensive resizes happen rarely and geometrically less often as the vector grows. Add up all the copying across n pushes and the total is bounded by about 2n — so the average cost per push_back works out to O(1). That's what "amortized O(1)" means: not every call is constant, but the average over a long run provably is. This is one of the most common C++ interview questions precisely because it separates people who memorized "push_back is O(1)" from people who understand <em>why</em>.`),
+  note("⚖️","Amortized vs average-case",`These two get confused constantly. <b>Amortized</b> is averaged over a sequence of operations and holds as a worst-case guarantee — push_back is amortized O(1) no matter what you do. <b>Average-case</b> depends on the input distribution — a hash map lookup is average-case O(1), but a pathological set of keys could in theory degrade it toward O(n). Naming the right one out loud signals real understanding.`),
+  pit("The trap that costs offers","Calling <code>.substr()</code>, copying a vector, or building a new string inside a loop quietly adds an O(n) factor you forgot to count. A loop that looks O(n) but copies an n-length string each iteration is secretly O(n²). Always ask: what does each line <em>really</em> cost?"),
+  note("📌","Say it like this in the room",`"This runs in O(n log n) time because of the sort, and O(n) space for the hash map." One clean sentence. Practice saying the complexity of every solution you write — out loud — until it's automatic.`),
+]},
+{group:"Week 1 · Foundations",num:"→*",id:"pointers",color:"#5B5BD6",title:"Pointers & Memory",badge:"Week 1 · C++ deep dive",blocks:[
+  cue(`Pointers feel like the scary part of C++. They're not — a pointer is just a variable that stores a memory address. You need them for linked lists and trees, and understanding them is what finally makes references, smart pointers, and "Two Pointers" click. We do this <em>before</em> those topics on purpose.`),
+  p(`Every variable your program creates lives somewhere in memory, at a numeric location called its <em>address</em>. Normally you refer to a variable by its name and never think about where it physically sits. A pointer flips that around: it's a variable whose value <em>is</em> an address — it "points at" another variable by holding its location.`),
+  sub("The two operators: &amp; and *"),
+  p(`Two operators are the whole game. <code>&amp;</code> (address-of) gives you the address of a variable. <code>*</code> (dereference) takes an address and gives you the value living there. They're inverses of each other.`),
+  code(`int x = 42;
+int* p = &x;     // p holds the ADDRESS of x   (int* reads as "pointer to int")
+cout << *p;      // dereference: follow the address -> prints 42
+*p = 100;        // write THROUGH the pointer  -> x is now 100`),
+  svg("pointer","A pointer stores an address (left) that refers to where the real variable lives (right). <code>&amp;x</code> gets that address; <code>*p</code> follows it back to the value. Picture boxes and arrows and pointers stop being mysterious."),
+  p(`One source of early confusion: the <code>*</code> symbol does two different jobs. In a <em>declaration</em>, <code>int* p</code> means "p is a pointer." In an <em>expression</em>, <code>*p</code> means "dereference p." Same character, two roles — once you notice which context you're in, it reads cleanly.`),
+  sub("nullptr and the #1 pointer crash"),
+  p(`A pointer can point at nothing — that's <code>nullptr</code>. Dereferencing a null pointer (or any invalid one) is undefined behavior, almost always a crash (a "segfault"). The single most common pointer bug in interviews is dereferencing null. The discipline is simple and you should make it automatic: before you ever write <code>*p</code> or <code>p-&gt;something</code>, be sure <code>p</code> isn't null.`),
+  code(`ListNode* node = nullptr;
+if (node != nullptr) {       // guard first
+    use(node->val);          // now it's safe to follow the pointer
+}`),
+  sub("Stack vs heap — where memory comes from"),
+  p(`Local variables live on the <em>stack</em>: created automatically when a function runs, destroyed automatically when it returns. Fast and effortless, but their lifetime is tied to the scope they're in. The <em>heap</em> is a large pool you allocate from explicitly with <code>new</code>, and whatever you put there lives until you <code>delete</code> it. You reach for the heap when an object must outlive the function that created it — like the nodes of a linked list or tree, which have to persist after the function that built them returns.`),
+  svg("heap","Stack memory is automatic and scope-bound; heap memory is manual and lives until you free it. Data structures live on the heap because their nodes must outlast the function that created them."),
+  code(`int* p = new int(5);   // allocate one int on the heap
+// ... use *p ...
+delete p;              // you must free it yourself, or it leaks`),
+  pit("Two classic heap bugs","A <b>memory leak</b> is allocating with <code>new</code> and never <code>delete</code>-ing — the memory is never reclaimed and your program bloats. A <b>dangling pointer</b> (use-after-free) is using a pointer after its memory was freed or went out of scope — for example, returning the address of a local variable, whose stack slot vanishes the moment the function returns. Both are undefined behavior, and both are exactly why modern C++ prefers smart pointers, which free automatically. That's the next C++ lesson."),
+  sub("Pointers vs references — when to use which"),
+  p(`A <em>reference</em> (<code>int&amp; r = x;</code>) is an alias — a second name for an existing variable. It can't be null and can't be reseated to refer to something else; it must bind to a valid object the moment it's created. A <em>pointer</em> is a variable that holds an address — it can be null, and you can repoint it at different things over time. Rule of thumb: reach for a reference when you always have a valid object and won't reassign it (function parameters, range-based for loops); reach for a pointer when the target might be absent (null) or you need to walk or reassign it, like traversing a linked list.`),
+  sub("The arrow operator (you'll type this constantly)"),
+  p(`When a pointer points at a struct or class, <code>p-&gt;member</code> is shorthand for <code>(*p).member</code> — dereference, then access the field. In linked-list and tree problems, <code>node-&gt;val</code>, <code>node-&gt;next</code>, and <code>node-&gt;left</code> are everywhere. It's just "follow the pointer, then grab the field."`),
+  worked("Walking a linked list","A linked list is just nodes connected by pointers. Traversing one is the canonical pointer loop: look at the node you're pointing at, then move the pointer to the next node, until you fall off the end (null).",
+`// struct ListNode { int val; ListNode* next; };
+int sumList(ListNode* head) {
+    int total = 0;
+    ListNode* cur = head;          // a pointer we'll advance
+    while (cur != nullptr) {        // stop when we run off the end
+        total += cur->val;          // read the current node
+        cur = cur->next;            // move the pointer forward
+    }
+    return total;
+}`),
+  idea("The whole model in one picture",`A pointer is an address; <code>&amp;</code> gets an address, <code>*</code> follows one. Picture variables as boxes sitting at addresses and pointers as arrows between them. Once that image is solid, linked lists and trees aren't scary data structures — they're just boxes connected by arrows, and every traversal is "follow the arrow to the next box."`),
+]},
+{group:"Week 1 · Foundations",num:"=",id:"mental",color:"#8B5CF6",title:"Value vs Reference Semantics",badge:"Week 1 · C++ deep dive",blocks:[
+  cue(`The previous lesson covered pointers — indirection and memory. This one covers the other half of the C++ mental model: <em>copying</em>. Knowing exactly when C++ duplicates your data is what stops the language from surprising you, and stops you from writing accidental O(n) work.`),
+  p(`Unlike Python or JavaScript, C++ variables hold <em>values</em>, not references, by default. When you write <code>b = a</code> for a vector, C++ makes a full, independent copy of every element. When you pass a vector into a function by value, same thing — the function gets its own private duplicate. This is why a function can "modify the array" and you see no change outside: it changed its copy. It's also a silent performance trap, because copying a big container is O(n) work you never asked for.`),
+  svg("copyref","Left: passing a container by value duplicates the whole thing. Right: a const reference points at the original — no copy, no cost. The <code>&amp;</code> is the entire difference."),
+  sub("References: the fix for accidental copies"),
+  p(`An <code>&amp;</code> on a parameter means "this is the same object, not a copy." Passing <code>const vector&lt;int&gt;&amp; v</code> lets the function read the original directly with zero copying — the <code>const</code> promises it won't modify it. Drop the <code>const</code> and you can modify the caller's data in place. This is the idiom you'll use constantly:`),
+  code(`void readOnly(const vector<int>& v);   // sees original, can't change it, no copy
+void modify(vector<int>& v);           // changes the caller's vector directly
+void wasteful(vector<int> v);          // copies the whole vector — usually a mistake`),
+  p(`The same logic drives the loop forms. <code>for (int x : v)</code> copies each element into <code>x</code> (fine for ints, wasteful for strings or vectors). <code>for (auto&amp; x : v)</code> binds <code>x</code> to the real element, so you avoid the copy and can modify in place. When in doubt with non-trivial types, reach for <code>auto&amp;</code>.`),
+  sub("auto, and letting the compiler do the typing"),
+  p(`<code>auto</code> tells the compiler to infer the type. It's not laziness — it's how you write <code>auto it = m.find(key)</code> without spelling out <code>unordered_map&lt;int,int&gt;::iterator</code>. Combined with structured bindings, <code>for (auto&amp; [key, val] : m)</code> unpacks each map entry into two named variables. These two features are why modern C++ reads far cleaner than the textbook version you may remember.`),
+  idea("The whole model in one line",`C++ copies by default; an <code>&amp;</code> says "same object, don't copy." Once you can predict where copies happen, the language stops surprising you — and you stop writing accidental O(n) work.`),
+  pit("Interview-day reflex",`If you catch yourself passing a <code>vector</code>, <code>string</code>, or any container into a function, pause: should that be <code>const&amp;</code>? Nine times out of ten, yes. Saying "I'll take this by const reference to avoid a copy" unprompted is a small thing that signals real C++ fluency.`),
+]},
+{group:"Week 1 · Foundations",num:"00",id:"syntax",color:"#6366F1",title:"The Syntax You Actually Need",badge:"Reference · keep open",blocks:[
+  cue(`Open any problem and the language should feel invisible. If you can declare a vector, loop it, use a hash map, and reach for the right &lt;algorithm&gt; call, you can write 90% of interview solutions. Skim this, then keep it open while you solve.`),
+  {t:"primer"}
+]},
+{group:"Week 2 · Core Patterns",num:"01",id:"arrays",color:"#FF5D73",title:"Arrays & Hashing",badge:"Week 2 · Pattern",blocks:[
+  cue(`<b>Spot it when:</b> you need fast lookups, counting, or de-duping — anytime you're about to write a nested loop just to check "have I seen this before?"`),
+  p(`The defining move of this pattern is replacing a search with a lookup. Searching an array for a value is O(n) — you might scan the whole thing. A hash map (<code>unordered_map</code>) or hash set (<code>unordered_set</code>) makes that same question — "is this value present?" — an O(1)-average operation. You trade some memory for a dramatic speedup, and that single trade collapses a huge fraction of brute-force O(n²) solutions down to O(n).`),
+  sub("How a hash map actually works"),
+  p(`A hash map stores key→value pairs. When you insert a key, it runs the key through a <em>hash function</em> that turns it into an array index (a "bucket"), and drops the value there. Looking a key up re-runs the same function, jumps straight to that bucket, and finds the value — no scanning. Because computing the hash and indexing are both constant-time, lookups and inserts are O(1) on average. (When two keys land in the same bucket it's called a collision, handled by chaining; it's why we say "average" O(1), not "guaranteed" — the average-case point from the Big-O lesson.)`),
+  svg("hash","A key is hashed to a bucket index, so finding it later is a direct jump — not a search. This is why <code>m.count(key)</code> is effectively instant no matter how many keys you've stored."),
+  sub("The three things you'll do with it"),
+  ul([
+    `<b>Counting / frequencies.</b> <code>count[x]++</code> tallies occurrences in one pass — the backbone of anagram, duplicate, and "most frequent" problems.`,
+    `<b>Remembering what you've seen.</b> Store each element as you go, then check membership instantly. This is the Two Sum trick: for each number, ask the map if its complement already appeared.`,
+    `<b>De-duping.</b> An <code>unordered_set</code> keeps only unique values — insert everything, and duplicates collapse for free.`,
+  ]),
+  sub("Map vs set — which one?"),
+  p(`Use a <code>map</code> when you need to remember something <em>about</em> each key (a count, an index, a grouping). Use a <code>set</code> when you only care whether a value is present or not — membership, with no associated data. If you find yourself storing a dummy value just to use a map, you wanted a set.`),
+  worked("Two Sum, the O(n) way","Instead of checking every pair (O(n²)), walk once and ask the map whether the number that would complete the target has already been seen. One pass, O(n) time, O(n) space.",
+`vector<int> twoSum(vector<int>& nums, int target) {
+    unordered_map<int, int> seen;          // value -> its index
+    for (int i = 0; i < nums.size(); i++) {
+        int need = target - nums[i];       // the partner we want
+        if (seen.count(need))              // have we seen it already?
+            return {seen[need], i};        // yes -> done
+        seen[nums[i]] = i;                 // no -> remember this one
+    }
+    return {};                             // nothing found
+}`),
+  pit("The .count() vs [] gotcha",`Writing <code>if (m[key] == ...)</code> to check existence is a bug: <code>m[key]</code> <em>inserts</em> a default-constructed entry if the key is missing, silently growing your map and corrupting counts. To check without inserting, use <code>m.count(key)</code> or <code>m.find(key) != m.end()</code>.`),
+  cx(`Lookups <b>O(1)</b> average · space <b>O(n)</b>`),
+  {t:"probs",items:[["Two Sum","two-sum","easy"],["Group Anagrams","group-anagrams","med"],["First Missing Positive","first-missing-positive","hard"]]}
+]},
+{group:"Week 2 · Core Patterns",num:"02",id:"twopointers",color:"#FF8A3D",title:"Two Pointers",badge:"Week 2 · Pattern",demo:"twoPointers",blocks:[
+  cue(`<b>Spot it when:</b> the array is sorted, or you're comparing things from both ends — pair/triplet sums, palindromes, or partitioning a list in place.`),
+  note("🔗","A quick naming note",`"Two pointers" here usually means two <em>indices</em> (<code>int left, right</code>) walking an array — not raw pointers in the C++ sense. The exception is the fast/slow version on linked lists, where they're literal <code>ListNode*</code> pointers. Either way, the pointer mental model from Week 1 is what makes this intuitive.`),
+  p(`Two pointers replaces a nested loop with two indices that move through the array intelligently. Instead of testing all O(n²) pairs, you place one pointer at each end (or both at the start) and advance them based on what you observe, so each pointer crosses the array at most once. The result is a single O(n) sweep with O(1) extra space — often the optimal solution.`),
+  sub("Flavor one: converging pointers"),
+  p(`On a <em>sorted</em> array, this is almost magical. Put <code>left</code> at the front and <code>right</code> at the back, and look at <code>nums[left] + nums[right]</code>. If the sum is too small, the only way to increase it is to move <code>left</code> rightward to a bigger value. If it's too big, move <code>right</code> leftward to a smaller one. Every move eliminates a value you've proven can't be part of the answer — so you never re-examine it. Try the demo and watch which pointer moves and why.`),
+  {t:"demoslot"},
+  worked("Pair that sums to a target (sorted input)","Because the array is sorted, the sum is monotonic: moving left up only raises it, moving right down only lowers it. That lets you decide which pointer to move with zero guessing.",
+`bool hasPair(vector<int>& nums, int target) {
+    int left = 0, right = nums.size() - 1;
+    while (left < right) {
+        int sum = nums[left] + nums[right];
+        if (sum == target) return true;    // found it
+        if (sum < target)  left++;         // too small -> need bigger
+        else               right--;        // too big   -> need smaller
+    }
+    return false;
+}`),
+  sub("Flavor two: fast & slow"),
+  p(`The other common form runs two pointers at different speeds through the same sequence. A <em>slow</em> pointer moves one step while a <em>fast</em> pointer moves two. This finds the midpoint of a list in one pass (when fast reaches the end, slow is halfway), and detects cycles (if there's a loop, the fast pointer eventually laps the slow one). You'll see this again in the Linked Lists lesson — it's the same idea, applied to real pointers.`),
+  p(`The converging skeleton also powers palindrome checks (pointers walk inward comparing characters), <code>3Sum</code> (fix one number, two-pointer the rest), and in-place partitioning (one pointer reads, one writes). Once you see the "two indices, move by condition" shape, it shows up everywhere.`),
+  pit("Converging needs sorted data",`The converging trick relies on order — on an unsorted array, a small sum doesn't tell you which way to move. If the problem isn't sorted, either sort it first (adding O(n log n)) or reach for a hash map instead. Always check the precondition before committing.`),
+  cx(`Time <b>O(n)</b> · space <b>O(1)</b> (plus the sort, if needed)`),
+  {t:"probs",items:[["Valid Palindrome","valid-palindrome","easy"],["3Sum","3sum","med"],["Trapping Rain Water","trapping-rain-water","hard"]]}
+]},
+{group:"Week 2 · Core Patterns",num:"03",id:"sliding",color:"#FFC53D",title:"Sliding Window",badge:"Week 2 · Pattern",demo:"slidingWindow",blocks:[
+  cue(`<b>Spot it when:</b> you want the "longest / shortest / best" contiguous subarray or substring that satisfies some condition.`),
+  p(`A sliding window maintains a contiguous range — a window — defined by a <code>left</code> and <code>right</code> pointer, and slides it across the input. The key insight is that as the window moves, you update your answer <em>incrementally</em> instead of recomputing from scratch. When you extend the window by one on the right, you add one element's contribution; when you shrink from the left, you remove one. Because each element is added once and removed at most once, the entire scan is O(n) — versus O(n²) or worse for checking every possible subarray.`),
+  sub("Fixed vs. dynamic windows"),
+  ul([
+    `<b>Fixed-size window.</b> The window length is given (e.g., "max sum of any k consecutive elements"). Slide it one step at a time: add the entering element, subtract the leaving one. The demo below shows exactly this.`,
+    `<b>Dynamic window.</b> The window grows and shrinks to stay "valid." You expand <code>right</code> to include more, and whenever the window breaks the rule (a repeated character, a sum over the limit), you advance <code>left</code> until it's valid again. This is the form behind "longest substring without repeating characters."`,
+  ]),
+  {t:"demoslot"},
+  worked("Longest substring with no repeated characters","Grow the window to the right; the moment you'd include a character already inside the window, shrink from the left until it's gone. A set tracks what's currently in the window. Each character enters and leaves once — O(n).",
+`int lengthOfLongest(string s) {
+    unordered_set<char> window;     // chars currently in the window
+    int left = 0, best = 0;
+    for (int right = 0; right < s.size(); right++) {
+        while (window.count(s[right]))   // duplicate -> shrink
+            window.erase(s[left++]);
+        window.insert(s[right]);         // now safe to add
+        best = max(best, right - left + 1);
+    }
+    return best;
+}`),
+  idea("Why it's O(n), not O(n²)",`It looks like a nested loop, but <code>left</code> only ever moves forward and never resets. Across the whole run it advances at most n times total — so the inner <code>while</code> doesn't multiply the cost. Counting total pointer movement, not nesting, is how you reason about window complexity.`),
+  pit(`"Contiguous" is the keyword`,`Sliding window only works when the answer is a single unbroken run. If the problem lets you pick non-adjacent elements, this pattern doesn't apply — you're likely looking at dynamic programming or a heap instead.`),
+  cx(`Time <b>O(n)</b> · space <b>O(k)</b> for the window contents`),
+  {t:"probs",items:[["Best Time to Buy & Sell Stock","best-time-to-buy-and-sell-stock","easy"],["Longest Substring w/o Repeating","longest-substring-without-repeating-characters","med"],["Minimum Window Substring","minimum-window-substring","hard"]]}
+]},
+{group:"Week 3 · Patterns + C++",num:"04",id:"stack",color:"#2DD4A7",title:"Stack",badge:"Week 3 · Pattern",blocks:[
+  cue(`<b>Spot it when:</b> you're matching pairs (brackets), finding the "next greater / smaller element," or anything where the most-recent item matters first.`),
+  p(`A stack is a last-in, first-out (LIFO) container: you push items on top and pop them off the top, both in O(1). That "most recent first" behavior is exactly what you need whenever the thing you care about is the closest unresolved item behind you — the last open bracket, the previous taller temperature, the most recent operator.`),
+  svg("stack","You only ever interact with the top of the stack. That constraint is the feature: it perfectly models dealing with the most recent thing first."),
+  sub("Matching pairs"),
+  p(`The cleanest use is bracket matching. Push every opening bracket. On a closing bracket, the only valid partner is whatever's on top — the most recently opened, still-unclosed bracket. If the top matches, pop it; if it doesn't (or the stack is empty), the string is invalid. At the end, a truly balanced string leaves the stack empty.`),
+  worked("Valid parentheses","The top of the stack is always the bracket that must close next. That single invariant makes the whole check a clean one-pass O(n).",
+`bool isValid(string s) {
+    stack<char> st;
+    for (char c : s) {
+        if (c == '(' || c == '[' || c == '{') st.push(c);
+        else {
+            if (st.empty()) return false;          // closing with nothing open
+            char top = st.top(); st.pop();
+            if ((c == ')' && top != '(') ||
+                (c == ']' && top != '[') ||
+                (c == '}' && top != '{')) return false;
+        }
+    }
+    return st.empty();                             // all opened got closed
+}`),
+  sub("The monotonic stack"),
+  p(`The advanced move is keeping the stack <em>monotonic</em> — deliberately increasing or decreasing. For "next greater element" problems, you keep a stack of indices whose values are decreasing. When a new, larger value arrives, you pop every smaller value off the top — the new value is their answer ("the next greater element"). Each index is pushed and popped at most once, so even though it feels like nested work, it's O(n) total — another amortized argument.`),
+  pit("Always guard before popping",`Calling <code>.top()</code> or <code>.pop()</code> on an empty stack is undefined behavior — a crash or garbage, not an error you'll notice. Check <code>!st.empty()</code> first, every time. In bracket problems this guard is also a real case: a closing bracket with an empty stack means invalid input.`),
+  cx(`Time <b>O(n)</b> · space <b>O(n)</b>`),
+  {t:"probs",items:[["Valid Parentheses","valid-parentheses","easy"],["Daily Temperatures","daily-temperatures","med"],["Largest Rectangle in Histogram","largest-rectangle-in-histogram","hard"]]}
+]},
+{group:"Week 3 · Patterns + C++",num:"05",id:"binsearch",color:"#14B8A6",title:"Binary Search",badge:"Week 3 · Pattern",blocks:[
+  cue(`<b>Spot it when:</b> the input is sorted — or when you can binary-search the answer itself (the smallest or largest value that works).`),
+  p(`Binary search finds a target in a sorted array by repeatedly halving the search space. You look at the middle element: if it's the target, you're done; if the target is smaller, the answer must be in the left half, so you discard the right; if larger, you discard the left. Each comparison eliminates half of what's left, so you reach the answer in O(log n) steps — for a million elements, about 20 comparisons total.`),
+  svg("binsearch","Each round throws away half the remaining range. Logarithmic growth means even enormous arrays resolve in a couple dozen steps."),
+  sub("The template, and the part everyone gets wrong"),
+  p(`The loop itself is four lines. The bugs all live in the boundaries: whether to write <code>left &lt;= right</code> or <code>left &lt; right</code>, and whether <code>mid</code> moves to <code>mid+1</code> or <code>mid-1</code>. The way to never guess is to fix one template and trust it. Use the inclusive version below — <code>left</code> and <code>right</code> both point at candidates, the loop runs while the range is non-empty, and you always move past the checked <code>mid</code>.`),
+  worked("Classic binary search","Note the left + (right - left) / 2 for the midpoint — it computes the same value as (left + right) / 2 but can't overflow when the indices are large. Small detail, the kind interviewers notice.",
+`int search(vector<int>& nums, int target) {
+    int left = 0, right = nums.size() - 1;     // inclusive range
+    while (left <= right) {
+        int mid = left + (right - left) / 2;   // overflow-safe midpoint
+        if (nums[mid] == target) return mid;
+        if (nums[mid] < target) left = mid + 1;   // discard left half
+        else                    right = mid - 1;  // discard right half
+    }
+    return -1;                                 // not found
+}`),
+  sub(`"Binary search the answer" — the level-up`),
+  p(`The pattern's hidden power is that the thing you search doesn't have to be the array — it can be the <em>answer space</em>. In problems like "minimum eating speed to finish in H hours," you binary-search over possible speeds: pick a candidate, check in O(n) whether it works, and halve the range based on the result. Whenever a problem asks for the smallest/largest value satisfying a monotonic condition ("if speed X works, every speed above X works too"), reach for this. It turns a seemingly open-ended search into O(n log(range)).`),
+  pit("Confirm it's monotonic first",`Binary search needs a sorted array, or an answer space where the yes/no condition flips exactly once (all-no then all-yes). If the condition can flip back and forth, halving is invalid and you'll silently skip the answer. State the monotonic property out loud before you write the loop.`),
+  cx(`Time <b>O(log n)</b> · space <b>O(1)</b>`),
+  {t:"probs",items:[["Binary Search","binary-search","easy"],["Search in Rotated Sorted Array","search-in-rotated-sorted-array","med"],["Median of Two Sorted Arrays","median-of-two-sorted-arrays","hard"]]}
+]},
+{group:"Week 3 · Patterns + C++",num:"⚛",id:"raii",color:"#A855F7",title:"RAII & Smart Pointers",badge:"Week 3 · C++ deep dive",blocks:[
+  cue(`A favorite C++ interview question: "What's RAII?" and "When would you use <code>unique_ptr</code> vs <code>shared_ptr</code>?" This builds directly on the Pointers lesson — remember the leak and dangling-pointer bugs? Smart pointers exist to make those impossible.`),
+  p(`RAII — Resource Acquisition Is Initialization — is the core idea that ties a resource's lifetime to an object's scope. You acquire the resource (memory, a file, a lock) in a constructor, and release it in the destructor. Because C++ guarantees a destructor runs when an object goes out of scope, cleanup becomes automatic and exception-safe: there's no way to "forget to free it," because leaving the scope frees it for you.`),
+  svg("raii","RAII ties cleanup to scope (left): the resource is released the instant the enclosing block ends. Smart pointers (right) apply RAII to heap memory, with single or reference-counted ownership."),
+  sub("Why raw new/delete is a trap"),
+  p(`As the Pointers lesson showed, manual <code>new</code>/<code>delete</code> is error-prone: forget the <code>delete</code> and you leak; an exception between them skips the <code>delete</code> entirely; delete twice and you corrupt the heap. Smart pointers solve this by being RAII wrappers around a raw pointer — they own the memory and delete it automatically when they go out of scope.`),
+  sub("unique_ptr vs shared_ptr — the answer they want"),
+  ul([
+    `<b><code>unique_ptr</code> — exclusive ownership.</b> Exactly one owner; it can't be copied, only moved. When it dies, the object dies. Zero overhead over a raw pointer. This is your default — reach for it unless you specifically need sharing.`,
+    `<b><code>shared_ptr</code> — shared ownership.</b> Multiple owners share the object via a reference count; the object is destroyed only when the <em>last</em> <code>shared_ptr</code> goes away. Costs a little (atomic counter), so use it only when ownership genuinely is shared.`,
+    `<b><code>weak_ptr</code> — a non-owning observer.</b> Points at a <code>shared_ptr</code>'s object without bumping the count. Its job is breaking reference cycles: two objects holding <code>shared_ptr</code>s to each other would never reach count zero, so one side uses a <code>weak_ptr</code> instead.`,
+  ]),
+  code(`auto a = make_unique<Node>(5);     // sole owner, can't be copied
+auto b = make_shared<Node>(5);     // counted owner; copy bumps the count
+// when the last owner goes out of scope, memory frees itself`),
+  idea("The crisp interview answer",`"RAII means resources are released automatically when their owner goes out of scope, which makes cleanup exception-safe. I default to <code>unique_ptr</code> for single ownership, use <code>shared_ptr</code> only when ownership is genuinely shared, and <code>weak_ptr</code> to break cycles." That three-sentence answer lands the question.`),
+]},
+{group:"Week 3 · Patterns + C++",num:"➜",id:"moves",color:"#0EA5E9",title:"Move Semantics",badge:"Week 3 · C++ deep dive",blocks:[
+  cue(`Your own C++ self-assessment flagged this as the gap: not the concept, the precise vocabulary. This section gives you the exact words — lvalue, rvalue, move, <code>std::move</code> — so you can answer cleanly under pressure.`),
+  p(`Move semantics let you transfer a resource instead of copying it. Picture a vector holding a megabyte buffer. Copying it allocates a new megabyte and duplicates every byte — O(n). But if the source is a temporary that's about to be destroyed anyway, that's pure waste: instead of copying the buffer, you can just <em>steal the pointer</em> — hand ownership of the existing buffer to the destination and leave the source empty. That's a move, and it's O(1).`),
+  svg("move","Copy duplicates the underlying buffer (left). Move transfers ownership of the existing buffer and empties the source (right) — no element-by-element copying."),
+  sub("The vocabulary, precisely"),
+  ul([
+    `<b>lvalue</b> — a named object with a stable location you could take the address of: a variable like <code>x</code>. It persists, so you can't safely steal from it.`,
+    `<b>rvalue</b> — a temporary with no name, about to expire: the result of <code>a + b</code>, or a function returning by value. Because it's about to be destroyed, stealing from it is safe and free.`,
+    `<b>move constructor / move assignment</b> — the special members that perform the steal. The compiler calls them automatically when the source is an rvalue.`,
+    `<b><code>std::move</code></b> — doesn't move anything itself. It's a cast that tells the compiler "treat this lvalue as an rvalue — I promise I'm done with it, you may steal from it." After moving from a variable, you shouldn't use its value again.`,
+  ]),
+  code(`vector<int> a = {1, 2, 3};
+vector<int> b = a;              // COPY: a is an lvalue, still needed -> duplicate
+vector<int> c = std::move(a);  // MOVE: cast a to rvalue -> steal its buffer
+// 'a' is now valid but empty; don't rely on its contents anymore`),
+  sub("Why interviewers care"),
+  p(`Move semantics are why modern C++ can return big objects by value without a performance penalty, and why <code>push_back(std::move(x))</code> is faster than <code>push_back(x)</code> for heavy types. Understanding it signals that you know where the costs are. The related ideas — the rule of 0/3/5 (if you define one of destructor/copy/move, think about all of them) and copy elision (the compiler skipping copies entirely) — are common follow-ups.`),
+  idea("Say it like this",`"An lvalue is a named, persistent object; an rvalue is a temporary about to expire. Move semantics steal an rvalue's resources instead of copying them, turning an O(n) copy into an O(1) pointer transfer. <code>std::move</code> is just a cast that lets me opt a named object into being moved from."`),
+]},
+{group:"Week 4+ · More Patterns",num:"06",id:"linked",color:"#38BDF8",title:"Linked Lists",badge:"Week 4 · full lesson coming",blocks:[
+  cue(`<b>Spot it when:</b> nodes and pointers — reversal, detecting a cycle, finding a midpoint, or merging ordered lists.`),
+  p(`This is where the Pointers lesson pays off directly. Three moves cover almost everything: reversing pointers one node at a time, the fast/slow (tortoise &amp; hare) trick for cycles and midpoints (the "flavor two" from Two Pointers, now on real <code>ListNode*</code>s), and a dummy head node to kill annoying edge cases. Draw the arrows on paper — nobody tracks linked-list pointers in their head, and the interviewer expects to see you sketch.`),
+  cx(`Time <b>O(n)</b> · space <b>O(1)</b>`),
+  {t:"probs",items:[["Reverse Linked List","reverse-linked-list","easy"],["Add Two Numbers","add-two-numbers","med"],["Merge k Sorted Lists","merge-k-sorted-lists","hard"]]}
+]},
+{group:"Week 4+ · More Patterns",num:"07",id:"trees",color:"#8B5CF6",title:"Trees",badge:"Week 4 · full lesson coming",blocks:[
+  cue(`<b>Spot it when:</b> hierarchical data — you're recursing on left/right children, or walking the tree level by level.`),
+  p(`Nearly every tree problem is one of two things: DFS (recursion — pre/in/post-order) or BFS (a queue, processing one level at a time). Figure out which the question wants and the recursion almost writes itself. In-order traversal of a binary search tree, notably, visits values in sorted order — a fact that unlocks a whole class of problems.`),
+  cx(`Time <b>O(n)</b> · space <b>O(h)</b> (tree height)`),
+  {t:"probs",items:[["Invert Binary Tree","invert-binary-tree","easy"],["Validate BST","validate-binary-search-tree","med"],["Serialize & Deserialize Tree","serialize-and-deserialize-binary-tree","hard"]]}
+]},
+{group:"Week 4+ · More Patterns",num:"08",id:"tries",color:"#A855F7",title:"Tries",badge:"Week 5 · full lesson coming",blocks:[
+  cue(`<b>Spot it when:</b> prefix lookups, autocomplete, or searching a big dictionary of words fast.`),
+  p(`A trie is a tree where each edge is a character, so words sharing a prefix share the same path. Insert and lookup cost O(word length) regardless of how many words are stored — which is why autocomplete feels instant. Each node typically holds a map or array of child pointers plus an "is end of word" flag.`),
+  cx(`Time <b>O(L)</b> per operation (L = word length)`),
+  {t:"probs",items:[["Implement Trie","implement-trie-prefix-tree","med"],["Add & Search Word","design-add-and-search-words-data-structure","med"],["Word Search II","word-search-ii","hard"]]}
+]},
+{group:"Week 4+ · More Patterns",num:"09",id:"heaps",color:"#EC4899",title:"Heaps / Priority Queue",badge:"Week 6 · full lesson coming",blocks:[
+  cue(`<b>Spot it when:</b> top-K, the K-th largest/smallest, a streaming median, or repeatedly grabbing the current min or max.`),
+  p(`A <code>priority_queue</code> always hands you the extreme element in O(log n). For "top K," keep a heap of size K and let everything else fall out. For a running median, balance two heaps — a max-heap for the lower half and a min-heap for the upper half — so the middle is always at their tops.`),
+  cx(`push/pop <b>O(log n)</b> · peek <b>O(1)</b>`),
+  {t:"probs",items:[["Kth Largest in a Stream","kth-largest-element-in-a-stream","easy"],["K Closest Points to Origin","k-closest-points-to-origin","med"],["Find Median from Data Stream","find-median-from-data-stream","hard"]]}
+]},
+{group:"Week 4+ · More Patterns",num:"10",id:"backtrack",color:"#F43F5E",title:"Backtracking",badge:"Week 6 · full lesson coming",blocks:[
+  cue(`<b>Spot it when:</b> "generate ALL" combinations, permutations, or subsets — or "find every way to do X."`),
+  p(`The template never changes: choose → recurse → un-choose. You add to a partial solution, explore deeper, then undo that last choice and try the next option. The art is pruning: cut off branches that obviously can't lead to a valid answer, because the raw search space is exponential and pruning is the only thing that makes it tractable.`),
+  cx(`Exponential in general — pruning is what saves you`),
+  {t:"probs",items:[["Subsets","subsets","med"],["Combination Sum","combination-sum","med"],["N-Queens","n-queens","hard"]]}
+]},
+{group:"Week 4+ · More Patterns",num:"11",id:"graphs",color:"#0EA5E9",title:"Graphs",badge:"Week 7 · full lesson coming",blocks:[
+  cue(`<b>Spot it when:</b> nodes + edges, grids, connectivity, shortest paths, or dependencies ("do X before Y").`),
+  p(`Grids are graphs in disguise. BFS (a queue) finds shortest paths in unweighted graphs; DFS (recursion or a stack) explores connectivity and components; topological sort orders things with dependencies. Most solutions start by building an adjacency list, then run one of those traversals while tracking a <code>visited</code> set to avoid cycles.`),
+  cx(`Time <b>O(V + E)</b> (vertices + edges)`),
+  {t:"probs",items:[["Number of Islands","number-of-islands","med"],["Course Schedule","course-schedule","med"],["Word Ladder","word-ladder","hard"]]}
+]},
+{group:"Week 4+ · More Patterns",num:"12",id:"dp",color:"#84CC16",title:"Dynamic Programming",badge:"Week 8 · full lesson coming",blocks:[
+  cue(`<b>Spot it when:</b> overlapping subproblems plus a "min / max / number of ways" that builds on smaller answers.`),
+  p(`Define the subproblem in one sentence first ("<code>dp[i]</code> = the best answer using the first i items"). Then find the recurrence — how <code>dp[i]</code> is built from earlier <code>dp</code> values — and fill the table. Always start from the plain recursive brute force, confirm it's correct, then add memoization to cache repeated subproblems. DP is the pattern most worth slowing down on; it rewards understanding over memorization.`),
+  cx(`Usually <b>O(n)</b> or <b>O(n·m)</b>`),
+  {t:"probs",items:[["Climbing Stairs","climbing-stairs","easy"],["Coin Change","coin-change","med"],["Edit Distance","edit-distance","hard"]]}
+]},
+{group:"Week 4+ · More Patterns",num:"13",id:"intervals",color:"#F59E0B",title:"Intervals",badge:"Week 8 · full lesson coming",blocks:[
+  cue(`<b>Spot it when:</b> ranges with a start and end — overlaps, merging, or scheduling.`),
+  p(`Almost always step one: sort by start time. After that a single left-to-right pass lets you ask "does this interval start before the previous one ended?" — and from that one check you can merge overlaps, count them, or schedule. The sort dominates the cost, so these are O(n log n).`),
+  cx(`Time <b>O(n log n)</b> — the sort dominates`),
+  {t:"probs",items:[["Merge Intervals","merge-intervals","med"],["Insert Interval","insert-interval","med"],["Non-overlapping Intervals","non-overlapping-intervals","med"]]}
+]},
+{group:"Beyond Code",num:"▦",id:"sysdesign",color:"#14B8A6",title:"System Design Basics",badge:"Week 10 · intro",blocks:[
+  cue(`Even for a mid-level role, you'll often get a lightweight design round: "design a URL shortener," "design a rate limiter." It's not about a perfect answer — it's about structured thinking out loud.`),
+  p(`System design interviews test whether you can take a fuzzy prompt and reason about building something real: clarify the requirements, sketch the major components, and discuss the trade-offs. There's no single right answer; the interviewer wants to see you ask about scale, identify bottlenecks, and make justified choices. The vocabulary below is what those conversations are built from.`),
+  sub("The building blocks to know"),
+  ul([
+    `<b>Client / server, latency vs throughput.</b> Latency is how long one request takes; throughput is how many you handle per second. Many decisions trade one for the other.`,
+    `<b>Caching.</b> Store hot results in fast memory to avoid recomputing or re-fetching. Know hit/miss, eviction (LRU), and where caches sit (client, CDN, server, database).`,
+    `<b>Load balancing &amp; scaling.</b> Horizontal (more machines) vs vertical (a bigger machine). A load balancer spreads requests across servers.`,
+    `<b>SQL vs NoSQL.</b> Relational databases give you structure and joins; NoSQL trades that for scale and flexibility. Indexing makes lookups fast at the cost of write speed.`,
+    `<b>A rough approach.</b> Clarify requirements → estimate scale → define the API → sketch components → zoom into the data model → discuss bottlenecks and trade-offs.`,
+  ]),
+  note("📚","Where to go deeper",`This is the on-ramp. For real depth, the standard resources are <em>Grokking the System Design Interview</em> and the <em>System Design Primer</em>. I can expand this into a full lesson with a worked example (designing a URL shortener end to end) on request.`),
+]},
+{group:"Beyond Code",num:"★",id:"behavioral",color:"#FB923C",title:"Behavioral & STAR",badge:"Week 10 · intro",blocks:[
+  cue(`Almost every loop includes a behavioral round, and strong engineers routinely underprepare for it and lose offers there. A little structure goes a very long way.`),
+  p(`Behavioral interviews probe how you work: how you handle conflict, ownership, failure, and collaboration. The trap is rambling. The fix is the <strong>STAR</strong> framework — a structure that keeps your answers tight and concrete: <b>Situation</b> (set the scene briefly), <b>Task</b> (your specific responsibility), <b>Action</b> (what <em>you</em> did, the bulk of the answer), and <b>Result</b> (the measurable outcome, ideally with a number).`),
+  sub("Prepare these stories in advance"),
+  ul([
+    `<b>A shipped accomplishment</b> — something you built end to end and its impact.`,
+    `<b>A hard technical problem</b> — a nasty bug or performance issue you diagnosed and fixed.`,
+    `<b>A measured win</b> — a change where you can quote a real number (latency dropped X%, etc.).`,
+    `<b>Conflict or hard feedback</b> — a disagreement you navigated, and what you learned.`,
+    `<b>A failure</b> — something that went wrong, your ownership of it, and the change you made after.`,
+  ]),
+  idea("Lead with the result, then prove it",`Strong answers often state the outcome first — "I cut our build time roughly in half" — then back into the Situation/Task/Action that earned it. It hooks the interviewer and guarantees you actually land the point instead of running out of time mid-story.`),
+  note("📝","Your raw material is strong",`Shipping a titled game, diagnosing GPU performance bottlenecks, and proposing your own process fixes are exactly the kinds of stories these rounds reward — they just need to be shaped into tight STAR form and rehearsed out loud. Want help drafting two or three from your actual experience? Just ask.`),
+]},
+{group:"Reference",num:"⌘",id:"cheatsheet",color:"#6366F1",title:"The Colorful Cheat Sheet",badge:"Reference · keep open",blocks:[
+  p(`Every one-liner you keep forgetting, colour-coded and one tap from your clipboard. Bookmark this page — it's the thing you'll actually reach for mid-problem.`),
+  {t:"cheat"}
+]},
+];
+const primerData=[
+  {title:"Making vectors (the resizable array)",items:[
+    ["Empty, then fill later",`vector<int> v;            // empty
+v.push_back(5);           // -> [5]`],
+    ["With starting values",`vector<int> v = {1, 2, 3};`],
+    ["n copies of a value",`vector<int> v(n, 0);      // n zeros`],
+    ["A 2D grid (rows x cols)",`vector<vector<int>> grid(rows, vector<int>(cols, 0));`]]},
+  {title:"Using a vector",items:[
+    ["How many elements",`int n = v.size();         // careful: unsigned`],
+    ["Add / remove at the end",`v.push_back(x);
+v.pop_back();`],
+    ["Peek first / last",`int last  = v.back();
+int first = v.front();`],
+    ["Is it empty?",`if (v.empty()) { }`],
+    ["Return an empty vector",`return {};`]]},
+  {title:"Strings",items:[
+    ["Length",`int len = s.size();       // or s.length()`],
+    ["A single character",`char c = s[i];`],
+    ["Substring (start, length)",`string part = s.substr(2, 3);`],
+    ["Char digit -> number",`int d = s[i] - '0';       // '7' -> 7`],
+    ["Upper / lower a char",`char up = toupper(c);
+char lo = tolower(c);`],
+    ["Is it a letter / digit?",`if (isalpha(c)) { }
+if (isdigit(c)) { }`],
+    ["Lowercase the whole string",`transform(s.begin(), s.end(), s.begin(), ::tolower);`]]},
+  {title:"Loops",items:[
+    ["Classic index loop",`for (int i = 0; i < n; i++) {
+    // use v[i]
+}`],
+    ["Range-based (read only)",`for (int x : v) { }       // x is a copy`],
+    ["Range-based (modify / no copy)",`for (auto& x : v) { x *= 2; }   // & = real element`],
+    ["Backwards",`for (int i = n - 1; i >= 0; i--) { }`],
+    ["Over a 2D grid",`for (int r = 0; r < grid.size(); r++)
+    for (int c = 0; c < grid[0].size(); c++)
+        // grid[r][c]`]]},
+  {title:"Hash maps & sets — the workhorses",items:[
+    ["Declare a map (key -> value)",`unordered_map<int, int> count;`],
+    ["Count things / update",`count[x]++;               // missing key starts at 0`],
+    ["Does a key exist? (no insert)",`if (count.count(x)) { }`],
+    ["Loop a map (C++17)",`for (auto& [key, val] : count) { }`],
+    ["A set of unique values",`unordered_set<int> seen;
+seen.insert(x);
+if (seen.count(x)) { }`]]},
+  {title:"The <algorithm> toolbox",items:[
+    ["Sort ascending",`sort(v.begin(), v.end());`],
+    ["Sort descending",`sort(v.begin(), v.end(), greater<int>());`],
+    ["Sort with your own rule",`sort(v.begin(), v.end(), [](auto& a, auto& b){
+    return a > b;
+});`],
+    ["Reverse in place",`reverse(v.begin(), v.end());`],
+    ["Min / max of two",`int m = max(a, b);`],
+    ["Biggest element (note the *)",`int big = *max_element(v.begin(), v.end());`],
+    ["Sum of a vector",`int total = accumulate(v.begin(), v.end(), 0);`],
+    ["First value >= x  /  > x",`auto a = lower_bound(v.begin(), v.end(), x); // >= x
+auto b = upper_bound(v.begin(), v.end(), x); // >  x`]]},
+  {title:"Stack, queue, heap",items:[
+    ["Stack (last in, first out)",`stack<int> st;
+st.push(x);  st.top();  st.pop();`],
+    ["Queue (first in, first out)",`queue<int> q;
+q.push(x);  q.front();  q.pop();`],
+    ["Max-heap (top = largest)",`priority_queue<int> pq;`],
+    ["Min-heap (top = smallest)",`priority_queue<int, vector<int>, greater<int>> pq;`]]},
+  {title:"Constants & little things",items:[
+    ["Sentinels for min/max tracking",`int best = INT_MIN;  int low = INT_MAX;`],
+    ["Let the compiler infer the type",`auto it = m.find(key);`],
+    ["Ternary (inline if/else)",`int big = a > b ? a : b;`],
+    ["Null pointer",`ListNode* node = nullptr;`]]},
+];
+const cheatData=[
+  {title:"Vectors",cc:"#FF5D73",rows:[["Empty",`vector<int> v;`],["With values",`vector<int> v = {1, 2, 3};`],["n copies of x",`vector<int> v(n, 0);`],["2D grid",`vector<vector<int>> g(r, vector<int>(c, 0));`],["Size / empty",`v.size()   v.empty()`],["Add / remove end",`v.push_back(x);  v.pop_back();`],["Last / first",`v.back()   v.front()`],["Return empty",`return {};`]]},
+  {title:"Strings",cc:"#FF8A3D",rows:[["Length",`s.size()`],["Substring",`s.substr(start, len)`],["Char -> digit",`s[i] - '0'`],["Up / down char",`toupper(c)   tolower(c)`],["Is letter / digit",`isalpha(c)   isdigit(c)`],["Lowercase all",`transform(s.begin(), s.end(), s.begin(), ::tolower);`],["Append char",`s += 'a';`]]},
+  {title:"Maps & Sets",cc:"#2DD4A7",rows:[["Map",`unordered_map<int, int> m;`],["Count / update",`m[key]++;`],["Exists? (no insert)",`if (m.count(key)) { }`],["Loop (C++17)",`for (auto& [k, v] : m) { }`],["Erase",`m.erase(key);`],["Set",`unordered_set<int> seen;`],["Add / check",`seen.insert(x);  seen.count(x)`]]},
+  {title:"Loops",cc:"#38BDF8",rows:[["Index",`for (int i = 0; i < n; i++) { }`],["Range (read)",`for (int x : v) { }`],["Range (modify)",`for (auto& x : v) { }`],["Backwards",`for (int i = n - 1; i >= 0; i--) { }`],["2D grid",`for (auto& row : g) for (int x : row) { }`]]},
+  {title:"Algorithms",cc:"#8B5CF6",rows:[["Min / max of two",`min(a, b)   max(a, b)`],["Max element (note *)",`*max_element(v.begin(), v.end())`],["Sum",`accumulate(v.begin(), v.end(), 0)`],["First >= x",`lower_bound(v.begin(), v.end(), x)`],["First > x",`upper_bound(v.begin(), v.end(), x)`],["Sort descending",`sort(v.begin(), v.end(), greater<int>());`],["Custom sort",`sort(v.begin(), v.end(), [](auto&a, auto&b){ return a > b; });`]]},
+  {title:"Stack / Queue / Heap",cc:"#EC4899",rows:[["Stack",`stack<int> st;  st.push(x); st.top(); st.pop();`],["Queue",`queue<int> q;  q.push(x); q.front(); q.pop();`],["Max-heap",`priority_queue<int> pq;`],["Min-heap",`priority_queue<int, vector<int>, greater<int>> pq;`],["Deque",`deque<int> dq;  // push/pop both ends`]]},
+  {title:"Gotchas that bite",cc:"#F43F5E",rows:[["m[key] inserts!",`use m.count(key) to just check`],["size() is unsigned",`i < (int)v.size()`],["max_element is an iterator",`dereference with *`],["Avoid copies",`const vector<int>& v`],["Sentinels",`INT_MAX / INT_MIN  // <climits>`]]},
+];
+const page=document.getElementById("page"),navEl=document.getElementById("nav");
+const reduce=window.matchMedia("(prefers-reduced-motion:reduce)").matches;
+const idIndex={};course.forEach((s,i)=>idIndex[s.id]=i);
+const allSlugs=[];course.forEach(s=>s.blocks.forEach(b=>{if(b.t==="probs")b.items.forEach(it=>allSlugs.push(it[1]));}));
+const PKEY="cpp-course-progress-v1";
+function loadDone(){try{return new Set(JSON.parse(localStorage.getItem(PKEY)||"[]"));}catch(e){return new Set();}}
+function saveDone(set){try{localStorage.setItem(PKEY,JSON.stringify([...set]));}catch(e){}}
+let doneSet=loadDone();
+const ringFill=document.getElementById("ringFill"),ringVal=document.getElementById("ringVal"),doneC=document.getElementById("doneCount"),totalC=document.getElementById("totalCount"),CIRC=119.4;
+function updateProgress(){const done=allSlugs.filter(s=>doneSet.has(s)).length,total=allSlugs.length,pct=total?done/total:0;ringFill.style.strokeDashoffset=CIRC*(1-pct);ringVal.textContent=Math.round(pct*100)+"%";doneC.textContent=done;totalC.textContent=total;}
+function renderBlocks(blocks,color){
+  let h="";
+  blocks.forEach(b=>{
+    if(b.t==="p")h+=`<p>${b.h}</p>`;
+    else if(b.t==="h")h+=`<div class="subhead">${b.t2}</div>`;
+    else if(b.t==="ul")h+=`<ul>${b.items.map(i=>`<li>${i}</li>`).join("")}</ul>`;
+    else if(b.t==="code")h+=`<div class="codeblock"><pre><code>${highlight(b.c)}</code></pre></div>`;
+    else if(b.t==="cue")h+=`<div class="cue"><span class="ic">&#127919;</span><p>${b.h}</p></div>`;
+    else if(b.t==="cx")h+=`<div><span class="complexity">&#9201; ${b.h}</span></div>`;
+    else if(b.t==="note")h+=`<div class="note"><span class="ic">${b.ic}</span><div class="nbody"><strong>${b.title}</strong>${b.h}</div></div>`;
+    else if(b.t==="idea")h+=`<div class="note idea"><span class="ic">&#128161;</span><div class="nbody"><strong>${b.title}</strong>${b.h}</div></div>`;
+    else if(b.t==="pit")h+=`<div class="note pit"><span class="ic">&#9888;&#65039;</span><div class="nbody"><strong>${b.title}</strong>${b.h}</div></div>`;
+    else if(b.t==="svg")h+=`<div class="svg-wrap">${SVG[b.key]}<div class="cap">${b.cap}</div></div>`;
+    else if(b.t==="worked")h+=`<div class="worked"><div class="whead"><span class="wt">Worked example</span>${b.title}</div><div class="wexp">${b.exp}</div><pre><code>${highlight(b.c)}</code></pre></div>`;
+    else if(b.t==="demoslot")h+=`<div data-demoslot></div>`;
+    else if(b.t==="probs"){
+      h+=`<div class="probwrap"><div class="pl">Practice &mdash; do these on LeetCode</div><div class="probs">`+b.items.map(pr=>{
+        const dl={easy:"Easy",med:"Medium",hard:"Hard"}[pr[2]];
+        return `<a class="prob" href="https://leetcode.com/problems/${pr[1]}/" target="_blank" rel="noopener" style="--db:${color}" data-prob><div class="chk" data-slug="${pr[1]}" role="button" tabindex="0" aria-label="Mark solved"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><span class="badge ${pr[2]}">${dl}</span><span class="pname">${pr[0]}</span><span class="go">Open on LeetCode &#8594;</span></a>`;
+      }).join("")+`</div></div>`;
+    }
+    else if(b.t==="primer"){primerData.forEach(c=>{h+=`<div class="pcard"><div class="ptitle"><span class="pin"></span>${c.title}</div>`;c.items.forEach(it=>h+=`<div class="pitem"><div class="plabel">${it[0]}</div><div><pre><code>${highlight(it[1])}</code></pre></div></div>`);h+=`</div>`;});}
+    else if(b.t==="cheat"){h+=`<div class="cheatgrid">`;cheatData.forEach(g=>{h+=`<div class="ccard"><div class="chead" style="--cc:${g.cc}">${g.title}</div>`;g.rows.forEach(r=>h+=`<div class="crow" style="--cc:${g.cc}"><span class="clabel">${r[0]}</span><code>${esc(r[1])}</code><button class="copy" data-copy="${esc(r[1]).replace(/"/g,"&quot;")}" aria-label="Copy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg></button></div>`);h+=`</div>`;});h+=`</div>`;}
+  });
+  return h;
+}
+let lastGroup="",navHTML=`<a href="#/" data-nav=""><span class="num">&#183;</span> Welcome / Home</a>`;
+course.forEach(s=>{if(s.group!==lastGroup){navHTML+=`<div class="group">${s.group}</div>`;lastGroup=s.group;}navHTML+=`<a href="#/${s.id}" data-nav="${s.id}" style="--ac:${s.color}"><span class="num">${s.num}</span><span class="dot"></span> ${s.title}</a>`;});
+navEl.innerHTML=navHTML;
+function setActive(id){[...navEl.querySelectorAll("a")].forEach(a=>a.classList.toggle("active",a.getAttribute("data-nav")===id));}
+const homeHTML=`<div class="hero"><div class="eyebrow">Welcome</div><h2>Ten weeks to<br><em>interview-ready</em>.</h2><p class="lead">This isn't a problem dump. It's a course: deep written lessons with diagrams, the C++ language topics interviewers probe beyond data structures, and the exact common questions waiting for you on LeetCode. Concepts and patterns are interleaved &mdash; you learn an idea, then immediately use it.</p><p class="lead2">Each lesson is its own page. Move with the sidebar, or the Previous / Next buttons at the bottom of every page. Your solved-problem progress saves automatically on this device.</p><div class="startrow"><a class="btn primary" href="#/how">Start with Lesson 1 &#8594;</a><a class="btn ghost" href="#/syntax">Jump to the syntax primer</a></div><div class="planbar">${plan.map(x=>`<a class="pb" href="#/${x[2]}"><div class="wk">${x[0]}</div><div class="ti">${x[1]}</div></a>`).join("")}</div></div>`;
+function wirePage(){
+  page.querySelectorAll("[data-prob] .chk").forEach(chk=>{
+    const slug=chk.getAttribute("data-slug");
+    if(slug&&doneSet.has(slug))chk.classList.add("done");
+    const tog=e=>{e.preventDefault();e.stopPropagation();chk.classList.toggle("done");if(slug){chk.classList.contains("done")?doneSet.add(slug):doneSet.delete(slug);saveDone(doneSet);}updateProgress();};
+    chk.addEventListener("click",tog);chk.addEventListener("keydown",e=>{if(e.key===" "||e.key==="Enter")tog(e);});
+  });
+  page.querySelectorAll(".copy").forEach(btn=>{btn.addEventListener("click",async()=>{const txt=btn.getAttribute("data-copy").replace(/&quot;/g,'"').replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">");try{await navigator.clipboard.writeText(txt);}catch(e){const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");}catch(_){}document.body.removeChild(ta);}btn.classList.add("copied");setTimeout(()=>btn.classList.remove("copied"),1100);});});
+}
+function renderHome(){setActive("");page.className=reduce?"":"anim";page.innerHTML=homeHTML;wirePage();window.scrollTo(0,0);}
+function renderLesson(s,i){
+  const N=course.length;
+  let h=`<div class="lesson-head" style="--accent:${s.color}"><div class="lh-meta"><span class="lh-week">${s.group}</span><span class="lh-count">Lesson ${i+1} of ${N}</span></div><h1 class="lh-title">${s.title}</h1></div>`;
+  if(s.badge&&s.badge.indexOf("coming")>=0)h+=`<div class="soonpill">&#9675; Concise lesson &mdash; ask me to expand this one into full depth</div>`;
+  h+=`<div class="lesson">${renderBlocks(s.blocks,s.color)}</div>`;
+  const prev=course[i-1],next=course[i+1];
+  h+=`<div class="pager">`;
+  h+=prev?`<a class="pg" href="#/${prev.id}"><span>&#8592; Previous</span><b>${prev.title}</b></a>`:`<span></span>`;
+  h+=next?`<a class="pg next start" href="#/${next.id}"><span>Next &#8594;</span><b>${next.title}</b></a>`:`<span></span>`;
+  h+=`</div>`;
+  page.className=reduce?"":"anim";
+  page.innerHTML=h;
+  setActive(s.id);
+  if(s.demo){const slot=page.querySelector("[data-demoslot]");if(slot)slot.id="demo-"+s.demo;}
+  initTwoPointers();initSlidingWindow();
+  wirePage();updateProgress();window.scrollTo(0,0);
+}
+const sidebar=document.getElementById("sidebar"),hamb=document.getElementById("hamb"),scrim=document.getElementById("scrim");
+function closeMenu(){sidebar.classList.remove("open");scrim.classList.remove("show");}
+hamb&&hamb.addEventListener("click",()=>{sidebar.classList.toggle("open");scrim.classList.toggle("show");});
+scrim&&scrim.addEventListener("click",closeMenu);
+function route(){
+  const hash=location.hash;
+  let id=hash.indexOf("#/")===0?hash.slice(2):"";
+  if(sidebar.classList.contains("open"))closeMenu();
+  if(!id||!(id in idIndex))renderHome();
+  else renderLesson(course[idIndex[id]],idIndex[id]);
+}
+function initTwoPointers(){
+  const host=document.getElementById("demo-twoPointers");if(!host)return;
+  const arr=[1,3,5,7,9,11],target=14;
+  host.innerHTML=`<div class="demo" style="--accent:#FF8A3D"><div class="dlabel">&#9654; Live: find two numbers that sum to ${target}</div><div class="cells" id="tp-cells"></div><div class="readout" id="tp-read">Two pointers start at the ends and walk inward.</div><div class="dctrl"><button class="run" id="tp-run">Run it</button><button id="tp-reset">Reset</button></div></div>`;
+  const cells=host.querySelector("#tp-cells"),read=host.querySelector("#tp-read");let timer=null;
+  function draw(l,r,done){cells.innerHTML=arr.map((v,i)=>{let cls="cell",ptr="";if(i===l){cls+=" lp";ptr=`<span class="ptr">L</span>`;}if(i===r){cls+=" rp";ptr=`<span class="ptr">R</span>`;}if(done&&(i===l||i===r))cls="cell win";return `<div class="${cls}">${v}${ptr}</div>`;}).join("");}
+  function reset(){if(timer)clearInterval(timer);timer=null;draw(-1,-1,false);read.innerHTML="Two pointers start at the ends and walk inward.";}
+  function run(){if(timer)clearInterval(timer);let l=0,r=arr.length-1;draw(l,r,false);const step=()=>{const sum=arr[l]+arr[r];if(sum===target){draw(l,r,true);read.innerHTML=`<b>${arr[l]} + ${arr[r]} = ${target}</b> &#10003; found it`;clearInterval(timer);return;}if(sum<target){read.innerHTML=`${arr[l]} + ${arr[r]} = ${sum} &lt; ${target} &#8594; move <b>L</b> right`;l++;}else{read.innerHTML=`${arr[l]} + ${arr[r]} = ${sum} &gt; ${target} &#8594; move <b>R</b> left`;r--;}if(l>=r){read.innerHTML="No pair found.";clearInterval(timer);return;}draw(l,r,false);};timer=setInterval(step,1050);}
+  host.querySelector("#tp-run").addEventListener("click",run);host.querySelector("#tp-reset").addEventListener("click",reset);reset();
+}
+function initSlidingWindow(){
+  const host=document.getElementById("demo-slidingWindow");if(!host)return;
+  const arr=[2,1,5,1,3,2],k=3;
+  host.innerHTML=`<div class="demo" style="--accent:#FFC53D"><div class="dlabel">&#9654; Live: biggest sum of any ${k} in a row</div><div class="cells" id="sw-cells"></div><div class="readout" id="sw-read">A window of ${k} slides across &mdash; add the new, drop the old.</div><div class="dctrl"><button class="run" id="sw-run">Run it</button><button id="sw-reset">Reset</button></div></div>`;
+  const cells=host.querySelector("#sw-cells"),read=host.querySelector("#sw-read");let timer=null;
+  function draw(start){cells.innerHTML=arr.map((v,i)=>{const inWin=start>=0&&i>=start&&i<start+k;return `<div class="cell${inWin?" win":""}">${v}</div>`;}).join("");}
+  function sumAt(s){let t=0;for(let i=s;i<s+k;i++)t+=arr[i];return t;}
+  function reset(){if(timer)clearInterval(timer);timer=null;draw(-1);read.innerHTML=`A window of ${k} slides across &mdash; add the new, drop the old.`;}
+  function run(){if(timer)clearInterval(timer);let s=0,best=-1,bestAt=0;const last=arr.length-k;const step=()=>{const sum=sumAt(s);draw(s);if(sum>best){best=sum;bestAt=s;}read.innerHTML=`window [${s}..${s+k-1}] sums to ${sum} &nbsp;&bull;&nbsp; best so far <b>${best}</b>`;if(s>=last){draw(bestAt);read.innerHTML=`Best window sums to <b>${best}</b> &#10003;`;clearInterval(timer);return;}s++;};timer=setInterval(step,1050);}
+  host.querySelector("#sw-run").addEventListener("click",run);host.querySelector("#sw-reset").addEventListener("click",reset);reset();
+}
+window.addEventListener("hashchange",route);
+route();
+</script>
+</body>
+</html>
