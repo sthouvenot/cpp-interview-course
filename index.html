@@ -1385,6 +1385,139 @@ SVG.stl_invalidate=`<svg viewBox="0 0 620 290" role="img" aria-label="A vector r
 <defs>
 <marker id="sli1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#5B5BD6"/></marker>
 <marker id="sli2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#9d9ab0"/></marker></defs></svg>`;
+SVG.templates_instantiate=`<svg viewBox="0 0 620 300" role="img" aria-label="One function template instantiated into several concrete functions">
+<rect x="40" y="34" width="200" height="120" rx="12" fill="#F4F2FF" stroke="#8B5CF6"/>
+<text x="140" y="60" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#7C3AED">one template</text>
+<text x="140" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">template&lt;class T&gt;</text>
+<text x="140" y="112" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">T max(T a, T b)</text>
+<text x="140" y="138" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#7d72a6">a pattern, not code yet</text>
+<text x="300" y="98" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#8a86a8">compiler stamps</text>
+<text x="300" y="113" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#8a86a8">out one per type</text>
+<path d="M242 80 C275 80 280 56 318 56" stroke="#A855F7" stroke-width="1.8" fill="none" marker-end="url(#arti)"/>
+<path d="M242 94 H318" stroke="#A855F7" stroke-width="1.8" fill="none" marker-end="url(#arti)"/>
+<path d="M242 108 C275 108 280 132 318 132" stroke="#A855F7" stroke-width="1.8" fill="none" marker-end="url(#arti)"/>
+<rect x="320" y="38" width="252" height="36" rx="8" fill="#fff" stroke="#0EA5E9"/><text x="446" y="61" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#0369a1">int    max(int, int)</text>
+<rect x="320" y="78" width="252" height="36" rx="8" fill="#fff" stroke="#16A34A"/><text x="446" y="101" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#15803d">double max(double, double)</text>
+<rect x="320" y="118" width="252" height="36" rx="8" fill="#fff" stroke="#9333EA"/><text x="446" y="141" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#7C3AED">string max(string, string)</text>
+<text x="306" y="208" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#3a3660">You call <tspan font-family="JetBrains Mono,monospace" fill="#7C3AED">max(3, 4)</tspan> and <tspan font-family="JetBrains Mono,monospace" fill="#15803d">max(1.5, 2.5)</tspan> &#8212; the compiler generates</text>
+<text x="306" y="228" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#3a3660">one real function for each type at the call site. Unused types cost nothing;</text>
+<text x="306" y="248" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#3a3660">every used type adds another copy of the code (&#8220;code bloat&#8221;).</text>
+<defs><marker id="arti" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#A855F7"/></marker></defs></svg>`;
+SVG.templates_polymorphism=`<svg viewBox="0 0 620 286" role="img" aria-label="Compile-time polymorphism versus runtime polymorphism">
+<rect x="20" y="24" width="280" height="238" rx="12" fill="#F4F2FF" stroke="#8B5CF6"/>
+<text x="160" y="50" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#7C3AED">compile-time</text>
+<text x="160" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7d72a6">templates &#183; CRTP</text>
+<rect x="50" y="86" width="200" height="34" rx="7" fill="#fff" stroke="#A855F7"/><text x="150" y="108" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">sort(v)  // T fixed here</text>
+<path d="M150 122 V150" stroke="#A855F7" stroke-width="1.8" marker-end="url(#arcp)"/>
+<text x="160" y="142" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#8a86a8">resolved by the compiler</text>
+<rect x="50" y="156" width="200" height="34" rx="7" fill="#EDE9FC" stroke="#7C3AED" stroke-width="2"/><text x="150" y="178" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#7C3AED">direct call &#183; inlinable</text>
+<text x="160" y="216" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12.5" font-weight="600" fill="#16A34A">zero runtime overhead</text>
+<text x="160" y="240" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#7d72a6">type is locked in at build time</text>
+<rect x="320" y="24" width="280" height="238" rx="12" fill="#EAF7FE" stroke="#0EA5E9"/>
+<text x="460" y="50" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#0369a1">runtime</text>
+<text x="460" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#5b7f93">virtual functions</text>
+<rect x="350" y="86" width="200" height="34" rx="7" fill="#fff" stroke="#38BDF8"/><text x="450" y="108" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">shape-&gt;area()  // base ptr</text>
+<path d="M450 122 V150" stroke="#38BDF8" stroke-width="1.8" marker-end="url(#arrp)"/>
+<text x="460" y="142" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#5b7f93">vtable lookup at run time</text>
+<rect x="350" y="156" width="200" height="34" rx="7" fill="#D9F0FB" stroke="#0EA5E9" stroke-width="2"/><text x="450" y="178" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#0369a1">indirect call &#183; not inlined</text>
+<text x="460" y="216" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12.5" font-weight="600" fill="#0EA5E9">one pointer hop</text>
+<text x="460" y="240" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5b7f93">type can vary per object</text>
+<defs><marker id="arcp" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#A855F7"/></marker><marker id="arrp" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#38BDF8"/></marker></defs></svg>`;
+SVG.ub_pipeline=`<svg viewBox="0 0 620 360" role="img" aria-label="How a C++ program is built: preprocessor expands each source file, the compiler turns each translation unit into one object file, and the linker resolves symbols across object files and libraries into one executable">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">source &#8594; preprocessor &#8594; compiler &#8594; linker &#8594; executable</text>
+<g font-family="JetBrains Mono,monospace" font-size="11">
+<rect x="24" y="50" width="92" height="28" rx="6" fill="#fff" stroke="#0EA5E9"/><text x="70" y="68" text-anchor="middle" fill="#0c7fc4">main.cpp</text>
+<rect x="24" y="86" width="92" height="28" rx="6" fill="#fff" stroke="#0EA5E9"/><text x="70" y="104" text-anchor="middle" fill="#0c7fc4">util.cpp</text>
+<rect x="24" y="122" width="92" height="28" rx="6" fill="#F4F2FF" stroke="#8B5CF6" stroke-dasharray="4 3"/><text x="70" y="140" text-anchor="middle" fill="#6D5BD0">util.h</text>
+</g>
+<text x="70" y="166" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#8a86a8">.h is pasted in</text>
+<rect x="160" y="60" width="118" height="96" rx="11" fill="#FFF7ED" stroke="#F59E0B"/>
+<text x="219" y="86" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="600" fill="#EA580C">preprocessor</text>
+<text x="219" y="106" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#a55a14">#include = paste</text>
+<text x="219" y="122" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#a55a14">macros expand</text>
+<text x="219" y="140" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#a55a14">&#8594; pure C++ text</text>
+<rect x="322" y="50" width="120" height="50" rx="10" fill="#FFF7ED" stroke="#F59E0B"/>
+<text x="382" y="71" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="11.5" font-weight="600" fill="#EA580C">compiler</text>
+<text x="382" y="88" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#a55a14">one TU at a time</text>
+<rect x="322" y="110" width="120" height="50" rx="10" fill="#FFF7ED" stroke="#F59E0B"/>
+<text x="382" y="131" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="11.5" font-weight="600" fill="#EA580C">compiler</text>
+<text x="382" y="148" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#a55a14">independent</text>
+<g font-family="JetBrains Mono,monospace" font-size="11">
+<rect x="470" y="56" width="80" height="28" rx="6" fill="#F0FBF5" stroke="#16A34A"/><text x="510" y="74" text-anchor="middle" fill="#16A34A">main.o</text>
+<rect x="470" y="116" width="80" height="28" rx="6" fill="#F0FBF5" stroke="#16A34A"/><text x="510" y="134" text-anchor="middle" fill="#16A34A">util.o</text>
+</g>
+<path d="M116 64 H158" stroke="#c9cad9" stroke-width="1.6" marker-end="url(#aub1)"/>
+<path d="M116 100 H158" stroke="#c9cad9" stroke-width="1.6" marker-end="url(#aub1)"/>
+<path d="M116 136 C140 136 140 120 158 112" stroke="#c9cad9" stroke-width="1.4" stroke-dasharray="4 3" fill="none"/>
+<path d="M278 90 C300 90 300 74 320 74" stroke="#c9cad9" stroke-width="1.6" marker-end="url(#aub1)"/>
+<path d="M278 126 C300 126 300 134 320 134" stroke="#c9cad9" stroke-width="1.6" marker-end="url(#aub1)"/>
+<path d="M442 74 H468" stroke="#c9cad9" stroke-width="1.6" marker-end="url(#aub1)"/>
+<path d="M442 134 H468" stroke="#c9cad9" stroke-width="1.6" marker-end="url(#aub1)"/>
+<rect x="252" y="214" width="150" height="74" rx="12" fill="#FFF1F2" stroke="#E11D48"/>
+<text x="327" y="240" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12.5" font-weight="600" fill="#E11D48">linker</text>
+<text x="327" y="258" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#9c3a4e">resolves symbols</text>
+<text x="327" y="274" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#9c3a4e">across .o + libraries</text>
+<rect x="452" y="222" width="120" height="32" rx="7" fill="#F4F2FF" stroke="#8B5CF6"/><text x="512" y="243" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6D5BD0">libfoo.a / .so</text>
+<rect x="40" y="232" width="150" height="40" rx="10" fill="#EAF6FF" stroke="#0EA5E9" stroke-width="2"/>
+<text x="115" y="250" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="600" fill="#0c7fc4">a.out</text>
+<text x="115" y="266" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#0c7fc4">the executable</text>
+<path d="M510 84 C510 150 420 180 402 224" stroke="#16A34A" stroke-width="1.6" fill="none" marker-end="url(#aub2)"/>
+<path d="M510 144 C510 180 430 196 402 240" stroke="#16A34A" stroke-width="1.6" fill="none" marker-end="url(#aub2)"/>
+<path d="M452 240 H404" stroke="#8B5CF6" stroke-width="1.6" marker-end="url(#aub3)"/>
+<path d="M252 256 H192" stroke="#E11D48" stroke-width="1.8" marker-end="url(#aub4)"/>
+<text x="310" y="322" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6f6b8c">compiler errors live <tspan fill="#EA580C" font-weight="600">inside one TU</tspan>; linker errors are <tspan fill="#E11D48" font-weight="600">cross-TU symbol problems</tspan></text>
+<defs>
+<marker id="aub1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#c9cad9"/></marker>
+<marker id="aub2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker>
+<marker id="aub3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#8B5CF6"/></marker>
+<marker id="aub4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#E11D48"/></marker>
+</defs></svg>`;
+SVG.ub_release=`<svg viewBox="0 0 620 260" role="img" aria-label="The same code with undefined behavior: the debug build happens to work, but the optimized release build assumes the UB never happens and silently breaks">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13.5" font-weight="600" fill="#1B1838">one source file with UB &#8594; two different programs</text>
+<rect x="24" y="44" width="270" height="190" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="159" y="70" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#16A34A">debug build (-O0)</text>
+<text x="159" y="90" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3c6b4f">optimizer mostly off</text>
+<rect x="50" y="104" width="218" height="30" rx="6" fill="#fff" stroke="#a9d6bb"/><text x="159" y="124" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">reads stale memory &#8594; 0</text>
+<rect x="50" y="142" width="218" height="30" rx="6" fill="#fff" stroke="#a9d6bb"/><text x="159" y="162" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">branch happens to pass</text>
+<text x="159" y="198" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#16A34A">&#10003; &#8220;works on my machine&#8221;</text>
+<text x="159" y="218" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#5e8a6f">passes every local test</text>
+<rect x="326" y="44" width="270" height="190" rx="12" fill="#FFF1F2" stroke="#f3c7cf"/>
+<text x="461" y="70" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#E11D48">release build (-O2)</text>
+<text x="461" y="90" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#9c3a4e">optimizer assumes no UB</text>
+<rect x="352" y="104" width="218" height="30" rx="6" fill="#fff" stroke="#f0b8c1"/><text x="461" y="124" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#9c3a4e">&#8220;can't be true&#8221; &#8594; deleted</text>
+<rect x="352" y="142" width="218" height="30" rx="6" fill="#fff" stroke="#f0b8c1"/><text x="461" y="162" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#9c3a4e">whole branch removed</text>
+<text x="461" y="198" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#E11D48">&#10007; crashes in production</text>
+<text x="461" y="218" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#b06">same source, different result</text>
+<path d="M294 139 H326" stroke="#F59E0B" stroke-width="2" marker-end="url(#aubr)"/>
+<text x="310" y="252" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#6f6b8c">the optimizer is allowed to assume UB never happens &#8212; so it does</text>
+<defs><marker id="aubr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#F59E0B"/></marker></defs></svg>`;
+SVG.exceptions_unwind=`<svg viewBox="0 0 620 360" role="img" aria-label="A throw deep in nested calls unwinds the stack upward, running each frame's local destructors until a matching catch is found">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">throw unwinds the stack &#8212; each frame's destructors run on the way up</text>
+<g font-family="JetBrains Mono,monospace" font-size="12">
+<rect x="150" y="44" width="320" height="46" rx="9" fill="#F0FBF5" stroke="#16A34A" stroke-width="2"/><text x="170" y="66" font-family="Space Grotesk,sans-serif" font-size="12.5" font-weight="600" fill="#0f7a36">main()</text><text x="170" y="82" fill="#3c6b4f">try { ... } catch (const E&amp;) &#8212; HANDLER</text>
+<rect x="150" y="104" width="320" height="50" rx="9" fill="#FBFBFE" stroke="#C9CAD9"/><text x="170" y="126" fill="#1B1838">parse()</text><text x="170" y="142" font-size="11" fill="#6f6b8c">Lock lk;  Buffer buf;  &#8592; ~lk, ~buf run</text>
+<rect x="150" y="168" width="320" height="50" rx="9" fill="#FBFBFE" stroke="#C9CAD9"/><text x="170" y="190" fill="#1B1838">readChunk()</text><text x="170" y="206" font-size="11" fill="#6f6b8c">File f;  &#8592; ~f runs (closes the file)</text>
+<rect x="150" y="232" width="320" height="58" rx="9" fill="#FFF5F6" stroke="#E11D48" stroke-width="2"/><text x="170" y="254" fill="#1B1838">decode()</text><text x="170" y="272" fill="#E11D48" font-weight="600">throw BadData{};</text>
+</g>
+<path d="M120 261 V70" stroke="#E11D48" stroke-width="2.4" fill="none" marker-end="url(#exu)"/>
+<text x="92" y="168" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#9c4655" transform="rotate(-90 92 168)">stack unwinds upward</text>
+<text x="540" y="138" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#6f6b8c" transform="rotate(90 540 138)">no matching catch &#8594; keep popping</text>
+<text x="540" y="244" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#6f6b8c" transform="rotate(90 540 244)">frame popped</text>
+<text x="310" y="324" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">every local destructor fires automatically &#8212; this is why RAII makes the error path leak-free</text>
+<text x="310" y="344" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">if no handler is ever found &#8594; std::terminate()</text>
+<defs><marker id="exu" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#E11D48"/></marker></defs></svg>`;
+SVG.exceptions_ladder=`<svg viewBox="0 0 620 320" role="img" aria-label="The exception-safety ladder: four rungs from strongest to weakest, nothrow then strong then basic then none">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">the exception-safety ladder &#8212; strongest guarantee on top</text>
+<g font-family="JetBrains Mono,monospace" font-size="12.5">
+<rect x="90" y="48" width="440" height="50" rx="10" fill="#F0FBF5" stroke="#16A34A" stroke-width="2"/><text x="110" y="70" font-weight="600" fill="#0f7a36">nothrow</text><text x="110" y="88" font-family="Inter,sans-serif" font-size="11" fill="#3c6b4f">the operation cannot fail &#8212; marked noexcept (swap, destructors)</text>
+<rect x="90" y="108" width="440" height="50" rx="10" fill="#EAF6FF" stroke="#0EA5E9" stroke-width="2"/><text x="110" y="130" font-weight="600" fill="#0c7fc4">strong</text><text x="110" y="148" font-family="Inter,sans-serif" font-size="11" fill="#33617a">if it throws, state is rolled back as if nothing happened (copy-and-swap)</text>
+<rect x="90" y="168" width="440" height="50" rx="10" fill="#FFF7E8" stroke="#F59E0B" stroke-width="2"/><text x="110" y="190" font-weight="600" fill="#b9760a">basic</text><text x="110" y="208" font-family="Inter,sans-serif" font-size="11" fill="#7a5a1c">no leaks, invariants hold &#8212; but state may have changed</text>
+<rect x="90" y="228" width="440" height="50" rx="10" fill="#FFF5F6" stroke="#E11D48" stroke-width="2"/><text x="110" y="250" font-weight="600" fill="#c2243f">none</text><text x="110" y="268" font-family="Inter,sans-serif" font-size="11" fill="#9c4655">no promises &#8212; leaks, corruption, anything goes (avoid)</text>
+</g>
+<path d="M52 262 V64" stroke="#5B5BD6" stroke-width="2.2" fill="none" marker-end="url(#exl)"/>
+<text x="34" y="164" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5B5BD6" transform="rotate(-90 34 164)">stronger &#8594;</text>
+<text x="310" y="304" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">pick the strongest rung you can afford; document which one each function offers</text>
+<defs><marker id="exl" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#5B5BD6"/></marker></defs></svg>`;
 const plan=[
   ["Week 1","Foundations · Big-O · Pointers","how"],
   ["Week 2","Arrays · Two Pointers · Windows","arrays"],
@@ -4110,6 +4243,407 @@ int sum(std::span<const int> data) {          // views a vector, array, or C arr
   pit("sort on a list won't compile","<code>std::sort</code> needs random-access iterators; <code>list</code> only offers bidirectional ones, so the call fails to compile. Use the member <code>list.sort()</code>, which sorts by relinking nodes in place. Same restriction applies to <code>binary_search</code> and <code>nth_element</code> &#8212; they're random-access algorithms, which is why they live most naturally on <code>vector</code>."),
   cx(`vector index <b>O(1)</b>, push <b>O(1)</b> amortized · map/set <b>O(log n)</b> · unordered_map <b>O(1)</b> avg / O(n) worst · sort <b>O(n log n)</b> · lower_bound <b>O(log n)</b> · find/count <b>O(n)</b>`),
   idea("The interview answers, in order",`<b>"Which container?"</b> &#8212; "Default to <code>vector</code>: contiguous, O(1) index, amortized O(1) append, best cache behavior. <code>deque</code> if I need both ends, <code>unordered_map/set</code> for keyed lookups or counting, <code>map/set</code> when I need sorted order or range queries, and the adapters (<code>stack/queue/priority_queue</code>) to express intent." <b>"What's iterator invalidation?"</b> &#8212; "Mutating a container can invalidate iterators into it. For <code>vector</code>, a <code>push_back</code> that grows past capacity reallocates and invalidates everything; <code>erase</code> invalidates from that point on. Node-based containers only invalidate the erased element. I <code>reserve</code> when I know the size, and I use the erase-remove idiom &#8212; or <code>std::erase</code> in C++20 &#8212; for value removal, because <code>std::remove</code> alone only shuffles and doesn't change the size." Delivering both with the <em>why</em> attached is the whole game.`)
+]},
+{group:"C++ Deep Dives",num:"⟨⟩",id:"templates",color:"#9333EA",title:"Templates & Generic Programming",badge:"C++ deep dive",blocks:[
+  cue(`<b>Reach for this when</b> you'd otherwise copy-paste the same algorithm or container for <code>int</code>, then <code>float</code>, then your own type &#8212; or when an interviewer asks how <code>std::vector</code>, <code>std::sort</code>, or <code>make_unique</code> can work for <em>any</em> type with no runtime cost. Templates are how the entire STL is built, so the vocabulary here doubles as the vocabulary for reading the standard library.`),
+  p(`You already write generic code every day &#8212; <code>vector&lt;int&gt;</code>, <code>sort(begin, end)</code>, <code>make_unique&lt;Foo&gt;()</code>. Templates are the machinery underneath all of it. This lesson is about being able to <em>write</em> that machinery and, more importantly for interviews, explain how it works: what the compiler actually does with <code>template&lt;class T&gt;</code>, why template code lives in headers, and why this gives you polymorphism with zero runtime overhead. None of it is exotic; it's the same generic-programming instinct you have from game-engine work, made precise.`),
+  sub("The problem templates solve"),
+  p(`Say you need a <code>max</code> function. Without generics you'd write one for <code>int</code>, copy it for <code>double</code>, copy it again for your <code>Vector3</code> &#8212; three functions, identical except for the type, that all drift out of sync the moment you fix a bug in one. The classic escape hatch is a common base class with a <code>virtual</code> method, so one function can work through a base pointer. That works, but it forces every type to inherit from your base, boxes values behind a pointer, and pays an indirect call on <em>every</em> use (the runtime-polymorphism story from the Polymorphism lesson).`),
+  p(`Templates take the other road. You write the algorithm <em>once</em>, with the type left as a blank to be filled in, and the compiler generates a separate, fully concrete, fully optimized version for each type you actually use. No base class, no inheritance, no pointer indirection, no runtime cost &#8212; the generated <code>max&lt;int&gt;</code> is byte-for-byte what you'd have hand-written. That's the core trade to be able to state in an interview: <em>templates move the &#8220;which type?&#8221; decision from run time to compile time</em>, and buy back all the overhead.`),
+  sub("Function templates: the compiler deduces T"),
+  p(`A function template is an ordinary function with the concrete type swapped out for a type parameter. <code>template&lt;class T&gt;</code> (or the identical <code>template&lt;typename T&gt;</code> &#8212; the two keywords mean the same thing here) introduces a placeholder <code>T</code>; the rest reads like normal code that happens to use <code>T</code> wherever a fixed type would go.`),
+  code(`template<class T>
+T max(T a, T b) {
+    return (a < b) ? b : a;   // works for any T that supports operator<
+}
+
+int    m = max(3, 7);          // T deduced as int    -> max<int>
+double d = max(2.5, 1.5);      // T deduced as double -> max<double>
+auto   s = max(std::string("ab"), std::string("az")); // T = std::string`),
+  p(`The thing to notice: you never wrote <code>max&lt;int&gt;(3, 7)</code>. The compiler looked at the arguments, saw two <code>int</code>s, and <em>deduced</em> <code>T = int</code> for you. That argument-driven <em>template argument deduction</em> is why generic calls read as cleanly as ordinary ones. You <em>can</em> specify the type explicitly &#8212; <code>max&lt;double&gt;(3, 7)</code> &#8212; and occasionally must, when there's nothing to deduce from (like a factory whose type appears only in the return), but most of the time deduction does it silently.`),
+  worked("A generic swap, deduced from its arguments","swap is the canonical first template: the logic is identical for every type, only the type of the temporary changes. T is deduced from the two references; std::move (from the Move Semantics lesson) makes the three steps transfers rather than copies, so swapping two big vectors is three pointer-shuffles, not three deep copies.",
+`template<class T>
+void swap(T& a, T& b) {
+    T tmp = std::move(a);   // steal a's guts into tmp   (no copy)
+    a     = std::move(b);   // steal b's guts into a
+    b     = std::move(tmp); // steal tmp's guts into b
+}
+
+int x = 1, y = 2;
+swap(x, y);                 // T = int
+
+std::vector<int> p{1,2,3}, q{4,5,6};
+swap(p, q);                 // T = vector<int> : swaps the buffers, O(1)`),
+  svg("templates_instantiate","One template definition fans out into one concrete function per type you actually call it with. The template itself emits no code; each used type stamps out its own optimized copy at the call site."),
+  sub("How instantiation works (and why it matters)"),
+  p(`Here is the mental model that makes everything else fall into place. A template is <em>not code</em> &#8212; it's a recipe for generating code. When you call <code>max(3, 7)</code>, the compiler performs <em>instantiation</em>: it substitutes <code>T = int</code> through the template body and produces a real <code>max&lt;int&gt;</code> function, then compiles that. Call it with <code>double</code> and it generates a second function. Three consequences follow directly, and each is a common interview question.`),
+  ul([
+    `<b>Unused templates cost nothing.</b> If you never instantiate <code>max</code> with <code>std::string</code>, no <code>max&lt;std::string&gt;</code> is ever generated &#8212; it's not in your binary at all. You only pay for the types you actually use.`,
+    `<b>Each type means more code.</b> The flip side: instantiate <code>max</code> for ten types and you get ten functions in the binary. That's <em>code bloat</em> &#8212; usually a fine trade for the speed, but the reason heavily-templated builds get large and slow to compile.`,
+    `<b>The compiler needs the full definition at every call site.</b> To stamp out <code>max&lt;int&gt;</code>, the compiler must see the <em>body</em> of <code>max</code> in the translation unit doing the call. A function declaration isn't enough, because there's nothing to instantiate. This is the big practical one.`,
+  ]),
+  pit("Templates go in headers — a .cpp definition gives a linker error",`Put a template's <em>definition</em> (not just its declaration) in a header, so every file that uses it can see the body and instantiate it. The intuitive move &#8212; declaration in <code>.h</code>, body in <code>.cpp</code> &#8212; fails: the <code>.cpp</code> compiles fine but generates no instantiations (it never sees a call with a concrete type), and every <em>other</em> file gets an &#8220;undefined reference to <code>max&lt;int&gt;</code>&#8221; at link time. The fix is almost always &#8220;move the body into the header.&#8221; This trips up everyone once; knowing <em>why</em> &#8212; the compiler instantiates at the use site and needs the body there &#8212; is the senior answer. (It's the same translation-unit story from the Build Model lesson.)`),
+  sub("Templates are duck-typed"),
+  p(`A template doesn't constrain <code>T</code> up front &#8212; it just uses <code>T</code> however the body needs to. <code>max</code> uses <code>operator&lt;</code>; <code>swap</code> uses move-assignment. The instantiation <em>succeeds</em> if and only if those operations exist for the type you plugged in. There's no interface to declare and no inheritance &#8212; if it walks like a duck (supports the operations the template uses), it works. This is &#8220;compile-time duck typing.&#8221;`),
+  p(`The upside is freedom: any type with the right operations just works, including types written years after the template. The downside is the failure mode. Hand <code>max</code> a type with no <code>operator&lt;</code> and you don't get a clean &#8220;this type isn't comparable&#8221; &#8212; you get a wall of errors pointing <em>inside</em> the template at the line <code>a &lt; b</code>, because that's where the missing operation surfaced. The error is technically accurate and practically miserable. Concepts (below) exist to fix exactly this.`),
+  note("&#128221;","typename for dependent types",`One syntax wrinkle worth recognizing: when a name depends on a template parameter and is itself a type &#8212; like <code>T::value_type</code> &#8212; you must write <code>typename T::value_type</code>. Without <code>typename</code> the compiler can't tell whether <code>T::value_type</code> names a type or a static value, so it assumes the latter and errors. The rule: a <em>dependent</em> type name needs <code>typename</code> in front. You'll mostly meet this in library-style code; just don't be surprised by the &#8220;missing typename&#8221; diagnostic.`),
+  sub("auto and trailing return types"),
+  p(`<code>auto</code> is the lightweight cousin of templates: it asks the compiler to deduce a type the same way template deduction does, so you rarely spell out an iterator or lambda type by hand. In a return position, <code>auto</code> deduces the function's return type from its <code>return</code> statement. When the return type depends on the parameters &#8212; say it's whatever <code>a + b</code> produces &#8212; the <em>trailing return type</em> <code>-&gt; decltype(a + b)</code> lets you name it after the parameters are in scope.`),
+  code(`template<class A, class B>
+auto add(A a, B b) -> decltype(a + b) {   // return type = type of (a + b)
+    return a + b;
+}
+auto r = add(1, 2.5);   // A=int, B=double -> returns double
+
+// Since C++14 plain 'auto' (no trailing type) usually suffices:
+template<class A, class B>
+auto add2(A a, B b) { return a + b; }     // deduced the same way`),
+  sub("Class templates: your own generic container"),
+  p(`Everything above applies to whole classes too. <code>std::vector&lt;T&gt;</code>, <code>std::pair&lt;A, B&gt;</code>, <code>std::unique_ptr&lt;T&gt;</code> are class templates: one definition, parameterized over the element type, instantiated per type you use. You write the class with type parameters and the compiler generates a concrete class &#8212; <code>vector&lt;int&gt;</code> and <code>vector&lt;double&gt;</code> are genuinely different types, each with its own generated code.`),
+  worked("A tiny generic Stack<T>","A stack that works for any element type, backed by a vector<T> (Rule of Zero from Move Semantics: the vector member manages itself, so we write no destructor, copy, or move). T is a class-level parameter — fixed when you write Stack<int> — so every method can use it. Note push has both a copy and a move overload, exactly like the standard containers.",
+`template<class T>
+class Stack {
+    std::vector<T> data;                  // the vector does the real work
+public:
+    bool empty() const { return data.empty(); }
+    std::size_t size() const { return data.size(); }
+
+    void push(const T& v) { data.push_back(v); }            // copy in
+    void push(T&& v)      { data.push_back(std::move(v)); } // move in
+
+    T& top()             { return data.back(); }
+    void pop()           { data.pop_back(); }
+};
+
+Stack<int> s;          s.push(1); s.push(2);   // Stack<int>
+Stack<std::string> w;  w.push("hi");           // Stack<std::string> : separate type`),
+  pit("Class-template definitions live in headers too",`Same rule as function templates, same reason: the compiler instantiates <code>Stack&lt;int&gt;</code> at the point of use, so it needs the full class <em>and method</em> bodies visible there. Member functions of a class template are conventionally defined inline in the header (or in a <code>.tpp</code>/<code>.ipp</code> the header <code>#include</code>s at the bottom). Splitting them into a <code>.cpp</code> resurrects the same &#8220;undefined reference&#8221; at link time.`),
+  sub("Variadic templates and perfect forwarding"),
+  p(`How does <code>make_unique&lt;Widget&gt;(a, b, c)</code> accept <em>any</em> argument list and hand it to <code>Widget</code>'s constructor untouched? <em>Variadic templates.</em> A <em>parameter pack</em> <code>class... Args</code> captures any number of type parameters, and <code>Args&amp;&amp; ... args</code> captures the matching arguments. You then expand the pack with <code>...</code> to pass them along. You don't need to write these often, but recognizing the pieces lets you read the STL and answer the &#8220;how does <code>emplace_back</code> work?&#8221; question.`),
+  code(`template<class T, class... Args>            // Args is a type pack
+std::unique_ptr<T> make_unique(Args&&... args) {        // args is a value pack
+    return std::unique_ptr<T>(
+        new T(std::forward<Args>(args)...)  // expand: forward each arg, in order
+    );
+}
+// make_unique<Widget>(3, "hi") -> new Widget(3, "hi"), arguments untouched`),
+  note("&#128221;","This is perfect forwarding (callback to Move Semantics)",`The <code>Args&amp;&amp;</code> here is <em>not</em> an rvalue reference &#8212; in a template, <code>T&amp;&amp;</code> is a <em>forwarding reference</em> that binds to both lvalues and rvalues. <code>std::forward&lt;Args&gt;(args)...</code> then preserves, per argument, whether the caller handed you something movable or not: rvalues stay movable, lvalues stay copyable. That's <em>perfect forwarding</em> &#8212; the thing the Move Semantics lesson flagged as &#8220;<code>T&amp;&amp;</code>-in-a-template plus <code>std::forward</code>.&#8221; It's how <code>emplace_back</code> forwards your constructor arguments straight into an in-place construction with no extra copy or move.`),
+  sub("Compile-time computation: if constexpr and type traits"),
+  p(`Because instantiation happens at compile time, the compiler knows everything about <code>T</code> while it's generating code &#8212; so you can <em>branch on type properties</em> and have the dead branch vanish entirely. <code>if constexpr (cond)</code> is a compile-time <code>if</code>: the false branch is discarded before it's even type-checked for that instantiation, so each branch only has to be valid for the types that reach it. Paired with <em>type traits</em> like <code>std::is_integral_v&lt;T&gt;</code> (compile-time questions about a type), it lets one template do genuinely different things per type with no runtime test.`),
+  worked("Branch at compile time on a type property","describe asks, at compile time, whether T is an integer. For Stack<int> only the integral branch is compiled; for double only the other. The discarded branch isn't just skipped at run time — it's not generated at all, so it needn't even be valid for the other type. This is how generic code specializes its behaviour without a virtual call or a runtime branch.",
+`template<class T>
+std::string describe(T value) {
+    if constexpr (std::is_integral_v<T>) {       // decided at compile time
+        return "integer: " + std::to_string(value);
+    } else {
+        return "non-integer value";              // only compiled when T isn't integral
+    }
+}
+describe(42);    // -> "integer: 42"
+describe(3.14);  // -> "non-integer value"`),
+  sub("Concepts (C++20): naming the requirements"),
+  p(`Concepts are the modern fix for the duck-typing failure mode. A <em>concept</em> names the requirements a type parameter must satisfy, and you constrain a template with it. If a caller violates the constraint, the error is short and points at the call &#8212; &#8220;<code>Widget</code> does not satisfy <code>std::totally_ordered</code>&#8221; &#8212; instead of a fifty-line spew from deep inside the body. The constraint also documents intent: the signature now <em>states</em> what <code>T</code> needs.`),
+  code(`#include <concepts>
+
+template<std::totally_ordered T>   // T must support < <= > >=
+T max(T a, T b) {
+    return (a < b) ? b : a;
+}
+
+max(3, 7);            // fine
+max(Widget{}, Widget{});  // clean error AT THE CALL: Widget isn't totally_ordered
+                          //   (not a wall of errors inside max's body)`),
+  note("&#128161;","No C++20? static_assert is the poor-man's concept",`If you're stuck pre-C++20, a <code>static_assert</code> at the top of the template &#8212; <code>static_assert(std::is_arithmetic_v&lt;T&gt;, "max needs a number");</code> &#8212; gives you most of the benefit: a clear, early, custom message instead of the deep-template spew. Concepts are cleaner and compose, but the goal is the same: turn a confusing failure into a legible one. Mentioning either in an interview shows you know the duck-typing footgun and how to tame it.`),
+  sub("Templates vs virtual: compile-time vs runtime polymorphism"),
+  p(`This is the comparison interviewers most want to hear, because it's a real design decision, not trivia. Both give you &#8220;one piece of code, many types,&#8221; but they resolve the type at opposite ends of the timeline.`),
+  svg("templates_polymorphism","Two kinds of polymorphism. Templates (and CRTP) resolve the type at compile time — a direct, inlinable, zero-overhead call, but the type is fixed when you build. Virtual functions resolve at run time through a vtable — one indirect pointer hop, but the concrete type can vary per object and be decided at run time."),
+  ul([
+    `<b>Compile-time (templates, CRTP).</b> The type is baked in at instantiation. The call is direct and usually <em>inlined</em>, so there's literally zero overhead versus hand-written code. Cost: the type must be known at compile time, you can't store a mixed bag of types in one container, and you pay in code size and compile time. CRTP &#8212; the curiously-recurring template pattern from the Polymorphism lesson &#8212; uses this to get virtual-like dispatch with no vtable.`,
+    `<b>Runtime (virtual functions).</b> The type can vary per object and be decided at run time &#8212; a <code>vector&lt;unique_ptr&lt;Shape&gt;&gt;</code> can hold circles and squares mixed together. Cost: each call is an <em>indirect</em> jump through the vtable (one pointer hop), which can't be inlined, plus a per-object vtable pointer.`,
+  ]),
+  p(`The rule of thumb: if the set of types is fixed and known when you compile &#8212; an algorithm over &#8220;whatever element type this container holds&#8221; &#8212; reach for a template and pay nothing. If the concrete type genuinely varies at run time, or you need a heterogeneous collection behind one interface, that's what <code>virtual</code> is for. The STL is the template side of this taken to its conclusion: <code>sort</code>, <code>find</code>, every container &#8212; all compile-time generic, all zero-overhead.`),
+  pit("The error messages are the real tax",`The honest downside of templates, and worth saying out loud in an interview: when something doesn't fit, the diagnostics are brutal &#8212; multi-screen errors pointing inside library code you didn't write. Two habits tame it: constrain your parameters (concepts, or a <code>static_assert</code> with a human message) so failures surface at the call with a sentence you can read, and instantiate new templates with a simple type early so mistakes show up before the code is buried under three layers of generic calls.`),
+  cx(`Instantiation is compile-time work &#8212; <b>zero</b> runtime cost; a templated call is a <b>direct, inlinable</b> call (vs. a virtual's <b>indirect vtable hop</b>). Trade: more <b>code size</b> and <b>compile time</b> per instantiated type.`),
+  idea("Say it like this",`"A template is a recipe, not code: <code>template&lt;class T&gt;</code> leaves the type blank, and the compiler <em>instantiates</em> a separate concrete copy for each type I actually use &#8212; deducing <code>T</code> from the arguments for functions. That's compile-time polymorphism: the call is direct and inlinable, so it's zero-overhead, unlike a <code>virtual</code>'s indirect vtable hop &#8212; the trade-off being the type is fixed at compile time and I pay in code size. Because instantiation happens at the use site, the compiler needs the full definition there, which is why templates live in headers &#8212; splitting one into a <code>.cpp</code> gives undefined-reference linker errors. Templates are duck-typed, so a bad type yields a wall of errors from inside the body; I'd constrain parameters with a C++20 concept or a <code>static_assert</code> so the failure shows up cleanly at the call. And variadic templates with <code>std::forward</code> are how <code>make_unique</code> and <code>emplace_back</code> forward an arbitrary argument list untouched."`)
+]},
+{group:"C++ Deep Dives",num:"⚠",id:"ub",color:"#EA580C",title:"Undefined Behavior & the Build Model",badge:"C++ deep dive",blocks:[
+  cue(`Two questions that quietly separate "writes C++" from "understands C++": <em>"What is undefined behavior?"</em> and <em>"Walk me through what happens between hitting your source file and getting an executable."</em> The first is about a trap that makes the language fast and dangerous; the second is the compile-and-link pipeline every C++ engineer is expected to be able to sketch. They live together here because both are about what the compiler is actually <em>allowed</em> to do with your code &#8212; and both explain bugs that look impossible until you know the rules.`),
+  p(`You ship real C++ in a game engine, so you've already met both of these in the wild: the crash that only happens in the shipping build, and the cryptic <code>undefined reference to ...</code> that has nothing to do with your logic. This lesson gives you the vocabulary and the mental model to explain <em>why</em> those happen, which is exactly what the interview is checking.`),
+  sub("Part one — Undefined behavior: the standard imposes no requirements"),
+  p(`Here is the precise definition, because the precision is the point. When your program executes <b>undefined behavior</b> (UB), the C++ standard imposes <em>no requirements whatsoever</em> on what happens. Not "it crashes," not "you get garbage," not "it's platform-specific" &#8212; literally <em>anything</em> is a conforming outcome. The program may work, may crash, may corrupt unrelated data, may appear to ignore the offending line entirely. The standard washes its hands of the whole execution. This is the source of the folklore that UB can "make demons fly out of your nose" &#8212; the joke encodes a real rule: once you've triggered UB, you have no guarantees about <em>any</em> part of the run.`),
+  p(`Crucially, UB is not a runtime error the language promises to detect. It's a <em>contract</em> you signed: by writing the code, you promised the compiler this situation never occurs. And the compiler takes you at your word. That's where the danger lives.`),
+  sub("Why the compiler optimizing on that promise is what burns you"),
+  p(`This is the half people miss. The compiler is <em>allowed to assume UB never happens</em>, and a good optimizer leans on that assumption hard to generate faster code. If your code contains a path that would be UB, the optimizer reasons "that can't happen, the programmer guaranteed it" &#8212; and deletes the check, the branch, or the bounds test that only mattered on the impossible path. Your code didn't fail to compile; it compiled into something that does less than you wrote, because the compiler trusted a promise you accidentally broke.`),
+  svg("ub_release","The same source file built two ways. At <code>-O0</code> the optimizer is mostly off, so the UB happens to produce a benign result and every local test passes. At <code>-O2</code> the optimizer assumes the UB <em>can't</em> occur and rewrites the code on that basis &#8212; deleting a branch it has decided is unreachable &#8212; so the release build silently behaves differently from the debug build you tested."),
+  p(`That is why UB is uniquely nasty in practice: <b>a program can pass every test in a debug build and silently break in an optimized release build.</b> Same source, same compiler, different optimization level &#8212; different program. The classic "it worked on my machine" bug report is very often a UB report in disguise: the developer ran the unoptimized debug build, the CI or the shipping target ran <code>-O2</code>, and the optimizer cashed in an assumption the code couldn't actually keep.`),
+  note(`&#128221;`,`"Undefined" is a specific word &#8212; not "implementation-defined", not "unspecified"`,`Interviewers like this distinction because it shows you've actually read the rules. <b>Undefined behavior</b> &#8594; no requirements at all; the program is meaningless (out-of-bounds access, use-after-free). <b>Unspecified behavior</b> &#8594; the standard allows several outcomes and the implementation needn't tell you which (e.g. the order arguments are evaluated). <b>Implementation-defined behavior</b> &#8594; one of several outcomes, but the implementation must document its choice (e.g. <code>sizeof(int)</code>, whether <code>char</code> is signed). Only UB can make the whole program meaningless; the other two are bounded and at worst non-portable.`),
+  sub("The common sources of UB &#8212; learn to smell each one"),
+  p(`You don't memorize the standard; you build a nose for the handful of situations that are UB, so you flag them while writing. These are the ones that come up constantly:`),
+  ul([
+    `<b>Out-of-bounds access.</b> <code>v[v.size()]</code>, an array index past the end, an off-by-one in a loop. <code>operator[]</code> does no bounds checking &#8212; reading or writing outside the buffer is UB, full stop. (Use <code>.at()</code> when you want a checked access that throws instead.)`,
+    `<b>Use-after-free / dangling pointers.</b> Touching memory after <code>delete</code>, or through a pointer to an object that's already gone. The headline case: <em>returning the address of a local</em> &#8212; the stack frame is reclaimed the instant the function returns, so the pointer dangles immediately. This is the Pointers lesson's dangling-pointer trap, now named for what it is.`,
+    `<b>Signed-integer overflow.</b> <code>INT_MAX + 1</code> is UB. (Unsigned overflow is <em>defined</em> &#8212; it wraps modulo 2&#8319;.) This one is a favorite optimizer exploit, below.`,
+    `<b>Reading an uninitialized variable.</b> <code>int x; use(x);</code> &#8212; the value is indeterminate, and reading it is UB. Not "you get a random number"; the compiler may assume the read never happens.`,
+    `<b>Dereferencing null.</b> <code>*p</code> when <code>p == nullptr</code>. Often crashes &#8212; but "often" isn't "always," and the optimizer may assume any pointer you dereference is non-null and prune your later null check.`,
+    `<b>A data race.</b> Two threads touch the same non-atomic object and at least one writes, with no synchronization &#8212; UB by definition. This is the whole reason for <code>std::atomic</code> and mutexes (the Concurrency material): they turn races into defined, ordered access.`,
+    `<b>Breaking strict aliasing.</b> Reading the bytes of a <code>float</code> through an <code>int*</code> (or most mismatched pointer types) lets the compiler assume the two never refer to the same memory, and it reorders accordingly. Use <code>std::memcpy</code> or <code>std::bit_cast</code> to reinterpret bytes safely.`,
+  ]),
+  note(`&#128161;`,`The two callbacks worth naming out loud`,`Half of this list is just earlier lessons under a new heading. Dangling pointers and returning the address of a local are the <em>Pointers &amp; Memory</em> failure modes; the data race is exactly what <em>Concurrency</em> exists to prevent; and the cleanest way to never write a use-after-free is the <em>RAII</em> discipline &#8212; let an owning type control the lifetime so there's no manual <code>delete</code> to outlive. UB isn't a separate topic so much as the formal name for "what goes wrong when those disciplines slip."`),
+  worked("UB the optimizer exploits: signed overflow and an uninitialized read","Two tiny functions that look harmless and behave differently across optimization levels. In <code>willOverflow</code>, the check <code>x + 1 &lt; x</code> can only be true if signed overflow occurred &#8212; but signed overflow is UB, so the optimizer concludes the condition is <em>always false</em> and deletes the entire branch, including the print. In <code>maybe</code>, <code>flag</code> is read uninitialized; at <code>-O0</code> it happens to hold whatever was on the stack, but the optimizer is free to assume the read never happens and pick either path. Neither bug shows up as a compile error.",
+`#include <climits>
+#include <iostream>
+
+// The overflow check the optimizer silently removes:
+void willOverflow(int x) {
+    // "x + 1 < x" is only possible via signed overflow == UB,
+    // so the optimizer proves it can never be true and deletes the branch.
+    if (x + 1 < x)
+        std::cout << "overflow!\n";   // -O2: this line is removed entirely
+}
+
+// Reading an uninitialized variable is UB, not "a random bool":
+bool maybe() {
+    bool flag;                        // never initialized
+    if (flag) return true;            // UB: the optimizer may assume either way
+    return false;                     // debug and release can disagree here
+}
+
+int main() {
+    willOverflow(INT_MAX);            // you expect "overflow!"; -O2 prints nothing
+}`),
+  sub("The discipline: make UB loud instead of silent"),
+  p(`You cannot rely on UB being caught for you, but you can <em>recruit tools to catch it</em>. The professional habit is to run your test builds under instrumentation that turns silent UB into a loud, located failure:`),
+  ul([
+    `<b>Sanitizers</b> &#8212; compile with <code>-fsanitize=address</code> (ASan) to catch out-of-bounds and use-after-free with a stack trace, and <code>-fsanitize=undefined</code> (UBSan) to catch signed overflow, null dereference, bad shifts, and more. They cost runtime, so you run them in CI and dev builds, not in shipping.`,
+    `<b><code>-Wall -Wextra</code></b> &#8212; the compiler already warns about many UB sources (uninitialized reads, comparisons that can't be true) if you let it. Treat warnings as errors (<code>-Werror</code>) so they can't accumulate.`,
+    `<b>Valgrind</b> &#8212; a slower, no-recompile memory checker that catches leaks, invalid reads/writes, and use-after-free. ASan is faster and usually preferred now, but Valgrind needs no instrumentation build.`,
+  ]),
+  pit("\"But it works\" is not evidence the code is correct","The single most dangerous sentence around UB. Code that triggers UB and happens to produce the right answer today is still broken &#8212; you're relying on an outcome the standard never promised, and the next compiler version, optimization flag, or unrelated edit can change it without warning. UB is also not portable: a result you observed on one compiler or platform tells you nothing about another. If a sanitizer or warning flags it, it's a bug, no matter what the program printed."),
+  sub("Part two — The build model: source to executable"),
+  p(`Switch hats. The other half of this lesson is the pipeline interviewers love to walk you through, because it explains a whole class of errors that have nothing to do with your algorithm. A C++ program isn't compiled in one shot; it goes through three distinct stages, and knowing which stage an error came from tells you almost immediately how to fix it.`),
+  svg("ub_pipeline","The three stages. The <b>preprocessor</b> expands every <code>#include</code> (literally pasting the header's text in) and every macro, producing one self-contained chunk of C++ per source file &#8212; a <em>translation unit</em>. The <b>compiler</b> turns each translation unit into an <em>object file</em> independently, knowing nothing about the others. The <b>linker</b> then stitches the object files together, resolves every symbol one references but another defines, pulls in any libraries, and emits the executable."),
+  ul([
+    `<b>Preprocessor.</b> A pure text transform that runs before any C++ is understood. <code>#include &lt;vector&gt;</code> is literally "copy-paste the entire contents of &lt;vector&gt; here"; macros expand; <code>#ifdef</code> blocks are kept or dropped. The output is one big stream of C++ text with no directives left.`,
+    `<b>Compiler.</b> Takes one <b>translation unit</b> &#8212; a single <code>.cpp</code> file <em>plus everything it included</em>, after preprocessing &#8212; and compiles it, alone, into an <b>object file</b> (<code>.o</code> / <code>.obj</code>). Each TU is compiled in total isolation; the compiler has no idea what's in the other <code>.cpp</code> files. This is why a function you <em>call</em> here only needs to be <em>declared</em> here.`,
+    `<b>Linker.</b> Collects all the object files, matches every <em>use</em> of a symbol (a function, a global) to its one <em>definition</em> somewhere, links in any static/dynamic libraries, and produces the final executable. The linker works in symbols, not source &#8212; it never sees your code, only names and addresses.`,
+  ]),
+  note(`&#128221;`,`Translation unit = one .cpp after preprocessing`,`This term comes up constantly, so pin it down: a <b>translation unit</b> is exactly one <code>.cpp</code> file together with the full text of every header it pulled in, as it looks after the preprocessor runs. The compiler's whole world is a single TU at a time. "Each TU is compiled independently" is the sentence that explains declarations, the One Definition Rule, header guards, and the compiler-vs-linker error split all at once &#8212; it's worth being able to say it cleanly.`),
+  sub("Declaration vs definition, and the One Definition Rule"),
+  p(`Because each TU is compiled alone, C++ splits "telling the compiler a thing exists" from "providing the thing." A <b>declaration</b> introduces a name and its type &#8212; enough for the compiler to type-check uses of it. A <b>definition</b> actually provides the body or storage. The rule of thumb: <b>you may declare a thing as many times as you like, but you must define it exactly once.</b>`),
+  code(`int add(int, int);          // DECLARATION: "this function exists, here's its type"
+extern int counter;          // DECLARATION of a global defined elsewhere
+struct Widget;               // DECLARATION (forward) of a type
+
+int add(int a, int b) {      // DEFINITION: provides the body
+    return a + b;
+}
+int counter = 0;             // DEFINITION: provides the storage`),
+  p(`The <b>One Definition Rule</b> (ODR) is the formalization: every function, variable, type, or template used in the program must have <em>exactly one</em> definition across the whole program. Declare freely; define once. Violating the ODR &#8212; two definitions of the same non-inline function, the same global defined in two TUs &#8212; is its own flavor of UB, though in practice the linker usually catches it and complains about a "multiple definition."`),
+  sub("Header guards / #pragma once: why a header included twice breaks"),
+  p(`Headers are where ODR violations sneak in, because <code>#include</code> is dumb text pasting. If <code>a.h</code> includes <code>types.h</code>, and your <code>.cpp</code> also includes <code>types.h</code>, the preprocessor pastes <code>types.h</code> <em>twice</em> into the same TU. Any <code>struct</code> or non-inline definition in there is now defined twice in one translation unit &#8212; a compile error, before the linker even runs. <b>Header guards</b> (or the simpler <code>#pragma once</code>) make a header paste its contents at most once per TU:`),
+  worked("A header with an include guard, used across two translation units","The guard macro makes <code>shape.h</code> expand only once per TU no matter how many times it's included &#8212; the second <code>#include</code> sees <code>SHAPE_H</code> already defined and skips the body. Notice the split: the header <em>declares</em> <code>area</code> (so any TU that includes it can call it) and the function is <em>defined</em> once, in <code>shape.cpp</code>. Both <code>shape.cpp</code> and <code>main.cpp</code> are their own translation units; the linker joins them.",
+`// ---- shape.h ----
+#ifndef SHAPE_H          // include guard: if not yet seen...
+#define SHAPE_H          // ...mark it seen, and expand the body once
+
+struct Circle { double r; };
+double area(const Circle& c);   // DECLARATION only
+
+#endif  // SHAPE_H       // #pragma once does the same job in one line
+
+// ---- shape.cpp  (translation unit #1) ----
+#include "shape.h"
+#include <numbers>
+double area(const Circle& c) {            // the one DEFINITION
+    return std::numbers::pi * c.r * c.r;
+}
+
+// ---- main.cpp  (translation unit #2) ----
+#include "shape.h"                          // gets the DECLARATION, can call area()
+int main() {
+    Circle c{2.0};
+    return static_cast<int>(area(c));       // linker connects this call to shape.o
+}`),
+  sub("Linkage: who can see a symbol across TUs"),
+  p(`<b>Linkage</b> answers "can the linker match a name in one TU to a definition in another?" It's the mechanism behind both hiding helpers and sharing definitions:`),
+  ul([
+    `<b>External linkage</b> (the default for free functions and globals) &#8212; the symbol is visible to other TUs; the linker can resolve a use in one TU against a definition in another. This is what lets <code>main.cpp</code> call <code>area</code> defined in <code>shape.cpp</code>.`,
+    `<b>Internal linkage</b> &#8212; the symbol is private to its own TU; other TUs can't see it, and each TU may have its own. You opt in with <code>static</code> at file scope, or (the modern preference) an <b>anonymous namespace</b>. Use it for file-local helpers so they don't collide with same-named helpers elsewhere.`,
+    `<b><code>inline</code></b> &#8212; the keyword's real job today isn't "inline this call," it's "this definition may appear in <em>every</em> TU that includes the header, and they're all the same one definition &#8212; don't treat that as an ODR violation." That's how you can legally put a function or (since C++17) an <b>inline variable</b> body directly in a header.`,
+  ]),
+  code(`// In some .cpp file:
+static int helper() { return 7; }   // internal linkage: private to THIS TU
+namespace { int scratch = 0; }      // anonymous namespace: also TU-private
+
+// In a header, so the definition can sit in every includer safely:
+inline int square(int x) { return x * x; }   // inline function, header-defined
+inline int kStartHp = 100;                    // inline variable (C++17): one shared global`),
+  sub("Static vs dynamic libraries"),
+  p(`The last piece the linker handles is libraries &#8212; precompiled code you link against instead of recompiling. Two flavors, and the difference is <em>when</em> the code joins your program:`),
+  ul([
+    `<b>Static library</b> (<code>.a</code> on Unix, <code>.lib</code> on Windows) &#8212; a bundle of object files. At link time the linker copies the parts you use <em>into</em> your executable. Result: a bigger, self-contained binary with no external dependency at runtime; updating the library means relinking.`,
+    `<b>Dynamic / shared library</b> (<code>.so</code> on Unix, <code>.dll</code> on Windows) &#8212; not baked in. Your executable records "I need <code>libfoo</code>," and the OS <em>loads it at runtime</em>. Result: a smaller binary, the library shared across processes, and you can ship a library update without relinking the app &#8212; at the cost of having to ship/find the right <code>.so</code>/<code>.dll</code> (the "DLL hell" failure mode).`,
+  ]),
+  sub("The payoff: compiler errors vs linker errors are different beasts"),
+  p(`Here's why the pipeline is worth knowing cold &#8212; it tells you, from the <em>shape</em> of an error, where to look. A <b>compiler error</b> is a single-TU problem: a syntax mistake, a type mismatch, an undeclared name. The compiler is looking at one translation unit and something in it doesn't make sense on its own. A <b>linker error</b> is a cross-TU symbol problem: every TU compiled fine, but when the linker tried to wire them together, a symbol had <em>no</em> definition or <em>two</em>.`),
+  worked("\"Undefined reference\" vs \"multiple definition\"","Two errors that confuse people because they happen <em>after</em> a clean compile. The top case compiles every TU successfully &#8212; <code>main.cpp</code> only needed the <em>declaration</em> of <code>compute</code> &#8212; but no TU ever <em>defined</em> it, so the linker has a use with nothing to resolve it to: <code>undefined reference</code>. The bottom case is the opposite: a non-inline function defined in a header, included by two TUs, so the linker finds the same symbol defined <em>twice</em>: <code>multiple definition</code>. The fixes are the ODR mechanics from above.",
+`// ===== undefined reference: declared and called, never defined =====
+// math.h
+int compute(int n);                 // DECLARATION only
+
+// main.cpp
+#include "math.h"
+int main() { return compute(3); }   // compiles fine: declaration is enough
+// ...but NO .cpp ever defines compute()  ->  LINKER:
+//   undefined reference to 'compute(int)'
+// Fix: provide exactly one definition in some .cpp.
+
+// ===== multiple definition: a non-inline body in a header =====
+// util.h  (no guard would also cause trouble, but this is the real ODR sin)
+int twice(int x) { return x + x; }  // DEFINITION sitting in a header (BAD)
+
+// a.cpp:  #include "util.h"          -> defines twice() here
+// b.cpp:  #include "util.h"          -> defines twice() AGAIN
+//   LINKER: multiple definition of 'twice(int)'
+// Fix: mark it 'inline' in the header, or declare in .h and define in one .cpp.`),
+  note(`&#128221;`,`Read the error's vocabulary`,`The words tell you the stage. <b>"undefined reference to X" / "unresolved external symbol X"</b> &#8594; <em>linker</em>, X was used but never defined &#8212; you forgot to define it, forgot to compile/link the <code>.cpp</code> that defines it, or forgot to link a library. <b>"multiple definition of X" / "X already defined"</b> &#8594; <em>linker</em>, X has two definitions &#8212; usually a non-inline body in a header. <b>"X was not declared in this scope" / "expected ';'"</b> &#8594; <em>compiler</em>, a single-TU problem &#8212; a typo, a missing <code>#include</code> of the declaring header, or bad syntax.`),
+  sub("Pitfalls to name before they bite"),
+  pit("Relying on UB because \"it works\"","The cardinal sin. A program that triggers UB and produces the right answer is still wrong &#8212; you're depending on luck the standard never promised. The next optimization level, compiler upgrade, or nearby edit can silently change it. Run sanitizers; if ASan/UBSan flags it, fix it regardless of what the output looked like."),
+  pit("Defining a non-inline function in a header","Put a plain function body in a <code>.h</code> and include it from two TUs, and the linker sees two definitions of the same symbol &#8212; <code>multiple definition</code> at link time, an ODR violation. Either <em>declare</em> in the header and <em>define</em> in one <code>.cpp</code>, or mark the header definition <code>inline</code> (which exists precisely to permit one definition per TU)."),
+  pit("A header with no include guard","Without <code>#ifndef</code>/<code>#define</code> or <code>#pragma once</code>, a header pulled in twice within one TU pastes its types and definitions twice &#8212; a <em>compile</em> error this time (redefinition), before the linker runs. Every header gets a guard, always; it's not optional hygiene."),
+  pit("Assuming UB is portable","Observing a particular result from UB on your compiler/platform proves nothing about any other. UB has no defined outcome, so there's nothing to be portable. Don't reach for the analogy \"it does X on my box, so X is the behavior\" &#8212; with UB there is no behavior to rely on, only the absence of a guarantee."),
+  cx(`UB &#8594; <b>no guarantees at all</b> (debug may differ from release) · build is three stages: <b>preprocess</b> (text) &#8594; <b>compile</b> (per-TU &#8594; object file) &#8594; <b>link</b> (resolve symbols &#8594; executable) · compiler error = <b>one TU</b>, linker error = <b>cross-TU symbol</b>`),
+  idea("Say it like this",`"Undefined behavior means the standard imposes no requirements on the program &#8212; out-of-bounds access, use-after-free, signed overflow, an uninitialized read, a data race. The danger is that the optimizer is allowed to <em>assume</em> UB never happens and optimize on that assumption, so code can pass a debug build and silently break under <code>-O2</code> &#8212; the real 'works on my machine.' I keep it out with sanitizers, <code>-Wall -Werror</code>, and RAII so there's no manual lifetime to get wrong; and I'm careful that 'undefined' is stronger than merely 'unspecified' or 'implementation-defined.' On the build side: the preprocessor pastes includes and expands macros into one translation unit per <code>.cpp</code>; the compiler turns each TU independently into an object file, which is why a call only needs a declaration; the linker then resolves symbols across object files and libraries into the executable. That split is why a compiler error &#8212; a syntax or undeclared-name problem &#8212; is a single-TU issue, while an 'undefined reference' or 'multiple definition' is a cross-TU symbol problem governed by the One Definition Rule, header guards, and linkage."`)
+]},
+{group:"C++ Deep Dives",num:"!",id:"exceptions",color:"#DC2626",title:"Exceptions & Error Handling",badge:"C++ deep dive",blocks:[
+  cue(`Two questions an interviewer reaches for once they know you're a systems person: "what actually happens when you <code>throw</code>?" and "your shop disables exceptions &#8212; so what do you use instead?" This lesson answers both. The mechanism ties straight back to RAII (destructors running during stack unwinding is <em>why</em> cleanup is automatic on the error path), and the alternatives &#8212; error codes, <code>std::optional</code>, <code>std::expected</code> &#8212; are exactly what game, embedded, and HFT codebases reach for. Get this cold and you can hold the whole conversation, including the part where you explain why your team turned exceptions off.`),
+  p(`An exception is C++'s channel for reporting a failure that the current function can't sensibly handle itself, separated from its normal return value. You <code>throw</code> an object at the point the problem is detected; somewhere up the call chain a <code>catch</code> handles it; and everything in between is torn down cleanly on the way. The "torn down cleanly" part is the whole reason the feature is safe to use, and it's the part most people can't explain &#8212; so we'll start there.`),
+  sub("The mechanism: throw, unwind, catch"),
+  p(`When you <code>throw</code>, control does not return to the caller normally. Instead the runtime begins <b>stack unwinding</b>: it walks <em>up</em> the call stack, frame by frame, looking for a <code>try</code> block whose <code>catch</code> can handle the thrown type. As it leaves each frame on the way up, it runs the <b>destructor of every local object</b> in that frame &#8212; in reverse order of construction, exactly as if that scope had ended normally. It keeps popping frames until it finds a matching handler; the handler runs, and execution continues after its <code>try/catch</code>. If it unwinds all the way out of <code>main</code> without finding a handler, <code>std::terminate</code> is called and the program dies.`),
+  svg("exceptions_unwind","A throw deep in <code>decode()</code> unwinds upward. Each frame's local objects &#8212; a file handle, a lock, a buffer &#8212; have their destructors run as that frame is popped, so resources are released even though nobody wrote cleanup code. The search stops at <code>main</code>'s matching <code>catch</code>; with no handler anywhere, the program would <code>std::terminate</code>."),
+  p(`Read that diagram against the RAII lesson and the connection should click. <b>Destructors running during unwinding is the entire reason RAII makes the error path safe.</b> A <code>lock_guard</code> unlocks, an <code>fstream</code> closes, a <code>unique_ptr</code> frees &#8212; not because <code>throw</code> knows about them, but because unwinding runs every local destructor it passes, and those classes put their cleanup in a destructor. You wrote no <code>try</code>, no <code>finally</code>, no <code>delete</code>, and the code is still leak-free when something throws three frames down. That is the payoff RAII promised, viewed from the throwing side.`),
+  sub("Syntax: try, catch, throw"),
+  p(`The shape is small. You wrap the risky region in <code>try</code>, list one or more <code>catch</code> clauses after it, and <code>throw</code> an object from wherever the failure is detected (often deep inside a function the <code>try</code> called). Catch clauses are tried top to bottom; the first one whose type matches wins, so order from most-derived to most-general.`),
+  code(`try {
+    auto cfg = loadConfig(path);        // may throw deep inside
+    apply(cfg);
+}
+catch (const std::out_of_range& e) {    // most specific first
+    log("bad index: ", e.what());
+}
+catch (const std::exception& e) {       // base class: catches the rest
+    log("failed: ", e.what());          // .what() -> a C-string description
+}`),
+  sub("Catch by const reference (not by value)"),
+  p(`Catch by <code>const&amp;</code> &#8212; <code>catch (const std::exception&amp;)</code> &#8212; essentially always. Two reasons, and the second is the one interviewers probe. First, a reference avoids copying the exception object. Second, and more important: catching a polymorphic exception <em>by value</em> <b>slices</b> it. This is the exact object-slicing trap from the Polymorphism lesson: if a function throws a derived <code>FileError</code> and you write <code>catch (std::exception e)</code> by value, the copy keeps only the <code>std::exception</code> base subobject &#8212; the derived part, including any overridden <code>what()</code> and extra fields, is sliced away. Catch by reference and the handler sees the real dynamic type, virtual dispatch intact.`),
+  pit("Catching by value slices the exception","<code>catch (std::exception e)</code> copies the thrown object into a <code>std::exception</code>-shaped slot, discarding everything the derived type added &#8212; same slicing bug as passing a derived object to a by-value base parameter (Polymorphism lesson). You lose the specific type, the custom <code>what()</code> message, and any payload. Always <code>catch (const std::exception&amp;)</code>. The only time you catch by value is the rare <code>catch (...)</code> wildcard, which takes no object at all."),
+  sub("The std::exception hierarchy"),
+  p(`The standard library gives you a ready-made class tree rooted at <code>std::exception</code>, whose one job is a virtual <code>what()</code> returning a description string. Throw types derived from it so a single <code>catch (const std::exception&amp;)</code> can mop up anything, while more specific clauses above it handle particular cases. The everyday branches:`),
+  ul([
+    `<b><code>std::logic_error</code></b> &#8212; a bug in your program's logic that ideally a test would have caught: <code>std::invalid_argument</code>, <code>std::out_of_range</code> (what <code>vector::at()</code> throws), <code>std::length_error</code>.`,
+    `<b><code>std::runtime_error</code></b> &#8212; a failure only detectable at run time, from the environment rather than your logic: <code>std::system_error</code>, and the kind of thing you'd wrap an I/O or network failure in.`,
+    `<b><code>std::bad_alloc</code></b> &#8212; thrown by <code>new</code> when allocation fails; <b><code>std::bad_cast</code></b> from a failed <code>dynamic_cast</code> to a reference.`,
+  ]),
+  p(`Define your own by deriving from one of these and passing a message up to the base, so it slots into the same <code>catch</code> hierarchy: <code>struct ConfigError : std::runtime_error { using std::runtime_error::runtime_error; };</code>. You <em>can</em> throw any type at all &#8212; <code>throw 42;</code> is legal &#8212; but throwing something outside the <code>std::exception</code> tree just means callers can't catch it generically, so don't.`),
+  sub("Rethrow with a bare throw"),
+  p(`Inside a <code>catch</code>, a bare <code>throw;</code> &#8212; no operand &#8212; <b>rethrows the current exception unchanged</b>, preserving its real dynamic type so an outer handler still sees the original. Use it to do something locally (log, release a resource, add context) and then let the failure keep propagating. Writing <code>throw e;</code> instead would re-throw a <em>copy</em> of <code>e</code>, which slices it back down to the static type of <code>e</code> &#8212; the same slicing trap again. So: <code>throw;</code> to pass it along, never <code>throw e;</code>.`),
+  code(`catch (const std::exception& e) {
+    metrics.bump("load_failure");   // do something at this level...
+    throw;                          // ...then rethrow the SAME object, type intact
+    // throw e;                     // WRONG: rethrows a sliced copy
+}`),
+  sub("Exception-safety guarantees: the canonical ladder"),
+  p(`"Is your code exception-safe?" isn't yes/no &#8212; it's a question about <em>which guarantee</em> a given operation provides if it throws partway through. There are four well-known rungs, strongest to weakest, and being able to name them and say which one a function offers is exactly what a senior interview is checking.`),
+  svg("exceptions_ladder","The four guarantees, strongest on top. <b>nothrow</b>: cannot fail. <b>strong</b>: throws &#8594; full rollback, as if never called. <b>basic</b>: no leaks and invariants hold, but state may have moved. <b>none</b>: no promises. Aim as high on the ladder as the operation allows, and document which rung each function sits on."),
+  ul([
+    `<b>nothrow (no-throw).</b> The operation simply cannot throw &#8212; it always succeeds. This is what <code>noexcept</code> declares. Swap, destructors, and moving scalars live here, and a lot of machinery (see <code>noexcept</code> below) depends on certain operations being on this rung.`,
+    `<b>strong.</b> All-or-nothing: if it throws, the program's observable state is exactly what it was before the call &#8212; a full rollback. The classic way to get it is <b>copy-and-swap</b>: do the risky work on a <em>copy</em>, and only once that has fully succeeded swap it into place with a <code>noexcept</code> swap. The throw can only happen during the copy, when the original is still untouched.`,
+    `<b>basic.</b> If it throws, nothing leaks and every object is still in a valid, usable state (invariants hold) &#8212; but state <em>may</em> have changed; the operation might be half-applied. This is the realistic default for a lot of mutating code, and it's perfectly respectable.`,
+    `<b>none.</b> No guarantee &#8212; a throw can leak, corrupt invariants, or leave dangling state. This is what raw, RAII-free resource handling gives you, and it's the rung to design away from.`,
+  ]),
+  worked("The strong guarantee via copy-and-swap","setItems wants to be all-or-nothing: if building the new state throws, the object must look exactly as it did before. The trick is to do everything that can throw on a local copy first, then commit with a swap that cannot throw. If transform() throws, fresh is destroyed by its own destructor (basic RAII) and items_ was never touched &#8212; strong guarantee, for free.",
+`class Catalog {
+    std::vector<Item> items_;
+public:
+    void setItems(const std::vector<Raw>& input) {
+        std::vector<Item> fresh;            // work on a COPY / temp
+        fresh.reserve(input.size());
+        for (const auto& r : input)
+            fresh.push_back(transform(r));  // may throw -> items_ still untouched
+
+        items_.swap(fresh);                 // commit: vector::swap is noexcept
+    }                                       // if we threw above, fresh dies cleanly,
+};                                          // and items_ is exactly as it started`),
+  sub("noexcept: declaring a function won't throw"),
+  p(`Mark a function <code>noexcept</code> to promise it never lets an exception escape. It's not just documentation: it's a compile-time fact other code can rely on, and breaking the promise is fatal &#8212; if a <code>noexcept</code> function does throw, the runtime calls <code>std::terminate</code> immediately rather than unwinding. So <code>noexcept</code> is a commitment, used where the operation genuinely can't fail (swap, destructors &#8212; which are implicitly <code>noexcept</code> &#8212; and most moves).`),
+  p(`The concrete payoff is the one from the Move Semantics lesson, now explained from the exception-safety side. When a <code>std::vector</code> grows and reallocates, it must relocate existing elements into the new buffer. It will only <em>move</em> them if their move constructor is <code>noexcept</code>; otherwise it falls back to <em>copying</em>. Why? To preserve its own <b>strong guarantee</b>: if a move threw halfway through relocation, some elements would already be gutted with no way to roll back &#8212; the vector would be wrecked. A <code>noexcept</code> move can't throw, so the vector can relocate by moving safely. A non-<code>noexcept</code> move quietly turns every reallocation into O(n) copies. One keyword, and a whole class of growth got an order of magnitude slower.`),
+  pit("A non-noexcept move constructor silently forces vector to copy","If your type's move constructor isn't <code>noexcept</code>, <code>std::vector</code> can't trust it during reallocation and falls back to copying every element on each grow &#8212; turning cheap O(1)-per-element moves into full O(n) copies, with no error and no warning, just a quiet performance cliff. Mark hand-written move operations <code>noexcept</code>; the Rule-of-Zero path (hold <code>vector</code>/<code>string</code>/<code>unique_ptr</code> members) gets you <code>noexcept</code> moves for free."),
+  sub("RAII is the foundation — that's why there's no finally"),
+  p(`Languages with exceptions but without deterministic destructors need a <code>try/finally</code> (or <code>using</code>, or <code>defer</code>) so you can run cleanup on the way out. <b>C++ has no <code>finally</code>, on purpose</b>, because it doesn't need one: every resource is owned by an object whose destructor frees it, and unwinding runs that destructor for you. Where another language writes <code>try { ... } finally { file.close(); lock.release(); }</code>, idiomatic C++ writes nothing &#8212; the <code>fstream</code> and the <code>lock_guard</code> close and unlock themselves as they leave scope. So in real C++ you write very few <code>try</code> blocks: typically just a handful near the top of the program (or at an API boundary) to report failures, not scattered cleanup blocks at every allocation.`),
+  worked("RAII vs a raw resource on the throw path","The same function twice. The raw version leaks the buffer if process() throws: the delete[] is skipped as the stack unwinds past it. The RAII version can't leak — buf is a local whose destructor runs during unwinding, freeing the buffer no matter how the function exits. Same lesson as the RAII chapter, now framed around the throw: own every resource with an object and the error path takes care of itself.",
+`// LEAKS on the throw path: the resource isn't owned by an RAII object
+void raw(const Input& in) {
+    char* buffer = new char[in.size];
+    process(in, buffer);     // throws -> the delete[] below is never reached
+    delete[] buffer;         // skipped during unwinding -> LEAK
+}
+
+// SAFE on every path: the buffer is owned by a local
+void safe(const Input& in) {
+    std::vector<char> buf(in.size);   // or std::make_unique<char[]>(in.size)
+    process(in, buf.data());          // throws -> buf's dtor runs while unwinding
+}                                     // buffer freed automatically, leak-free`),
+  sub("Why many game / embedded / HFT shops disable exceptions"),
+  p(`Plenty of serious C++ codebases compile with <code>-fno-exceptions</code> and ban <code>throw</code> outright. This isn't ignorance of the feature &#8212; it's a deliberate trade, and being able to articulate it is a strong signal in a systems interview. The reasons cluster:`),
+  ul([
+    `<b>Binary size and tables.</b> Exceptions need unwinding metadata &#8212; per-function tables describing how to destroy locals while unwinding. On a memory-constrained console or microcontroller, that footprint is real budget you'd rather spend elsewhere.`,
+    `<b>Cost and unpredictability of the throw path.</b> The happy path is essentially free, but an actual throw is slow and, worse, its cost is hard to bound. A hard-real-time loop (a frame at 16.6&#8201;ms, an HFT order path measured in nanoseconds) can't tolerate an occasional unwinding spike it can't predict.`,
+    `<b>Toolchain limits.</b> Some console and embedded toolchains have weak, oddly-behaved, or outright unsupported exception support, so the whole studio standardizes on "off" to stay portable across targets.`,
+    `<b>A preference for explicit control flow.</b> These cultures value being able to <em>see</em> every error path in the source. An error code or a returned <code>expected</code> is right there in the call site; a <code>throw</code> three layers down is an invisible exit you have to know about. For code that's audited line by line, explicit wins.`,
+  ]),
+  note(`&#128221;`,`"Exceptions off" doesn't mean "errors ignored"`,`Disabling exceptions is a decision about the <em>mechanism</em> for reporting failure, not about whether you handle failure. RAII still works (destructors still run on normal scope exit and on early <code>return</code>; you just don't get unwinding from a <code>throw</code>). What changes is that fallible operations now report errors <em>in their return value</em>, and callers must check. The next section is the toolkit those shops use instead.`),
+  sub("The alternatives: error codes, optional, expected, variant"),
+  p(`When you can't (or won't) throw, you put the failure in the return value and make the caller deal with it. The modern toolkit, roughly in order of expressiveness:`),
+  ul([
+    `<b>Integer / enum error codes.</b> The C tradition: return <code>0</code>/an <code>enum class Error</code> for success-or-which-failure, and pass the real result out through a pointer/reference parameter. Simple, zero-overhead, universally supported &#8212; but easy to forget to check, and it splits the result from the status.`,
+    `<b><code>std::optional&lt;T&gt;</code>.</b> "A <code>T</code>, or nothing." Perfect when the only failure mode is "no value" and you don't need to say <em>why</em> &#8212; a lookup that may miss, a parse that may not match. Check it like a pointer; <code>*opt</code> / <code>opt.value()</code> to read.`,
+    `<b><code>std::expected&lt;T, E&gt;</code> (C++23).</b> The direct answer to "I need a value <em>or</em> a reason it failed, without exceptions." It holds either a <code>T</code> (success) or an <code>E</code> (your error type). This is the type those codebases were hand-rolling for years; the standard finally blessed it.`,
+    `<b><code>std::variant&lt;A, B, ...&gt;</code>.</b> The general "one of several types" sum type underneath <code>optional</code>/<code>expected</code>; reach for it when the result is genuinely several alternatives, not just value-or-error.`,
+    `<b>Assertions (<code>assert</code> / contracts).</b> For <em>programmer</em> errors &#8212; broken preconditions that should never happen &#8212; an assertion that aborts in debug is the right tool, not an exception. Exceptions are for conditions you expect to handle; a violated invariant is a bug to fix, so fail loud and early.`,
+  ]),
+  worked("The no-exceptions return styles, side by side","Three ways to report 'this parse can fail' without throwing. optional says yes/no; expected says yes-or-here's-why; the error-code form is the C-style baseline. In an exceptions-off codebase, the call site has to inspect the result before using it -- which is exactly the explicit control flow those shops want.",
+`// optional: a value, or nothing (no reason given)
+std::optional<int> parseInt(std::string_view s) {
+    int out;
+    auto [p, ec] = std::from_chars(s.begin(), s.end(), out);
+    if (ec != std::errc{}) return std::nullopt;   // failure -> empty
+    return out;                                    // success -> the value
+}
+
+// expected (C++23): a value, OR a typed error explaining the failure
+std::expected<Config, ConfigError> loadConfig(std::string_view path) {
+    auto text = readFile(path);
+    if (!text) return std::unexpected(ConfigError::NotFound);
+    return parse(*text);                            // returns Config on success
+}
+
+// caller side: inspect, then use -- the error path is visible in the source
+if (auto cfg = loadConfig("game.cfg"))
+    apply(*cfg);
+else
+    handle(cfg.error());                           // we get the ConfigError back`),
+  sub("When exceptions ARE the right tool"),
+  p(`The flip side: when exceptions are <em>on</em>, there are cases they fit better than any return-value scheme. Knowing where they shine keeps your answer balanced instead of dogmatic.`),
+  ul([
+    `<b>Constructors that can fail.</b> A constructor has <em>no return value</em>, so it has no way to signal "I couldn't build a valid object" except to throw. Throwing from a constructor is the idiomatic failure report &#8212; and it's safe, because a partially-constructed object's already-built members are destroyed during unwinding. (The factory-function alternative returns <code>optional</code>/<code>expected</code>, which is what exceptions-off shops do instead.)`,
+    `<b>Genuinely exceptional, rare conditions.</b> Failures that are unexpected and infrequent &#8212; out of memory, a corrupt file, a dropped connection &#8212; are a good fit, because you pay the throw cost only on the rare bad path while keeping the common path clean. Exceptions are a poor fit for failures that happen all the time (a cache miss, a parse that routinely fails) &#8212; that's <code>optional</code>/<code>expected</code> territory.`,
+    `<b>Library / API boundaries.</b> A library that can't know how its callers want to handle errors can throw a typed exception and let each caller catch at whatever level makes sense, rather than threading an error code up through every layer by hand.`,
+  ]),
+  sub("Never throw from a destructor"),
+  p(`The one rule that's close to absolute: <b>a destructor must not let an exception escape</b>. The reason is the unwinding mechanism itself. If a destructor throws <em>while the stack is already unwinding from another exception</em>, the runtime now has two exceptions in flight and no coherent way to proceed &#8212; so it gives up and calls <code>std::terminate</code>. Your process dies, no handler runs. Since destructors run constantly during unwinding, a throwing destructor is a live grenade. If a destructor does something that can fail (flushing a buffer, closing a socket), catch and swallow or log the error inside the destructor &#8212; never let it propagate out. Destructors are implicitly <code>noexcept</code> for exactly this reason.`),
+  pit("Throwing from a destructor calls std::terminate","If a second exception is thrown while one is already unwinding the stack, C++ has no way to handle both and calls <code>std::terminate</code> &#8212; instant, handler-less death. Because destructors fire during unwinding, a destructor that throws is the textbook way to trigger this. Wrap any fallible cleanup inside the destructor in its own <code>try/catch</code> and absorb the error there; a destructor should always exit normally."),
+  cx(`Happy path with exceptions enabled: <b>~zero cost</b> (no overhead until something throws) &#183; the throw + unwind path: <b>slow and hard to bound</b> &#183; error codes / <code>optional</code> / <code>expected</code>: a predictable check on <em>every</em> call &#8212; the trade those who disable exceptions are buying.`),
+  idea("Say it like this",`"<code>throw</code> starts stack unwinding: the runtime walks up the call stack looking for a matching <code>catch</code>, and as it leaves each frame it runs every local's destructor &#8212; which is exactly why RAII makes the error path leak-free and why C++ needs no <code>finally</code>. I catch by <code>const&amp;</code> to avoid slicing the exception, derive my exception types from <code>std::exception</code>, and rethrow with a bare <code>throw;</code> to keep the dynamic type. I think in terms of the safety ladder &#8212; nothrow, strong, basic, none &#8212; and reach for copy-and-swap when I need the strong guarantee. I mark moves and swaps <code>noexcept</code> so <code>std::vector</code> can move instead of copy on reallocation. And I know when <em>not</em> to use them: game and embedded and HFT code often builds with <code>-fno-exceptions</code> for binary size, predictable latency, and explicit control flow, and reports errors with codes, <code>std::optional</code>, or <code>std::expected</code> instead. Exceptions earn their place in constructors, at rare failure points, and at library boundaries &#8212; and you never throw from a destructor, or you get <code>std::terminate</code>."`)
 ]},
 {group:"Beyond Code",num:"▦",id:"sysdesign",color:"#14B8A6",title:"System Design Basics",badge:"Week 10 · intro",blocks:[
   cue(`Even for a mid-level role, you'll often get a lightweight design round: "design a URL shortener," "design a rate limiter." It's not about a perfect answer — it's about structured thinking out loud.`),
