@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The 10-Week C++ Interview Course</title>
+<title>The C++ Interview Course</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -172,14 +172,29 @@
     .pager .pg{max-width:48%}
     .scrim{position:fixed;inset:0;background:rgba(20,16,40,.4);z-index:45;opacity:0;pointer-events:none;transition:opacity .2s}.scrim.show{opacity:1;pointer-events:auto}
   }
+  #probLine{font-size:11px;color:#8f88bd}
+  nav a .chk2{margin-left:auto;flex:0 0 auto;width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(255,255,255,.16);display:grid;place-items:center;transition:all .15s}
+  nav a:hover .chk2{border-color:rgba(255,255,255,.35)}
+  nav a .chk2 svg{width:9px;height:9px;stroke:#fff;stroke-width:3;fill:none;opacity:0;transition:opacity .15s}
+  nav a.done .chk2{background:#16A34A;border-color:#16A34A}
+  nav a.done .chk2 svg{opacity:1}
+  nav a.done .dot{opacity:.85}
+  .lessondone{display:flex;justify-content:center;margin:44px 0 6px}
+  .donebtn{display:inline-flex;align-items:center;gap:12px;font-family:"Inter",sans-serif;font-size:14.5px;font-weight:600;padding:13px 24px;border-radius:13px;border:1.5px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;transition:transform .12s,border-color .15s,color .15s,background .15s;box-shadow:var(--shadow)}
+  .donebtn:hover{border-color:#16A34A;color:#16A34A;transform:translateY(-2px)}
+  .donebtn .box{width:24px;height:24px;border-radius:8px;border:2px solid #cdced9;display:grid;place-items:center;transition:all .15s;flex:0 0 24px}
+  .donebtn .box svg{width:14px;height:14px;stroke:#fff;stroke-width:3.2;fill:none;opacity:0;transition:opacity .15s}
+  .donebtn.done{background:#E7F6ED;border-color:#16A34A;color:#0f7a36}
+  .donebtn.done .box{background:#16A34A;border-color:#16A34A}
+  .donebtn.done .box svg{opacity:1}
 </style>
 </head>
 <body>
 <div class="topbar"><div class="mark">{}</div><b>C++ Course</b><button class="hamb" id="hamb" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button></div>
 <div class="scrim" id="scrim"></div>
 <aside class="sidebar" id="sidebar">
-  <a class="brand" href="#/"><div class="mark">{}</div><div><h1>The 10-Week<br>C++ Interview Course</h1><span>concepts &#8594; patterns, interleaved</span></div></a>
-  <div class="progress"><div class="ring"><svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="4"/><circle id="ringFill" cx="23" cy="23" r="19" fill="none" stroke="#5BE3B3" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="119.4"/></svg><div class="val" id="ringVal">0%</div></div><div class="lbl"><b id="doneCount">0</b> of <b id="totalCount">0</b><br>problems solved</div></div>
+  <a class="brand" href="#/"><div class="mark">{}</div><div><h1>The C++<br>Interview Course</h1><span>concepts &#8594; patterns, interleaved</span></div></a>
+  <div class="progress"><div class="ring"><svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="4"/><circle id="ringFill" cx="23" cy="23" r="19" fill="none" stroke="#5BE3B3" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="119.4"/></svg><div class="val" id="ringVal">0%</div></div><div class="lbl"><b id="doneCount">0</b> of <b id="totalCount">0</b> lessons<br><span id="probLine">0 problems solved</span></div></div>
   <nav id="nav"></nav>
   <div class="side-foot">Each lesson is its own page. Use the sidebar or the Next button at the bottom of every page.</div>
 </aside>
@@ -1519,19 +1534,18 @@ SVG.exceptions_ladder=`<svg viewBox="0 0 620 320" role="img" aria-label="The exc
 <text x="310" y="304" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">pick the strongest rung you can afford; document which one each function offers</text>
 <defs><marker id="exl" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#5B5BD6"/></marker></defs></svg>`;
 const plan=[
-  ["Week 1","Foundations · Big-O · Pointers","how"],
-  ["Week 2","Arrays · Two Pointers · Windows","arrays"],
-  ["Week 3","Stack · Binary Search · RAII · Moves","stack"],
-  ["Week 4–5","Lists · Trees · Tries","linked"],
-  ["Week 6–7","Heaps · Backtracking · Graphs","heaps"],
-  ["Week 8–9","DP · Intervals","dp"],
-  ["Week 10","System design · Behavioral","sysdesign"],
+  ["Foundations","Big-O · Pointers · Memory · Syntax","bigo"],
+  ["Core Patterns","Arrays · Two Pointers · Sliding Window","arrays"],
+  ["Data Structures","Lists · Trees · Tries · Heaps","linked"],
+  ["Algorithms","Backtracking · Graphs · DP · Intervals","backtrack"],
+  ["C++ Deep Dives","OOP · Concurrency · Templates · STL","polymorphism"],
+  ["Beyond Code","System Design · Behavioral","sysdesign"],
 ];
 const p=h=>({t:"p",h}),sub=t=>({t:"h",t2:t}),ul=items=>({t:"ul",items}),code=c=>({t:"code",c});
 const note=(ic,title,h)=>({t:"note",ic,title,h}),idea=(title,h)=>({t:"idea",title,h}),pit=(title,h)=>({t:"pit",title,h});
 const svg=(key,cap)=>({t:"svg",key,cap}),worked=(title,exp,c)=>({t:"worked",title,exp,c}),cue=h=>({t:"cue",h}),cx=h=>({t:"cx",h});
 const course=[
-{group:"Orientation",num:"·",id:"how",color:"#6366F1",title:"How interviews actually work",blocks:[
+{group:"Start Here",num:"·",id:"how",color:"#6366F1",title:"How interviews actually work",blocks:[
   p(`A coding interview is not a test of how much computer science you remember. It's a 35-minute window where someone watches you take a vague problem, ask the right questions, pick an approach, write working code, and reason about whether it's correct and efficient — all while talking. The code is maybe half the score. The rest is the thinking they can hear.`),
   p(`That's good news for you. You ship real C++ in a game engine; you already debug, reason about performance, and write code under pressure. What's rusty is the narrow, artificial skill of mapping a word problem to one of a dozen reusable patterns and coding it cleanly on the spot. That skill is fully learnable, and it's exactly what this course drills.`),
   sub("The loop to run on every problem"),
@@ -1544,10 +1558,10 @@ const course=[
   ]),
   idea("The one habit that matters most","Think before you type, and say what you're thinking. Interviewers can't grade silent brilliance — they grade the reasoning you externalize. Treat every problem as a conversation, not a quiz."),
   sub("How this course is built"),
-  p(`Ten weeks, concepts and patterns interleaved. The order is deliberate: you'll learn a C++ idea, then immediately hit the patterns that use it. Pointers come <em>before</em> Two Pointers and linked lists; memory and ownership come <em>before</em> the data structures that lean on them. Don't skip the foundations — Big-O and the memory model are the lens you'll view every later problem through.`),
+  p(`Concepts and patterns are interleaved, in a deliberate order: you'll learn a C++ idea, then immediately hit the patterns that use it. Pointers come <em>before</em> Two Pointers and linked lists; memory and ownership come <em>before</em> the data structures that lean on them. Don't skip the foundations — Big-O and the memory model are the lens you'll view every later problem through.`),
   p(`Each lesson is its own page. Move with the sidebar, or the Previous / Next buttons at the bottom of every page. For each pattern, read the lesson, do the Easy to feel the shape, the Medium to make it stick, and the Hard only when the Medium feels routine. Check problems off and watch the ring fill.`),
 ]},
-{group:"Week 1 · Foundations",num:"∞",id:"bigo",color:"#0EA5E9",title:"Big-O & Complexity",badge:"Week 1 · Foundations",blocks:[
+{group:"Foundations",num:"∞",id:"bigo",color:"#0EA5E9",title:"Big-O & Complexity",badge:"Foundations",blocks:[
   cue(`Almost every interview ends with "what's the time and space complexity?" If you can't answer crisply, a correct solution still loses points. Worse, you can't <em>choose</em> between approaches without it. This is the vocabulary the whole field reasons in — and the one tool that tells you, before you run anything, whether a solution will survive a large input.`),
   p(`Big-O describes how the work an algorithm does <em>grows</em> as the input gets bigger. It deliberately ignores constant factors and hardware. We don't care that one machine is twice as fast or that one loop has a few extra instructions; we care about the <em>shape</em> of the growth — whether doubling the input doubles the work (linear), barely changes it (logarithmic), or quadruples it (quadratic). That shape is what decides whether your code finishes in milliseconds or melts on a large input.`),
   sub("What growth actually means"),
@@ -1618,7 +1632,7 @@ for (int i = 1; i < v.size(); i++) // O(n) -- one sweep, sequential
   p(`Recursion trips people up because the work isn't written as visible loops &#8212; it's hidden in the call tree. The trick is to count two things: how many calls happen, and how much each one does. For a single chain of recursion (factorial, walking a linked list recursively), there are n calls each doing O(1), so it's O(n) time and &#8212; this part is easy to forget &#8212; O(n) <em>space</em> for the call stack, because all n frames are live at once.`),
   p(`For branching recursion, sketch the call tree and add up the work per level. The canonical case is divide-and-conquer like merge sort: <code>T(n) = 2&#183;T(n/2) + O(n)</code> &#8212; two half-size subproblems plus O(n) to combine them. Each level of the tree does O(n) total work, and the tree is log&#8322;n levels deep (because halving repeatedly reaches 1 in log&#8322;n steps), so the whole thing is O(n) &#215; log n = O(n log n). You don't need the Master Theorem in an interview; you need to picture the tree.`),
   svg("bigo_rec","The recursion tree for <code>T(n) = 2T(n/2) + O(n)</code>. Each level's boxes sum to n units of work, and halving gives log&#8322;n levels &#8212; so the total is O(n log n). Sketching this tree out loud is exactly how you'd justify merge sort's complexity in the room."),
-  note("&#128161;","Exponential recursion has a recurrence too",`Naive recursive Fibonacci is <code>T(n) = T(n-1) + T(n-2) + O(1)</code> &#8212; the tree branches in two and barely shrinks, giving roughly O(2&#8319;). Recognizing that this recurrence is exponential (and that memoizing collapses it to O(n)) is a textbook dynamic-programming setup you'll meet again in Week 8.`),
+  note("&#128161;","Exponential recursion has a recurrence too",`Naive recursive Fibonacci is <code>T(n) = T(n-1) + T(n-2) + O(1)</code> &#8212; the tree branches in two and barely shrinks, giving roughly O(2&#8319;). Recognizing that this recurrence is exponential (and that memoizing collapses it to O(n)) is a textbook dynamic-programming setup you'll meet again in the Dynamic Programming lesson.`),
   sub("Don't forget space"),
   p(`Space complexity counts the <em>extra</em> memory you allocate as input grows &#8212; not the input itself. A hash map holding up to n entries is O(n) space. A few scalar variables are O(1), no matter how big n is. And the one people forget: <b>recursion costs O(depth) for the call stack</b>. A balanced tree recursion is O(log n) deep; a linked-list or skewed-tree recursion is O(n) deep and can literally blow the stack on a large input. Always account for the stack as part of your space answer.`),
   p(`Interviewers love the time-vs-space trade, so be ready to name it. Two Sum goes from O(n&#178;) time / O(1) space to O(n) time / O(n) space by spending memory on a hash map to buy speed. "I can make this faster by using O(n) extra space for a map" is exactly the sentence that shows you're reasoning about both axes on purpose, not by accident.`),
@@ -1645,7 +1659,7 @@ for (int i = 0; i < n; i++)
   note("&#10067;","The Big-O questions you'll actually be asked",`Have one-liners ready for the classics: <b>"What's the complexity of <code>push_back</code>?"</b> &#8212; amortized O(1), because the buffer doubles. <b>"Of looking up in an <code>unordered_map</code>?"</b> &#8212; O(1) average, O(n) worst on collisions. <b>"Of <code>std::sort</code>?"</b> &#8212; O(n log n). <b>"Of inserting into a <code>map</code> (red-black tree)?"</b> &#8212; O(log n). <b>"Can you do better than O(n&#178;)?"</b> &#8212; almost always the cue to reach for a hash map, two pointers, or sorting first.`),
   cx(`On sight: <b>O(1)</b> &#8226; <b>O(log n)</b> &#8226; <b>O(n)</b> &#8226; <b>O(n log n)</b> &#8226; <b>O(n&#178;)</b> &#8226; <b>O(2&#8319;)</b> &#8212; nested multiplies, sequential adds, keep the leader`)
 ]},
-{group:"Week 1 · Foundations",num:"→*",id:"pointers",color:"#5B5BD6",title:"Pointers & Memory",badge:"Week 1 · C++ deep dive",blocks:[
+{group:"Foundations",num:"→*",id:"pointers",color:"#5B5BD6",title:"Pointers & Memory",badge:"C++ deep dive",blocks:[
   cue(`Pointers feel like the scary part of C++. They're not &#8212; a pointer is just a variable that stores a memory address. You need them for linked lists and trees, they're the foundation under references and smart pointers, and they're what makes "Two Pointers" click. We do this <em>before</em> all of that on purpose, and we go deep: by the end you should be able to whiteboard pointer arithmetic, <code>const</code> placement, and use-after-free without flinching.`),
   sub("The mental model: memory is a giant array of cells"),
   p(`Picture your program's memory as one enormous array of byte-sized cells, each with a numeric index called its <em>address</em>. Every variable you declare is just a named region of those cells. When you write <code>int x = 42;</code>, the compiler reserves four consecutive bytes somewhere, labels that location <code>x</code>, and writes <code>42</code> into it. Normally you refer to <code>x</code> by name and never think about the address. A pointer flips that around: it's a variable whose <em>value is an address</em> &#8212; it doesn't hold <code>42</code>, it holds "the location where the 42 lives."`),
@@ -1791,13 +1805,13 @@ int sumList(ListNode* head) {
     `<b>"What's the difference between a pointer and a reference?"</b> &#8212; the null/reseat/binding answer above. Have it crisp; it's almost a guaranteed warm-up.`,
     `<b>Read or write a <code>const</code> pointer declaration.</b> "What can I change here?" Right-to-left parsing gets you the answer every time.`,
     `<b>Spot the bug.</b> Returning the address of a local, using after free, leaking, or the <code>m[key]</code>-style accidental mutation. They want you to <em>see</em> the dangling lifetime.`,
-    `<b>Linked-list and tree traversal.</b> The reseatable-pointer loop with a null guard &#8212; the bread and butter of Weeks 4&#8211;5, and the reason this lesson comes first.`,
+    `<b>Linked-list and tree traversal.</b> The reseatable-pointer loop with a null guard &#8212; the bread and butter of the Linked Lists and Trees lessons, and the reason this lesson comes first.`,
     `<b>"How would you avoid managing this memory by hand?"</b> &#8212; the smart-pointer answer. Saying "I'd use <code>unique_ptr</code> so it frees automatically" signals modern-C++ fluency.`,
   ]),
   idea("The whole model in one picture",`A pointer is an address; <code>&amp;</code> gets an address, <code>*</code> follows one, and each extra <code>*</code> follows one more arrow. Picture variables as boxes sitting at addresses and pointers as arrows between them. Lifetime is the other half: a pointer is only as valid as the thing it points at is alive. Hold both ideas &#8212; indirection and lifetime &#8212; and linked lists, trees, <code>const</code> puzzles, and use-after-free bugs all become things you can see instead of memorize.`),
   cx(`Dereference / pointer arithmetic <b>O(1)</b> &#8212; pointers are about indirection and lifetime, not asymptotic cost`)
 ]},
-{group:"Week 1 · Foundations",num:"=",id:"mental",color:"#8B5CF6",title:"Value vs Reference Semantics",badge:"Week 1 · C++ deep dive",blocks:[
+{group:"Foundations",num:"=",id:"mental",color:"#8B5CF6",title:"Value vs Reference Semantics",badge:"C++ deep dive",blocks:[
   cue(`The previous lesson covered pointers &#8212; indirection and addresses. This one covers the other half of the C++ mental model: <em>copying</em>. Knowing exactly when C++ duplicates your data is what stops the language from surprising you, stops you from writing accidental O(n) work, and gives you a vocabulary interviewers listen for. Get this one habit right and half of "is your C++ idiomatic?" is already answered.`),
   p(`Unlike Python or JavaScript, C++ variables hold <em>values</em>, not references, by default. In Python, <code>b = a</code> just makes <code>b</code> a second name for the same list; mutating through one is visible through the other. In C++, <code>b = a</code> for a vector makes <code>b</code> a full, independent copy &#8212; a brand-new array with every element duplicated. Change <code>b</code> and <code>a</code> is untouched. That single difference is the root of nearly every "why didn't my change show up?" and every "why is this so slow?" surprise a Python-trained engineer hits in C++.`),
   sub("What a copy actually is"),
@@ -1880,11 +1894,11 @@ for (auto& [key, val] : m)   // alias each entry -> can modify val in place
   pit("Interview-day reflex",`If you catch yourself passing a <code>vector</code>, <code>string</code>, or any container into a function, pause: should that be <code>const&amp;</code>? Nine times out of ten, yes. And if you're looping over non-trivial elements, should it be <code>const auto&amp;</code> or <code>auto&amp;</code> instead of a plain copy? Saying these unprompted is a small thing that signals real C++ fluency &#8212; the kind that separates "wrote correct code" from "wrote the code we'd want shipped."`),
   cx(`Copying a container is <b>O(n)</b> · a reference or pointer is <b>O(1)</b> · return-by-value is <b>O(1)</b> via RVO/move`)
 ]},
-{group:"Week 1 · Foundations",num:"00",id:"syntax",color:"#6366F1",title:"The Syntax You Actually Need",badge:"Reference · keep open",blocks:[
+{group:"Foundations",num:"00",id:"syntax",color:"#6366F1",title:"The Syntax You Actually Need",badge:"Reference · keep open",blocks:[
   cue(`Open any problem and the language should feel invisible. If you can declare a vector, loop it, use a hash map, and reach for the right &lt;algorithm&gt; call, you can write 90% of interview solutions. Skim this, then keep it open while you solve.`),
   {t:"primer"}
 ]},
-{group:"Week 2 · Core Patterns",num:"01",id:"arrays",color:"#FF5D73",title:"Arrays & Hashing",badge:"Week 2 · Pattern",blocks:[
+{group:"Core Patterns",num:"01",id:"arrays",color:"#FF5D73",title:"Arrays & Hashing",badge:"Pattern",blocks:[
   cue(`<b>Spot it when:</b> you need fast lookups, counting, or de-duping &#8212; anytime you're about to write a nested loop just to check "have I seen this before?", or you're being asked the same range question over and over.`),
   p(`This is the most foundational pattern in the whole course, because almost everything else is built on top of it. Two skills live here. First, the <em>array</em> itself &#8212; the contiguous block of memory underneath <code>std::vector</code>, and why some operations on it are free while others are secretly O(n). Second, <em>hashing</em> &#8212; replacing a search with a lookup, the single trade that collapses a huge fraction of brute-force O(n&#178;) solutions down to O(n). Master both and you'll recognize the right structure for a problem before you've finished reading it.`),
   sub("The array: a contiguous block of memory"),
@@ -2008,9 +2022,9 @@ grid2[(long long)r * COLS + c] = value;    // pack (r,c) into one key`),
   cx(`Index access <b>O(1)</b> · search via hash <b>O(1)</b> avg, O(n) worst · prefix-sum query <b>O(1)</b> after O(n) build · ordered map/set <b>O(log n)</b> · space <b>O(n)</b>`),
   {t:"probs",items:[["Two Sum","two-sum","easy"],["Group Anagrams","group-anagrams","med"],["First Missing Positive","first-missing-positive","hard"]]}
 ]},
-{group:"Week 2 · Core Patterns",num:"02",id:"twopointers",color:"#FF8A3D",title:"Two Pointers",badge:"Week 2 · Pattern",demo:"twoPointers",blocks:[
+{group:"Core Patterns",num:"02",id:"twopointers",color:"#FF8A3D",title:"Two Pointers",badge:"Pattern",demo:"twoPointers",blocks:[
   cue(`<b>Spot it when:</b> the array is <em>sorted</em>, you're comparing or shrinking from both ends (pair/triplet sums, palindromes), you're walking a linked list at two speeds (midpoint, cycle), or you're compacting/partitioning a sequence in place. The tell is "I'm about to write a nested loop over the same array" — two pointers usually flattens it to one pass.`),
-  note("🔗","A quick naming note",`"Two pointers" here usually means two <em>indices</em> (<code>int left, right</code>) walking an array — not raw pointers in the C++ sense. The exception is the fast/slow version on linked lists, where they're literal <code>ListNode*</code> pointers. Either way, the pointer mental model from Week 1 — a name that refers to a position in memory — is what makes this intuitive.`),
+  note("🔗","A quick naming note",`"Two pointers" here usually means two <em>indices</em> (<code>int left, right</code>) walking an array — not raw pointers in the C++ sense. The exception is the fast/slow version on linked lists, where they're literal <code>ListNode*</code> pointers. Either way, the pointer mental model from the Pointers lesson — a name that refers to a position in memory — is what makes this intuitive.`),
   p(`Two pointers replaces a nested loop with two positions that move through a sequence intelligently. Instead of testing all O(n²) pairs, you place the pointers somewhere sensible — both ends, or both at the start — and advance them based on what you observe, so each pointer crosses the data at most once. The payoff is a single O(n) sweep with O(1) extra space, which is frequently the optimal answer interviewers are fishing for. There are three sub-patterns worth knowing cold; the rest of this lesson takes them one at a time.`),
   ul([
     `<b>Converging.</b> Two pointers start at opposite ends and walk toward each other. The workhorse for sorted-array pair/triplet sums, palindromes, and container/water problems.`,
@@ -2134,7 +2148,7 @@ grid2[(long long)r * COLS + c] = value;    // pack (r,c) into one key`),
   note("🔗","Saying it in the interview",`Name the flavor as you spot it: “it's sorted and I need a pair, so converging pointers — O(n), no extra space.” Then state the elimination reason (“the array's sorted, so a too-small sum means left can't pair with anything, advance it”). Naming the pattern <em>and</em> justifying the move is what reads as senior — far more than just producing the code.`),
   {t:"probs",items:[["Valid Palindrome","valid-palindrome","easy"],["3Sum","3sum","med"],["Trapping Rain Water","trapping-rain-water","hard"]]}
 ]},
-{group:"Week 2 · Core Patterns",num:"03",id:"sliding",color:"#FFC53D",title:"Sliding Window",badge:"Week 2 · Pattern",demo:"slidingWindow",blocks:[
+{group:"Core Patterns",num:"03",id:"sliding",color:"#FFC53D",title:"Sliding Window",badge:"Pattern",demo:"slidingWindow",blocks:[
   cue(`<b>Spot it when:</b> you want the "longest / shortest / best" <em>contiguous</em> subarray or substring that satisfies some condition — anything phrased as "a run of consecutive elements such that&hellip;".`),
   p(`A sliding window maintains a contiguous range — a <em>window</em> — defined by a <code>left</code> and a <code>right</code> index, and slides it across the input. The whole pattern is one invariant: <b>the window <code>[left, right]</code> is the current candidate, and you keep it correct by updating it incrementally rather than recomputing from scratch.</b> When you extend the window by one on the right, you fold in one element's contribution; when you shrink from the left, you remove one. You never re-scan the interior. That single discipline is what turns an O(n&#178;) "check every subarray" brute force into a single O(n) pass.`),
   p(`Here is the brute force the window replaces. For every start index, you walk forward over every end index and inspect the run between them — two nested loops, O(n&#178;), and often an O(n) cost inside to re-sum or re-check the run, pushing it toward O(n&#179;). The window keeps the <em>work you already did</em> around in a couple of running variables (a sum, a count, a frequency map) so each new position costs O(1) amortized. You are trading a recomputation for a small amount of bookkeeping.`),
@@ -2234,7 +2248,7 @@ int lengthOfLongest(const string& s) {
   cx(`Time <b>O(n)</b> — each index enters and leaves the window at most once · space <b>O(k)</b> for the window's contents (set or frequency map), O(1) when a running sum is all you keep.`),
   {t:"probs",items:[["Best Time to Buy & Sell Stock","best-time-to-buy-and-sell-stock","easy"],["Longest Substring w/o Repeating","longest-substring-without-repeating-characters","med"],["Minimum Window Substring","minimum-window-substring","hard"]]}
 ]},
-{group:"Week 3 · Patterns + C++",num:"04",id:"stack",color:"#2DD4A7",title:"Stack",badge:"Week 3 · Pattern",blocks:[
+{group:"Patterns & C++ Essentials",num:"04",id:"stack",color:"#2DD4A7",title:"Stack",badge:"Pattern",blocks:[
   cue(`<b>Spot it when:</b> you're matching pairs (brackets, tags), evaluating an expression, finding the "next greater / smaller element," or undoing in reverse order. The tell is always the same: <em>the thing you care about is the most recent unresolved item behind you</em> &#8212; the last open bracket, the previous taller bar, the operator you haven't applied yet.`),
   p(`A stack is a last-in, first-out (LIFO) container: you push items on top and pop them off the top, and you only ever touch the top. Both operations are O(1). That single constraint &#8212; no reaching into the middle &#8212; is exactly what makes a stack the right tool whenever the relevant item is the <em>closest unresolved thing</em>, not the oldest. You'll reach for it more in interviews than its plainness suggests.`),
   svg("stack","You only ever interact with the top of the stack. That constraint is the feature: it perfectly models dealing with the most recent thing first."),
@@ -2364,7 +2378,7 @@ public:
   cx(`Push / pop / top all <b>O(1)</b> &#183; a full stack pass (bracket, monotonic, RPN) is <b>O(n)</b> time, <b>O(n)</b> space`),
   {t:"probs",items:[["Valid Parentheses","valid-parentheses","easy"],["Daily Temperatures","daily-temperatures","med"],["Largest Rectangle in Histogram","largest-rectangle-in-histogram","hard"]]}
 ]},
-{group:"Week 3 · Patterns + C++",num:"05",id:"binsearch",color:"#14B8A6",title:"Binary Search",badge:"Week 3 · Pattern",blocks:[
+{group:"Patterns & C++ Essentials",num:"05",id:"binsearch",color:"#14B8A6",title:"Binary Search",badge:"Pattern",blocks:[
   cue(`<b>Spot it when:</b> the input is <em>sorted</em> (find a value, an insertion point, the first/last occurrence) &#8212; or, the bigger superpower, when you can rephrase the question as <em>"the smallest x where some yes/no test flips to true."</em> If a candidate answer X works and every larger X works too (or vice versa), you can binary-search the answer itself.`),
   p(`Binary search finds a target in a sorted array by repeatedly halving the search space. You look at the middle element: if it's the target, you're done; if the target is smaller, the answer must be in the left half, so you discard the right; if larger, you discard the left. Each comparison throws away half of what remains, so you reach the answer in <code>O(log n)</code> steps. That logarithm is the whole appeal: for a million elements it's about 20 comparisons, for a billion about 30. Doubling the input adds <em>one</em> step.`),
   svg("binsearch","Each round throws away half the remaining range. Logarithmic growth means even enormous arrays resolve in a couple dozen steps."),
@@ -2482,7 +2496,7 @@ int lastOccurrence(const vector<int>& nums, int target) {
   cx(`Array search <b>O(log n)</b> time, <b>O(1)</b> space &#183; search-the-answer <b>O(n &#183; log(range))</b> time (one <code>O(n)</code> feasibility check per halving)`),
   {t:"probs",items:[["Binary Search","binary-search","easy"],["Search in Rotated Sorted Array","search-in-rotated-sorted-array","med"],["Median of Two Sorted Arrays","median-of-two-sorted-arrays","hard"]]}
 ]},
-{group:"Week 3 · Patterns + C++",num:"⚛",id:"raii",color:"#A855F7",title:"RAII & Smart Pointers",badge:"Week 3 · C++ deep dive",blocks:[
+{group:"Patterns & C++ Essentials",num:"⚛",id:"raii",color:"#A855F7",title:"RAII & Smart Pointers",badge:"C++ deep dive",blocks:[
   cue(`Two of the most reliable C++ interview questions: "What's RAII?" and "When do you use <code>unique_ptr</code> vs <code>shared_ptr</code>?" This picks up exactly where the Pointers lesson left off &#8212; remember the leaks, double-frees, and dangling pointers from raw <code>new</code>/<code>delete</code>? Smart pointers exist to make those bugs impossible, and they do it with one idea: RAII. Get this lesson cold and you can answer the whole family of ownership questions without hesitating.`),
   p(`RAII &#8212; <em>Resource Acquisition Is Initialization</em> &#8212; is arguably the single most important idea in C++, and the worst-named. Ignore the name; here's the idea. You tie a resource's lifetime to an object's lifetime: <b>acquire the resource in a constructor, release it in the destructor.</b> Then you let the language's scope rules do the bookkeeping. Because C++ guarantees a destructor runs the instant an object leaves scope, cleanup stops being something you remember to do and becomes something that <em>can't not happen</em>.`),
   svg("raii","RAII ties cleanup to scope (left): the resource is released the instant the enclosing block ends. Smart pointers (right) apply that same idea to heap memory, with either single (<code>unique_ptr</code>) or reference-counted (<code>shared_ptr</code>) ownership."),
@@ -2644,7 +2658,7 @@ class Clean {
   pit("One object, one control block","Never make a second <code>shared_ptr</code> from a raw pointer you got via <code>.get()</code> &#8212; that creates a second control block and leads to a double-free. And don't mix <code>delete</code>/<code>delete[]</code> by hand on memory a smart pointer owns; let the smart pointer (and <code>unique_ptr&lt;T[]&gt;</code> for arrays) choose the right one."),
   idea("The crisp interview answer",`"RAII ties a resource's lifetime to an object's scope &#8212; acquire in the constructor, release in the destructor &#8212; and because C++ guarantees the destructor runs at scope exit, cleanup is automatic and exception-safe even when the stack unwinds. For ownership I default to <code>unique_ptr</code> (exclusive, move-only, zero overhead), reach for <code>shared_ptr</code> only when ownership is genuinely shared (it carries an atomic refcount and a control block), and use <code>weak_ptr</code> to break reference cycles. I prefer <code>make_unique</code>/<code>make_shared</code> for exception safety and one allocation, and I follow the Rule of Zero &#8212; let members manage themselves so I write no destructor, copy, or move at all." That answer, delivered in order, covers the entire question and its usual follow-ups.`)
 ]},
-{group:"Week 3 · Patterns + C++",num:"➜",id:"moves",color:"#0EA5E9",title:"Move Semantics",badge:"Week 3 · C++ deep dive",blocks:[
+{group:"Patterns & C++ Essentials",num:"➜",id:"moves",color:"#0EA5E9",title:"Move Semantics",badge:"C++ deep dive",blocks:[
   cue(`Your own C++ self-assessment flagged this as the gap: not the concept, the precise vocabulary. This lesson gives you the exact words &#8212; lvalue, rvalue, rvalue reference, move constructor, <code>std::move</code> &#8212; plus the mechanics underneath them, so you can answer cleanly under pressure and write the special members by hand if asked.`),
   p(`The Value-vs-Reference lesson left you with one promise: returning a big vector by value is cheap now, because the compiler either elides the copy or <em>moves</em> the object out. This is the lesson that cashes that promise. Move semantics are how modern C++ transfers a resource instead of duplicating it &#8212; and once the mechanics click, a lot of "why is idiomatic C++ written this way?" answers itself.`),
   sub("The problem move solves"),
@@ -2744,7 +2758,7 @@ names.emplace_back("built-in-place"); // construct the string directly inside th
   p(`Move semantics are the reason modern C++ can return big objects by value with no penalty, why <code>push_back(std::move(x))</code> beats <code>push_back(x)</code> for heavy types, and why "hold RAII members and let the compiler generate the rest" is the idiomatic default. Being able to define lvalue vs rvalue crisply, explain that <code>std::move</code> is only a cast, and name the Rule of Zero / RVO follow-ups signals that you know exactly where the costs live &#8212; which is most of what this question is checking.`),
   idea("Say it like this",`"An lvalue is a named, persistent object; an rvalue is a temporary about to expire. A move steals an rvalue's heap resource instead of copying it &#8212; the move constructor takes the source's pointer and nulls the source, turning an O(n) copy into an O(1) pointer transfer. <code>std::move</code> moves nothing itself; it's a cast that lets me opt a named lvalue into being moved from. The compiler moves automatically when the source is already an rvalue &#8212; returning a local, passing a temporary &#8212; and often elides even that via RVO. In my own code I aim for the Rule of Zero: hold <code>vector</code>, <code>string</code>, and <code>unique_ptr</code> members so the correct copy, move, and destructor are all generated for free."`)
 ]},
-{group:"Week 4+ · More Patterns",num:"06",id:"linked",color:"#38BDF8",title:"Linked Lists",badge:"Week 4 · Pattern",blocks:[
+{group:"Data Structures & Algorithms",num:"06",id:"linked",color:"#38BDF8",title:"Linked Lists",badge:"Pattern",blocks:[
   cue(`<b>Spot it when:</b> the data is a chain of nodes joined by <code>next</code> pointers — reversing it, detecting or locating a cycle, finding the midpoint, merging two ordered lists, or reordering nodes without copying their values.`),
   p(`This is the lesson the Pointers &amp; Memory chapter was setting up. A linked list is nothing but the pointer mental model made into a data structure: each node holds a value and a <code>next</code> pointer to the following node, and the list <em>is</em> that chain. There's no contiguous block, no index — to reach the fifth node you follow four arrows. Almost every linked-list problem reduces to <em>rewiring those arrows correctly</em>, and the only reliable way to get the rewiring right is to draw the nodes and arrows on paper and move them one step at a time. Nobody — including the interviewer — tracks four <code>ListNode*</code> in their head. Sketching is expected; it's a signal you think in pointers, not a crutch.`),
   sub("The node, and why a list is just pointers"),
@@ -2847,7 +2861,7 @@ names.emplace_back("built-in-place"); // construct the string directly inside th
   cx(`Time <b>O(n)</b> — every technique here is a single pass (cycle-start is two passes, still linear). Space <b>O(1)</b> — a fixed handful of pointers, no auxiliary structure. That O(1) space is usually the whole point of the question.`),
   {t:"probs",items:[["Reverse Linked List","reverse-linked-list","easy"],["Add Two Numbers","add-two-numbers","med"],["Merge k Sorted Lists","merge-k-sorted-lists","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"07",id:"trees",color:"#8B5CF6",title:"Trees",badge:"Week 4 · Pattern",blocks:[
+{group:"Data Structures & Algorithms",num:"07",id:"trees",color:"#8B5CF6",title:"Trees",badge:"Pattern",blocks:[
   cue(`<b>Spot it when:</b> the data is hierarchical &#8212; a node with up-to-two children, "find/insert/validate in a BST," "max depth / diameter," "level order," or anything phrased as "for each node, combine the answers from its subtrees." If you can picture recursing on <code>left</code> and <code>right</code>, it's a tree problem.`),
   p(`Here is the liberating truth about tree problems: almost all of them are one of two traversals wearing a costume. Either you go <em>deep</em> first (DFS &#8212; plain recursion) or you go <em>wide</em> first (BFS &#8212; a queue, one level at a time). Once you've decided which, the structure of the tree does most of your bookkeeping for you and the code nearly writes itself. The hard part of "trees" isn't the algorithm &#8212; it's recognizing that the recursion you already know how to write <em>is</em> the algorithm.`),
   sub("The node, and the one struct you'll see everywhere"),
@@ -2949,7 +2963,7 @@ bool isValidBST(TreeNode* root) {
   cx(`Traversal (DFS or BFS): <b>O(n)</b> time. DFS space <b>O(h)</b> &#183; BST search/insert <b>O(h)</b> &#8212; <b>O(log n)</b> balanced, <b>O(n)</b> skewed.`),
   {t:"probs",items:[["Invert Binary Tree","invert-binary-tree","easy"],["Validate BST","validate-binary-search-tree","med"],["Serialize & Deserialize Tree","serialize-and-deserialize-binary-tree","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"08",id:"tries",color:"#A855F7",title:"Tries",badge:"Week 5 · Pattern",blocks:[
+{group:"Data Structures & Algorithms",num:"08",id:"tries",color:"#A855F7",title:"Tries",badge:"Pattern",blocks:[
   cue(`<b>Spot it when:</b> prefix lookups, autocomplete, a spell-checker, or scanning a big dictionary of words fast &#8212; especially the tell-tale phrase <em>"starts with."</em> If a hash set of whole words could answer "is this an exact word?" but can't answer "how many words begin with <code>ca</code>?", you want a trie.`),
   p(`A trie &#8212; a <em>prefix tree</em> &#8212; is a tree where each <em>edge</em> is a single character, so the path from the root down to a node spells out a prefix. Words that share a prefix share that path: <code>cat</code>, <code>car</code>, and <code>card</code> all walk the same <code>c &#8594; a</code> steps before diverging. Nothing is stored at a node except its outgoing edges and a single boolean &#8212; the letters live on the edges, not in the nodes.`),
   svg("tries_tree","Four words in one trie. The shared 'ca' path is walked once and reused by cat, car, and card. Green nodes have isEnd=true: a complete word ends there. Notice 'car' is a real word even though the path continues on to 'card'."),
@@ -3054,7 +3068,7 @@ public:
   cx(`insert / search / startsWith all <b>O(L)</b> in the query length (independent of word count) &#183; space <b>O(total characters &#215; alphabet)</b> &#8212; up to 26 child slots per node`),
   {t:"probs",items:[["Implement Trie","implement-trie-prefix-tree","med"],["Add & Search Word","design-add-and-search-words-data-structure","med"],["Word Search II","word-search-ii","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"09",id:"heaps",color:"#EC4899",title:"Heaps / Priority Queue",badge:"Week 6 · Pattern",blocks:[
+{group:"Data Structures & Algorithms",num:"09",id:"heaps",color:"#EC4899",title:"Heaps / Priority Queue",badge:"Pattern",blocks:[
   cue(`<b>Spot it when:</b> you need the <em>top K</em> of something, the <em>K-th largest / smallest</em>, a <em>streaming median</em>, or you keep reaching for "give me the current min/max, then the next one, then the next." The tell is a <em>partial</em> order: you never need the whole thing sorted, only the extreme element &#8212; over and over, often as data streams in.`),
   p(`A heap is the data structure for "I only care about the most extreme element, repeatedly." It gives you the min (or the max) in O(1), and lets you remove it or insert a new value in O(log n). That's strictly cheaper than keeping the whole collection sorted, and the saving is the entire point: sorting buys you a <em>total</em> order you usually don't need. A heap buys you just enough order to know what's on top &#8212; and nothing more.`),
   p(`Concretely, a binary heap is a <em>complete</em> binary tree (every level full except possibly the last, which fills left to right) obeying the <em>heap property</em>: in a <b>min-heap</b> every parent is &#8804; its children, so the global minimum sits at the root; in a <b>max-heap</b> every parent is &#8805; its children, so the maximum is at the root. Note what the property does <em>not</em> say: siblings are unordered, and a node deep on the left can be larger than a node shallow on the right. The order is purely vertical, parent-to-child. That looseness is exactly why a heap is cheap to maintain.`),
@@ -3191,7 +3205,7 @@ public:
   cx(`<code>top</code> <b>O(1)</b> &#183; <code>push</code> / <code>pop</code> <b>O(log n)</b> &#183; build-from-array (heapify) <b>O(n)</b> &#183; top-K with a size-K heap <b>O(n log K)</b> time, <b>O(K)</b> space`),
   {t:"probs",items:[["Kth Largest in a Stream","kth-largest-element-in-a-stream","easy"],["K Closest Points to Origin","k-closest-points-to-origin","med"],["Find Median from Data Stream","find-median-from-data-stream","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"10",id:"backtrack",color:"#F43F5E",title:"Backtracking",badge:"Week 6 · Pattern",blocks:[
+{group:"Data Structures & Algorithms",num:"10",id:"backtrack",color:"#F43F5E",title:"Backtracking",badge:"Pattern",blocks:[
   cue(`<b>Spot it when:</b> the problem says <em>"generate all"</em> &#8212; all subsets, all combinations, all permutations &#8212; or <em>"find every way to do X,"</em> or <em>"is there any arrangement that satisfies these constraints?"</em> (N-Queens, sudoku, word search). The tell is that you can't compute the answer with a formula or a single pass; you have to actually <em>try possibilities</em>, and each choice opens up a fresh set of follow-on choices.`),
   p(`Backtracking is a <em>guided exhaustive search</em>. You build a solution one choice at a time; after each choice you recurse to extend it further; and when a branch is exhausted you <b>undo the last choice</b> and try the next option. That undo is the move that gives the pattern its name &#8212; you walk forward into a partial solution, hit a dead end or a complete answer, then back up exactly one step and take a different fork. It is brute force with a brain: you still explore the whole space in principle, but you abandon hopeless branches the moment you can prove they're hopeless.`),
   p(`If you ship real C++ you already have the mental model, you just call it something else: it's depth-first search with explicit state that you mutate on the way down and restore on the way up &#8212; the same shape as a transform stack you push before recursing into a scene node and pop afterward. Backtracking is DFS over a tree of <em>decisions</em>, and the &#8220;pop&#8221; is non-negotiable for the same reason it is in a render traversal: leave it out and one branch's state bleeds into its siblings.`),
@@ -3317,7 +3331,7 @@ for (int i = start; i < nums.size(); i++) {
   cx(`Time is <b>exponential</b> by nature &#8212; <b>O(2&#8319; &#183; n)</b> for subsets, <b>O(n! &#183; n)</b> for permutations (the &#215;n is copying each finished path) &#8212; because the output itself is that large. Recursion depth and the shared path make space <b>O(n)</b> beyond the results. Pruning doesn't change the worst-case asymptotics; it's what makes the <em>typical</em> case finish, by deleting whole subtrees the bound can't change.`),
   {t:"probs",items:[["Subsets","subsets","med"],["Combination Sum","combination-sum","med"],["N-Queens","n-queens","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"11",id:"graphs",color:"#0EA5E9",title:"Graphs",badge:"Week 7 · Pattern",blocks:[
+{group:"Data Structures & Algorithms",num:"11",id:"graphs",color:"#0EA5E9",title:"Graphs",badge:"Pattern",blocks:[
 cue(`<b>Spot it when:</b> the input is a network of things connected to other things &#8212; cities and roads, people and friendships, web pages and links, course prerequisites &#8212; or a grid where cells touch their neighbors. The giveaway words are <em>connected</em>, <em>reachable</em>, <em>shortest</em>, <em>cycle</em>, <em>component</em>, and <em>"do X before Y."</em> The moment a problem is about <em>relationships between items</em> rather than the items in a line, you're in graph territory.`),
 p(`A graph is the most general data structure there is: just <b>nodes</b> (also called vertices) and <b>edges</b> that connect pairs of them. Trees and linked lists are graphs with extra rules; an array of "who's next to whom" is a graph. Almost every graph interview problem reduces to the same two-step recipe &#8212; <em>pick a representation, then run a traversal</em> &#8212; so once those two moves are reflexive, the whole category gets a lot less scary.`),
 p(`Three properties describe any graph, and naming them early in an interview shows you know what you're looking at. <b>Directed vs undirected:</b> does an edge go both ways (friendship) or just one (a one-way street, a "follows" relationship)? <b>Weighted vs unweighted:</b> does each edge carry a cost &#8212; a distance, a time, a price &#8212; or is every hop equal? <b>Cyclic vs acyclic:</b> can you follow edges and end up back where you started? These three questions decide which algorithm you reach for; answer them first.`),
@@ -3433,7 +3447,7 @@ idea("The interview framing",`Narrate the recipe out loud: <em>"This is a graph 
 cx(`Both BFS and DFS visit every node once and every edge a constant number of times, so a traversal is <b>O(V + E)</b> time. Space is <b>O(V)</b> for the visited set plus the queue or recursion stack. An adjacency list is <b>O(V + E)</b> space; a matrix is <b>O(V&#178;)</b>.`),
 {t:"probs",items:[["Number of Islands","number-of-islands","med"],["Course Schedule","course-schedule","med"],["Word Ladder","word-ladder","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"12",id:"dp",color:"#84CC16",title:"Dynamic Programming",badge:"Week 8 · Pattern",blocks:[
+{group:"Data Structures & Algorithms",num:"12",id:"dp",color:"#84CC16",title:"Dynamic Programming",badge:"Pattern",blocks:[
   cue(`<b>Spot it when:</b> the question asks for a <em>min / max / longest / count of ways</em>, you make a <em>choice at each step</em> (take it or skip it, this coin or that one), and a brute-force solution would keep recomputing the same smaller problem. That last tell is the real one: if your recursion solves <code>f(3)</code> over and over, you're looking at dynamic programming.`),
   p(`Dynamic programming sounds intimidating and isn't. Strip the name away and it's one idea: <em>solve each smaller subproblem exactly once, remember the answer, and build the big answer out of the small ones.</em> No clever data structure, no trick &#8212; just recursion with a memory. The reason it has a reputation is that the hard part isn't the code (the loop is usually four lines); it's <em>defining the subproblem</em>. Get the definition right and the rest is mechanical. This is the topic most worth slowing down on, because the payoff is recognizing a whole family of problems as the same problem.`),
   sub("The two preconditions: when DP even applies"),
@@ -3560,7 +3574,7 @@ int climbOptimal(int n) {
   cx(`Typically <b>O(n)</b> states for 1D or <b>O(n&#183;m)</b> for 2D, each filled in O(1) (or O(choices)) &#8212; so <b>O(n)</b> / <b>O(n&#183;m)</b> time. Space matches the table, but often drops to <b>O(1)</b> or <b>O(m)</b> with a rolling window.`),
   {t:"probs",items:[["Climbing Stairs","climbing-stairs","easy"],["Coin Change","coin-change","med"],["Edit Distance","edit-distance","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"13",id:"intervals",color:"#F59E0B",title:"Intervals",badge:"Week 8 · Pattern",blocks:[
+{group:"Data Structures & Algorithms",num:"13",id:"intervals",color:"#F59E0B",title:"Intervals",badge:"Pattern",blocks:[
 cue(`<b>Spot it when:</b> the input is a list of <code>[start, end]</code> ranges and the question is about <em>overlap</em> — merge the ones that touch, insert a new range, count how many you must drop, or find how many fit at once (meeting rooms). Any prompt with "intervals," "ranges," "meetings," "appointments," or "[start, end]" pairs is pointing here.`),
 p(`An interval is just a pair: a <code>start</code> and an <code>end</code> bounding a range on a number line — a meeting from 9 to 10, a segment from index 3 to 7. On their own they're trivial. What makes the family its own pattern is that the interesting questions are all about how intervals <em>relate</em>: do two of them collide, can you fuse a cluster into one, how few can you keep so none collide. The brute force is to compare every pair — O(n&#178;) — but almost every interval problem collapses to O(n log n) the moment you do the one move that defines the pattern.`),
 idea("The one move: sort first","Raw intervals arrive in arbitrary order, and arbitrary order hides the structure. <em>Sort them</em> — almost always by <code>start</code>, occasionally by <code>end</code> — and suddenly a single left-to-right sweep can answer the whole question, because once they're ordered you only ever have to compare each interval against the one you're currently holding, never against all the rest. The sort is the algorithm; the sweep after it is bookkeeping."),
@@ -4645,7 +4659,7 @@ else
   cx(`Happy path with exceptions enabled: <b>~zero cost</b> (no overhead until something throws) &#183; the throw + unwind path: <b>slow and hard to bound</b> &#183; error codes / <code>optional</code> / <code>expected</code>: a predictable check on <em>every</em> call &#8212; the trade those who disable exceptions are buying.`),
   idea("Say it like this",`"<code>throw</code> starts stack unwinding: the runtime walks up the call stack looking for a matching <code>catch</code>, and as it leaves each frame it runs every local's destructor &#8212; which is exactly why RAII makes the error path leak-free and why C++ needs no <code>finally</code>. I catch by <code>const&amp;</code> to avoid slicing the exception, derive my exception types from <code>std::exception</code>, and rethrow with a bare <code>throw;</code> to keep the dynamic type. I think in terms of the safety ladder &#8212; nothrow, strong, basic, none &#8212; and reach for copy-and-swap when I need the strong guarantee. I mark moves and swaps <code>noexcept</code> so <code>std::vector</code> can move instead of copy on reallocation. And I know when <em>not</em> to use them: game and embedded and HFT code often builds with <code>-fno-exceptions</code> for binary size, predictable latency, and explicit control flow, and reports errors with codes, <code>std::optional</code>, or <code>std::expected</code> instead. Exceptions earn their place in constructors, at rare failure points, and at library boundaries &#8212; and you never throw from a destructor, or you get <code>std::terminate</code>."`)
 ]},
-{group:"Beyond Code",num:"▦",id:"sysdesign",color:"#14B8A6",title:"System Design Basics",badge:"Week 10 · intro",blocks:[
+{group:"Beyond Code",num:"▦",id:"sysdesign",color:"#14B8A6",title:"System Design Basics",badge:"intro",blocks:[
   cue(`Even for a mid-level role, you'll often get a lightweight design round: "design a URL shortener," "design a rate limiter." It's not about a perfect answer — it's about structured thinking out loud.`),
   p(`System design interviews test whether you can take a fuzzy prompt and reason about building something real: clarify the requirements, sketch the major components, and discuss the trade-offs. There's no single right answer; the interviewer wants to see you ask about scale, identify bottlenecks, and make justified choices. The vocabulary below is what those conversations are built from.`),
   sub("The building blocks to know"),
@@ -4658,7 +4672,7 @@ else
   ]),
   note("📚","Where to go deeper",`This is the on-ramp. For real depth, the standard resources are <em>Grokking the System Design Interview</em> and the <em>System Design Primer</em>. I can expand this into a full lesson with a worked example (designing a URL shortener end to end) on request.`),
 ]},
-{group:"Beyond Code",num:"★",id:"behavioral",color:"#FB923C",title:"Behavioral & STAR",badge:"Week 10 · intro",blocks:[
+{group:"Beyond Code",num:"★",id:"behavioral",color:"#FB923C",title:"Behavioral & STAR",badge:"intro",blocks:[
   cue(`Almost every loop includes a behavioral round, and strong engineers routinely underprepare for it and lose offers there. A little structure goes a very long way.`),
   p(`Behavioral interviews probe how you work: how you handle conflict, ownership, failure, and collaboration. The trap is rambling. The fix is the <strong>STAR</strong> framework — a structure that keeps your answers tight and concrete: <b>Situation</b> (set the scene briefly), <b>Task</b> (your specific responsibility), <b>Action</b> (what <em>you</em> did, the bulk of the answer), and <b>Result</b> (the measurable outcome, ideally with a number).`),
   sub("Prepare these stories in advance"),
@@ -4762,8 +4776,12 @@ const PKEY="cpp-course-progress-v1";
 function loadDone(){try{return new Set(JSON.parse(localStorage.getItem(PKEY)||"[]"));}catch(e){return new Set();}}
 function saveDone(set){try{localStorage.setItem(PKEY,JSON.stringify([...set]));}catch(e){}}
 let doneSet=loadDone();
-const ringFill=document.getElementById("ringFill"),ringVal=document.getElementById("ringVal"),doneC=document.getElementById("doneCount"),totalC=document.getElementById("totalCount"),CIRC=119.4;
-function updateProgress(){const done=allSlugs.filter(s=>doneSet.has(s)).length,total=allSlugs.length,pct=total?done/total:0;ringFill.style.strokeDashoffset=CIRC*(1-pct);ringVal.textContent=Math.round(pct*100)+"%";doneC.textContent=done;totalC.textContent=total;}
+const LKEY="cpp-course-lessons-v1";
+function loadLessons(){try{return new Set(JSON.parse(localStorage.getItem(LKEY)||"[]"));}catch(e){return new Set();}}
+function saveLessons(set){try{localStorage.setItem(LKEY,JSON.stringify([...set]));}catch(e){}}
+let doneLessons=loadLessons();
+const ringFill=document.getElementById("ringFill"),ringVal=document.getElementById("ringVal"),doneC=document.getElementById("doneCount"),totalC=document.getElementById("totalCount"),probLine=document.getElementById("probLine"),CIRC=119.4;
+function updateProgress(){const ld=course.filter(s=>doneLessons.has(s.id)).length,lt=course.length,pct=lt?ld/lt:0;ringFill.style.strokeDashoffset=CIRC*(1-pct);ringVal.textContent=Math.round(pct*100)+"%";doneC.textContent=ld;totalC.textContent=lt;const ps=allSlugs.filter(s=>doneSet.has(s)).length;probLine.textContent=ps+" of "+allSlugs.length+" problems solved";}
 function renderBlocks(blocks,color){
   let h="";
   blocks.forEach(b=>{
@@ -4791,10 +4809,12 @@ function renderBlocks(blocks,color){
   return h;
 }
 let lastGroup="",navHTML=`<a href="#/" data-nav=""><span class="num">&#183;</span> Welcome / Home</a>`;
-course.forEach(s=>{if(s.group!==lastGroup){navHTML+=`<div class="group">${s.group}</div>`;lastGroup=s.group;}navHTML+=`<a href="#/${s.id}" data-nav="${s.id}" style="--ac:${s.color}"><span class="num">${s.num}</span><span class="dot"></span> ${s.title}</a>`;});
+course.forEach(s=>{if(s.group!==lastGroup){navHTML+=`<div class="group">${s.group}</div>`;lastGroup=s.group;}navHTML+=`<a href="#/${s.id}" data-nav="${s.id}" style="--ac:${s.color}"><span class="num">${s.num}</span><span class="dot"></span> <span class="ntitle">${s.title}</span><span class="chk2"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span></a>`;});
 navEl.innerHTML=navHTML;
+function refreshNav(){[...navEl.querySelectorAll("a[data-nav]")].forEach(a=>{const id=a.getAttribute("data-nav");a.classList.toggle("done",!!id&&doneLessons.has(id));});}
+refreshNav();
 function setActive(id){[...navEl.querySelectorAll("a")].forEach(a=>a.classList.toggle("active",a.getAttribute("data-nav")===id));}
-const homeHTML=`<div class="hero"><div class="eyebrow">Welcome</div><h2>Ten weeks to<br><em>interview-ready</em>.</h2><p class="lead">This isn't a problem dump. It's a course: deep written lessons with diagrams, the C++ language topics interviewers probe beyond data structures, and the exact common questions waiting for you on LeetCode. Concepts and patterns are interleaved &mdash; you learn an idea, then immediately use it.</p><p class="lead2">Each lesson is its own page. Move with the sidebar, or the Previous / Next buttons at the bottom of every page. Your solved-problem progress saves automatically on this device.</p><div class="startrow"><a class="btn primary" href="#/how">Start with Lesson 1 &#8594;</a><a class="btn ghost" href="#/syntax">Jump to the syntax primer</a></div><div class="planbar">${plan.map(x=>`<a class="pb" href="#/${x[2]}"><div class="wk">${x[0]}</div><div class="ti">${x[1]}</div></a>`).join("")}</div></div>`;
+const homeHTML=`<div class="hero"><div class="eyebrow">Welcome</div><h2>Everything you need to be<br><em>interview-ready</em>.</h2><p class="lead">This isn't a problem dump. It's a complete course: deep written lessons with diagrams, the C++ language topics interviewers probe beyond data structures, and the exact common questions waiting for you on LeetCode. Concepts and patterns are interleaved &mdash; you learn an idea, then immediately use it.</p><p class="lead2">Each lesson is its own page, grouped by topic in the sidebar. Check off lessons as you finish them and tick problems as you solve them &mdash; the progress ring fills as you go, and everything saves automatically on this device.</p><div class="startrow"><a class="btn primary" href="#/how">Start at the beginning &#8594;</a><a class="btn ghost" href="#/syntax">Jump to the syntax primer</a></div><div class="planbar">${plan.map(x=>`<a class="pb" href="#/${x[2]}"><div class="wk">${x[0]}</div><div class="ti">${x[1]}</div></a>`).join("")}</div></div>`;
 function wirePage(){
   page.querySelectorAll("[data-prob] .chk").forEach(chk=>{
     const slug=chk.getAttribute("data-slug");
@@ -4810,6 +4830,8 @@ function renderLesson(s,i){
   let h=`<div class="lesson-head" style="--accent:${s.color}"><div class="lh-meta"><span class="lh-week">${s.group}</span><span class="lh-count">Lesson ${i+1} of ${N}</span></div><h1 class="lh-title">${s.title}</h1></div>`;
   if(s.badge&&s.badge.indexOf("coming")>=0)h+=`<div class="soonpill">&#9675; Concise lesson &mdash; ask me to expand this one into full depth</div>`;
   h+=`<div class="lesson">${renderBlocks(s.blocks,s.color)}</div>`;
+  const ldone=doneLessons.has(s.id);
+  h+=`<div class="lessondone"><button class="donebtn${ldone?' done':''}" id="lessonDoneBtn"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span id="lessonDoneTxt">${ldone?'Lesson completed':'Mark this lesson complete'}</span></button></div>`;
   const prev=course[i-1],next=course[i+1];
   h+=`<div class="pager">`;
   h+=prev?`<a class="pg" href="#/${prev.id}"><span>&#8592; Previous</span><b>${prev.title}</b></a>`:`<span></span>`;
@@ -4820,6 +4842,8 @@ function renderLesson(s,i){
   setActive(s.id);
   if(s.demo){const slot=page.querySelector("[data-demoslot]");if(slot)slot.id="demo-"+s.demo;}
   initTwoPointers();initSlidingWindow();
+  const ldb=page.querySelector("#lessonDoneBtn");
+  if(ldb)ldb.addEventListener("click",()=>{const on=!doneLessons.has(s.id);if(on)doneLessons.add(s.id);else doneLessons.delete(s.id);saveLessons(doneLessons);ldb.classList.toggle("done",on);const tx=page.querySelector("#lessonDoneTxt");if(tx)tx.textContent=on?"Lesson completed":"Mark this lesson complete";refreshNav();updateProgress();});
   wirePage();updateProgress();window.scrollTo(0,0);
 }
 const sidebar=document.getElementById("sidebar"),hamb=document.getElementById("hamb"),scrim=document.getElementById("scrim");
