@@ -653,6 +653,126 @@ SVG.sliding_grow=`<svg viewBox="0 0 620 250" role="img" aria-label="A dynamic wi
 <rect x="150" y="0" width="50" height="34" fill="#FFF8E6" stroke="#FFC53D"/><text x="175" y="22" text-anchor="middle" fill="#8a6d12">a</text>
 <text x="75" y="52" text-anchor="middle" font-size="10" fill="#5B5BD6">left++</text>
 <text x="320" y="22" font-size="11" fill="#16A34A">drop the old 'a' &#8594; "bca" valid again</text></g></g></svg>`;
+SVG.stack_mono=`<svg viewBox="0 0 620 320" role="img" aria-label="A monotonic stack solving next greater element on temperatures">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">Monotonic stack &#8594; next greater element</text>
+<text x="310" y="46" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#6f6b8c">temps = [73, 74, 75, 71, 76]   (stack holds indices of a decreasing run)</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="40" y="66" width="60" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="70" y="89" text-anchor="middle" fill="#1B1838">73</text>
+<rect x="100" y="66" width="60" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="130" y="89" text-anchor="middle" fill="#1B1838">74</text>
+<rect x="160" y="66" width="60" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="190" y="89" text-anchor="middle" fill="#1B1838">75</text>
+<rect x="220" y="66" width="60" height="34" fill="#F0FCFA" stroke="#9fe3d6"/><text x="250" y="89" text-anchor="middle" fill="#1B1838">71</text>
+<rect x="280" y="66" width="60" height="34" fill="#14B8A6" stroke="#0f9b88"/><text x="310" y="89" text-anchor="middle" fill="#fff" font-weight="600">76</text>
+<text x="70" y="58" text-anchor="middle" font-size="10" fill="#9d9ab0">0</text>
+<text x="130" y="58" text-anchor="middle" font-size="10" fill="#9d9ab0">1</text>
+<text x="190" y="58" text-anchor="middle" font-size="10" fill="#9d9ab0">2</text>
+<text x="250" y="58" text-anchor="middle" font-size="10" fill="#9d9ab0">3</text>
+<text x="310" y="58" text-anchor="middle" font-size="10" fill="#0f9b88">4 (arrives)</text></g>
+<text x="40" y="140" font-family="Inter,sans-serif" font-size="12.5" fill="#3a3660">76 arrives. It is bigger than every value parked on the stack,</text>
+<text x="40" y="160" font-family="Inter,sans-serif" font-size="12.5" fill="#3a3660">so it pops index 3 (71), then index 2 (75) &#8212; each pop sets that</text>
+<text x="40" y="180" font-family="Inter,sans-serif" font-size="12.5" fill="#3a3660">index's answer to 76. The stack stays decreasing.</text>
+<g font-family="JetBrains Mono,monospace" font-size="12">
+<text x="120" y="214" text-anchor="middle" fill="#6f6b8c">stack before</text>
+<rect x="70" y="224" width="100" height="28" rx="6" fill="#fff" stroke="#2DD4A7"/><text x="120" y="243" text-anchor="middle" fill="#1B1838">idx 3 (71) top</text>
+<rect x="70" y="252" width="100" height="28" rx="6" fill="#fff" stroke="#2DD4A7"/><text x="120" y="271" text-anchor="middle" fill="#1B1838">idx 2 (75)</text>
+<rect x="70" y="280" width="100" height="28" rx="6" fill="#fff" stroke="#2DD4A7"/><text x="120" y="299" text-anchor="middle" fill="#1B1838">idx 0 (73)</text>
+<path d="M200 252 h60" stroke="#E11D48" stroke-width="2" marker-end="url(#mp)"/>
+<text x="230" y="244" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#E11D48">pop 71, 75</text>
+<text x="500" y="214" text-anchor="middle" fill="#6f6b8c">stack after</text>
+<rect x="450" y="224" width="100" height="28" rx="6" fill="#E9FBF4" stroke="#2DD4A7" stroke-width="2"/><text x="500" y="243" text-anchor="middle" fill="#0f9b78">idx 4 (76) top</text>
+<rect x="450" y="252" width="100" height="28" rx="6" fill="#fff" stroke="#2DD4A7"/><text x="500" y="271" text-anchor="middle" fill="#1B1838">idx 0 (73)</text></g>
+<defs><marker id="mp" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#E11D48"/></marker></defs></svg>`;
+SVG.binsearch_predicate=`<svg viewBox="0 0 620 240" role="img" aria-label="Binary search the answer: a monotonic predicate flipping from false to true">
+<text x="310" y="28" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#6f6b8c">searching the ANSWER space: find the smallest x where feasible(x) is true</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="40" y="62" width="60" height="40" fill="#FFF0F2" stroke="#F6C7CF"/><text x="70" y="87" text-anchor="middle" fill="#d23a52">1</text>
+<rect x="100" y="62" width="60" height="40" fill="#FFF0F2" stroke="#F6C7CF"/><text x="130" y="87" text-anchor="middle" fill="#d23a52">2</text>
+<rect x="160" y="62" width="60" height="40" fill="#FFF0F2" stroke="#F6C7CF"/><text x="190" y="87" text-anchor="middle" fill="#d23a52">3</text>
+<rect x="220" y="62" width="60" height="40" fill="#FFF0F2" stroke="#F6C7CF"/><text x="250" y="87" text-anchor="middle" fill="#d23a52">4</text>
+<rect x="280" y="62" width="60" height="40" fill="#E7F6ED" stroke="#16A34A" stroke-width="2.5"/><text x="310" y="87" text-anchor="middle" fill="#0f7a36" font-weight="600">5</text>
+<rect x="340" y="62" width="60" height="40" fill="#E7F6ED" stroke="#a9d6bb"/><text x="370" y="87" text-anchor="middle" fill="#16A34A">6</text>
+<rect x="400" y="62" width="60" height="40" fill="#E7F6ED" stroke="#a9d6bb"/><text x="430" y="87" text-anchor="middle" fill="#16A34A">7</text>
+<rect x="460" y="62" width="60" height="40" fill="#E7F6ED" stroke="#a9d6bb"/><text x="490" y="87" text-anchor="middle" fill="#16A34A">8</text>
+<rect x="520" y="62" width="60" height="40" fill="#E7F6ED" stroke="#a9d6bb"/><text x="550" y="87" text-anchor="middle" fill="#16A34A">9</text>
+</g>
+<text x="160" y="132" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#d23a52">false &nbsp; false &nbsp; false &nbsp; false</text>
+<text x="450" y="132" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#16A34A">true &nbsp; true &nbsp; true &nbsp; true &nbsp; true</text>
+<path d="M310 150 V112" stroke="#1B1838" stroke-width="2" marker-end="url(#arbp)"/>
+<text x="310" y="172" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#1B1838">the flip &#8594; this is the answer</text>
+<text x="310" y="206" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">once feasible(5) is true, every larger x is also true &#8212; so we can halve toward the boundary</text>
+<defs><marker id="arbp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#1B1838"/></marker></defs></svg>`;
+SVG.raii_ctrlblock=`<svg viewBox="0 0 620 240" role="img" aria-label="A shared_ptr control block with a reference count">
+<text x="310" y="28" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#0c7fc4">two shared_ptrs &#8594; one control block &#8594; one object</text>
+<circle cx="80" cy="92" r="22" fill="#fff" stroke="#0EA5E9" stroke-width="2"/><text x="80" y="96" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0c7fc4">sp1</text>
+<circle cx="80" cy="168" r="22" fill="#fff" stroke="#0EA5E9" stroke-width="2"/><text x="80" y="172" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0c7fc4">sp2</text>
+<rect x="210" y="78" width="180" height="104" rx="12" fill="#EAF6FF" stroke="#0EA5E9" stroke-width="1.6"/>
+<text x="300" y="100" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12.5" font-weight="600" fill="#0c7fc4">control block</text>
+<rect x="228" y="112" width="144" height="26" rx="6" fill="#fff" stroke="#bfe1f7"/><text x="300" y="129" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">strong = 2</text>
+<rect x="228" y="144" width="144" height="26" rx="6" fill="#fff" stroke="#bfe1f7"/><text x="300" y="161" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#6f6b8c">weak = 0</text>
+<rect x="470" y="100" width="120" height="60" rx="11" fill="#DDF0FB" stroke="#0EA5E9" stroke-width="2"/><text x="530" y="128" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#0c7fc4">Node</text><text x="530" y="146" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#5e7f96">the managed object</text>
+<path d="M102 92 C150 92 168 116 208 122" stroke="#0EA5E9" stroke-width="1.8" fill="none" marker-end="url(#arc)"/>
+<path d="M102 168 C150 168 168 142 208 134" stroke="#0EA5E9" stroke-width="1.8" fill="none" marker-end="url(#arc)"/>
+<path d="M390 130 H466" stroke="#0EA5E9" stroke-width="1.8" fill="none" marker-end="url(#arc)"/>
+<text x="428" y="120" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#5e7f96">owns</text>
+<text x="310" y="216" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">copy a shared_ptr &#8594; strong++ (atomic) &#183; last one to die &#8594; strong hits 0 &#8594; object deleted</text>
+<defs><marker id="arc" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#0EA5E9"/></marker></defs></svg>`;
+SVG.raii_cycle=`<svg viewBox="0 0 620 250" role="img" aria-label="A reference cycle leaks; weak_ptr breaks it">
+<rect x="20" y="24" width="280" height="206" rx="12" fill="#FFF5F6" stroke="#F6D5DC"/>
+<text x="160" y="48" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13.5" font-weight="600" fill="#E11D48">two shared_ptrs &#8594; leak</text>
+<rect x="52" y="74" width="86" height="46" rx="9" fill="#fff" stroke="#E11D48"/><text x="95" y="96" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">parent</text><text x="95" y="112" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#9c6671">strong=1</text>
+<rect x="182" y="74" width="86" height="46" rx="9" fill="#fff" stroke="#E11D48"/><text x="225" y="96" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">child</text><text x="225" y="112" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#9c6671">strong=1</text>
+<path d="M138 88 H180" stroke="#E11D48" stroke-width="2" marker-end="url(#arx)"/>
+<path d="M180 108 H140" stroke="#E11D48" stroke-width="2" marker-end="url(#arx)"/>
+<text x="160" y="84" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#d23a52">shared</text>
+<text x="160" y="128" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#d23a52">shared</text>
+<text x="160" y="168" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a3b46">each keeps the other alive;</text>
+<text x="160" y="186" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a3b46">count never reaches 0</text>
+<text x="160" y="212" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#E11D48">both leak forever</text>
+<rect x="320" y="24" width="280" height="206" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="460" y="48" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13.5" font-weight="600" fill="#16A34A">child holds weak_ptr &#8594; fixed</text>
+<rect x="352" y="74" width="86" height="46" rx="9" fill="#fff" stroke="#16A34A"/><text x="395" y="96" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">parent</text><text x="395" y="112" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#5e8a6f">strong=1</text>
+<rect x="482" y="74" width="86" height="46" rx="9" fill="#fff" stroke="#16A34A"/><text x="525" y="96" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">child</text><text x="525" y="112" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#5e8a6f">strong=1</text>
+<path d="M438 88 H480" stroke="#16A34A" stroke-width="2" marker-end="url(#ary)"/>
+<path d="M480 108 H440" stroke="#16A34A" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ary)"/>
+<text x="460" y="84" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#3c6b4f">shared</text>
+<text x="460" y="128" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#3c6b4f">weak (no count)</text>
+<text x="460" y="168" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">weak edge doesn't own;</text>
+<text x="460" y="186" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">drop parent &#8594; both free</text>
+<text x="460" y="212" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#16A34A">no leak</text>
+<defs><marker id="arx" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#E11D48"/></marker><marker id="ary" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker></defs></svg>`;
+SVG.moves_lvalue=`<svg viewBox="0 0 620 250" role="img" aria-label="Classifying expressions as lvalues or rvalues">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">which expressions can you steal from?</text>
+<rect x="20" y="44" width="280" height="186" rx="12" fill="#EEF0FF" stroke="#5B5BD6"/>
+<text x="160" y="68" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#4b3fc0">lvalue &#8212; named, persists</text>
+<text x="160" y="88" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#5b4f86">has an address, still needed &#8594; copy it</text>
+<g font-family="JetBrains Mono,monospace" font-size="11.5">
+<rect x="44" y="102" width="232" height="28" rx="6" fill="#fff" stroke="#a9b4e0"/><text x="56" y="121" fill="#1B1838">x</text><text x="266" y="121" text-anchor="end" fill="#8a86a8">a variable</text>
+<rect x="44" y="136" width="232" height="28" rx="6" fill="#fff" stroke="#a9b4e0"/><text x="56" y="155" fill="#1B1838">v[i]</text><text x="266" y="155" text-anchor="end" fill="#8a86a8">an element</text>
+<rect x="44" y="170" width="232" height="28" rx="6" fill="#fff" stroke="#a9b4e0"/><text x="56" y="189" fill="#1B1838">*p</text><text x="266" y="189" text-anchor="end" fill="#8a86a8">a deref</text></g>
+<text x="160" y="219" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#4b3fc0">&amp;x is legal</text>
+<rect x="320" y="44" width="280" height="186" rx="12" fill="#F0FBF5" stroke="#16A34A"/>
+<text x="460" y="68" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#0f7a36">rvalue &#8212; temporary, expiring</text>
+<text x="460" y="88" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">no name, about to die &#8594; steal it</text>
+<g font-family="JetBrains Mono,monospace" font-size="11.5">
+<rect x="344" y="102" width="232" height="28" rx="6" fill="#fff" stroke="#a9d6bb"/><text x="356" y="121" fill="#1B1838">a + b</text><text x="566" y="121" text-anchor="end" fill="#6b9a7c">a result</text>
+<rect x="344" y="136" width="232" height="28" rx="6" fill="#fff" stroke="#a9d6bb"/><text x="356" y="155" fill="#1B1838">make()</text><text x="566" y="155" text-anchor="end" fill="#6b9a7c">return by value</text>
+<rect x="344" y="170" width="232" height="28" rx="6" fill="#fff" stroke="#a9d6bb"/><text x="356" y="189" fill="#1B1838">std::move(x)</text><text x="566" y="189" text-anchor="end" fill="#6b9a7c">a cast</text></g>
+<text x="460" y="219" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0f7a36">&amp;(a + b) is an error</text></svg>`;
+SVG.moves_steal=`<svg viewBox="0 0 620 250" role="img" aria-label="A move constructor steals the pointer and nulls the source">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">move ctor: steal the pointer, null the source</text>
+<rect x="20" y="44" width="280" height="186" rx="12" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="160" y="68" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#6f6b8c">before &#8212; src owns the buffer</text>
+<rect x="50" y="86" width="92" height="40" rx="8" fill="#fff" stroke="#a9b4e0"/><text x="96" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">src</text><text x="96" y="111" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#5B5BD6">ptr &#8594;</text>
+<rect x="178" y="86" width="92" height="40" rx="8" fill="#fff" stroke="#a9b4e0"/><text x="224" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">dst</text><text x="224" y="111" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#9d9ab0">ptr = ?</text>
+<rect x="78" y="166" width="136" height="34" rx="7" fill="#E7F6ED" stroke="#16A34A"/><text x="146" y="188" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">[ the buffer ]</text>
+<path d="M96 126 V164" stroke="#16A34A" stroke-width="2" marker-end="url(#mst1)"/>
+<rect x="320" y="44" width="280" height="186" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="460" y="68" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#0f7a36">after &#8212; dst owns it, src is null</text>
+<rect x="350" y="86" width="92" height="40" rx="8" fill="#fff" stroke="#d9b0ba"/><text x="396" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">src</text><text x="396" y="111" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#E11D48">ptr = null</text>
+<rect x="478" y="86" width="92" height="40" rx="8" fill="#E7F6ED" stroke="#16A34A"/><text x="524" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">dst</text><text x="524" y="111" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">ptr &#8594;</text>
+<rect x="406" y="166" width="136" height="34" rx="7" fill="#E7F6ED" stroke="#16A34A"/><text x="474" y="188" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">[ the buffer ]</text>
+<path d="M524 126 V164" stroke="#16A34A" stroke-width="2" marker-end="url(#mst2)"/>
+<text x="460" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#3c6b4f">same buffer, no copy &#8212; just two pointer writes</text>
+<defs><marker id="mst1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker><marker id="mst2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker></defs></svg>`;
 const plan=[
   ["Week 1","Foundations · Big-O · Pointers","how"],
   ["Week 2","Arrays · Two Pointers · Windows","arrays"],
@@ -1370,90 +1490,514 @@ int lengthOfLongest(const string& s) {
   {t:"probs",items:[["Best Time to Buy & Sell Stock","best-time-to-buy-and-sell-stock","easy"],["Longest Substring w/o Repeating","longest-substring-without-repeating-characters","med"],["Minimum Window Substring","minimum-window-substring","hard"]]}
 ]},
 {group:"Week 3 · Patterns + C++",num:"04",id:"stack",color:"#2DD4A7",title:"Stack",badge:"Week 3 · Pattern",blocks:[
-  cue(`<b>Spot it when:</b> you're matching pairs (brackets), finding the "next greater / smaller element," or anything where the most-recent item matters first.`),
-  p(`A stack is a last-in, first-out (LIFO) container: you push items on top and pop them off the top, both in O(1). That "most recent first" behavior is exactly what you need whenever the thing you care about is the closest unresolved item behind you — the last open bracket, the previous taller temperature, the most recent operator.`),
+  cue(`<b>Spot it when:</b> you're matching pairs (brackets, tags), evaluating an expression, finding the "next greater / smaller element," or undoing in reverse order. The tell is always the same: <em>the thing you care about is the most recent unresolved item behind you</em> &#8212; the last open bracket, the previous taller bar, the operator you haven't applied yet.`),
+  p(`A stack is a last-in, first-out (LIFO) container: you push items on top and pop them off the top, and you only ever touch the top. Both operations are O(1). That single constraint &#8212; no reaching into the middle &#8212; is exactly what makes a stack the right tool whenever the relevant item is the <em>closest unresolved thing</em>, not the oldest. You'll reach for it more in interviews than its plainness suggests.`),
   svg("stack","You only ever interact with the top of the stack. That constraint is the feature: it perfectly models dealing with the most recent thing first."),
+  sub("How std::stack actually works"),
+  p(`In C++, <code>std::stack</code> isn't a container of its own &#8212; it's a thin <em>adapter</em> wrapped around another container, <code>std::deque</code> by default (you can swap in a <code>vector</code> with <code>stack&lt;int, vector&lt;int&gt;&gt;</code>). All it does is expose a deliberately tiny interface that forbids everything except top-of-stack access. The underlying container already gives you amortized O(1) push and pop at one end, so the adapter inherits those costs for free. There's no balancing, no reallocation surprises beyond what a <code>vector</code>/<code>deque</code> already does.`),
+  code(`#include <stack>
+
+stack<int> st;            // adapter over deque<int> by default
+st.push(5);               // 5 is now on top
+st.push(9);               // 9 on top, 5 underneath
+int t = st.top();         // read the top -> 9 (does NOT remove it)
+st.pop();                 // remove the top -> returns void, NOT the value
+bool empty = st.empty();  // always check this before top()/pop()
+size_t n = st.size();`),
+  pit("top() and pop() are two separate steps",`This trips up people coming from languages where <code>pop()</code> returns the removed element. In C++, <code>std::stack::pop()</code> returns <code>void</code> &#8212; it only removes. To consume the top you must read it first, then pop: <code>int x = st.top(); st.pop();</code>. The split exists for exception-safety reasons, but practically it means: forget the <code>top()</code> and you pop a value into the void; forget the <code>pop()</code> and you loop forever on the same element.`),
+  note("🧠","The mental model that unlocks every stack problem",`Don't think "LIFO container." Think: <em>"I'm tracking unresolved things, and the one that resolves next is always the most recent."</em> Open brackets waiting to close. Operators waiting for their operand. Bars waiting for a shorter neighbor. The instant a problem has that "most-recent-first" structure, a stack is almost certainly the answer &#8212; and recognizing that shape is the whole skill.`),
   sub("Matching pairs"),
-  p(`The cleanest use is bracket matching. Push every opening bracket. On a closing bracket, the only valid partner is whatever's on top — the most recently opened, still-unclosed bracket. If the top matches, pop it; if it doesn't (or the stack is empty), the string is invalid. At the end, a truly balanced string leaves the stack empty.`),
-  worked("Valid parentheses","The top of the stack is always the bracket that must close next. That single invariant makes the whole check a clean one-pass O(n).",
-`bool isValid(string s) {
+  p(`The cleanest use is bracket matching. Push every opening bracket. On a closing bracket, the only valid partner is whatever's on top &#8212; the most recently opened, still-unclosed bracket. If the top matches, pop it; if it doesn't (or the stack is empty), the string is invalid. At the end, a truly balanced string leaves the stack empty. The invariant is worth saying out loud in an interview: <em>the top of the stack is always the bracket that must close next.</em>`),
+  worked("Valid parentheses","A clean trick: store the pairs in a map so the close-bracket logic is one lookup instead of a chain of <code>||</code>s. On any closing bracket, the top must be its matching opener, or the string is invalid. One pass, O(n).",
+`bool isValid(const string& s) {
+    unordered_map<char,char> match = {       // close -> its opener
+        {')', '('}, {']', '['}, {'}', '{'}
+    };
     stack<char> st;
     for (char c : s) {
-        if (c == '(' || c == '[' || c == '{') st.push(c);
-        else {
-            if (st.empty()) return false;          // closing with nothing open
-            char top = st.top(); st.pop();
-            if ((c == ')' && top != '(') ||
-                (c == ']' && top != '[') ||
-                (c == '}' && top != '{')) return false;
+        if (c == '(' || c == '[' || c == '{') {
+            st.push(c);                      // remember this opener
+        } else {                             // c is a closer
+            if (st.empty() || st.top() != match[c])
+                return false;                // nothing open, or wrong opener
+            st.pop();                        // matched -> resolve it
         }
     }
-    return st.empty();                             // all opened got closed
+    return st.empty();                       // leftover openers -> invalid
 }`),
+  idea("Why the map cleanup matters",`The three-way <code>||</code> chain in the naive version works, but the map-of-pairs version generalizes instantly: add a new pair type (angle brackets, custom delimiters) by adding one map entry, not another <code>||</code> clause. Interviewers read that as "this person factors the special-casing out of the control flow" &#8212; a small signal of taste that costs you nothing.`),
+  sub("The call stack: recursion is a stack"),
+  p(`You already use a stack constantly without naming it: the <em>call stack</em>. Every function call pushes a frame (parameters, locals, the return address); every <code>return</code> pops it. Recursion is just this stack growing deeper &#8212; each recursive call pushes another frame, and the base case is where it finally starts popping back. That's why deep recursion blows the stack (stack overflow) and why a recursive algorithm's space cost is O(depth): the frames are physically stacked in memory.`),
+  p(`This connection is practical, not trivia. <em>Any</em> recursion can be converted into an explicit loop with your own <code>std::stack</code>, and interviewers sometimes ask for exactly that &#8212; "do this iteratively" usually means "simulate the call stack yourself." You push the work items you'd have recursed into, and pop them in a loop. An iterative DFS is the textbook case: instead of recursing on children, you push them onto a stack and process until it's empty.`),
+  worked("Recursion &#8594; explicit stack (iterative DFS)","The recursive version calls itself on each child; the iterative version pushes children onto a stack and loops. Same traversal, but now the 'stack' is a data structure you control &#8212; no risk of a stack-overflow on a pathologically deep graph.",
+`// recursive: the call stack does the bookkeeping
+void dfs(Node* n) {
+    if (!n) return;
+    visit(n);
+    for (Node* c : n->children) dfs(c);
+}
+
+// iterative: you own the stack explicitly
+void dfs(Node* root) {
+    if (!root) return;
+    stack<Node*> st;
+    st.push(root);
+    while (!st.empty()) {
+        Node* n = st.top(); st.pop();        // top() then pop()
+        visit(n);
+        for (Node* c : n->children) st.push(c);
+    }
+}`),
+  sub("Evaluating expressions"),
+  p(`Stacks are how machines evaluate arithmetic. The clean form is <em>postfix</em> (Reverse Polish Notation), where operators come after their operands: <code>3 4 + 5 *</code> means <code>(3 + 4) * 5</code>. The rule is mechanical: scan left to right, push every number, and when you hit an operator pop its two operands, apply it, and push the result. No precedence rules, no parentheses &#8212; the order is already baked into the token sequence. That's why compilers and calculators convert to postfix first.`),
+  worked("Evaluate Reverse Polish Notation","Numbers get pushed; an operator pops the top two, applies, and pushes the result back. Mind the operand order for non-commutative ops: the <em>second</em> pop is the left-hand side. One pass, O(n), and the stack ends holding the single final answer.",
+`int evalRPN(const vector<string>& tokens) {
+    stack<int> st;
+    for (const string& t : tokens) {
+        if (t == "+" || t == "-" || t == "*" || t == "/") {
+            int b = st.top(); st.pop();      // right operand (popped first)
+            int a = st.top(); st.pop();      // left operand
+            if      (t == "+") st.push(a + b);
+            else if (t == "-") st.push(a - b);
+            else if (t == "*") st.push(a * b);
+            else               st.push(a / b);
+        } else {
+            st.push(stoi(t));                // a number -> push it
+        }
+    }
+    return st.top();                         // last value standing
+}`),
+  note("📐","Infix needs two stacks (shunting-yard)",`Normal "infix" math like <code>3 + 4 * 5</code> has precedence and parentheses, so you can't evaluate it in a single naive pass. Dijkstra's <em>shunting-yard</em> algorithm handles it with two stacks &#8212; one for operators, one for output (or values) &#8212; popping higher-precedence operators before pushing a lower one. You rarely have to write it from scratch in an interview, but knowing the name and that "it's two stacks driven by precedence" is the expected level of awareness.`),
   sub("The monotonic stack"),
-  p(`The advanced move is keeping the stack <em>monotonic</em> — deliberately increasing or decreasing. For "next greater element" problems, you keep a stack of indices whose values are decreasing. When a new, larger value arrives, you pop every smaller value off the top — the new value is their answer ("the next greater element"). Each index is pushed and popped at most once, so even though it feels like nested work, it's O(n) total — another amortized argument.`),
-  pit("Always guard before popping",`Calling <code>.top()</code> or <code>.pop()</code> on an empty stack is undefined behavior — a crash or garbage, not an error you'll notice. Check <code>!st.empty()</code> first, every time. In bracket problems this guard is also a real case: a closing bracket with an empty stack means invalid input.`),
-  cx(`Time <b>O(n)</b> · space <b>O(n)</b>`),
+  p(`This is the technique that turns "stack" from a humble container into a genuine pattern, and it shows up in a surprising number of mediums and hards. A <em>monotonic</em> stack is one you deliberately keep sorted &#8212; entirely increasing or entirely decreasing from bottom to top &#8212; by popping anything that would break the order before you push. You almost always store <em>indices</em>, not values, so you can recover positions and distances later.`),
+  ul([
+    `<b>Decreasing stack &#8594; next greater element.</b> Values go in decreasing. When a bigger value arrives, it pops everything smaller off the top &#8212; and that arriving value <em>is</em> the "next greater element" for each thing it pops.`,
+    `<b>Increasing stack &#8594; next smaller element.</b> The mirror image: values go in increasing, and a smaller arrival pops everything larger, becoming their "next smaller."`,
+    `<b>Rule of thumb.</b> Want the next <em>greater</em>? Pop while the top is <em>smaller</em> (keep a decreasing stack). Want the next <em>smaller</em>? Pop while the top is <em>larger</em>. Pick the variant by what you're searching for, then the loop writes itself.`,
+  ]),
+  svg("stack_mono","A decreasing stack of indices. When a larger value (76) arrives, it pops every smaller value off the top, and each popped index records 76 as its answer. The stack stays monotonic afterward."),
+  p(`Here's the part interviewers want you to articulate: <em>why is this O(n) and not O(n&#178;)?</em> It looks like a nested loop &#8212; an outer pass over the array with an inner "pop while smaller." But callback to the Big-O lesson's amortized argument: each index is pushed exactly once and popped <em>at most</em> once over the entire run. The inner pops can't sum to more than <code>n</code> total, no matter how they cluster. So the whole thing is O(n) amortized, the same accounting that makes <code>vector::push_back</code> O(1).`),
+  worked("Daily Temperatures (next warmer day)","Classic decreasing monotonic stack of indices. While today is warmer than the day on top, pop it &#8212; today is its answer &#8212; and record the distance. Each index is pushed and popped once, so it's O(n) despite the inner while.",
+`vector<int> dailyTemperatures(const vector<int>& temps) {
+    int n = temps.size();
+    vector<int> answer(n, 0);                // 0 = no warmer day ahead
+    stack<int> st;                           // indices, values decreasing
+    for (int i = 0; i < n; i++) {
+        while (!st.empty() && temps[i] > temps[st.top()]) {
+            int prev = st.top(); st.pop();   // today is warmer than prev
+            answer[prev] = i - prev;         // days until it got warmer
+        }
+        st.push(i);                          // i waits for its own warmer day
+    }
+    return answer;
+}`),
+  note("📊","The hard application: Largest Rectangle in Histogram",`The same machinery solves the canonical hard problem. Keep an <em>increasing</em> stack of bar indices; when a shorter bar arrives, pop each taller bar and, at the moment you pop it, you finally know both its left and right boundaries &#8212; so you can compute the largest rectangle with that bar as the limiting height. One O(n) pass settles a problem that looks like it needs O(n&#178;). If you can explain why next-greater is O(n), you can explain this; it's the same amortized pop-each-index-once argument wearing a different hat.`),
+  sub("Designing a min-stack"),
+  p(`A favorite design question: build a stack that also returns its current minimum in O(1). The naive idea &#8212; scan for the min on each query &#8212; is O(n) and disqualifying. The trick is to push the running minimum <em>alongside</em> each value, so every element remembers "the smallest thing in the stack at or below me." Popping discards that bookkeeping automatically, restoring the previous minimum for free.`),
+  worked("Min-Stack with O(1) getMin","Store a pair per push: the value and the minimum of the stack including it. The top pair's second field is always the current minimum, so getMin is a single read. Every operation stays O(1).",
+`class MinStack {
+    stack<pair<int,int>> st;                  // {value, min-so-far}
+public:
+    void push(int x) {
+        int m = st.empty() ? x : min(x, st.top().second);
+        st.push({x, m});                      // carry the running min
+    }
+    void pop()      { st.pop(); }
+    int  top()      { return st.top().first;  }
+    int  getMin()   { return st.top().second; } // O(1), no scanning
+};`),
+  sub("When to reach for a stack"),
+  ul([
+    `<b>Pairing / nesting.</b> Brackets, HTML/XML tags, nested structures &#8212; anything where opens must be closed in reverse order.`,
+    `<b>Next greater / smaller / span.</b> Daily temperatures, stock spans, histogram rectangles &#8212; the monotonic-stack family.`,
+    `<b>Expression evaluation.</b> Postfix evaluation, and infix via shunting-yard.`,
+    `<b>Undo / backtracking in reverse.</b> Editor undo, simplifying a Unix path (<code>..</code> pops the last directory), function-call simulation.`,
+    `<b>Converting recursion to iteration.</b> When you'd otherwise blow the call stack, push the work items yourself.`,
+  ]),
+  pit("Empty pop is undefined behavior",`Calling <code>.top()</code> or <code>.pop()</code> on an empty stack is undefined behavior &#8212; a crash or silent garbage, not a caught error. Guard with <code>!st.empty()</code> <em>every</em> time. In bracket and monotonic problems this guard is also a genuine logical case: a closer with nothing open means invalid input; an empty monotonic stack means "no greater element exists yet."`),
+  idea("The interview framing",`When you spot the structure, say it: "The relevant item here is always the most recent unresolved one, so I'll use a stack." For the monotonic version, name the invariant and the cost up front: "I'll keep a decreasing stack of indices; each index is pushed and popped once, so it's O(n) amortized." Stating the invariant and the amortized bound before you write a line is exactly the senior-sounding move interviewers are listening for.`),
+  cx(`Push / pop / top all <b>O(1)</b> &#183; a full stack pass (bracket, monotonic, RPN) is <b>O(n)</b> time, <b>O(n)</b> space`),
   {t:"probs",items:[["Valid Parentheses","valid-parentheses","easy"],["Daily Temperatures","daily-temperatures","med"],["Largest Rectangle in Histogram","largest-rectangle-in-histogram","hard"]]}
 ]},
 {group:"Week 3 · Patterns + C++",num:"05",id:"binsearch",color:"#14B8A6",title:"Binary Search",badge:"Week 3 · Pattern",blocks:[
-  cue(`<b>Spot it when:</b> the input is sorted — or when you can binary-search the answer itself (the smallest or largest value that works).`),
-  p(`Binary search finds a target in a sorted array by repeatedly halving the search space. You look at the middle element: if it's the target, you're done; if the target is smaller, the answer must be in the left half, so you discard the right; if larger, you discard the left. Each comparison eliminates half of what's left, so you reach the answer in O(log n) steps — for a million elements, about 20 comparisons total.`),
+  cue(`<b>Spot it when:</b> the input is <em>sorted</em> (find a value, an insertion point, the first/last occurrence) &#8212; or, the bigger superpower, when you can rephrase the question as <em>"the smallest x where some yes/no test flips to true."</em> If a candidate answer X works and every larger X works too (or vice versa), you can binary-search the answer itself.`),
+  p(`Binary search finds a target in a sorted array by repeatedly halving the search space. You look at the middle element: if it's the target, you're done; if the target is smaller, the answer must be in the left half, so you discard the right; if larger, you discard the left. Each comparison throws away half of what remains, so you reach the answer in <code>O(log n)</code> steps. That logarithm is the whole appeal: for a million elements it's about 20 comparisons, for a billion about 30. Doubling the input adds <em>one</em> step.`),
   svg("binsearch","Each round throws away half the remaining range. Logarithmic growth means even enormous arrays resolve in a couple dozen steps."),
+  p(`Recall the recursion-tree argument from the Big-O lesson: anything that divides the problem in half each step has depth <code>log&#8322;(n)</code>, and here each level does <code>O(1)</code> work (one comparison), so the total is <code>O(log n)</code>. That's the same shape as the height of a balanced binary tree &#8212; halving and tree-depth are two views of the same idea. The catch that makes it all work: the data must be ordered so that <em>one look at the middle tells you which half to keep.</em> No order, no halving.`),
+  note("🧭","Sorted, or monotonic &#8212; that's the precondition",`Binary search doesn't strictly need a sorted <em>array</em>. It needs a <b>monotonic</b> property: as you move along the search space in one direction, some condition only ever turns on (never flips back off). A sorted array is the most common case (values only increase). But "minimum speed that finishes in time" is monotonic too, and that's what unlocks the advanced half of this lesson.`),
   sub("The template, and the part everyone gets wrong"),
-  p(`The loop itself is four lines. The bugs all live in the boundaries: whether to write <code>left &lt;= right</code> or <code>left &lt; right</code>, and whether <code>mid</code> moves to <code>mid+1</code> or <code>mid-1</code>. The way to never guess is to fix one template and trust it. Use the inclusive version below — <code>left</code> and <code>right</code> both point at candidates, the loop runs while the range is non-empty, and you always move past the checked <code>mid</code>.`),
-  worked("Classic binary search","Note the left + (right - left) / 2 for the midpoint — it computes the same value as (left + right) / 2 but can't overflow when the indices are large. Small detail, the kind interviewers notice.",
-`int search(vector<int>& nums, int target) {
-    int left = 0, right = nums.size() - 1;     // inclusive range
-    while (left <= right) {
-        int mid = left + (right - left) / 2;   // overflow-safe midpoint
-        if (nums[mid] == target) return mid;
-        if (nums[mid] < target) left = mid + 1;   // discard left half
-        else                    right = mid - 1;  // discard right half
+  p(`The loop body is four lines. Every bug lives in the <em>boundaries</em>: whether to write <code>left &lt;= right</code> or <code>left &lt; right</code>, and whether you move to <code>mid + 1</code> / <code>mid - 1</code> or leave a pointer on <code>mid</code>. Get one of those wrong and you either skip the answer or spin forever. The reliable cure is to <b>fix one template and trust it</b> rather than re-deriving the boundaries under pressure. Use the inclusive-range version below, and learn it cold.`),
+  p(`The contract for the inclusive template, stated precisely so the boundaries stop being guesswork: <code>left</code> and <code>right</code> are both <em>candidate</em> indices &#8212; the answer, if it exists, is somewhere in <code>[left, right]</code>. The loop runs <em>while that range is non-empty</em>, which is exactly <code>left &lt;= right</code> (when <code>left == right</code> there's still one candidate to check). Each iteration <em>checks</em> <code>mid</code> and then <em>excludes</em> it by moving past it &#8212; <code>left = mid + 1</code> or <code>right = mid - 1</code>. Because every iteration removes at least one index, the range always shrinks, so the loop must terminate.`),
+  worked("Classic binary search (the canonical template)","Read it as the contract above: inclusive [left, right], loop while non-empty, always move PAST the checked mid. Note left + (right - left) / 2 for the midpoint &#8212; it computes the same value as (left + right) / 2 but can't overflow when the indices are large. Small detail, the kind interviewers notice.",
+`int search(const vector<int>& nums, int target) {
+    int left = 0, right = (int)nums.size() - 1;  // inclusive range [left, right]
+    while (left <= right) {                       // non-empty range
+        int mid = left + (right - left) / 2;      // overflow-safe midpoint
+        if (nums[mid] == target) return mid;      // hit
+        if (nums[mid] < target)  left  = mid + 1; // target is to the right; drop mid + left half
+        else                     right = mid - 1; // target is to the left;  drop mid + right half
     }
-    return -1;                                 // not found
+    return -1;                                    // range emptied -> not present
 }`),
-  sub(`"Binary search the answer" — the level-up`),
-  p(`The pattern's hidden power is that the thing you search doesn't have to be the array — it can be the <em>answer space</em>. In problems like "minimum eating speed to finish in H hours," you binary-search over possible speeds: pick a candidate, check in O(n) whether it works, and halve the range based on the result. Whenever a problem asks for the smallest/largest value satisfying a monotonic condition ("if speed X works, every speed above X works too"), reach for this. It turns a seemingly open-ended search into O(n log(range)).`),
-  pit("Confirm it's monotonic first",`Binary search needs a sorted array, or an answer space where the yes/no condition flips exactly once (all-no then all-yes). If the condition can flip back and forth, halving is invalid and you'll silently skip the answer. State the monotonic property out loud before you write the loop.`),
-  cx(`Time <b>O(log n)</b> · space <b>O(1)</b>`),
+  pit("The infinite loop: mid must always move",`The deadliest boundary bug is a <code>mid</code> that doesn't make progress. If you ever write <code>left = mid</code> (instead of <code>mid + 1</code>) while <code>mid</code> can equal <code>left</code>, the range stops shrinking and you loop forever. In the inclusive template this can't happen, because both branches step strictly past <code>mid</code>. Whenever you deviate from the template &#8212; especially in the "search the answer" variants below where you sometimes <em>keep</em> <code>mid</code> &#8212; convince yourself the range gets strictly smaller every iteration.`),
+  idea("Never guess the boundaries again","Pick ONE invariant and let it dictate every line. \"<code>[left, right]</code> is inclusive\" forces <code>left &lt;= right</code>, forces <code>mid&#177;1</code>, and forces returning <code>-1</code> when the range empties. If instead you adopt the half-open <code>[left, right)</code> invariant (used by the library and by leftmost/rightmost search below), it forces <code>left &lt; right</code> and <code>right = mid</code>. Mixing the two is what produces off-by-one bugs. Commit to one per problem and the four lines write themselves."),
+  sub("The library already wrote it: lower_bound / upper_bound / equal_range"),
+  p(`In real code you rarely hand-roll the loop &#8212; you reach for <code>&lt;algorithm&gt;</code>. These run on any sorted range and return <em>iterators</em>, and the difference between them is one word, <code>&gt;=</code> vs <code>&gt;</code>:`),
+  ul([
+    `<b><code>lower_bound(first, last, x)</code></b> &#8594; iterator to the first element that is <code>&gt;= x</code>. This is the <em>insertion point</em>: where <code>x</code> would go to keep the range sorted, and the start of any run of <code>x</code>s.`,
+    `<b><code>upper_bound(first, last, x)</code></b> &#8594; iterator to the first element that is <em>strictly</em> <code>&gt; x</code>. This is one past the last <code>x</code>, i.e. the end of the run of <code>x</code>s.`,
+    `<b><code>equal_range(first, last, x)</code></b> &#8594; the pair <code>{lower_bound, upper_bound}</code> in one call. The half-open range <code>[first, second)</code> is exactly the block of elements equal to <code>x</code>.`,
+    `<b><code>binary_search(first, last, x)</code></b> &#8594; a plain <code>bool</code>: is <code>x</code> present at all. (Internally just checks <code>lower_bound</code>.)`,
+  ]),
+  worked("Using the library: presence, insertion point, and count","Subtract iterators to turn positions into indices and counts. upper_bound minus lower_bound is the multiplicity of x in O(log n) &#8212; no scanning. This is the idiomatic answer when an interviewer says \"the array is sorted.\"",
+`vector<int> v = {1, 2, 2, 2, 4, 7, 9};
+
+bool present = binary_search(v.begin(), v.end(), 2);     // true
+
+auto lo = lower_bound(v.begin(), v.end(), 2);  // -> first 2  (index 1)
+auto hi = upper_bound(v.begin(), v.end(), 2);  // -> the 4    (index 4)
+
+int insert_at = lo - v.begin();                // 1  (where a new 2 would go)
+int count_of_2 = hi - lo;                       // 3  (there are three 2s)
+
+auto [a, b] = equal_range(v.begin(), v.end(), 2);  // same lo..hi in one call
+// elements equal to 2 are exactly [a, b)`),
+  note("📌","On comparators","All four take an optional comparator and assume the range is sorted <em>by that same comparator</em>. For descending data or custom keys, pass the matching predicate (e.g. <code>greater&lt;&gt;{}</code>) &#8212; otherwise the monotonicity assumption is violated and the result is meaningless. The functions don't check; they trust you."),
+  sub("Find first / last occurrence: the bias trick"),
+  p(`When duplicates exist, "find target" is ambiguous &#8212; the plain template returns <em>some</em> match, not necessarily the leftmost or rightmost. The fix is to <b>not stop on a hit.</b> Instead, record the candidate and keep searching the side you care about. To find the <em>first</em> (leftmost) occurrence: on a match, remember it and push <code>right</code> left to hunt for an even-earlier one. For the <em>last</em> (rightmost), do the mirror &#8212; remember it and push <code>left</code> right.`),
+  worked("Leftmost and rightmost occurrence","The bias is the whole trick: on equality you don't return, you record and keep going toward the side you want. This is exactly what lower_bound / upper_bound do under the hood &#8212; reproducing it by hand is a classic interview ask (\"find the range of a target\").",
+`// First index where nums[i] == target, or -1.
+int firstOccurrence(const vector<int>& nums, int target) {
+    int left = 0, right = (int)nums.size() - 1, ans = -1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) { ans = mid; right = mid - 1; }  // record, bias LEFT
+        else if (nums[mid] < target) left = mid + 1;
+        else                         right = mid - 1;
+    }
+    return ans;
+}
+
+// Last index where nums[i] == target, or -1.
+int lastOccurrence(const vector<int>& nums, int target) {
+    int left = 0, right = (int)nums.size() - 1, ans = -1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) { ans = mid; left = mid + 1; }   // record, bias RIGHT
+        else if (nums[mid] < target) left = mid + 1;
+        else                         right = mid - 1;
+    }
+    return ans;
+}`),
+  p(`That pair is the entire solution to LeetCode's "Find First and Last Position of Element in Sorted Array" &#8212; two biased searches, <code>O(log n)</code> each. Notice how recording-then-continuing keeps the loop honest: <code>mid</code> still moves every iteration, so there's no infinite-loop risk even though you didn't return on the hit.`),
+  sub("Binary search the answer &#8212; the real level-up"),
+  p(`This is the technique that separates people who "know binary search" from people who <em>recognize</em> it in disguise. The thing you search doesn't have to be an array &#8212; it can be the <b>answer space</b> itself. The setup: you can't easily compute the optimal answer directly, but given a <em>candidate</em> answer <code>x</code>, you <em>can</em> cheaply check "does <code>x</code> work?" with a function <code>feasible(x)</code>. If that check is <b>monotonic</b> &#8212; false, false, &#8230;, false, then true, true, &#8230;, true, flipping exactly once &#8212; then the boundary where it flips is your answer, and you can binary-search for it.`),
+  svg("binsearch_predicate","The answer space sorted by feasibility: every value below the boundary fails, every value at or above it works. Because feasible(x) flips exactly once, you can halve toward that flip instead of trying every candidate."),
+  p(`The mental checklist, which doubles as your <b>interview opener</b>: (1) Can I phrase the answer as <em>"the smallest x where <code>feasible(x)</code> is true"</em> (or the largest where it's true)? (2) Is <code>feasible</code> monotonic &#8212; if <code>x</code> works, does every larger <code>x</code> also work? (3) Can I evaluate <code>feasible(x)</code> in, say, <code>O(n)</code>? If all three are yes, the whole problem collapses to <code>O(n log(range))</code>: a binary search over the value range, with one feasibility scan per step.`),
+  p(`The template differs slightly from the array version: <code>lo</code> and <code>hi</code> bound the <em>answer values</em> (not indices), and you're hunting the flip, so you don't return on a "hit" &#8212; you converge until <code>lo == hi</code>. This is the half-open mindset: when <code>feasible(mid)</code> is true, <code>mid</code> might itself be the answer, so you keep it (<code>hi = mid</code>); when false, <code>mid</code> is ruled out (<code>lo = mid + 1</code>).`),
+  worked("Koko eating bananas: minimum speed to finish in H hours","Answer space = eating speed, from 1 to the largest pile. feasible(speed) = \"can Koko finish all piles within h hours at this speed?\" &#8212; higher speed never hurts, so it's monotonic. Binary-search the smallest feasible speed. ceil division is (pile + speed - 1) / speed.",
+`int minEatingSpeed(const vector<int>& piles, int h) {
+    int lo = 1, hi = *max_element(piles.begin(), piles.end());
+    auto feasible = [&](int speed) {                 // monotonic in speed
+        long long hours = 0;
+        for (int p : piles) hours += (p + speed - 1) / speed;  // ceil(p / speed)
+        return hours <= h;
+    };
+    while (lo < hi) {                                 // converge to the flip
+        int mid = lo + (hi - lo) / 2;
+        if (feasible(mid)) hi = mid;                  // mid works -> keep it, search lower
+        else               lo = mid + 1;             // mid too slow -> must go faster
+    }
+    return lo;                                        // lo == hi == smallest feasible speed
+}`),
+  idea("Same skeleton, many problems","\"Ship within D days,\" \"split array into k subarrays minimizing the largest sum,\" \"minimum capacity / maximum distance\" &#8212; these are all the <em>same</em> binary-search-the-answer pattern with a different <code>feasible</code>. Once you can write the feasibility check, the search is the boilerplate above. The skill the interviewer is testing is spotting that the answer is monotonic; the loop is the easy part."),
+  sub("Worked medium: search in a rotated sorted array"),
+  p(`A sorted array rotated at an unknown pivot &#8212; e.g. <code>[4,5,6,7,0,1,2]</code> &#8212; isn't globally sorted, so plain binary search breaks. But here's the key observation: <em>at least one half of any subrange is still sorted.</em> Look at <code>mid</code>; compare <code>nums[left]</code> to <code>nums[mid]</code>. If <code>nums[left] &lt;= nums[mid]</code>, the left half is the clean, sorted one; otherwise the right half is. Once you know which half is sorted, you can test in <code>O(1)</code> whether <code>target</code> lies <em>within</em> that sorted half's range &#8212; if so, search there; if not, search the other half. Still <code>O(log n)</code>, still one array, you've just added a "which half is sane?" decision.`),
+  worked("Search in rotated sorted array","Decide which side is sorted, then decide whether target falls inside that sorted side's value window. Half-open reasoning on the ranges keeps the off-by-ones honest. Assumes distinct values (the canonical LeetCode 33).",
+`int search(const vector<int>& nums, int target) {
+    int left = 0, right = (int)nums.size() - 1;
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) return mid;
+        if (nums[left] <= nums[mid]) {                 // LEFT half is sorted
+            if (nums[left] <= target && target < nums[mid]) right = mid - 1;  // target in left
+            else                                            left  = mid + 1;  // else right
+        } else {                                       // RIGHT half is sorted
+            if (nums[mid] < target && target <= nums[right]) left  = mid + 1; // target in right
+            else                                             right = mid - 1; // else left
+        }
+    }
+    return -1;
+}`),
+  p(`The lesson generalizes: binary search survives "broken" structure as long as <em>each step</em> can still decide which half to discard with certainty. Rotation, bitonic arrays, and 2D sorted matrices all yield to the same "find the locally-sorted region, then prune" reasoning.`),
+  sub("Pitfalls that cost the interview"),
+  pit("Confirm it's monotonic before you write a line",`Binary search needs a sorted range, or an answer space where the yes/no condition flips exactly once (all-false then all-true). If the condition can flip back and forth, halving is invalid and you'll silently skip the answer &#8212; with no error, just a wrong result. State the monotonic property out loud first: "if speed X finishes in time, every speed above X does too." If you can't justify that sentence, binary search is the wrong tool.`),
+  pit("Integer overflow in the midpoint",`<code>(left + right) / 2</code> can overflow when both are near <code>INT_MAX</code> &#8212; the sum wraps negative and <code>mid</code> goes haywire. Always write <code>left + (right - left) / 2</code>. In the search-the-answer variants the <em>values</em> can be large too: accumulate feasibility sums in <code>long long</code>, as the Koko example does, so a sum of many piles doesn't overflow an <code>int</code>.`),
+  pit("Off-by-one and the never-shrinking range",`The two classic failures are (a) <code>mid</code> that doesn't move &#8212; <code>left = mid</code> with <code>left &lt; right</code> spins forever &#8212; and (b) the wrong loop condition for your invariant (<code>&lt;</code> vs <code>&lt;=</code>) leaving the final candidate unchecked or over-running by one. Both vanish if you commit to a single invariant: inclusive <code>[left, right]</code> with <code>&lt;=</code> and <code>mid&#177;1</code>, or half-open <code>[lo, hi)</code> with <code>&lt;</code> and <code>hi = mid</code>. Don't blend them.`),
+  cx(`Array search <b>O(log n)</b> time, <b>O(1)</b> space &#183; search-the-answer <b>O(n &#183; log(range))</b> time (one <code>O(n)</code> feasibility check per halving)`),
   {t:"probs",items:[["Binary Search","binary-search","easy"],["Search in Rotated Sorted Array","search-in-rotated-sorted-array","med"],["Median of Two Sorted Arrays","median-of-two-sorted-arrays","hard"]]}
 ]},
 {group:"Week 3 · Patterns + C++",num:"⚛",id:"raii",color:"#A855F7",title:"RAII & Smart Pointers",badge:"Week 3 · C++ deep dive",blocks:[
-  cue(`A favorite C++ interview question: "What's RAII?" and "When would you use <code>unique_ptr</code> vs <code>shared_ptr</code>?" This builds directly on the Pointers lesson — remember the leak and dangling-pointer bugs? Smart pointers exist to make those impossible.`),
-  p(`RAII — Resource Acquisition Is Initialization — is the core idea that ties a resource's lifetime to an object's scope. You acquire the resource (memory, a file, a lock) in a constructor, and release it in the destructor. Because C++ guarantees a destructor runs when an object goes out of scope, cleanup becomes automatic and exception-safe: there's no way to "forget to free it," because leaving the scope frees it for you.`),
-  svg("raii","RAII ties cleanup to scope (left): the resource is released the instant the enclosing block ends. Smart pointers (right) apply RAII to heap memory, with single or reference-counted ownership."),
-  sub("Why raw new/delete is a trap"),
-  p(`As the Pointers lesson showed, manual <code>new</code>/<code>delete</code> is error-prone: forget the <code>delete</code> and you leak; an exception between them skips the <code>delete</code> entirely; delete twice and you corrupt the heap. Smart pointers solve this by being RAII wrappers around a raw pointer — they own the memory and delete it automatically when they go out of scope.`),
-  sub("unique_ptr vs shared_ptr — the answer they want"),
+  cue(`Two of the most reliable C++ interview questions: "What's RAII?" and "When do you use <code>unique_ptr</code> vs <code>shared_ptr</code>?" This picks up exactly where the Pointers lesson left off &#8212; remember the leaks, double-frees, and dangling pointers from raw <code>new</code>/<code>delete</code>? Smart pointers exist to make those bugs impossible, and they do it with one idea: RAII. Get this lesson cold and you can answer the whole family of ownership questions without hesitating.`),
+  p(`RAII &#8212; <em>Resource Acquisition Is Initialization</em> &#8212; is arguably the single most important idea in C++, and the worst-named. Ignore the name; here's the idea. You tie a resource's lifetime to an object's lifetime: <b>acquire the resource in a constructor, release it in the destructor.</b> Then you let the language's scope rules do the bookkeeping. Because C++ guarantees a destructor runs the instant an object leaves scope, cleanup stops being something you remember to do and becomes something that <em>can't not happen</em>.`),
+  svg("raii","RAII ties cleanup to scope (left): the resource is released the instant the enclosing block ends. Smart pointers (right) apply that same idea to heap memory, with either single (<code>unique_ptr</code>) or reference-counted (<code>shared_ptr</code>) ownership."),
+  sub("Deterministic destruction: the dtor runs at scope exit, guaranteed"),
+  p(`This is the part to internalize, because it's what makes C++ different from garbage-collected languages. In Java, C#, Python, or Go, an object's memory is reclaimed <em>eventually</em>, by a collector, at some unpredictable time after the last reference drops &#8212; and non-memory resources (files, locks, sockets) aren't handled at all unless you write explicit <code>try/finally</code> or <code>using</code>/<code>with</code> blocks. C++ gives you something stronger: <b>deterministic destruction</b>. The moment control leaves a scope &#8212; the closing brace, a <code>return</code>, a thrown exception &#8212; every local object's destructor runs, in reverse order of construction, right then. Not later. Not maybe. Then.`),
+  p(`That single guarantee is the foundation everything else in this lesson is built on. A smart pointer is "just" a class whose destructor calls <code>delete</code>; a <code>lock_guard</code> is "just" a class whose destructor calls <code>unlock()</code>. The magic isn't in those classes &#8212; it's in the language promise that their destructors will fire at the right moment, every time, on every exit path.`),
+  note(`&#129504;`,`The GC contrast, stated for the interview`,`A garbage collector answers "when is the memory freed?" with "eventually, we'll get to it." RAII answers "at the closing brace, deterministically." That's why C++ can manage <em>any</em> resource the same way &#8212; not just memory, but files, mutexes, database handles, GPU buffers &#8212; while GC languages need a separate mechanism (<code>finally</code>, <code>using</code>, <code>defer</code>) for everything that isn't memory. If asked "how is RAII different from GC," that contrast is the whole answer.`),
+  sub("Exception safety: why RAII makes leak-free code for free"),
+  p(`Here's the scenario that sells RAII. You allocate something, then call a function that throws before you get to clean up. With raw <code>new</code>/<code>delete</code>, the <code>delete</code> is simply skipped &#8212; the stack unwinds straight past it and you've leaked. With RAII, the unwinding stack runs every local destructor on its way out, so the resource is released <em>as part of the exception propagating</em>. You wrote zero cleanup code and the code is still leak-free on the error path.`),
+  worked("The same code with and without RAII","Both functions do the same work, but only one is correct when <code>mightThrow()</code> throws. The raw version leaks: the exception skips the <code>delete</code> entirely. The RAII version can't leak, because as the stack unwinds it runs <code>w</code>'s destructor, which frees the widget &#8212; no matter how the function exits.",
+`// BROKEN: leaks if mightThrow() throws
+void rawVersion() {
+    Widget* w = new Widget();
+    mightThrow();          // throws -> the delete below is never reached
+    delete w;              // skipped on the exception path -> LEAK
+}
+
+// CORRECT: leak-free on every path, including exceptions
+void raiiVersion() {
+    auto w = std::make_unique<Widget>();
+    mightThrow();          // throws -> stack unwinds...
+    // ...w's destructor runs during unwinding and frees the Widget
+}                          // normal exit also frees it here`),
+  p(`Notice you didn't write a single line of cleanup in the correct version &#8212; no <code>try</code>, no <code>catch</code>, no <code>delete</code>. That's the point. Writing exception-safe code by hand (guarding every allocation with try/catch) is tedious and easy to get wrong; RAII makes <em>not writing it</em> the correct default. This is why "every resource should be owned by an RAII object" is the load-bearing rule of modern C++.`),
+  sub("RAII is bigger than memory"),
+  p(`Smart pointers are the famous example, but RAII is the pattern behind most of the standard library's well-behaved types. Anywhere you'd otherwise pair an "acquire" with a matching "release," RAII bundles the release into a destructor so you can't forget it:`),
   ul([
-    `<b><code>unique_ptr</code> — exclusive ownership.</b> Exactly one owner; it can't be copied, only moved. When it dies, the object dies. Zero overhead over a raw pointer. This is your default — reach for it unless you specifically need sharing.`,
-    `<b><code>shared_ptr</code> — shared ownership.</b> Multiple owners share the object via a reference count; the object is destroyed only when the <em>last</em> <code>shared_ptr</code> goes away. Costs a little (atomic counter), so use it only when ownership genuinely is shared.`,
-    `<b><code>weak_ptr</code> — a non-owning observer.</b> Points at a <code>shared_ptr</code>'s object without bumping the count. Its job is breaking reference cycles: two objects holding <code>shared_ptr</code>s to each other would never reach count zero, so one side uses a <code>weak_ptr</code> instead.`,
+    `<b><code>std::lock_guard</code> / <code>std::unique_lock</code></b> &#8212; constructor locks a mutex, destructor unlocks it. You never call <code>unlock()</code>; leaving the scope (or throwing) releases the lock. This single-handedly kills the "returned early and forgot to unlock &#8594; deadlock" bug.`,
+    `<b><code>std::fstream</code></b> &#8212; constructor opens the file, destructor flushes and closes it. The file handle is released when the stream goes out of scope, exception or not.`,
+    `<b><code>std::vector</code> / <code>std::string</code> and every container</b> &#8212; they own a heap buffer; their destructor frees it. The reason you almost never call <code>delete[]</code> in real C++ is that a vector is doing RAII on that buffer for you.`,
+    `<b><code>std::unique_ptr</code> / <code>std::shared_ptr</code></b> &#8212; RAII applied specifically to a heap pointer. The rest of this lesson.`,
   ]),
-  code(`auto a = make_unique<Node>(5);     // sole owner, can't be copied
-auto b = make_shared<Node>(5);     // counted owner; copy bumps the count
-// when the last owner goes out of scope, memory frees itself`),
-  idea("The crisp interview answer",`"RAII means resources are released automatically when their owner goes out of scope, which makes cleanup exception-safe. I default to <code>unique_ptr</code> for single ownership, use <code>shared_ptr</code> only when ownership is genuinely shared, and <code>weak_ptr</code> to break cycles." That three-sentence answer lands the question.`),
+  code(`{
+    std::lock_guard<std::mutex> guard(m);   // mutex locked here
+    sharedData.push_back(value);            // critical section
+    if (somethingWrong) return;             // lock STILL released on this path
+}                                           // guard's dtor unlocks m here`),
+  note(`&#128221;`,`The mental rule: "own it with a type"`,`Whenever you find yourself thinking "I need to remember to free / close / unlock / release this later," stop and wrap it in an object whose destructor does the release. That's the whole RAII discipline. The standard library already did it for memory, files, locks, and threads &#8212; for anything else (a C API handle, say), a few-line wrapper class earns its keep.`),
+  sub("Why raw new/delete is a trap"),
+  p(`The Pointers lesson catalogued the failure modes: forget the <code>delete</code> and you leak; an exception or early <code>return</code> between <code>new</code> and <code>delete</code> skips the cleanup; <code>delete</code> the same pointer twice and you corrupt the heap; mix up <code>delete</code> and <code>delete[]</code> and it's undefined behavior. Every one of these is a bookkeeping error &#8212; the kind humans make constantly under pressure. Smart pointers don't ask you to be more careful; they remove the bookkeeping. A smart pointer is an RAII wrapper around a raw pointer: it owns the memory and picks the right <code>delete</code> for you, automatically, at scope exit.`),
+  sub("unique_ptr — exclusive ownership, your default"),
+  p(`<code>std::unique_ptr&lt;T&gt;</code> models <b>exclusive ownership</b>: exactly one <code>unique_ptr</code> owns the object at a time. To enforce that, it's <em>move-only</em> &#8212; you can't copy it (that would create a second owner), but you can move it to transfer ownership. When the <code>unique_ptr</code> is destroyed, so is the object it owns. And it does all this at <b>zero overhead</b>: a <code>unique_ptr</code> is the size of a raw pointer and compiles down to the same instructions, so there's no reason to prefer a raw owning pointer over it.`),
+  code(`auto a = std::make_unique<Node>(5);   // a is the sole owner
+// auto b = a;                         // ERROR: can't copy a unique_ptr
+auto b = std::move(a);                 // OK: ownership moves a -> b; a is now null
+// when b goes out of scope, the Node is deleted automatically`),
+  p(`Because it's move-only, <code>unique_ptr</code> is the natural return type for a <em>factory</em> &#8212; a function that creates an object on the heap and hands ownership back to the caller. The move happens implicitly on <code>return</code>, so it's both cheap and unambiguous about who owns the result.`),
+  worked("A factory returning unique_ptr, plus an RAII resource","Two patterns at once. <code>makeEnemy</code> is a factory: it builds a heap object and returns ownership as a <code>unique_ptr</code> &#8212; the caller can't accidentally leak it and doesn't have to remember to delete it. <code>FileHandle</code> is a hand-rolled RAII wrapper around a C-style resource: it acquires in the constructor and releases in the destructor, so the file closes itself. Note <code>unique_ptr&lt;Sprite[]&gt;</code> for owning an array &#8212; it calls <code>delete[]</code> for you.",
+`// Factory: creates on the heap, returns exclusive ownership.
+std::unique_ptr<Enemy> makeEnemy(int hp) {
+    auto e = std::make_unique<Enemy>();
+    e->hp = hp;
+    return e;                    // ownership moves out to the caller (cheap)
+}
+
+void spawn() {
+    auto boss = makeEnemy(500);  // 'boss' now owns the Enemy
+    boss->takeHit(50);
+}                                // Enemy deleted automatically here
+
+// unique_ptr<T[]> owns a heap array and calls delete[] for you:
+std::unique_ptr<Sprite[]> frames = std::make_unique<Sprite[]>(8);
+
+// A hand-rolled RAII wrapper around a C resource:
+class FileHandle {
+    FILE* f;
+public:
+    explicit FileHandle(const char* path) : f(std::fopen(path, "r")) {}  // acquire
+    ~FileHandle() { if (f) std::fclose(f); }                             // release
+    FILE* get() const { return f; }
+};`),
+  note(`&#128221;`,`Custom deleters, briefly`,`<code>unique_ptr</code>'s second template parameter is a deleter. That's how you adapt it to non-<code>new</code> resources without writing a wrapper class: <code>std::unique_ptr&lt;FILE, decltype(&amp;fclose)&gt; f(fopen(path,"r"), &amp;fclose);</code> closes the file in the destructor. Worth knowing it exists; in interviews, naming the feature and saying "for C handles like <code>FILE*</code> or <code>SDL</code> objects" is plenty.`),
+  sub("shared_ptr — counted ownership, and what it costs"),
+  p(`<code>std::shared_ptr&lt;T&gt;</code> models <b>shared ownership</b>: several <code>shared_ptr</code>s can co-own one object, and the object is destroyed only when the <em>last</em> owner goes away. It does this with a <b>control block</b> &#8212; a small heap allocation, separate from the object, holding a reference count. Copying a <code>shared_ptr</code> bumps the count up; destroying one bumps it down; when the count hits zero, the object (and eventually the control block) is freed.`),
+  svg("raii_ctrlblock","A <code>shared_ptr</code> is two pointers: one to the object, one to a shared control block holding the reference count. Copying a <code>shared_ptr</code> increments the strong count; each destructor decrements it; the object is deleted when the strong count reaches zero."),
+  p(`That convenience isn't free, and naming the costs is exactly what separates a strong answer. The reference count is <b>atomic</b> &#8212; increments and decrements use atomic operations so the count stays correct when <code>shared_ptr</code>s are copied across threads &#8212; and atomics are meaningfully slower than a plain integer bump. A <code>shared_ptr</code> is also <b>twice the size</b> of a raw pointer (object pointer + control-block pointer), and there's an extra allocation for the control block. None of this is catastrophic, but it's why the rule is "<code>shared_ptr</code> only when ownership is genuinely shared," not "<code>shared_ptr</code> everywhere to be safe."`),
+  worked("Copying a shared_ptr bumps the count","One object, several owners, automatic cleanup. Each copy increments the shared count; each scope exit decrements it. The <code>Texture</code> is freed exactly once, at the moment the last owner disappears &#8212; you never decide where the <code>delete</code> goes.",
+`auto tex = std::make_shared<Texture>("brick.png");  // count = 1
+{
+    auto a = tex;          // copy -> count = 2
+    auto b = tex;          // copy -> count = 3
+    render(*a);
+}                          // a and b destroyed -> count = 2
+
+useElsewhere(tex);
+// when the last shared_ptr (tex) goes out of scope -> count = 0
+// -> Texture's destructor runs, memory freed exactly once`),
+  pit("Never build a second owner from .get()","Calling <code>sp.get()</code> hands you the raw pointer <em>without</em> touching the count. If you then construct another <code>shared_ptr</code> from it &#8212; <code>shared_ptr&lt;T&gt; bad(sp.get());</code> &#8212; you've created a <em>second, independent</em> control block for the same object. Now two counts both think they're solely responsible, and the object gets deleted twice. Use <code>.get()</code> only to pass a non-owning raw pointer to code that won't free it; never to create another owner. To copy ownership, copy the <code>shared_ptr</code> itself."),
+  sub("weak_ptr — breaking reference cycles"),
+  p(`There's one situation where <code>shared_ptr</code>'s reference counting quietly fails: a <b>cycle</b>. If object A holds a <code>shared_ptr</code> to B, and B holds a <code>shared_ptr</code> back to A, then each keeps the other's count at 1 &#8212; even after every external reference is gone. The counts never reach zero, the destructors never run, and both objects leak. Reference counting can't collect cycles; that's its one structural weakness.`),
+  svg("raii_cycle","A parent and child that each hold a <code>shared_ptr</code> to the other form a cycle: neither count can reach zero, so both leak (left). Making one direction a <code>weak_ptr</code> &#8212; a non-owning observer that doesn't bump the count &#8212; breaks the cycle, so dropping the parent frees both (right)."),
+  p(`<code>std::weak_ptr&lt;T&gt;</code> is the fix. It's a <b>non-owning observer</b>: it points at an object managed by a <code>shared_ptr</code> without incrementing the strong count. It doesn't keep the object alive, so it can't be part of a cycle. To use what it points at, you call <code>.lock()</code>, which atomically checks "is the object still alive?" and, if so, hands you a real <code>shared_ptr</code> (count bumped for the duration); if the object is already gone, <code>.lock()</code> returns null and you handle that case. The classic rule: in a parent/child tree, the parent owns children with <code>shared_ptr</code>; each child points <em>back</em> at its parent with a <code>weak_ptr</code>.`),
+  worked("The parent/child cycle, and the weak_ptr fix","With both links as <code>shared_ptr</code> (the commented-out line), <code>parent</code> and <code>child</code> co-own each other; when the local variables die, each still has a count of 1 from the other, so neither is ever freed &#8212; a leak you won't see without a tool. Making the child's back-pointer a <code>weak_ptr</code> breaks the cycle: it observes the parent without owning it, so when the last owning reference drops, both destructors run.",
+`struct Node {
+    std::shared_ptr<Node> child;     // parent OWNS its child
+    std::weak_ptr<Node>   parent;    // child OBSERVES its parent (no ownership)
+    // std::shared_ptr<Node> parent; // <- this version would LEAK (a cycle)
+};
+
+auto parent = std::make_shared<Node>();
+auto child  = std::make_shared<Node>();
+parent->child = child;               // strong link down
+child->parent = parent;              // WEAK link up -> no cycle
+
+// To use the parent from the child, lock the weak_ptr:
+if (auto p = child->parent.lock()) { // got a live shared_ptr?
+    use(*p);                         // safe: object guaranteed alive in this block
+}                                    // else: parent already gone, p is null`),
+  sub("make_unique / make_shared — and why"),
+  p(`Prefer <code>std::make_unique&lt;T&gt;(args)</code> and <code>std::make_shared&lt;T&gt;(args)</code> over writing <code>new</code> yourself. Two concrete reasons, both interview-worthy:`),
+  ul([
+    `<b>Exception safety.</b> In a call like <code>f(std::shared_ptr&lt;T&gt;(new T), g())</code>, the compiler may evaluate <code>new T</code>, then call <code>g()</code> (which throws), <em>before</em> the <code>shared_ptr</code> is constructed &#8212; leaking the <code>T</code>. <code>make_shared</code> bundles the allocation and the ownership into one call, so there's no gap for an exception to leak through. The same reasoning applies to <code>make_unique</code>.`,
+    `<b>One allocation (make_shared specifically).</b> Writing <code>shared_ptr&lt;T&gt;(new T)</code> allocates twice: once for the object, once for the control block. <code>make_shared</code> allocates them together in a single block &#8212; fewer allocations, better cache locality.`,
+    `<b>It's also just cleaner.</b> No raw <code>new</code>, no repeating the type, no chance of a <code>new</code>/<code>delete</code> mismatch.`,
+  ]),
+  code(`auto a = std::make_unique<Node>(5);    // preferred over unique_ptr<Node>(new Node(5))
+auto b = std::make_shared<Node>(5);    // one allocation, exception-safe`),
+  note(`&#128161;`,`The one caveat on make_shared`,`Because <code>make_shared</code> puts the object and its control block in the <em>same</em> allocation, that memory can't be returned until <em>both</em> the strong count and the weak count hit zero. So a long-lived <code>weak_ptr</code> to a big object keeps the object's storage around after the object itself is destroyed. Rare in practice; if it matters, fall back to <code>shared_ptr&lt;T&gt;(new T)</code>. Worth a sentence if an interviewer pushes on "any downside to <code>make_shared</code>?"`),
+  sub("Raw pointers still have a job: non-owning observers"),
+  p(`Smart pointers are about <em>ownership</em>. Once you adopt them, raw pointers don't disappear &#8212; they take on a narrower, well-defined role: a <code>T*</code> means "I observe this object but I don't own it; someone else is responsible for its lifetime." This is the modern convention, and it makes ownership readable straight from a signature. A function that just <em>uses</em> a widget takes <code>Widget*</code> (or <code>Widget&amp;</code>); it does not take <code>shared_ptr&lt;Widget&gt;</code>, because taking a <code>shared_ptr</code> by value says "I want to share ownership," which is usually a lie and always a needless atomic bump.`),
+  code(`void inspect(const Widget* w);   // observes; does NOT own. Pass owner.get().
+void store(std::unique_ptr<Widget> w);          // TAKES ownership (sink)
+void share(std::shared_ptr<Widget> w);          // shares ownership (rare)
+
+auto owner = std::make_unique<Widget>();
+inspect(owner.get());            // hand over a non-owning view; owner still owns`),
+  note(`&#128221;`,`Reading ownership from a signature`,`<b>By value <code>unique_ptr</code></b> &#8594; "give me ownership" (a sink). <b>By value <code>shared_ptr</code></b> &#8594; "I'll share ownership." <b>Raw <code>T*</code> or <code>T&amp;</code></b> &#8594; "I'm only borrowing; you keep owning it." Picking the right one documents intent and avoids accidental refcount traffic. Most function parameters should be the borrowing kind.`),
+  sub("Rule of Zero, Three, Five"),
+  p(`This is the follow-up question that ties RAII back to the shallow-copy trap from the Value vs Reference lesson. The rules are about the <em>special member functions</em> &#8212; destructor, copy constructor, copy assignment, and (since C++11) move constructor and move assignment.`),
+  ul([
+    `<b>Rule of Three.</b> If your class manually manages a resource and needs a custom <em>destructor</em>, it almost certainly also needs a custom <em>copy constructor</em> and <em>copy assignment</em> &#8212; otherwise the compiler-generated shallow copy duplicates the raw pointer, two objects free the same memory, and you get a double-free. (That's the exact shallow-copy bug from the earlier lesson.)`,
+    `<b>Rule of Five.</b> Once you've written those three, you usually want a <em>move constructor</em> and <em>move assignment</em> too, so your type moves efficiently instead of falling back to a copy.`,
+    `<b>Rule of Zero &#8212; the one to actually follow.</b> Don't manage raw resources by hand at all. Make every member a type that already manages itself (a <code>unique_ptr</code>, a <code>vector</code>, a <code>string</code>). Then you write <em>none</em> of the five &#8212; the compiler-generated versions are correct, because each member cleans up, copies, and moves itself. Most well-designed modern classes need zero special members.`,
+  ]),
+  worked("Rule of Five vs Rule of Zero","The top class owns a raw <code>int*</code>, so to be correct it must hand-write the destructor, copy, and move &#8212; the full Rule of Five, and every line is a chance for a bug. The bottom class stores the same thing in a <code>unique_ptr</code>, so it manages itself: no special members, no double-free, correct copies and moves by construction. Reach for the bottom shape every time.",
+`// Rule of Five: managing a raw resource by hand (verbose, bug-prone)
+class Owns {
+    int* data;
+public:
+    Owns() : data(new int[100]) {}
+    ~Owns() { delete[] data; }                              // 1 destructor
+    Owns(const Owns& o) : data(new int[100]) {              // 2 copy ctor
+        std::copy(o.data, o.data + 100, data);
+    }
+    Owns& operator=(const Owns& o) { /* ...copy-and-swap... */ return *this; } // 3
+    Owns(Owns&& o) noexcept : data(o.data) { o.data = nullptr; }   // 4 move ctor
+    Owns& operator=(Owns&& o) noexcept { /* ...steal... */ return *this; }     // 5
+};
+
+// Rule of Zero: let the member manage itself (this is the goal)
+class Clean {
+    std::unique_ptr<int[]> data = std::make_unique<int[]>(100);
+    // no destructor, no copy, no move written -> all correct automatically
+    // (copies are disabled because unique_ptr is move-only -- usually what you want)
+};`),
+  sub("Pitfalls to name before they name them"),
+  pit("shared_ptr cycles leak silently","Two objects holding <code>shared_ptr</code>s to each other never reach count zero, so they leak with no crash and no error &#8212; the worst kind of bug. Break every cycle by making the back-edge a <code>weak_ptr</code>. Parent owns child (<code>shared_ptr</code>); child observes parent (<code>weak_ptr</code>)."),
+  pit("Don't reach for shared_ptr when unique_ptr suffices","<code>shared_ptr</code> looks like the safe default, but it costs an atomic refcount, double the size, and an extra allocation &#8212; and worse, it muddies your design by implying shared ownership where there's really one owner. Default to <code>unique_ptr</code>; upgrade to <code>shared_ptr</code> only when two or more parties genuinely must keep the object alive."),
+  pit("One object, one control block","Never make a second <code>shared_ptr</code> from a raw pointer you got via <code>.get()</code> &#8212; that creates a second control block and leads to a double-free. And don't mix <code>delete</code>/<code>delete[]</code> by hand on memory a smart pointer owns; let the smart pointer (and <code>unique_ptr&lt;T[]&gt;</code> for arrays) choose the right one."),
+  idea("The crisp interview answer",`"RAII ties a resource's lifetime to an object's scope &#8212; acquire in the constructor, release in the destructor &#8212; and because C++ guarantees the destructor runs at scope exit, cleanup is automatic and exception-safe even when the stack unwinds. For ownership I default to <code>unique_ptr</code> (exclusive, move-only, zero overhead), reach for <code>shared_ptr</code> only when ownership is genuinely shared (it carries an atomic refcount and a control block), and use <code>weak_ptr</code> to break reference cycles. I prefer <code>make_unique</code>/<code>make_shared</code> for exception safety and one allocation, and I follow the Rule of Zero &#8212; let members manage themselves so I write no destructor, copy, or move at all." That answer, delivered in order, covers the entire question and its usual follow-ups.`)
 ]},
 {group:"Week 3 · Patterns + C++",num:"➜",id:"moves",color:"#0EA5E9",title:"Move Semantics",badge:"Week 3 · C++ deep dive",blocks:[
-  cue(`Your own C++ self-assessment flagged this as the gap: not the concept, the precise vocabulary. This section gives you the exact words — lvalue, rvalue, move, <code>std::move</code> — so you can answer cleanly under pressure.`),
-  p(`Move semantics let you transfer a resource instead of copying it. Picture a vector holding a megabyte buffer. Copying it allocates a new megabyte and duplicates every byte — O(n). But if the source is a temporary that's about to be destroyed anyway, that's pure waste: instead of copying the buffer, you can just <em>steal the pointer</em> — hand ownership of the existing buffer to the destination and leave the source empty. That's a move, and it's O(1).`),
-  svg("move","Copy duplicates the underlying buffer (left). Move transfers ownership of the existing buffer and empties the source (right) — no element-by-element copying."),
+  cue(`Your own C++ self-assessment flagged this as the gap: not the concept, the precise vocabulary. This lesson gives you the exact words &#8212; lvalue, rvalue, rvalue reference, move constructor, <code>std::move</code> &#8212; plus the mechanics underneath them, so you can answer cleanly under pressure and write the special members by hand if asked.`),
+  p(`The Value-vs-Reference lesson left you with one promise: returning a big vector by value is cheap now, because the compiler either elides the copy or <em>moves</em> the object out. This is the lesson that cashes that promise. Move semantics are how modern C++ transfers a resource instead of duplicating it &#8212; and once the mechanics click, a lot of "why is idiomatic C++ written this way?" answers itself.`),
+  sub("The problem move solves"),
+  p(`Recall what a <code>vector&lt;int&gt;</code> really is: a small handle (pointer, size, capacity) and a separate heap buffer holding the elements. Copying it is a <em>deep copy</em> &#8212; allocate a fresh buffer, duplicate every element, point the new handle at it. That's O(n), and it's the right thing to do when the source is still alive and you both need independent data.`),
+  p(`But copies often happen at a moment when the source is <em>about to be destroyed anyway</em> &#8212; a temporary returned from a function, an argument you've finished with, an element being relocated during a vector's growth. Deep-copying into the destination and then immediately throwing the source away is pure waste: you allocated a buffer and copied a megabyte just to free the original a microsecond later. Move semantics let you skip all of it. Instead of copying the buffer, the destination <em>steals the pointer</em> &#8212; takes ownership of the existing buffer and leaves the source empty. No allocation, no element copying. That's a move, and it's O(1).`),
+  svg("move",`Copy (left) duplicates the underlying buffer &#8212; two arrays, O(n). Move (right) hands the existing buffer to the destination and empties the source &#8212; one buffer changes hands, O(1). The buffer never gets copied; only the handle's pointer is rewritten.`),
   sub("The vocabulary, precisely"),
+  p(`The reason this trips people up in interviews isn't the idea &#8212; it's that the words are slippery. Here they are with sharp edges. The whole framework hangs on one distinction: is the thing I'm reading from going to <em>survive</em>, or is it <em>about to die</em>?`),
   ul([
-    `<b>lvalue</b> — a named object with a stable location you could take the address of: a variable like <code>x</code>. It persists, so you can't safely steal from it.`,
-    `<b>rvalue</b> — a temporary with no name, about to expire: the result of <code>a + b</code>, or a function returning by value. Because it's about to be destroyed, stealing from it is safe and free.`,
-    `<b>move constructor / move assignment</b> — the special members that perform the steal. The compiler calls them automatically when the source is an rvalue.`,
-    `<b><code>std::move</code></b> — doesn't move anything itself. It's a cast that tells the compiler "treat this lvalue as an rvalue — I promise I'm done with it, you may steal from it." After moving from a variable, you shouldn't use its value again.`,
+    `<b>lvalue</b> &#8212; a named object with a stable identity you could take the address of: a variable <code>x</code>, an element <code>v[i]</code>, a dereference <code>*p</code>. It <em>persists</em> past this expression, so stealing from it behind your back would be a bug &#8212; the language won't move from it automatically.`,
+    `<b>rvalue</b> &#8212; a temporary with no name, about to expire at the end of the full expression: the result of <code>a + b</code>, a function returning by value, a braced literal. You can't take its address. Because it's about to be destroyed, stealing from it is safe and free.`,
+    `<b>rvalue reference (<code>T&amp;&amp;</code>)</b> &#8212; a reference type that binds <em>only</em> to rvalues. It's the hook that lets you write a function (or constructor) which says "I'll only accept things you're done with, so I'm allowed to gut them." Don't confuse it with <code>T&amp;</code> (an ordinary lvalue reference).`,
+    `<b>move constructor / move assignment</b> &#8212; the special members that perform the steal. They take a <code>T&amp;&amp;</code>. The compiler calls them automatically whenever the source is an rvalue.`,
+    `<b><code>std::move</code></b> &#8212; despite the name, it <em>moves nothing</em>. It's a cast: it turns an lvalue into an rvalue so that move (rather than copy) gets selected. You're telling the compiler "I promise I'm done with this named object &#8212; you may steal from it."`,
   ]),
+  svg("moves_lvalue",`The litmus test: can you take its address? A named, persistent thing (<code>x</code>, <code>v[i]</code>, <code>*p</code>) is an <b>lvalue</b> &#8212; it survives, so it gets copied. A nameless temporary (<code>a + b</code>, a by-value return, <code>std::move(x)</code>) is an <b>rvalue</b> &#8212; it's expiring, so it can be stolen from.`),
+  note("&#128221;","Why \"lvalue\" and \"rvalue\"",`The names are historical: an <em>lvalue</em> could appear on the <em>left</em> of an assignment (it names a place you can store into), an <em>rvalue</em> only on the <em>right</em>. That's a rough mnemonic, not a definition &#8212; <code>const</code> lvalues can't be assigned to either &#8212; but "left = has identity, right = temporary" is the right intuition to carry into the move discussion.`),
+  sub("std::move is just a cast"),
+  p(`This is the single most misunderstood line in the topic, so be precise about it. <code>std::move(x)</code> does not touch <code>x</code>, does not move anything, generates no instructions of its own. It is a compile-time cast to <code>T&amp;&amp;</code>. All it changes is <em>overload resolution</em>: by making the expression an rvalue, it steers the compiler to the move constructor / move assignment instead of the copy ones. The actual stealing happens inside <em>those</em> members, not inside <code>std::move</code>.`),
   code(`vector<int> a = {1, 2, 3};
-vector<int> b = a;              // COPY: a is an lvalue, still needed -> duplicate
-vector<int> c = std::move(a);  // MOVE: cast a to rvalue -> steal its buffer
-// 'a' is now valid but empty; don't rely on its contents anymore`),
+vector<int> b = a;             // COPY: a is an lvalue, still needed -> deep copy, O(n)
+vector<int> c = std::move(a);  // MOVE: cast a to rvalue -> move ctor steals a's buffer, O(1)
+// 'a' is now valid but unspecified: empty in practice. Don't read its value.`),
+  pit("The moved-from object is valid, not gone",`After <code>std::move(a)</code>, <code>a</code> is in a <em>valid but unspecified</em> state. It's not destroyed and not undefined &#8212; you can still assign to it, call <code>a.clear()</code>, or let it go out of scope safely. What you must <em>not</em> do is rely on its value. For a standard container "unspecified" means empty in practice, but treat reading a moved-from object as a bug regardless. The one safe move after moving from something is to give it a fresh value.`),
+  sub("When moves happen automatically vs. when you opt in"),
+  p(`You do not sprinkle <code>std::move</code> everywhere. The compiler already moves for you whenever the source is an rvalue. You only reach for <code>std::move</code> to move from a <em>named</em> object &#8212; an lvalue the compiler isn't allowed to assume you're finished with.`),
+  ul([
+    `<b>Automatic (no <code>std::move</code> needed):</b> returning a local variable by value; passing a temporary like <code>f(make())</code> or <code>v.push_back(string("hi"))</code>; constructing from any expression that's already an rvalue. The source is expiring, so the compiler picks move on its own.`,
+    `<b>Opt in with <code>std::move</code>:</b> you have a named variable you're <em>done with</em> and want to hand its guts to something else &#8212; <code>v.push_back(std::move(name))</code>, or moving a member out of <code>*this</code>. The object has a name, so the compiler treats it as an lvalue (still alive) unless you explicitly cast it.`,
+  ]),
+  pit("Don't write return std::move(local)",`It looks like an optimization; it's the opposite. Returning a local by value already moves (or, better, elides the copy entirely). Wrapping it in <code>std::move</code> forces a move and <em>disables copy elision / RVO</em> &#8212; you turn a zero-cost return into a guaranteed move. Just write <code>return local;</code>. The compiler does the right thing, and most modern compilers will warn you about the <code>std::move</code> here.`),
+  sub("Writing a move constructor and move assignment"),
+  p(`Now the part interviewers sometimes ask you to do live: implement the steal yourself for a class that owns a raw buffer. The move constructor takes the source's pointer, then nulls the source so its destructor frees nothing. The move assignment does the same but must first free what <em>it</em> already owns, and guard against self-assignment. Member-by-member, a move is: copy the source's pointer/size, then zero them out in the source.`),
+  svg("moves_steal",`The move constructor in pictures. <b>Before:</b> <code>src</code> owns the heap buffer, <code>dst</code> is being built. <b>After:</b> <code>dst.ptr</code> points at the same buffer and <code>src.ptr</code> is set to null &#8212; two pointer writes, no allocation, no element copy. Nulling <code>src</code> is what stops both destructors from freeing the one buffer.`),
+  worked("A move ctor + move assignment by hand","A minimal class owning a heap array. The move operations transfer <code>data</code> and <code>n</code>, then null the source so its destructor is a no-op. Note the three things that make this correct: nulling the source, freeing the existing buffer in assignment, and the self-assignment guard. Mark them <code>noexcept</code> &#8212; the next section explains why that one keyword matters.",
+`class Buffer {
+    int*   data = nullptr;
+    size_t n    = 0;
+public:
+    Buffer(size_t count) : data(new int[count]), n(count) {}
+    ~Buffer() { delete[] data; }                 // owns the buffer
+
+    // MOVE CONSTRUCTOR: steal src's buffer, leave src empty
+    Buffer(Buffer&& src) noexcept
+        : data(src.data), n(src.n) {             // take the pointer
+        src.data = nullptr;                       // null the source...
+        src.n    = 0;                             // ...so ~Buffer frees nothing
+    }
+
+    // MOVE ASSIGNMENT: free what we own, then steal src's
+    Buffer& operator=(Buffer&& src) noexcept {
+        if (this != &src) {                       // self-assignment guard
+            delete[] data;                        // release our current buffer
+            data = src.data;  n = src.n;          // steal src's
+            src.data = nullptr;  src.n = 0;       // and empty src
+        }
+        return *this;
+    }
+};`),
+  note("&#128221;","This is the hard way &#8212; usually you delete it all",`The class above is what a move <em>looks like</em>, which is worth knowing. But you'd almost never write it. Hold a <code>std::vector&lt;int&gt;</code> or <code>std::unique_ptr</code> instead of a raw <code>int*</code>, and the compiler generates a correct move (and copy, and destructor) for free. The hand-written version exists for the interview question and for the rare case you're building the owning type itself. The Rule of Zero section drives this home.`),
+  sub("The Rule of 0/3/5"),
+  p(`This is the classic follow-up, and the name encodes a decision tree. The "special members" are the destructor, copy constructor, copy assignment, move constructor, and move assignment. The rule is about <em>which ones you must write</em>:`),
+  ul([
+    `<b>Rule of Three (pre-C++11 core):</b> if you need to write a custom <em>destructor</em>, <em>copy constructor</em>, or <em>copy assignment</em>, you almost certainly need all three. Needing one means you're managing a resource by hand, and the default versions of the other two will get that resource wrong (the shallow-copy double-free from the Value-vs-Reference lesson).`,
+    `<b>Rule of Five (C++11+):</b> once moves exist, the set grows to five &#8212; add the move constructor and move assignment. If you're managing a resource and care about performance, you want the move pair too, or you'll silently fall back to copying.`,
+    `<b>Rule of Zero (what you should actually aim for):</b> design your class so you need to write <em>none</em> of them. Hold members that manage themselves &#8212; <code>vector</code>, <code>string</code>, <code>unique_ptr</code>, <code>shared_ptr</code> &#8212; and the compiler-generated special members are all correct: copies deep-copy, moves steal, destruction cleans up. Each RAII member does its own part.`,
+  ]),
+  note("&#128161;","Prefer Rule of Zero &#8212; and say so",`The senior answer to "implement the Rule of Five" is often "I'd restructure so I don't have to." Declaring <em>any</em> special member also has a subtle effect: writing a destructor or copy operation <em>suppresses</em> the implicitly-generated move operations, so a class with a hand-written destructor silently loses its moves and copies instead. That's a real performance footgun &#8212; another reason to keep ownership inside RAII members (see the RAII &amp; Smart Pointers lesson) and let the compiler generate everything.`),
+  sub("Copy elision and RVO"),
+  p(`Here's the twist that makes return-by-value genuinely free: often the compiler doesn't even move &#8212; it <em>elides</em> the copy/move entirely. <em>Return value optimization</em> constructs the returned object directly in the caller's storage, so there's no separate temporary to copy or move at all. Since C++17, elision is <em>mandatory</em> for prvalues &#8212; returning a nameless temporary, or constructing from one, is guaranteed to skip the copy/move. For named locals (NRVO) it's a permitted-but-not-guaranteed optimization that every real compiler performs.`),
+  worked("Why returning a big vector is free","The function builds a vector and returns it by value. No copy happens on return: either RVO constructs <code>result</code> straight into the caller's variable (the common case), or, if elision can't apply, the vector is moved out &#8212; O(1) either way. This is exactly why the Value-vs-Reference lesson told you to return big objects by value and not contort your code to avoid it.",
+`vector<int> buildSquares(int n) {
+    vector<int> result;                 // built locally
+    result.reserve(n);
+    for (int i = 0; i < n; ++i)
+        result.push_back(i * i);
+    return result;                      // RVO: no copy, no move - or a cheap move
+}
+
+vector<int> v = buildSquares(1000000); // the million elements are never copied`),
+  sub("Moving into containers: push_back vs emplace_back"),
+  p(`Containers are where you'll actually type <code>std::move</code>. <code>push_back(x)</code> copies <code>x</code> in; <code>push_back(std::move(x))</code> moves it in &#8212; one overload takes <code>const T&amp;</code> (copy), the other takes <code>T&amp;&amp;</code> (move), and your cast selects the second. <code>emplace_back(args...)</code> goes one step further: it constructs the element <em>in place</em> inside the container from the arguments you pass, skipping even the temporary. For an existing object you're done with, <code>push_back(std::move(x))</code>; for a fresh one, <code>emplace_back(ctor args)</code>.`),
+  worked("Moving an object you're finished with into a vector","<code>name</code> is a named lvalue, so the compiler won't move from it on its own &#8212; you opt in with <code>std::move</code>. After the move, <code>name</code> is empty; the vector holds its buffer with zero copying. <code>emplace_back</code> on the next line builds the string directly in the vector from the literal, no temporary at all.",
+`vector<string> names;
+string name = "a-very-long-name-with-heap-data";
+
+names.push_back(name);             // COPY: name is an lvalue, duplicated into the vector
+names.push_back(std::move(name));  // MOVE: steal name's buffer; name is now empty
+names.emplace_back("built-in-place"); // construct the string directly inside the vector
+// using 'name' here would be reading a moved-from object - don't.`),
+  sub("noexcept moves and vector growth"),
+  p(`One detail with outsized practical impact: mark your move operations <code>noexcept</code>. When a <code>vector</code> grows and reallocates, it has to relocate existing elements into the new buffer. It will only <em>move</em> them if their move constructor is <code>noexcept</code>; otherwise it falls back to <em>copying</em>, to preserve its strong exception guarantee (a throw mid-move could leave elements half-destroyed with no way back). So a non-<code>noexcept</code> move constructor quietly turns every vector reallocation into O(n) copies. Compiler-generated moves are <code>noexcept</code> when they can be &#8212; another win for the Rule of Zero.`),
+  note("&#128221;","Perfect forwarding (awareness level)",`You'll see <code>T&amp;&amp;</code> in templates too &#8212; <code>template&lt;class T&gt; void wrap(T&amp;&amp; arg)</code>. There it's not an rvalue reference but a <em>forwarding reference</em>, which binds to either lvalues or rvalues, and you pass it along with <code>std::forward&lt;T&gt;(arg)</code> to preserve whether the caller gave you something movable. That's how <code>emplace_back</code> and <code>make_unique</code> forward your arguments untouched. You don't need to write these to interview well &#8212; just recognize that <code>T&amp;&amp;</code>-in-a-template plus <code>std::forward</code> is "perfect forwarding," distinct from a plain move.`),
+  pit("Moves that don't actually help",`Move is only a win when there's a heap resource to steal. <code>std::move</code> on an <code>int</code>, a <code>double</code>, or a plain struct of scalars does nothing &#8212; there's no buffer, so the "move" is just a copy. Worse: <code>std::move</code> on a <em>const</em> object silently copies, because a move constructor can't take a <code>const T&amp;&amp;</code> (it needs to mutate the source to null it out), so overload resolution falls back to the copy constructor. The cast compiles and looks like a move; you get a copy. Don't <code>std::move</code> scalars, and don't move from <code>const</code>.`),
+  cx(`Copy a container <b>O(n)</b> · move it <b>O(1)</b> (steal the pointer) · return-by-value <b>O(1)</b> via RVO or move`),
   sub("Why interviewers care"),
-  p(`Move semantics are why modern C++ can return big objects by value without a performance penalty, and why <code>push_back(std::move(x))</code> is faster than <code>push_back(x)</code> for heavy types. Understanding it signals that you know where the costs are. The related ideas — the rule of 0/3/5 (if you define one of destructor/copy/move, think about all of them) and copy elision (the compiler skipping copies entirely) — are common follow-ups.`),
-  idea("Say it like this",`"An lvalue is a named, persistent object; an rvalue is a temporary about to expire. Move semantics steal an rvalue's resources instead of copying them, turning an O(n) copy into an O(1) pointer transfer. <code>std::move</code> is just a cast that lets me opt a named object into being moved from."`),
+  p(`Move semantics are the reason modern C++ can return big objects by value with no penalty, why <code>push_back(std::move(x))</code> beats <code>push_back(x)</code> for heavy types, and why "hold RAII members and let the compiler generate the rest" is the idiomatic default. Being able to define lvalue vs rvalue crisply, explain that <code>std::move</code> is only a cast, and name the Rule of Zero / RVO follow-ups signals that you know exactly where the costs live &#8212; which is most of what this question is checking.`),
+  idea("Say it like this",`"An lvalue is a named, persistent object; an rvalue is a temporary about to expire. A move steals an rvalue's heap resource instead of copying it &#8212; the move constructor takes the source's pointer and nulls the source, turning an O(n) copy into an O(1) pointer transfer. <code>std::move</code> moves nothing itself; it's a cast that lets me opt a named lvalue into being moved from. The compiler moves automatically when the source is already an rvalue &#8212; returning a local, passing a temporary &#8212; and often elides even that via RVO. In my own code I aim for the Rule of Zero: hold <code>vector</code>, <code>string</code>, and <code>unique_ptr</code> members so the correct copy, move, and destructor are all generated for free."`)
 ]},
 {group:"Week 4+ · More Patterns",num:"06",id:"linked",color:"#38BDF8",title:"Linked Lists",badge:"Week 4 · full lesson coming",blocks:[
   cue(`<b>Spot it when:</b> nodes and pointers — reversal, detecting a cycle, finding a midpoint, or merging ordered lists.`),
