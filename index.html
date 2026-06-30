@@ -510,6 +510,149 @@ SVG.mental_passing=`<svg viewBox="0 0 620 320" role="img" aria-label="Parameter 
 <text x="248" y="278" font-family="Inter,sans-serif" font-size="11.5" fill="#3a3660">The argument is optional (nullptr) or you walk/reseat it.</text>
 <text x="248" y="294" font-family="Inter,sans-serif" font-size="10.5" fill="#6f6b8c">Can be null &#8212; caller must guard. Used for list/tree nodes.</text>
 </g></svg>`;
+SVG.arrays_prefix=`<svg viewBox="0 0 620 290" role="img" aria-label="A prefix-sum array turns any range sum into one subtraction">
+<text x="310" y="26" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12.5" fill="#FF5D73">nums = [3, 1, 4, 1, 5, 9]   &#8212;   build pre once, then every range is O(1)</text>
+<text x="40" y="66" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">nums[i]</text>
+<g font-family="JetBrains Mono,monospace" font-size="14">
+<rect x="120" y="50" width="64" height="36" fill="#fff" stroke="#c9cad9"/><text x="152" y="74" text-anchor="middle" fill="#1B1838">3</text>
+<rect x="184" y="50" width="64" height="36" fill="#FFF0F2" stroke="#FF5D73"/><text x="216" y="74" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="248" y="50" width="64" height="36" fill="#FFF0F2" stroke="#FF5D73"/><text x="280" y="74" text-anchor="middle" fill="#1B1838">4</text>
+<rect x="312" y="50" width="64" height="36" fill="#FFF0F2" stroke="#FF5D73"/><text x="344" y="74" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="376" y="50" width="64" height="36" fill="#fff" stroke="#c9cad9"/><text x="408" y="74" text-anchor="middle" fill="#1B1838">5</text>
+<rect x="440" y="50" width="64" height="36" fill="#fff" stroke="#c9cad9"/><text x="472" y="74" text-anchor="middle" fill="#1B1838">9</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="10.5" fill="#9d9ab0">
+<text x="152" y="100" text-anchor="middle">0</text><text x="216" y="100" text-anchor="middle">1</text><text x="280" y="100" text-anchor="middle">2</text><text x="344" y="100" text-anchor="middle">3</text><text x="408" y="100" text-anchor="middle">4</text><text x="472" y="100" text-anchor="middle">5</text></g>
+<text x="40" y="158" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">pre[i]</text>
+<text x="40" y="174" font-family="Inter,sans-serif" font-size="9.5" fill="#9d9ab0">running sum</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="88" y="142" width="64" height="36" fill="#F0FBF5" stroke="#a9d6bb"/><text x="120" y="165" text-anchor="middle" fill="#1B1838">0</text>
+<rect x="152" y="142" width="64" height="36" fill="#F0FBF5" stroke="#a9d6bb"/><text x="184" y="165" text-anchor="middle" fill="#1B1838">3</text>
+<rect x="216" y="142" width="64" height="36" fill="#E7F6ED" stroke="#16A34A" stroke-width="2"/><text x="248" y="165" text-anchor="middle" fill="#0f7a36" font-weight="600">4</text>
+<rect x="280" y="142" width="64" height="36" fill="#F0FBF5" stroke="#a9d6bb"/><text x="312" y="165" text-anchor="middle" fill="#1B1838">8</text>
+<rect x="344" y="142" width="64" height="36" fill="#E7F6ED" stroke="#16A34A" stroke-width="2"/><text x="376" y="165" text-anchor="middle" fill="#0f7a36" font-weight="600">9</text>
+<rect x="408" y="142" width="64" height="36" fill="#F0FBF5" stroke="#a9d6bb"/><text x="440" y="165" text-anchor="middle" fill="#1B1838">14</text>
+<rect x="472" y="142" width="64" height="36" fill="#F0FBF5" stroke="#a9d6bb"/><text x="504" y="165" text-anchor="middle" fill="#1B1838">23</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="10.5" fill="#9d9ab0">
+<text x="120" y="192" text-anchor="middle">[0]</text><text x="184" y="192" text-anchor="middle">[1]</text><text x="248" y="192" text-anchor="middle">[2]</text><text x="312" y="192" text-anchor="middle">[3]</text><text x="376" y="192" text-anchor="middle">[4]</text><text x="440" y="192" text-anchor="middle">[5]</text><text x="504" y="192" text-anchor="middle">[6]</text></g>
+<rect x="120" y="220" width="416" height="52" rx="10" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="328" y="242" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#1B1838">sum(nums[1..3]) = 1 + 4 + 1 = 6</text>
+<text x="328" y="262" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" font-weight="600" fill="#16A34A">= pre[4] - pre[1] = 9 - 3 = 6</text></svg>`;
+SVG.arrays_freq=`<svg viewBox="0 0 620 230" role="img" aria-label="A fixed-size array used as a hash map for letter counts">
+<text x="310" y="26" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12.5" fill="#FF5D73">int count[26] = {};   count[c - 'a']++;   for s = "beekeeper"</text>
+<text x="310" y="50" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">26 fixed slots &#8212; the letter <tspan font-style="italic">is</tspan> the index, so no hashing, no map</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="60" y="78" width="50" height="40" fill="#fff" stroke="#c9cad9"/><text x="85" y="103" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="110" y="78" width="50" height="40" fill="#FFF0F2" stroke="#FF5D73"/><text x="135" y="103" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="160" y="78" width="50" height="40" fill="#fff" stroke="#c9cad9"/><text x="185" y="103" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="210" y="78" width="50" height="40" fill="#fff" stroke="#c9cad9"/><text x="235" y="103" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="260" y="78" width="50" height="40" fill="#FCE7EC" stroke="#FF5D73" stroke-width="2"/><text x="285" y="103" text-anchor="middle" fill="#d23a52" font-weight="600">4</text>
+<rect x="310" y="78" width="50" height="40" fill="#fff" stroke="#c9cad9"/><text x="335" y="103" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="360" y="78" width="50" height="40" fill="#fff" stroke="#c9cad9"/><text x="385" y="103" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="410" y="78" width="50" height="40" fill="#fff" stroke="#c9cad9"/><text x="435" y="103" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="460" y="78" width="36" height="40" fill="#FBFBFE" stroke="#E7E8F2"/><text x="478" y="103" text-anchor="middle" fill="#c9cad9">&#8230;</text>
+<rect x="496" y="78" width="50" height="40" fill="#FFF0F2" stroke="#FF5D73"/><text x="521" y="103" text-anchor="middle" fill="#1B1838">2</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">
+<text x="85" y="138" text-anchor="middle">a</text><text x="135" y="138" text-anchor="middle">b</text><text x="185" y="138" text-anchor="middle">c</text><text x="235" y="138" text-anchor="middle">d</text><text x="285" y="138" text-anchor="middle" fill="#d23a52" font-weight="600">e</text><text x="335" y="138" text-anchor="middle">f</text><text x="385" y="138" text-anchor="middle">g</text><text x="435" y="138" text-anchor="middle">h</text><text x="521" y="138" text-anchor="middle">r</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="9.5" fill="#b9bac9">
+<text x="85" y="152" text-anchor="middle">[0]</text><text x="135" y="152" text-anchor="middle">[1]</text><text x="285" y="152" text-anchor="middle">[4]</text><text x="521" y="152" text-anchor="middle">[17]</text></g>
+<text x="310" y="186" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#3a3660">count['e' - 'a'] = count[4] = 4 &#8212; 'e' appears four times in "beekeeper"</text>
+<text x="310" y="208" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" font-weight="600" fill="#16A34A">array-as-hashmap: O(1) access, zero hashing overhead</text></svg>`;
+SVG.twopointers_floyd=`<svg viewBox="0 0 620 260" role="img" aria-label="Floyd's fast and slow pointers on a linked list with a cycle">
+<text x="310" y="28" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">fast moves 2, slow moves 1 &#8594; they meet inside the loop</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="40" y="70" width="46" height="40" rx="9" fill="#fff" stroke="#C9CAD9"/><text x="63" y="95" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="120" y="70" width="46" height="40" rx="9" fill="#fff" stroke="#C9CAD9"/><text x="143" y="95" text-anchor="middle" fill="#1B1838">2</text>
+<rect x="200" y="70" width="46" height="40" rx="9" fill="#E9FBF4" stroke="#2DD4A7" stroke-width="2"/><text x="223" y="95" text-anchor="middle" fill="#0f9b78" font-weight="600">3</text>
+<rect x="340" y="70" width="46" height="40" rx="9" fill="#fff" stroke="#C9CAD9"/><text x="363" y="95" text-anchor="middle" fill="#1B1838">4</text>
+<rect x="460" y="70" width="46" height="40" rx="9" fill="#EEF0FF" stroke="#5B5BD6" stroke-width="2"/><text x="483" y="95" text-anchor="middle" fill="#3a32a8" font-weight="600">5</text>
+<rect x="400" y="170" width="46" height="40" rx="9" fill="#fff" stroke="#C9CAD9"/><text x="423" y="195" text-anchor="middle" fill="#1B1838">6</text>
+</g>
+<path d="M86 90 H118" stroke="#c9cad9" stroke-width="1.8" marker-end="url(#tpf)"/>
+<path d="M166 90 H198" stroke="#c9cad9" stroke-width="1.8" marker-end="url(#tpf)"/>
+<path d="M246 90 H338" stroke="#c9cad9" stroke-width="1.8" marker-end="url(#tpf)"/>
+<path d="M386 90 H458" stroke="#c9cad9" stroke-width="1.8" marker-end="url(#tpf)"/>
+<path d="M483 110 C483 150 446 158 446 180" stroke="#c9cad9" stroke-width="1.8" fill="none" marker-end="url(#tpf)"/>
+<path d="M400 190 C360 190 363 130 363 112" stroke="#c9cad9" stroke-width="1.8" fill="none" marker-end="url(#tpf)"/>
+<text x="223" y="62" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0f9b78">slow</text>
+<text x="483" y="62" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#3a32a8">fast</text>
+<text x="360" y="245" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">node 4 &#8594; 5 &#8594; 6 loops back to 4: no <tspan font-family="JetBrains Mono,monospace">nullptr</tspan> for fast to ever hit</text>
+<defs><marker id="tpf" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#c9cad9"/></marker></defs></svg>`;
+SVG.twopointers_rw=`<svg viewBox="0 0 620 250" role="img" aria-label="Read write two pointers partitioning an array in place">
+<text x="310" y="28" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">move all non-zeros to the front, in place</text>
+<text x="46" y="64" font-family="Inter,sans-serif" font-size="11.5" fill="#9d9ab0">read scans every cell; write only advances when it keeps one</text>
+<g font-family="JetBrains Mono,monospace" font-size="14">
+<rect x="50" y="86" width="58" height="42" fill="#E9FBF4" stroke="#2DD4A7"/><text x="79" y="113" text-anchor="middle" fill="#0f9b78" font-weight="600">1</text>
+<rect x="110" y="86" width="58" height="42" fill="#E9FBF4" stroke="#2DD4A7"/><text x="139" y="113" text-anchor="middle" fill="#0f9b78" font-weight="600">7</text>
+<rect x="170" y="86" width="58" height="42" fill="#EEEFF6" stroke="#dfe0ea"/><text x="199" y="113" text-anchor="middle" fill="#b9bac9">0</text>
+<rect x="230" y="86" width="58" height="42" fill="#E9FBF4" stroke="#2DD4A7"/><text x="259" y="113" text-anchor="middle" fill="#0f9b78" font-weight="600">4</text>
+<rect x="290" y="86" width="58" height="42" fill="#EEEFF6" stroke="#dfe0ea"/><text x="319" y="113" text-anchor="middle" fill="#b9bac9">0</text>
+<rect x="350" y="86" width="58" height="42" fill="#FFF0F2" stroke="#FF8A3D" stroke-width="2"/><text x="379" y="113" text-anchor="middle" fill="#d2691e" font-weight="600">9</text>
+<rect x="410" y="86" width="58" height="42" fill="#fff" stroke="#C9CAD9"/><text x="439" y="113" text-anchor="middle" fill="#1B1838">3</text>
+</g>
+<path d="M379 150 V128" stroke="#FF8A3D" stroke-width="2" marker-end="url(#tprr)"/>
+<text x="379" y="168" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#FF8A3D" font-weight="600">read</text>
+<path d="M259 84 V62" stroke="#16A34A" stroke-width="2" marker-end="url(#tprw)"/>
+<text x="259" y="50" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#16A34A" font-weight="600">write</text>
+<text x="310" y="210" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#3c6b4f">write trails read; everything left of write is finished &amp; correct</text>
+<defs>
+<marker id="tprr" markerWidth="8" markerHeight="8" refX="3" refY="6" orient="auto"><path d="M0 6L3 0L6 6z" fill="#FF8A3D"/></marker>
+<marker id="tprw" markerWidth="8" markerHeight="8" refX="3" refY="0" orient="auto"><path d="M0 0L3 6L6 0z" fill="#16A34A"/></marker>
+</defs></svg>`;
+SVG.sliding_step=`<svg viewBox="0 0 620 250" role="img" aria-label="A fixed-size window slides one step: the entering element is added and the leaving element is subtracted">
+<text x="310" y="26" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#6f6b8c">fixed window of size k = 3 — sum of the highlighted cells</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<text x="20" y="78" fill="#9d9ab0" font-size="11">step 1</text>
+<g transform="translate(78,58)">
+<rect x="0" y="0" width="52" height="34" fill="#FFF8E6" stroke="#f0d27a"/><text x="26" y="22" text-anchor="middle" fill="#8a6d12">2</text>
+<rect x="52" y="0" width="52" height="34" fill="#FFF8E6" stroke="#f0d27a"/><text x="78" y="22" text-anchor="middle" fill="#8a6d12">1</text>
+<rect x="104" y="0" width="52" height="34" fill="#FFF8E6" stroke="#f0d27a"/><text x="130" y="22" text-anchor="middle" fill="#8a6d12">5</text>
+<rect x="156" y="0" width="52" height="34" fill="#FBFBFE" stroke="#e2e2ec"/><text x="182" y="22" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="208" y="0" width="52" height="34" fill="#FBFBFE" stroke="#e2e2ec"/><text x="234" y="22" text-anchor="middle" fill="#1B1838">3</text>
+<rect x="260" y="0" width="52" height="34" fill="#FBFBFE" stroke="#e2e2ec"/><text x="286" y="22" text-anchor="middle" fill="#1B1838">2</text>
+<rect x="-4" y="-4" width="164" height="42" rx="6" fill="none" stroke="#FFC53D" stroke-width="2.4"/>
+<text x="78" y="-12" text-anchor="middle" font-size="11" fill="#b88a06">window sum = 8</text></g>
+<text x="20" y="170" fill="#9d9ab0" font-size="11">step 2</text>
+<g transform="translate(78,150)">
+<rect x="0" y="0" width="52" height="34" fill="#FBFBFE" stroke="#e2e2ec"/><text x="26" y="22" text-anchor="middle" fill="#b9bac9">2</text>
+<rect x="52" y="0" width="52" height="34" fill="#FFF8E6" stroke="#f0d27a"/><text x="78" y="22" text-anchor="middle" fill="#8a6d12">1</text>
+<rect x="104" y="0" width="52" height="34" fill="#FFF8E6" stroke="#f0d27a"/><text x="130" y="22" text-anchor="middle" fill="#8a6d12">5</text>
+<rect x="156" y="0" width="52" height="34" fill="#FFF8E6" stroke="#f0d27a"/><text x="182" y="22" text-anchor="middle" fill="#8a6d12">1</text>
+<rect x="208" y="0" width="52" height="34" fill="#FBFBFE" stroke="#e2e2ec"/><text x="234" y="22" text-anchor="middle" fill="#1B1838">3</text>
+<rect x="260" y="0" width="52" height="34" fill="#FBFBFE" stroke="#e2e2ec"/><text x="286" y="22" text-anchor="middle" fill="#1B1838">2</text>
+<rect x="48" y="-4" width="164" height="42" rx="6" fill="none" stroke="#FFC53D" stroke-width="2.4"/>
+<text x="130" y="-12" text-anchor="middle" font-size="11" fill="#b88a06">8 &#8722; 2 + 1 = 7</text></g></g>
+<text x="118" y="232" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#d23a52">&#8722; leaving: 2</text>
+<text x="300" y="232" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#16A34A">+ entering: 1</text>
+<text x="500" y="232" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6f6b8c">one add, one subtract &#8594; O(1) per slide</text></svg>`;
+SVG.sliding_grow=`<svg viewBox="0 0 620 250" role="img" aria-label="A dynamic window expands the right pointer, then shrinks the left pointer when the window becomes invalid">
+<text x="310" y="26" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#6f6b8c">dynamic window on "a b c a" — longest run with no repeat</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<text x="20" y="74" fill="#9d9ab0" font-size="11">expand</text>
+<g transform="translate(96,56)">
+<rect x="0" y="0" width="50" height="34" fill="#FFF8E6" stroke="#FFC53D"/><text x="25" y="22" text-anchor="middle" fill="#8a6d12">a</text>
+<rect x="50" y="0" width="50" height="34" fill="#FFF8E6" stroke="#FFC53D"/><text x="75" y="22" text-anchor="middle" fill="#8a6d12">b</text>
+<rect x="100" y="0" width="50" height="34" fill="#FFF8E6" stroke="#FFC53D"/><text x="125" y="22" text-anchor="middle" fill="#8a6d12">c</text>
+<rect x="150" y="0" width="50" height="34" fill="#FBFBFE" stroke="#e2e2ec"/><text x="175" y="22" text-anchor="middle" fill="#1B1838">a</text>
+<text x="25" y="52" text-anchor="middle" font-size="10" fill="#5B5BD6">left</text>
+<text x="125" y="52" text-anchor="middle" font-size="10" fill="#16A34A">right</text>
+<text x="320" y="22" font-size="11" fill="#6f6b8c">"abc" valid &#8594; right keeps moving</text></g>
+<text x="20" y="158" fill="#9d9ab0" font-size="11">invalid</text>
+<g transform="translate(96,140)">
+<rect x="0" y="0" width="50" height="34" fill="#FFF0F2" stroke="#FF5D73"/><text x="25" y="22" text-anchor="middle" fill="#d23a52">a</text>
+<rect x="50" y="0" width="50" height="34" fill="#FFF8E6" stroke="#FFC53D"/><text x="75" y="22" text-anchor="middle" fill="#8a6d12">b</text>
+<rect x="100" y="0" width="50" height="34" fill="#FFF8E6" stroke="#FFC53D"/><text x="125" y="22" text-anchor="middle" fill="#8a6d12">c</text>
+<rect x="150" y="0" width="50" height="34" fill="#FFF8E6" stroke="#FFC53D"/><text x="175" y="22" text-anchor="middle" fill="#8a6d12">a</text>
+<text x="25" y="52" text-anchor="middle" font-size="10" fill="#d23a52">left</text>
+<text x="175" y="52" text-anchor="middle" font-size="10" fill="#16A34A">right</text>
+<text x="320" y="22" font-size="11" fill="#d23a52">second 'a' &#8594; duplicate, window broken</text></g>
+<text x="20" y="222" fill="#9d9ab0" font-size="11">shrink</text>
+<g transform="translate(96,204)">
+<rect x="0" y="0" width="50" height="34" fill="#EEEFF6" stroke="#dfe0ea"/><text x="25" y="22" text-anchor="middle" fill="#b9bac9">a</text>
+<rect x="50" y="0" width="50" height="34" fill="#FFF8E6" stroke="#FFC53D"/><text x="75" y="22" text-anchor="middle" fill="#8a6d12">b</text>
+<rect x="100" y="0" width="50" height="34" fill="#FFF8E6" stroke="#FFC53D"/><text x="125" y="22" text-anchor="middle" fill="#8a6d12">c</text>
+<rect x="150" y="0" width="50" height="34" fill="#FFF8E6" stroke="#FFC53D"/><text x="175" y="22" text-anchor="middle" fill="#8a6d12">a</text>
+<text x="75" y="52" text-anchor="middle" font-size="10" fill="#5B5BD6">left++</text>
+<text x="320" y="22" font-size="11" fill="#16A34A">drop the old 'a' &#8594; "bca" valid again</text></g></g></svg>`;
 const plan=[
   ["Week 1","Foundations · Big-O · Pointers","how"],
   ["Week 2","Arrays · Two Pointers · Windows","arrays"],
@@ -877,11 +1020,26 @@ for (auto& [key, val] : m)   // alias each entry -> can modify val in place
   {t:"primer"}
 ]},
 {group:"Week 2 · Core Patterns",num:"01",id:"arrays",color:"#FF5D73",title:"Arrays & Hashing",badge:"Week 2 · Pattern",blocks:[
-  cue(`<b>Spot it when:</b> you need fast lookups, counting, or de-duping — anytime you're about to write a nested loop just to check "have I seen this before?"`),
-  p(`The defining move of this pattern is replacing a search with a lookup. Searching an array for a value is O(n) — you might scan the whole thing. A hash map (<code>unordered_map</code>) or hash set (<code>unordered_set</code>) makes that same question — "is this value present?" — an O(1)-average operation. You trade some memory for a dramatic speedup, and that single trade collapses a huge fraction of brute-force O(n²) solutions down to O(n).`),
+  cue(`<b>Spot it when:</b> you need fast lookups, counting, or de-duping &#8212; anytime you're about to write a nested loop just to check "have I seen this before?", or you're being asked the same range question over and over.`),
+  p(`This is the most foundational pattern in the whole course, because almost everything else is built on top of it. Two skills live here. First, the <em>array</em> itself &#8212; the contiguous block of memory underneath <code>std::vector</code>, and why some operations on it are free while others are secretly O(n). Second, <em>hashing</em> &#8212; replacing a search with a lookup, the single trade that collapses a huge fraction of brute-force O(n&#178;) solutions down to O(n). Master both and you'll recognize the right structure for a problem before you've finished reading it.`),
+  sub("The array: a contiguous block of memory"),
+  p(`An array is the simplest data structure there is: a single run of equally-sized slots, laid out back-to-back in memory. That layout is the whole reason arrays are fast. Because every element is the same size and they're packed contiguously, the address of element <code>i</code> is just <code>base + i &#215; sizeof(element)</code> &#8212; one multiply and one add. The hardware computes that and reads the slot in constant time, regardless of whether <code>i</code> is 0 or 2,000,000. That's the <b>O(1) random access</b> you rely on every time you write <code>v[i]</code>; it's the same pointer arithmetic from the Pointers lesson, since <code>v[i]</code> is literally <code>*(v.data() + i)</code>.`),
+  p(`But the contiguity that buys you free indexing makes structural edits expensive. To <em>insert</em> or <em>erase</em> in the middle, every element after the edit point has to physically shift over to keep the block packed &#8212; that's <b>O(n)</b>. Appending at the end is cheap (amortized O(1)); inserting at the front or middle is not. This single fact drives a lot of pattern choices: when a problem needs frequent middle insertions you reach for a linked list or a different structure, and when it's append-and-index you stay with a vector.`),
+  ul([
+    `<b>Access / update by index</b> &#8212; <code>O(1)</code>. Direct address computation.`,
+    `<b>Push / pop at the back</b> &#8212; <code>O(1)</code> amortized. The vector's natural growth end.`,
+    `<b>Insert / erase in the middle or front</b> &#8212; <code>O(n)</code>. Everything after it shifts.`,
+    `<b>Search for a value (unsorted)</b> &#8212; <code>O(n)</code>. You may scan the whole thing &#8212; and this is exactly what hashing fixes.`,
+  ]),
+  sub("std::vector — the workhorse"),
+  p(`In interviews "array" almost always means <code>std::vector</code>. It's a dynamic array: a heap-allocated contiguous buffer plus a small handle (pointer, size, capacity) that lives on the stack. You get all the O(1) random access of a raw array, plus it grows on demand. The growth is the part worth understanding, because it's a callback to the amortized analysis from Big-O: when the buffer fills, the vector allocates a <em>bigger</em> one (typically double), copies every element across, and frees the old buffer &#8212; a genuine O(n) operation. But because capacity doubles, those resizes happen geometrically less often, and the total copying across <code>n</code> pushes sums to under <code>2n</code>. So <code>push_back</code> is <b>amortized O(1)</b>, even though individual calls occasionally aren't.`),
+  note("📌","Reserve when you know the size",`If you know roughly how many elements you'll add, call <code>v.reserve(n)</code> once up front. It allocates the buffer a single time and skips every resize, turning amortized O(1) into a true O(1) per push. It's a small, senior-looking optimization to mention out loud &#8212; and the same reasoning explains why building a string with <code>+=</code> in a loop without reserving can quietly go quadratic.`),
+  sub("Hashing: replace a search with a lookup"),
+  p(`The defining move of the second half of this pattern is replacing a search with a lookup. Searching an array for a value is O(n) &#8212; you might scan the whole thing. A hash map (<code>unordered_map</code>) or hash set (<code>unordered_set</code>) makes that same question &#8212; "is this value present?" &#8212; an O(1)-average operation. You trade some memory for a dramatic speedup, and that single trade is what collapses nested-loop solutions into single passes.`),
   sub("How a hash map actually works"),
-  p(`A hash map stores key→value pairs. When you insert a key, it runs the key through a <em>hash function</em> that turns it into an array index (a "bucket"), and drops the value there. Looking a key up re-runs the same function, jumps straight to that bucket, and finds the value — no scanning. Because computing the hash and indexing are both constant-time, lookups and inserts are O(1) on average. (When two keys land in the same bucket it's called a collision, handled by chaining; it's why we say "average" O(1), not "guaranteed" — the average-case point from the Big-O lesson.)`),
+  p(`A hash map stores key&#8594;value pairs. When you insert a key, it runs the key through a <em>hash function</em> that turns it into an array index (a "bucket"), and drops the value there. Looking a key up re-runs the same function, jumps straight to that bucket, and finds the value &#8212; no scanning. Because computing the hash and indexing are both constant-time, lookups and inserts are O(1) on average. Notice the hash map is itself an <em>array</em> underneath &#8212; hashing is just a clever way to turn an arbitrary key into an array index, which is why the contiguous-memory section above matters here too.`),
   svg("hash","A key is hashed to a bucket index, so finding it later is a direct jump — not a search. This is why <code>m.count(key)</code> is effectively instant no matter how many keys you've stored."),
+  p(`When two keys hash to the same bucket it's a <em>collision</em>, resolved by chaining (a little list in that bucket) or open addressing. Collisions are why we say lookups are <b>average</b> O(1), not guaranteed: if a pathological set of keys all collide into one bucket, the map degrades toward O(n) &#8212; the average-case-vs-worst-case distinction from Big-O, made concrete. In practice the standard library's hash spreads keys well enough that you treat it as O(1), but naming the worst case out loud ("average O(1), worst case O(n) on collisions") is exactly the kind of precise answer interviewers listen for.`),
   sub("The three things you'll do with it"),
   ul([
     `<b>Counting / frequencies.</b> <code>count[x]++</code> tallies occurrences in one pass — the backbone of anagram, duplicate, and "most frequent" problems.`,
@@ -890,8 +1048,25 @@ for (auto& [key, val] : m)   // alias each entry -> can modify val in place
   ]),
   sub("Map vs set — which one?"),
   p(`Use a <code>map</code> when you need to remember something <em>about</em> each key (a count, an index, a grouping). Use a <code>set</code> when you only care whether a value is present or not — membership, with no associated data. If you find yourself storing a dummy value just to use a map, you wanted a set.`),
-  worked("Two Sum, the O(n) way","Instead of checking every pair (O(n²)), walk once and ask the map whether the number that would complete the target has already been seen. One pass, O(n) time, O(n) space.",
-`vector<int> twoSum(vector<int>& nums, int target) {
+  sub("Frequency counting, deepened: the array-as-hashmap"),
+  p(`When your keys are a small, dense range of integers &#8212; letters <code>'a'</code>&#8211;<code>'z'</code>, digits, ASCII bytes &#8212; you don't need a hash map at all. A plain fixed-size array <em>is</em> a hash map with a perfect, collision-free hash: the key is the index. <code>int count[26] = {};</code> then <code>count[c - 'a']++</code> is faster than <code>unordered_map</code> (no hashing, no allocation, perfect cache locality) and just as simple to read. Reach for this whenever the key space is bounded and small; fall back to a real map only when keys are sparse, large, or non-integer.`),
+  svg("arrays_freq","Counting letters in a fixed 26-slot array. <code>'e' - 'a'</code> is 4, so every 'e' lands in slot [4] — the letter is its own index. This is the fastest possible frequency counter when the alphabet is small and known."),
+  worked("Anagram check with a count array","Two strings are anagrams iff they have identical letter counts. Increment for one string, decrement for the other, then confirm every bucket returned to zero. One O(n) pass, O(1) space — the 26 slots don't grow with input.",
+`bool isAnagram(const string& s, const string& t) {
+    if (s.size() != t.size()) return false;
+    int count[26] = {};                // one slot per lowercase letter
+    for (char c : s) count[c - 'a']++; // tally s
+    for (char c : t) count[c - 'a']--; // untally t
+    for (int n : count)
+        if (n != 0) return false;      // any nonzero -> not an anagram
+    return true;
+}
+// O(n) time, O(1) space -- 26 is a constant, not part of n`),
+  note("📌","Why count[26] is O(1) space, not O(n)",`The array's size is fixed by the alphabet, not by the input length &#8212; it's 26 slots whether the string is 10 characters or 10 million. A loop over those 26 slots is likewise O(1) with respect to <code>n</code>. This is the "counting a constant as a variable" trap from Big-O, used in your favor: a bounded key space gives you genuinely constant extra space.`),
+  sub("The seen-set / complement trick, generalized"),
+  p(`The most reusable hashing idea is: as you walk the array, remember what you've already passed, then ask the set or map a question about the current element against everything behind it. Two Sum is the canonical instance &#8212; for each number, ask whether its <em>complement</em> (<code>target - x</code>) has already been seen. The same shape solves "contains a duplicate" (have I seen <code>x</code> before?), "two elements differ by k" (have I seen <code>x - k</code> or <code>x + k</code>?), and many others. You're trading O(n) space for the ability to answer "does the partner I need already exist?" in O(1).`),
+  worked("Two Sum, the O(n) way","Instead of checking every pair (O(n²)), walk once and ask the map whether the number that would complete the target has already been seen. One pass, O(n) time, O(n) space. The map stores value&#8594;index so you can return the indices.",
+`vector<int> twoSum(const vector<int>& nums, int target) {
     unordered_map<int, int> seen;          // value -> its index
     for (int i = 0; i < nums.size(); i++) {
         int need = target - nums[i];       // the partner we want
@@ -901,59 +1076,297 @@ for (auto& [key, val] : m)   // alias each entry -> can modify val in place
     }
     return {};                             // nothing found
 }`),
-  pit("The .count() vs [] gotcha",`Writing <code>if (m[key] == ...)</code> to check existence is a bug: <code>m[key]</code> <em>inserts</em> a default-constructed entry if the key is missing, silently growing your map and corrupting counts. To check without inserting, use <code>m.count(key)</code> or <code>m.find(key) != m.end()</code>.`),
-  cx(`Lookups <b>O(1)</b> average · space <b>O(n)</b>`),
+  sub("Prefix sums — precompute once, answer ranges in O(1)"),
+  p(`Here's a core array technique that isn't hashing but pairs with it constantly. Suppose you're asked the sum of a range <code>nums[i..j]</code>, possibly many times. The naive answer re-adds the slice each time &#8212; O(n) per query, O(n&#183;q) for q queries. Instead, spend one O(n) pass building a <em>prefix-sum</em> array where <code>pre[k]</code> holds the sum of the first <code>k</code> elements. Then the sum of any range is a single subtraction: <code>sum(i..j) = pre[j+1] - pre[i]</code>. After the O(n) prep, every range query is O(1). This "precompute a running aggregate, then answer with subtraction" idea generalizes to running products, counts, and 2D grids.`),
+  svg("arrays_prefix","Build <code>pre</code> once (each slot is the running sum of everything before it), then any range sum is the difference of two prefix values. The +1 offset — <code>pre</code> has one extra leading 0 — is what makes the subtraction land on the right boundaries."),
+  worked("Range-sum queries with a prefix array","The leading 0 in <code>pre</code> (so <code>pre</code> has size n+1) removes the awkward edge case when <code>i == 0</code>. Build is O(n); each query is O(1). This is the engine behind \"subarray sum equals k\" when you combine it with a hash map of seen prefix sums.",
+`struct RangeSum {
+    vector<long long> pre;                 // pre[k] = sum of first k elements
+    RangeSum(const vector<int>& nums) {
+        pre.resize(nums.size() + 1, 0);    // pre[0] = 0 sentinel
+        for (int i = 0; i < nums.size(); i++)
+            pre[i + 1] = pre[i] + nums[i]; // running sum, O(n) once
+    }
+    long long query(int i, int j) {        // inclusive sum of nums[i..j]
+        return pre[j + 1] - pre[i];        // O(1) -- no scanning
+    }
+};`),
+  idea("Prefix sum + hash map = a whole problem class",`The famous \"Subarray Sum Equals K\" combines both halves of this lesson: walk the array tracking the running prefix sum, and keep a hash map of how many times each prefix sum has occurred. A subarray summing to <code>k</code> ending here exists exactly when <code>prefix - k</code> was a previous prefix &#8212; a seen-set lookup. That's an O(n) solution to what looks like an O(n&#178;) problem, and it's a direct fusion of prefix sums and the complement trick.`),
+  sub("Grouping with a map — the canonical key"),
+  p(`A map's value can be a <em>collection</em>, which turns it into a grouping tool: compute a canonical key that's identical for everything that belongs together, then append each item to <code>groups[key]</code>. \"Group Anagrams\" is the textbook case &#8212; every anagram of \"eat\" shares the same sorted form \"aet\", so the sorted string is a perfect canonical key. Group by it and the anagrams fall into the same bucket automatically.`),
+  worked("Group Anagrams via a canonical key","Sorting each word gives a key that's identical for all its anagrams. Use that key to bucket words in an <code>unordered_map&lt;string, vector&lt;string&gt;&gt;</code>, then collect the buckets. The sort per word is the cost; the grouping itself is O(1) average per insert.",
+`vector<vector<string>> groupAnagrams(const vector<string>& words) {
+    unordered_map<string, vector<string>> groups;
+    for (const string& w : words) {
+        string key = w;                    // copy, then canonicalize
+        sort(key.begin(), key.end());      // "eat" -> "aet": same for all anagrams
+        groups[key].push_back(w);          // append into its bucket
+    }
+    vector<vector<string>> out;
+    for (auto& [key, bucket] : groups)     // structured binding over the map
+        out.push_back(move(bucket));       // move, don't copy, each group out
+    return out;
+}
+// O(m * k log k) for m words of length up to k (the per-word sort dominates)`),
+  note("📌","A cheaper canonical key",`Sorting each word is O(k log k). If the alphabet is small you can build a count-based key instead &#8212; a 26-length frequency signature &#8212; giving O(k) per word. Mentioning \"I could swap the sort for a count signature to drop the log factor\" is a clean optimization to offer once the sorted-key version works.`),
+  sub("Set operations and de-duping"),
+  p(`An <code>unordered_set</code> is the right tool whenever the question is purely about presence: drop everything in and duplicates vanish, or build two sets and walk one checking membership in the other for intersections. \"Contains Duplicate\" is a one-liner &#8212; insert as you go and return true the moment an insert finds the value already there. De-duping a vector is just \"insert into a set, read the set back out\" when order doesn't matter, or a sorted sweep when it does.`),
+  code(`// de-dup, order not preserved
+unordered_set<int> s(v.begin(), v.end());   // duplicates collapse on insert
+vector<int> unique(s.begin(), s.end());     // O(n) total
+
+// contains-duplicate in one pass, early-exit
+unordered_set<int> seen;
+for (int x : v)
+    if (!seen.insert(x).second)             // .second is false if x was already in
+        return true;                        // found a repeat`),
+  sub("Ordered vs unordered — when ordering matters"),
+  p(`<code>unordered_map</code> / <code>unordered_set</code> are hash tables: O(1) average operations, no ordering. <code>std::map</code> / <code>std::set</code> are balanced binary search trees: every operation is O(log n), but the keys stay <em>sorted</em>, and you get ordered iteration, <code>lower_bound</code> / <code>upper_bound</code> range queries, and finding the smallest or largest key in O(log n). Default to the unordered (hash) versions for raw speed; reach for the ordered ones only when you genuinely need sorted order or range/floor/ceiling queries. Picking <code>map</code> when you don't need ordering is a common, quietly costly mistake &#8212; it's a log-factor slower for no benefit.`),
+  ul([
+    `<b><code>unordered_map</code> / <code>unordered_set</code></b> &#8212; hash table, O(1) average, no order. The default for counting, seen-sets, grouping.`,
+    `<b><code>std::map</code> / <code>std::set</code></b> &#8212; balanced tree, O(log n), keys sorted. Use when you need ordered iteration, range queries, or floor/ceiling lookups.`,
+  ]),
+  sub("Hashing custom keys"),
+  p(`Built-in types and <code>std::string</code> hash out of the box, so a key like a sorted string \"just works.\" Two cases need a word of care. A <code>std::pair</code> or <code>std::tuple</code> key (common for grid coordinates, edges, or two-field keys) has <em>no</em> standard hash, so <code>unordered_map&lt;pair&lt;int,int&gt;, T&gt;</code> won't compile &#8212; you either provide a custom hash functor, or sidestep it by encoding the pair into a single key (e.g. <code>r * COLS + c</code> for a grid, or a <code>map</code> which only needs <code>operator&lt;</code>). It's worth being able to say \"pairs aren't hashable by default; I'd encode the coordinate or write a small hash\" rather than getting stuck on a compile error in the room.`),
+  code(`// pair keys: unordered_map needs a hash; std::map needs only operator<
+map<pair<int,int>, int> grid;              // works: pair has operator<
+grid[{r, c}] = value;
+
+// or encode into one integer key for unordered_map (faster, common in grids):
+unordered_map<long long, int> grid2;
+grid2[(long long)r * COLS + c] = value;    // pack (r,c) into one key`),
+  sub("Spotting it & framing it in the room"),
+  p(`The trigger phrases are loud once you listen for them. \"Have I seen this before?\", \"how many times does X occur?\", \"find a pair / group that...\", \"is there a duplicate?\", or any nested loop whose inner job is just <em>checking membership</em> &#8212; all say hash map or set. \"Sum of a range\" repeated across queries says prefix sums. \"Group these by some property\" says map-of-collections with a canonical key. And whenever you catch yourself about to write the O(n&#178;) double loop, pause and ask whether a one-pass lookup or a precomputed table removes the inner loop entirely.`),
+  note("📌","Say it like this in the room",`\"Brute force is O(n&#178;) &#8212; for each element I'd scan the rest. But I only need to know whether a partner already exists, so I'll keep a hash set as I go and check it in O(1). That's one pass, O(n) time, O(n) space.\" Naming the brute force, the exact thing you're looking up, and the time/space trade in one breath is the senior signal interviewers reward.`),
+  pit("The .count() vs [] gotcha",`Writing <code>if (m[key] == ...)</code> to check existence is a bug: <code>m[key]</code> <em>inserts</em> a default-constructed entry if the key is missing, silently growing your map and corrupting counts. To check without inserting, use <code>m.count(key)</code> or <code>m.find(key) != m.end()</code>. (The flip side: <code>count[x]++</code> on a fresh key is fine and idiomatic for frequency maps &#8212; there the auto-insert-to-zero is exactly what you want.)`),
+  pit("Iterator and reference invalidation",`A vector reallocation (any <code>push_back</code> that grows the buffer) invalidates every pointer, reference, and iterator into it &#8212; a classic use-after-realloc bug when you hold a reference across a push. For hash maps, <code>insert</code> can rehash and invalidate iterators too. If you must hold a reference across modifications, <code>reserve</code> first or re-fetch after.`),
+  cx(`Index access <b>O(1)</b> · search via hash <b>O(1)</b> avg, O(n) worst · prefix-sum query <b>O(1)</b> after O(n) build · ordered map/set <b>O(log n)</b> · space <b>O(n)</b>`),
   {t:"probs",items:[["Two Sum","two-sum","easy"],["Group Anagrams","group-anagrams","med"],["First Missing Positive","first-missing-positive","hard"]]}
 ]},
 {group:"Week 2 · Core Patterns",num:"02",id:"twopointers",color:"#FF8A3D",title:"Two Pointers",badge:"Week 2 · Pattern",demo:"twoPointers",blocks:[
-  cue(`<b>Spot it when:</b> the array is sorted, or you're comparing things from both ends — pair/triplet sums, palindromes, or partitioning a list in place.`),
-  note("🔗","A quick naming note",`"Two pointers" here usually means two <em>indices</em> (<code>int left, right</code>) walking an array — not raw pointers in the C++ sense. The exception is the fast/slow version on linked lists, where they're literal <code>ListNode*</code> pointers. Either way, the pointer mental model from Week 1 is what makes this intuitive.`),
-  p(`Two pointers replaces a nested loop with two indices that move through the array intelligently. Instead of testing all O(n²) pairs, you place one pointer at each end (or both at the start) and advance them based on what you observe, so each pointer crosses the array at most once. The result is a single O(n) sweep with O(1) extra space — often the optimal solution.`),
+  cue(`<b>Spot it when:</b> the array is <em>sorted</em>, you're comparing or shrinking from both ends (pair/triplet sums, palindromes), you're walking a linked list at two speeds (midpoint, cycle), or you're compacting/partitioning a sequence in place. The tell is "I'm about to write a nested loop over the same array" — two pointers usually flattens it to one pass.`),
+  note("🔗","A quick naming note",`"Two pointers" here usually means two <em>indices</em> (<code>int left, right</code>) walking an array — not raw pointers in the C++ sense. The exception is the fast/slow version on linked lists, where they're literal <code>ListNode*</code> pointers. Either way, the pointer mental model from Week 1 — a name that refers to a position in memory — is what makes this intuitive.`),
+  p(`Two pointers replaces a nested loop with two positions that move through a sequence intelligently. Instead of testing all O(n²) pairs, you place the pointers somewhere sensible — both ends, or both at the start — and advance them based on what you observe, so each pointer crosses the data at most once. The payoff is a single O(n) sweep with O(1) extra space, which is frequently the optimal answer interviewers are fishing for. There are three sub-patterns worth knowing cold; the rest of this lesson takes them one at a time.`),
+  ul([
+    `<b>Converging.</b> Two pointers start at opposite ends and walk toward each other. The workhorse for sorted-array pair/triplet sums, palindromes, and container/water problems.`,
+    `<b>Fast &amp; slow.</b> Two pointers traverse the same sequence at different speeds. Finds a linked list's midpoint and detects cycles in O(1) space.`,
+    `<b>Read / write.</b> One pointer reads every element; a second, slower pointer writes only the elements you keep. The idiom behind in-place dedup, compaction, and partitioning.`,
+  ]),
   sub("Flavor one: converging pointers"),
-  p(`On a <em>sorted</em> array, this is almost magical. Put <code>left</code> at the front and <code>right</code> at the back, and look at <code>nums[left] + nums[right]</code>. If the sum is too small, the only way to increase it is to move <code>left</code> rightward to a bigger value. If it's too big, move <code>right</code> leftward to a smaller one. Every move eliminates a value you've proven can't be part of the answer — so you never re-examine it. Try the demo and watch which pointer moves and why.`),
+  p(`On a <em>sorted</em> array, this is almost magical. Put <code>left</code> at the front and <code>right</code> at the back, and look at <code>nums[left] + nums[right]</code>. If the sum is too small, the only way to make it bigger is to move <code>left</code> rightward to a larger value. If it's too big, move <code>right</code> leftward to a smaller one. Every move eliminates a value you've <em>proven</em> can't be part of the answer — so you never look at it again. Try the demo below and watch which pointer moves, and why.`),
   {t:"demoslot"},
-  worked("Pair that sums to a target (sorted input)","Because the array is sorted, the sum is monotonic: moving left up only raises it, moving right down only lowers it. That lets you decide which pointer to move with zero guessing.",
-`bool hasPair(vector<int>& nums, int target) {
+  p(`That "proven" is the whole point, so let's make the argument explicit — this is the part interviewers want to hear, not just the code. Suppose the array is sorted ascending and you're hunting for a pair summing to <code>target</code>. Say <code>nums[left] + nums[right] &lt; target</code>. Could <code>nums[left]</code> pair with anything to reach the target? Its <em>largest</em> possible partner is <code>nums[right]</code> — every other candidate sits to the left of <code>right</code> and is therefore <em>smaller</em>. If even the biggest partner falls short, no partner for <code>nums[left]</code> works. So <code>left</code> is eliminated for good, and advancing it discards exactly one provably-dead value. The mirror argument handles a sum that's too big. Because each step retires one pointer's current value, the two pointers together take at most <code>n</code> steps — that's the O(n).`),
+  idea("This is the elimination argument","Every two-pointer correctness proof has the same shape: <em>show that the move you make can't skip the answer.</em> Here, monotonicity (sorted order) guarantees the discarded value had no viable partner left. If you can articulate <em>why</em> a move is safe, you can adapt the pattern to a new problem on the spot instead of memorizing templates."),
+  worked("Pair that sums to a target (sorted input)","Because the array is sorted, the sum is monotonic: moving left up only raises it, moving right down only lowers it. That lets you decide which pointer to move with zero guessing — no hash map, no extra space.",
+`bool hasPair(const vector<int>& nums, int target) {
     int left = 0, right = nums.size() - 1;
-    while (left < right) {
+    while (left < right) {                  // strict: a pair needs two distinct slots
         int sum = nums[left] + nums[right];
-        if (sum == target) return true;    // found it
-        if (sum < target)  left++;         // too small -> need bigger
-        else               right--;        // too big   -> need smaller
+        if (sum == target) return true;     // found it
+        if (sum < target)  left++;          // too small -> need a bigger left
+        else               right--;         // too big   -> need a smaller right
     }
     return false;
 }`),
-  sub("Flavor two: fast & slow"),
-  p(`The other common form runs two pointers at different speeds through the same sequence. A <em>slow</em> pointer moves one step while a <em>fast</em> pointer moves two. This finds the midpoint of a list in one pass (when fast reaches the end, slow is halfway), and detects cycles (if there's a loop, the fast pointer eventually laps the slow one). You'll see this again in the Linked Lists lesson — it's the same idea, applied to real pointers.`),
-  p(`The converging skeleton also powers palindrome checks (pointers walk inward comparing characters), <code>3Sum</code> (fix one number, two-pointer the rest), and in-place partitioning (one pointer reads, one writes). Once you see the "two indices, move by condition" shape, it shows up everywhere.`),
-  pit("Converging needs sorted data",`The converging trick relies on order — on an unsorted array, a small sum doesn't tell you which way to move. If the problem isn't sorted, either sort it first (adding O(n log n)) or reach for a hash map instead. Always check the precondition before committing.`),
-  cx(`Time <b>O(n)</b> · space <b>O(1)</b> (plus the sort, if needed)`),
+  pit("left < right vs left <= right",`For a <em>pair</em> from two distinct positions, the loop is <code>while (left &lt; right)</code> — once they meet there's no second element to pair with, and <code>left &lt;= right</code> would let an element pair with itself. The <code>&lt;=</code> form belongs to a different family: classic binary search, where <code>left</code> and <code>right</code> bound a range you're still searching and the midpoint can legitimately equal either end. Pick the boundary by asking "is a single shared index a valid state?" — for converging pairs, no.`),
+  sub("3Sum: fix one, two-pointer the rest"),
+  p(`Once converging pointers click, <code>3Sum</code> stops being scary. You want three numbers that sum to zero. Sort the array, then walk a pointer <code>i</code> over each value and ask the converging sub-routine to find a <em>pair</em> in the remainder that sums to <code>-nums[i]</code>. You've turned a 3-dimensional search into "fix one number, solve 2Sum on what's left." The sort costs O(n log n); the outer loop is O(n) and each converging sweep is O(n), so the whole thing is O(n²) — a huge win over the O(n³) brute force, and the canonical "reduce by one dimension" trick.`),
+  worked("3Sum — triplets that sum to zero","Sort first (enables converging + makes dedup trivial). For each i, converge left/right over the suffix toward -nums[i]. The skip-duplicates steps are what keep the output set unique.",
+`vector<vector<int>> threeSum(vector<int>& nums) {
+    sort(nums.begin(), nums.end());
+    vector<vector<int>> out;
+    for (int i = 0; i + 2 < (int)nums.size(); i++) {
+        if (i > 0 && nums[i] == nums[i - 1]) continue;  // skip dup anchors
+        int left = i + 1, right = nums.size() - 1;
+        while (left < right) {
+            int sum = nums[i] + nums[left] + nums[right];
+            if (sum < 0)      left++;
+            else if (sum > 0) right--;
+            else {
+                out.push_back({nums[i], nums[left], nums[right]});
+                while (left < right && nums[left]  == nums[left + 1])  left++;
+                while (left < right && nums[right] == nums[right - 1]) right--;
+                left++; right--;                         // move past the pair found
+            }
+        }
+    }
+    return out;
+}`),
+  sub("Palindrome check: converge and compare"),
+  p(`A palindrome reads the same forward and backward — so put one pointer at each end and compare. If the characters match, step both inward; the first mismatch proves it's not a palindrome. They only need to walk until they meet in the middle, so it's O(n) time, O(1) space, and no reversed copy of the string. The "valid palindrome" variant just skips non-alphanumerics and lowercases as you go — same skeleton, two small guards.`),
+  worked("Valid palindrome (ignoring case &amp; non-alphanumerics)","Converge from both ends. Advance past anything that isn't a letter or digit, compare case-insensitively, and the moment a real mismatch appears, bail. Pointers meeting means every mirrored pair matched.",
+`bool isPalindrome(const string& s) {
+    int left = 0, right = s.size() - 1;
+    while (left < right) {
+        while (left < right && !isalnum(s[left]))  left++;   // skip junk on the left
+        while (left < right && !isalnum(s[right])) right--;  // and on the right
+        if (tolower(s[left]) != tolower(s[right])) return false;
+        left++; right--;
+    }
+    return true;
+}`),
+  sub("Flavor two: fast & slow pointers"),
+  p(`The second form runs two pointers at different speeds through the <em>same</em> sequence. A <em>slow</em> pointer takes one step while a <em>fast</em> pointer takes two. This is built for linked lists, where you can't index by position and a converging scan from "both ends" isn't possible — you only have <code>next</code>. With two speeds you still extract structural facts in a single O(1)-space pass: the midpoint, and whether the list loops.`),
+  p(`<b>Finding the midpoint.</b> When <code>fast</code> reaches the end, it has covered twice the ground <code>slow</code> has — so <code>slow</code> sits at the middle. This is how you split a list for merge sort or find the center to reverse the second half.`),
+  worked("Middle of a linked list","fast advances two nodes per step; slow advances one. When fast falls off the end, slow is at the midpoint. For an even-length list this returns the second of the two middle nodes (stop earlier if you want the first).",
+`ListNode* middleNode(ListNode* head) {
+    ListNode* slow = head;
+    ListNode* fast = head;
+    while (fast && fast->next) {     // guard BOTH: fast and the node after it
+        slow = slow->next;          // +1
+        fast = fast->next->next;    // +2
+    }
+    return slow;                    // fast ran out -> slow is halfway
+}`),
+  p(`<b>Detecting a cycle (Floyd's algorithm).</b> If the list has no loop, <code>fast</code> simply runs off the end and you return false. If there <em>is</em> a loop, both pointers get trapped circling inside it — and because <code>fast</code> gains one node on <code>slow</code> every step, the gap between them shrinks by exactly one per iteration until it hits zero. They are <em>guaranteed</em> to collide. That "gap closes by one each step" is the proof the two pointers must meet rather than leapfrog past each other forever.`),
+  svg("twopointers_floyd","Inside a cycle, fast gains one node on slow per step, so the distance between them shrinks to zero and they collide. No cycle means fast hits <code>nullptr</code> first — which is exactly how you return “no loop.”"),
+  worked("Cycle detection — Floyd's tortoise and hare","Same two-speed walk. If fast ever equals slow, they're circling a loop. If fast (or fast->next) reaches nullptr, the list is straight. O(1) space — no visited-set hash map needed.",
+`bool hasCycle(ListNode* head) {
+    ListNode* slow = head;
+    ListNode* fast = head;
+    while (fast && fast->next) {
+        slow = slow->next;          // tortoise: +1
+        fast = fast->next->next;    // hare: +2
+        if (slow == fast) return true;   // they met -> cycle
+    }
+    return false;                   // fast escaped -> no cycle
+}`),
+  note("🔗","Where you'll meet this again",`Fast &amp; slow is really a linked-list tool wearing a two-pointer hat — the Linked Lists lesson reuses both routines above, plus the follow-up (finding the <em>start</em> of the cycle by resetting one pointer to the head). The instinct to reach for it: "I need a structural fact about a list in one pass and O(1) space."`),
+  sub("Flavor three: read / write (in-place compaction)"),
+  p(`The third form uses a fast <em>read</em> pointer that visits every element and a slow <em>write</em> pointer that only advances when it keeps one. Everything left of <code>write</code> is the finished, correct prefix; everything from <code>read</code> onward is still being scanned. This is how you remove duplicates, strip out unwanted values, or partition — <em>in place</em>, O(1) extra space, without allocating a second array. The diagram shows it compacting non-zeros to the front.`),
+  svg("twopointers_rw","read scans the whole array; write only steps forward when read finds an element to keep. The region behind write is already final, so the result is built in place with no second buffer."),
+  worked("Remove duplicates from a sorted array","Because it's sorted, duplicates are adjacent. write holds the last unique value's slot; read scans ahead, and whenever it finds something different from the last kept value, it gets written into the next slot. Returns the new logical length.",
+`int removeDuplicates(vector<int>& nums) {
+    if (nums.empty()) return 0;
+    int write = 0;                              // index of last unique kept
+    for (int read = 1; read < (int)nums.size(); read++) {
+        if (nums[read] != nums[write])          // a new distinct value
+            nums[++write] = nums[read];         // keep it just past the prefix
+    }
+    return write + 1;                           // length of the deduped prefix
+}`),
+  worked("Move zeroes to the end","Same read/write idiom, used as a partition. write marks where the next non-zero goes; read sweeps the array. Swap (don't just overwrite) so the zeros end up trailing instead of being lost. Order of the non-zeros is preserved — a stable partition.",
+`void moveZeroes(vector<int>& nums) {
+    int write = 0;
+    for (int read = 0; read < (int)nums.size(); read++) {
+        if (nums[read] != 0)
+            swap(nums[write++], nums[read]);    // non-zero -> front, advance write
+    }
+    // everything from index 'write' onward is now zero
+}`),
+  idea("The write pointer is a running answer","In all three read/write examples, <code>write</code> is simultaneously the build cursor <em>and</em> the final count. When an interviewer asks for an in-place transform, your first thought should be “what decides whether read's current element survives, and where does it land?” Answer that and the loop writes itself."),
+  sub("Two pointers vs. a hash map"),
+  p(`These two patterns solve a lot of the same problems (Two Sum is the poster child), so know the trade. Two pointers needs <em>order</em> — sorted data, or a structure you can walk from both ends or at two speeds — and in exchange gives you O(1) extra space. A hash map needs no order but spends O(n) space to buy O(1) lookups. So: if the input is already sorted, converging pointers are strictly better (no allocation). If it's unsorted and you only need to detect a pair/complement, a hash map in one pass beats sorting-then-converging (O(n) vs O(n log n)). If you need the <em>actual elements</em> sorted anyway, or you need to avoid the memory, sort and use pointers.`),
+  ul([
+    `<b>Reach for two pointers</b> when the data is sorted or sequential, you must use O(1) space, or you're working a linked list (cycle/midpoint).`,
+    `<b>Reach for a hash map</b> when the data is unsorted and order doesn't matter, you need fast membership/complement lookups, and O(n) space is acceptable.`,
+  ]),
+  sub("The pitfalls that actually bite"),
+  pit("Converging assumes sorted data",`The converging trick relies on monotonicity — on an unsorted array, a too-small sum tells you nothing about which way to move. If the problem isn't sorted, either sort it first (adding O(n log n)) or switch to a hash map. State this precondition out loud before you commit; forgetting it is the classic two-pointer interview miss.`),
+  pit("Off-by-one and the crossing condition",`Watch the boundary: <code>while (left &lt; right)</code> for distinct-pair problems, <code>left &lt;= right</code> only when a single shared index is a legal state (binary search). And never let pointers cross silently — if your loop body can advance a pointer past the other (e.g. skipping duplicates), re-check the <code>left &lt; right</code> guard inside the inner loops, as the 3Sum dedup code does.`),
+  pit("Fast & slow: guard before you dereference",`<code>fast = fast-&gt;next-&gt;next</code> dereferences two links, so the loop condition must be <code>while (fast &amp;&amp; fast-&gt;next)</code> — check both before stepping. Test <code>fast</code> alone and you'll segfault on the very last hop of an even-length list. This is the single most common crash in fast/slow code.`),
+  cx(`Converging / read-write: time <b>O(n)</b>, space <b>O(1)</b> · Fast &amp; slow: time <b>O(n)</b>, space <b>O(1)</b> · 3Sum: time <b>O(n&#178;)</b> (plus the O(n log n) sort), space <b>O(1)</b> beyond the output`),
+  note("🔗","Saying it in the interview",`Name the flavor as you spot it: “it's sorted and I need a pair, so converging pointers — O(n), no extra space.” Then state the elimination reason (“the array's sorted, so a too-small sum means left can't pair with anything, advance it”). Naming the pattern <em>and</em> justifying the move is what reads as senior — far more than just producing the code.`),
   {t:"probs",items:[["Valid Palindrome","valid-palindrome","easy"],["3Sum","3sum","med"],["Trapping Rain Water","trapping-rain-water","hard"]]}
 ]},
 {group:"Week 2 · Core Patterns",num:"03",id:"sliding",color:"#FFC53D",title:"Sliding Window",badge:"Week 2 · Pattern",demo:"slidingWindow",blocks:[
-  cue(`<b>Spot it when:</b> you want the "longest / shortest / best" contiguous subarray or substring that satisfies some condition.`),
-  p(`A sliding window maintains a contiguous range — a window — defined by a <code>left</code> and <code>right</code> pointer, and slides it across the input. The key insight is that as the window moves, you update your answer <em>incrementally</em> instead of recomputing from scratch. When you extend the window by one on the right, you add one element's contribution; when you shrink from the left, you remove one. Because each element is added once and removed at most once, the entire scan is O(n) — versus O(n²) or worse for checking every possible subarray.`),
+  cue(`<b>Spot it when:</b> you want the "longest / shortest / best" <em>contiguous</em> subarray or substring that satisfies some condition — anything phrased as "a run of consecutive elements such that&hellip;".`),
+  p(`A sliding window maintains a contiguous range — a <em>window</em> — defined by a <code>left</code> and a <code>right</code> index, and slides it across the input. The whole pattern is one invariant: <b>the window <code>[left, right]</code> is the current candidate, and you keep it correct by updating it incrementally rather than recomputing from scratch.</b> When you extend the window by one on the right, you fold in one element's contribution; when you shrink from the left, you remove one. You never re-scan the interior. That single discipline is what turns an O(n&#178;) "check every subarray" brute force into a single O(n) pass.`),
+  p(`Here is the brute force the window replaces. For every start index, you walk forward over every end index and inspect the run between them — two nested loops, O(n&#178;), and often an O(n) cost inside to re-sum or re-check the run, pushing it toward O(n&#179;). The window keeps the <em>work you already did</em> around in a couple of running variables (a sum, a count, a frequency map) so each new position costs O(1) amortized. You are trading a recomputation for a small amount of bookkeeping.`),
+  idea("The one invariant to hold in your head",`At every step the window <code>[left, right]</code> is a valid candidate, and every running variable you keep (sum, counts, a set) describes <em>exactly the elements inside it</em> — no more, no less. Every line you write either (a) extends <code>right</code> and updates the bookkeeping for the entering element, or (b) advances <code>left</code> and undoes the bookkeeping for the leaving element. If a line does neither, question it.`),
+  sub("Why the total work is O(n) — the amortized argument"),
+  p(`The code often <em>looks</em> like a nested loop: a <code>for</code> over <code>right</code> with a <code>while</code> that moves <code>left</code> inside it. That nesting is a trap for the eye. The honest way to count is to ask: <b>how many times can each pointer move?</b> <code>right</code> advances exactly n times (once per outer iteration). <code>left</code> only ever moves forward and never resets — so across the entire run it advances at most n times <em>total</em>, not n times per outer step. Add them: at most 2n pointer moves, each doing O(1) work. That is O(n).`),
+  p(`This is the same <em>amortized</em> reasoning from the Big-O lesson — the one behind <code>vector::push_back</code> and the monotonic stack. Any single iteration of the inner <code>while</code> might do several moves, but each index can enter the window once and leave once over the whole algorithm, so the cost is shared out to O(1) per element. When an interviewer asks "isn't that nested loop O(n&#178;)?", this is the answer: count total pointer travel, not loop nesting.`),
   sub("Fixed vs. dynamic windows"),
   ul([
-    `<b>Fixed-size window.</b> The window length is given (e.g., "max sum of any k consecutive elements"). Slide it one step at a time: add the entering element, subtract the leaving one. The demo below shows exactly this.`,
-    `<b>Dynamic window.</b> The window grows and shrinks to stay "valid." You expand <code>right</code> to include more, and whenever the window breaks the rule (a repeated character, a sum over the limit), you advance <code>left</code> until it's valid again. This is the form behind "longest substring without repeating characters."`,
+    `<b>Fixed-size window.</b> The length <code>k</code> is given up front — "max sum of any k consecutive elements," "average of every window of size k." You slide it one step at a time: add the entering element, subtract the leaving one, done. The size never changes. The live demo below animates exactly this.`,
+    `<b>Dynamic window.</b> The window grows and shrinks to stay <em>valid</em> against some rule. You always expand <code>right</code>; whenever the window breaks the rule (a repeated character, a sum over a limit, too many distinct values), you advance <code>left</code> until it is legal again. This is the form behind "longest substring without repeating characters" and most "smallest window that covers X" problems.`,
   ]),
+  svg("sliding_step","A fixed window of size k slides one position: subtract the element that fell off the left, add the element that entered on the right. The interior is never re-summed — each slide is O(1)."),
   {t:"demoslot"},
-  worked("Longest substring with no repeated characters","Grow the window to the right; the moment you'd include a character already inside the window, shrink from the left until it's gone. A set tracks what's currently in the window. Each character enters and leaves once — O(n).",
-`int lengthOfLongest(string s) {
-    unordered_set<char> window;     // chars currently in the window
+  sub("Fixed window: max sum of k consecutive elements"),
+  p(`Start by summing the first <code>k</code> elements — that is your first window. Then slide: each step, add <code>nums[right]</code> and subtract <code>nums[right - k]</code> (the element that just fell off the left edge). The running <code>sum</code> always equals the current window's total, so you check the answer every step in O(1). No inner loop at all here — a fixed window is the gentlest case.`),
+  worked("Maximum sum of any k consecutive elements","Build the first window explicitly, then slide it across the rest. The element leaving the window is always exactly k positions behind the one entering, so one add and one subtract keep the sum exact.",
+`int maxSumK(const vector<int>& nums, int k) {
+    int sum = 0;
+    for (int i = 0; i < k; i++) sum += nums[i];   // first window
+    int best = sum;
+    for (int right = k; right < nums.size(); right++) {
+        sum += nums[right];          // element entering on the right
+        sum -= nums[right - k];      // element leaving on the left
+        best = max(best, sum);       // window is exact -> check now
+    }
+    return best;
+}`),
+  note("📌","Fixed window, one line of state",`A fixed window usually needs nothing more than a single running aggregate — a sum, a product, a count of zeros. The "entering" and "leaving" elements are always a fixed distance <code>k</code> apart, so you never need a map to remember positions. If you find yourself reaching for more state in a fixed-size problem, re-read the prompt: it is often simpler than you fear.`),
+  sub("Dynamic window: the general template to memorize"),
+  p(`This is the skeleton worth burning into muscle memory, because nearly every dynamic-window problem is a fill-in-the-blanks of it. Expand <code>right</code> over the whole input. After each expansion, <em>while</em> the window violates the rule, shrink from the left. Then update the answer. The only per-problem parts are the three blanks: how you record an entering element, what "invalid" means, and how you undo a leaving element.`),
+  code(`// THE TEMPLATE — longest valid window
+int left = 0, best = 0;
+for (int right = 0; right < n; right++) {
+    add(s[right]);                       // 1. fold the entering element in
+    while (window_is_invalid()) {        // 2. while the rule is broken...
+        remove(s[left]);                 //    undo the leaving element
+        left++;                          //    ...shrink from the left
+    }
+    best = max(best, right - left + 1);  // 3. window is now valid -> record it
+}`),
+  p(`Read it as three slots. <b>(1) add</b> — insert into a set, bump a count in a frequency map, add to a running sum. <b>(2) the invalid test</b> — "this char is already in the window," "sum exceeds the limit," "more than two distinct letters." <b>(3) remove</b> — the exact inverse of add, applied to the element at <code>left</code>. Get those three right and the loop scaffolding is identical every time. The placement of the answer update matters too — for a "longest" problem it goes <em>after</em> the shrink (the window is valid there); for a "shortest" problem it goes <em>inside</em> the shrink, as you will see below.`),
+  worked("Longest substring with no repeated characters","Grow the window to the right; the moment you would include a character already inside it, shrink from the left until that duplicate is gone. A set is the window's contents. Each character enters once and leaves once — O(n).",
+`int lengthOfLongest(const string& s) {
+    unordered_set<char> window;          // chars currently in the window
     int left = 0, best = 0;
     for (int right = 0; right < s.size(); right++) {
-        while (window.count(s[right]))   // duplicate -> shrink
-            window.erase(s[left++]);
-        window.insert(s[right]);         // now safe to add
+        while (window.count(s[right]))   // duplicate -> shrink first
+            window.erase(s[left++]);     // undo the leaving char
+        window.insert(s[right]);         // now safe to add the entering char
         best = max(best, right - left + 1);
     }
     return best;
 }`),
-  idea("Why it's O(n), not O(n²)",`It looks like a nested loop, but <code>left</code> only ever moves forward and never resets. Across the whole run it advances at most n times total — so the inner <code>while</code> doesn't multiply the cost. Counting total pointer movement, not nesting, is how you reason about window complexity.`),
-  pit(`"Contiguous" is the keyword`,`Sliding window only works when the answer is a single unbroken run. If the problem lets you pick non-adjacent elements, this pattern doesn't apply — you're likely looking at dynamic programming or a heap instead.`),
-  cx(`Time <b>O(n)</b> · space <b>O(k)</b> for the window contents`),
+  idea("The last-index variant — jump left instead of crawling",`The set version moves <code>left</code> one step at a time. A common optimization keeps an <code>unordered_map&lt;char,int&gt;</code> of each character's <em>last seen index</em>, so on a duplicate you jump <code>left</code> straight past it in one move: <code>left = max(left, lastSeen[c] + 1);</code>. Same O(n) bound (each char is still touched O(1) times), but it is the answer that signals you have seen the pattern more than once. Interviewers like seeing the jump.`),
+  code(`// same problem, map-of-last-index variant
+int lengthOfLongest(const string& s) {
+    unordered_map<char,int> lastSeen;    // char -> most recent index
+    int left = 0, best = 0;
+    for (int right = 0; right < s.size(); right++) {
+        char c = s[right];
+        if (lastSeen.count(c))
+            left = max(left, lastSeen[c] + 1);   // jump past the old copy
+        lastSeen[c] = right;                     // record / overwrite
+        best = max(best, right - left + 1);
+    }
+    return best;
+}`),
+  sub(`The "shrink to satisfy" variant — shortest window`),
+  p(`The longest-window template grows greedily and shrinks only to stay legal. The mirror image is the <em>shortest</em> window: you grow <code>right</code> until the window first <em>satisfies</em> a requirement, then shrink <code>left</code> as far as you can while it still satisfies it, recording the answer on each successful shrink. "Smallest subarray whose sum is &#8805; target" is the clean example. Notice the answer update has moved <em>inside</em> the shrink loop — every valid-and-smaller window is a candidate.`),
+  worked("Smallest subarray with sum &#8805; target","Expand right and accumulate the sum. The instant the sum reaches the target, shrink from the left as far as possible while it still qualifies, updating the best length each time. Both pointers only move forward, so it is O(n) despite the inner while.",
+`int minSubArrayLen(int target, const vector<int>& nums) {
+    int left = 0, sum = 0, best = INT_MAX;
+    for (int right = 0; right < nums.size(); right++) {
+        sum += nums[right];                 // grow
+        while (sum >= target) {             // already satisfied -> try to shrink
+            best = min(best, right - left + 1);   // record BEFORE removing
+            sum -= nums[left++];            // shrink from the left
+        }
+    }
+    return best == INT_MAX ? 0 : best;     // no qualifying window
+}`),
+  p(`The minimum-window-substring family ("smallest window of <code>s</code> containing all of <code>t</code>") is the same shape with richer bookkeeping. Instead of one running sum you keep a <code>need</code> map (how many of each required character) and a <code>have</code> counter of requirements currently satisfied. Expand <code>right</code>, decrementing <code>need</code> for the entering char and bumping <code>have</code> when a requirement is fully met. While <code>have</code> equals the number of distinct required chars, the window is valid — record its length, then shrink <code>left</code>, reversing the bookkeeping and dropping <code>have</code> the moment a requirement slips below zero. Same three blanks, just a count/need map standing in for the simple sum.`),
+  sub("Set vs. frequency map inside the window"),
+  ul([
+    `<b>A set</b> (<code>unordered_set</code>) answers "is this element present?" — perfect when the rule is "no duplicates." Insert on entry, erase on exit.`,
+    `<b>A frequency map</b> (<code>unordered_map&lt;char,int&gt;</code>) answers "how many of this element are present?" — needed the moment duplicates are allowed but <em>counted</em>: "at most K distinct characters," "contains all of <code>t</code>," "at most two of any letter." Increment on entry; on exit, decrement and <code>erase</code> the key when its count hits zero so your "distinct count" stays honest.`,
+  ]),
+  note("📌","Let the count hit zero, then erase",`With a frequency map, the size of the map is your "number of distinct elements in the window." That only stays correct if you erase a key when its count drops to 0 on the way out — otherwise a character that has fully left still inflates the distinct count and your "at most K distinct" check silently breaks. <code>if (--cnt[c] == 0) cnt.erase(c);</code> is the idiom.`),
+  sub("When sliding window applies — and when it doesn't"),
+  p(`Two conditions must both hold. <b>Contiguity:</b> the answer is a single unbroken run; you are not free to skip elements. <b>Monotone feasibility:</b> growing the window can only push it toward (or away from) valid in a consistent direction — extending a too-small sum can only make it larger, adding a character can only keep or break the no-duplicate property. That monotonicity is what makes "shrink until valid / grow until satisfied" sound. If extending the window could flip the condition unpredictably, the window logic is invalid and you will skip answers.`),
+  pit(`"Contiguous" is the keyword`,`Sliding window only works when the answer is a single unbroken run. If the problem lets you pick non-adjacent elements ("any subsequence," "any subset"), this pattern does not apply — you are almost certainly looking at dynamic programming, or a heap if it is a top-K / streaming "k largest" question. Read the prompt for "subarray"/"substring" (contiguous) vs "subsequence" (not).`),
+  pit("Update the answer at the right moment",`The single most common bug is recording the answer in the wrong place. For a <em>longest</em> window, update <em>after</em> the shrink loop, when the window is guaranteed valid. For a <em>shortest</em> window, update <em>inside</em> the shrink loop, before you remove the element that would break validity. Putting a "longest" update inside the shrink, or a "shortest" update after it, quietly returns a wrong length on the boundary cases.`),
+  pit("Mind the empty window",`When the window can legally be empty (size 0), make sure your length math and your "no answer" sentinel behave. <code>right - left + 1</code> is only meaningful while <code>left &lt;= right</code>; for shortest-window problems initialize <code>best</code> to <code>INT_MAX</code> and translate "still INT_MAX" into "no valid window found" rather than returning a bogus huge length.`),
+  idea("How to frame it in the interview",`Say the recognition out loud, then the template: <em>"This asks for the best contiguous run, so it is a sliding window. I will expand <code>right</code> across the array; whenever the window is invalid I shrink <code>left</code>; each index enters and leaves once, so it is O(n)."</em> Then write the skeleton — expand right, while-invalid shrink left, update the answer — and fill the three blanks for this specific rule. Memorize the skeleton, not nine separate solutions; the problems differ only in what goes in <code>add</code>, <code>invalid</code>, and <code>remove</code>.`),
+  svg("sliding_grow","A dynamic window in action: expand right while the run stays valid; when a duplicate enters, advance left to drop the offending element, then keep growing. Both pointers only ever move forward."),
+  cx(`Time <b>O(n)</b> — each index enters and leaves the window at most once · space <b>O(k)</b> for the window's contents (set or frequency map), O(1) when a running sum is all you keep.`),
   {t:"probs",items:[["Best Time to Buy & Sell Stock","best-time-to-buy-and-sell-stock","easy"],["Longest Substring w/o Repeating","longest-substring-without-repeating-characters","med"],["Minimum Window Substring","minimum-window-substring","hard"]]}
 ]},
 {group:"Week 3 · Patterns + C++",num:"04",id:"stack",color:"#2DD4A7",title:"Stack",badge:"Week 3 · Pattern",blocks:[
