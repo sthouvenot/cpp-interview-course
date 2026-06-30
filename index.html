@@ -194,6 +194,7 @@
 <aside class="sidebar" id="sidebar">
   <a class="brand" href="#/"><div class="mark">{}</div><div><h1>The C++<br>Interview Course</h1><span>concepts &#8594; patterns, interleaved</span></div></a>
   <div class="progress"><div class="ring"><svg width="46" height="46" viewBox="0 0 46 46"><circle cx="23" cy="23" r="19" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="4"/><circle id="ringFill" cx="23" cy="23" r="19" fill="none" stroke="#5BE3B3" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="119.4"/></svg><div class="val" id="ringVal">0%</div></div><div class="lbl"><b id="doneCount">0</b> of <b id="totalCount">0</b> lessons<br><span id="probLine">0 problems solved</span></div></div>
+  <div class="syncbar off" id="syncBar"></div>
   <nav id="nav"></nav>
   <div class="side-foot">Each lesson is its own page. Use the sidebar or the Next button at the bottom of every page.</div>
 </aside>
@@ -5832,11 +5833,11 @@ const idIndex={};course.forEach((s,i)=>idIndex[s.id]=i);
 const allSlugs=[];course.forEach(s=>s.blocks.forEach(b=>{if(b.t==="probs")b.items.forEach(it=>allSlugs.push(it[1]));}));
 const PKEY="cpp-course-progress-v1";
 function loadDone(){try{return new Set(JSON.parse(localStorage.getItem(PKEY)||"[]"));}catch(e){return new Set();}}
-function saveDone(set){try{localStorage.setItem(PKEY,JSON.stringify([...set]));}catch(e){}}
+function saveDone(set){try{localStorage.setItem(PKEY,JSON.stringify([...set]));}catch(e){}window.__cppSync&&window.__cppSync.markChanged();}
 let doneSet=loadDone();
 const LKEY="cpp-course-lessons-v1";
 function loadLessons(){try{return new Set(JSON.parse(localStorage.getItem(LKEY)||"[]"));}catch(e){return new Set();}}
-function saveLessons(set){try{localStorage.setItem(LKEY,JSON.stringify([...set]));}catch(e){}}
+function saveLessons(set){try{localStorage.setItem(LKEY,JSON.stringify([...set]));}catch(e){}window.__cppSync&&window.__cppSync.markChanged();}
 let doneLessons=loadLessons();
 const ringFill=document.getElementById("ringFill"),ringVal=document.getElementById("ringVal"),doneC=document.getElementById("doneCount"),totalC=document.getElementById("totalCount"),probLine=document.getElementById("probLine"),CIRC=119.4;
 function updateProgress(){const ld=course.filter(s=>doneLessons.has(s.id)).length,lt=course.length,pct=lt?ld/lt:0;ringFill.style.strokeDashoffset=CIRC*(1-pct);ringVal.textContent=Math.round(pct*100)+"%";doneC.textContent=ld;totalC.textContent=lt;const ps=allSlugs.filter(s=>doneSet.has(s)).length;probLine.textContent=ps+" of "+allSlugs.length+" problems solved";}
@@ -5872,7 +5873,7 @@ navEl.innerHTML=navHTML;
 function refreshNav(){[...navEl.querySelectorAll("a[data-nav]")].forEach(a=>{const id=a.getAttribute("data-nav");a.classList.toggle("done",!!id&&doneLessons.has(id));});}
 refreshNav();
 function setActive(id){[...navEl.querySelectorAll("a")].forEach(a=>a.classList.toggle("active",a.getAttribute("data-nav")===id));}
-const homeHTML=`<div class="hero"><div class="eyebrow">Welcome</div><h2>Everything you need to be<br><em>interview-ready</em>.</h2><p class="lead">This isn't a problem dump. It's a complete course: deep written lessons with diagrams, the C++ language topics interviewers probe beyond data structures, and the exact common questions waiting for you on LeetCode. Concepts and patterns are interleaved &mdash; you learn an idea, then immediately use it.</p><p class="lead2">Each lesson is its own page, grouped by topic in the sidebar. Check off lessons as you finish them and tick problems as you solve them &mdash; the progress ring fills as you go, and everything saves automatically on this device.</p><div class="startrow"><a class="btn primary" href="#/how">Start at the beginning &#8594;</a><a class="btn ghost" href="#/syntax">Jump to the syntax primer</a></div><div class="planbar">${plan.map(x=>`<a class="pb" href="#/${x[2]}"><div class="wk">${x[0]}</div><div class="ti">${x[1]}</div></a>`).join("")}</div></div>`;
+const homeHTML=`<div class="hero"><div class="eyebrow">Welcome</div><h2>Everything you need to be<br><em>interview-ready</em>.</h2><p class="lead">This isn't a problem dump. It's a complete course: deep written lessons with diagrams, the C++ language topics interviewers probe beyond data structures, and the exact common questions waiting for you on LeetCode. Concepts and patterns are interleaved &mdash; you learn an idea, then immediately use it.</p><p class="lead2">Each lesson is its own page, grouped by topic in the sidebar. Check off lessons as you finish them and tick problems as you solve them &mdash; the progress ring fills as you go. Everything saves automatically on this device &mdash; and the <em>Sync across devices</em> button in the sidebar keeps it mirrored on every computer you use.</p><div class="startrow"><a class="btn primary" href="#/how">Start at the beginning &#8594;</a><a class="btn ghost" href="#/syntax">Jump to the syntax primer</a></div><div class="planbar">${plan.map(x=>`<a class="pb" href="#/${x[2]}"><div class="wk">${x[0]}</div><div class="ti">${x[1]}</div></a>`).join("")}</div></div>`;
 function wirePage(){
   page.querySelectorAll("[data-prob] .chk").forEach(chk=>{
     const slug=chk.getAttribute("data-slug");
@@ -5935,8 +5936,163 @@ function initSlidingWindow(){
   function run(){if(timer)clearInterval(timer);let s=0,best=-1,bestAt=0;const last=arr.length-k;const step=()=>{const sum=sumAt(s);draw(s);if(sum>best){best=sum;bestAt=s;}read.innerHTML=`window [${s}..${s+k-1}] sums to ${sum} &nbsp;&bull;&nbsp; best so far <b>${best}</b>`;if(s>=last){draw(bestAt);read.innerHTML=`Best window sums to <b>${best}</b> &#10003;`;clearInterval(timer);return;}s++;};timer=setInterval(step,1050);}
   host.querySelector("#sw-run").addEventListener("click",run);host.querySelector("#sw-reset").addEventListener("click",reset);reset();
 }
+/* ===== Cross-device sync via one private GitHub gist ===== */
+const SYNC=(function(){
+  const TKEY="cpp-course-gist-token",GKEY="cpp-course-gist-id",LUPD="cpp-course-updated-v1",FILE="cpp-course-progress.json",API="https://api.github.com";
+  let token=localStorage.getItem(TKEY)||"",gistId=localStorage.getItem(GKEY)||"";
+  let status=token?"idle":"off",detail="",timer=null,applying=false,busy=false;
+  function H(){return {"Authorization":"token "+token,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"};}
+  function localUpd(){return Number(localStorage.getItem(LUPD)||0);}
+  function setUpd(t){localStorage.setItem(LUPD,String(t));}
+  function snap(){return {lessons:[...doneLessons],problems:[...doneSet],updated:localUpd()};}
+  function uni(a,b){return [...new Set([...a,...b])];}
+  function setStatus(s,d){status=s;detail=d||"";renderBar();}
+  function applyRemote(data){
+    applying=true;
+    doneLessons=new Set(data.lessons||[]);doneSet=new Set(data.problems||[]);
+    saveLessons(doneLessons);saveDone(doneSet);setUpd(data.updated||Date.now());
+    applying=false;
+    refreshNav();updateProgress();
+    const y=window.scrollY;route();window.scrollTo(0,y);
+  }
+  async function findOrCreateGist(){
+    if(gistId)return gistId;
+    const r=await fetch(API+"/gists?per_page=100",{headers:H()});
+    if(r.status===401)throw {code:401};
+    if(!r.ok)throw {code:r.status};
+    const list=await r.json();
+    const hit=list.find(g=>g.files&&g.files[FILE]);
+    if(hit){gistId=hit.id;}
+    else{
+      const cr=await fetch(API+"/gists",{method:"POST",headers:H(),body:JSON.stringify({description:"C++ Interview Course — progress",public:false,files:{[FILE]:{content:JSON.stringify(snap())}}})});
+      if(!cr.ok)throw {code:cr.status};
+      gistId=(await cr.json()).id;
+    }
+    localStorage.setItem(GKEY,gistId);return gistId;
+  }
+  async function pull(){
+    await findOrCreateGist();
+    const r=await fetch(API+"/gists/"+gistId,{headers:H()});
+    if(!r.ok)throw {code:r.status};
+    const g=await r.json(),f=g.files&&g.files[FILE];
+    if(!f||!f.content)return null;
+    try{return JSON.parse(f.content);}catch(e){return null;}
+  }
+  async function push(data){
+    await findOrCreateGist();
+    const r=await fetch(API+"/gists/"+gistId,{method:"PATCH",headers:H(),body:JSON.stringify({files:{[FILE]:{content:JSON.stringify(data)}}})});
+    if(!r.ok)throw {code:r.status};
+  }
+  function handleErr(e){
+    if(e&&e.code===401){token="";gistId="";localStorage.removeItem(TKEY);localStorage.removeItem(GKEY);setStatus("error","Token rejected — reconnect");}
+    else setStatus("offline","Offline — will retry");
+  }
+  async function reconcile(opts){
+    opts=opts||{};
+    if(!token){setStatus("off");return;}
+    if(busy)return;busy=true;setStatus("syncing");
+    try{
+      const remote=await pull();
+      if(opts.link){
+        const merged={lessons:uni([...doneLessons],remote?(remote.lessons||[]):[]),problems:uni([...doneSet],remote?(remote.problems||[]):[]),updated:Date.now()};
+        applyRemote(merged);await push(merged);
+      }else{
+        const rUpd=remote?(remote.updated||0):0;
+        if(remote&&rUpd>localUpd())applyRemote(remote);
+        else if(!remote||localUpd()>rUpd)await push(snap());
+      }
+      setStatus("synced");
+    }catch(e){handleErr(e);}finally{busy=false;}
+  }
+  async function pushDebounced(){
+    if(!token)return;
+    if(busy){timer=setTimeout(pushDebounced,800);return;}
+    busy=true;setStatus("syncing");
+    try{await push(snap());setStatus("synced");}catch(e){handleErr(e);}finally{busy=false;}
+  }
+  function markChanged(){
+    if(applying)return;
+    setUpd(Date.now());
+    if(!token)return;
+    if(timer)clearTimeout(timer);
+    setStatus("syncing");
+    timer=setTimeout(pushDebounced,1500);
+  }
+  function link(tok){tok=(tok||"").trim();if(!tok)return;token=tok;localStorage.setItem(TKEY,token);reconcile({link:true});}
+  function unlink(){token="";gistId="";localStorage.removeItem(TKEY);localStorage.removeItem(GKEY);if(timer)clearTimeout(timer);setStatus("off");}
+  function renderBar(){
+    const bar=document.getElementById("syncBar");if(!bar)return;
+    let icon,txt,cls;
+    if(status==="off"){icon="&#8645;";txt="Sync across devices";cls="off";}
+    else if(status==="syncing"){icon="&#8635;";txt="Syncing&hellip;";cls="syncing";}
+    else if(status==="synced"){icon="&#10003;";txt="Synced";cls="ok";}
+    else if(status==="error"){icon="&#9888;";txt=detail;cls="err";}
+    else{icon="&#9888;";txt=detail||"Offline";cls="warn";}
+    bar.className="syncbar "+cls;
+    bar.innerHTML=`<button class="syncbtn" id="syncMain"><span class="si">${icon}</span><span>${txt}</span></button>`+(token?`<button class="syncx" id="syncUnlink" title="Unlink this device">&#215;</button>`:``);
+    bar.querySelector("#syncMain").onclick=()=>{token?reconcile({}):openModal();};
+    const ux=bar.querySelector("#syncUnlink");if(ux)ux.onclick=()=>{if(confirm("Stop syncing on this device? Your progress stays saved here — it just won't sync anymore."))unlink();};
+  }
+  function openModal(){
+    let m=document.getElementById("syncModal");
+    if(!m){
+      m=document.createElement("div");m.id="syncModal";m.className="syncmodal";
+      m.innerHTML=`<div class="syncpanel">
+        <h3>Sync your progress across computers</h3>
+        <p>Your completed lessons &amp; solved problems get stored in one <b>private GitHub gist</b> and kept in sync automatically &mdash; on every computer where you connect the same token.</p>
+        <ol>
+          <li>Open <a href="https://github.com/settings/tokens/new?scopes=gist&amp;description=C%2B%2B%20Course%20Sync" target="_blank" rel="noopener">this token page</a> (the <b>gist</b> box is pre-checked).</li>
+          <li>Set <b>Expiration &rarr; No expiration</b>, scroll down, click <b>Generate token</b>, and copy it.</li>
+          <li>Paste it below and connect.</li>
+        </ol>
+        <input type="password" id="syncToken" placeholder="ghp_…  paste your token" autocomplete="off" spellcheck="false">
+        <div class="syncnote">Stored only in this browser's local storage. Never shared and never written into the site. The token can only read &amp; write gists &mdash; nothing else on your account.</div>
+        <div class="syncrow"><button class="ghostb" id="syncCancel">Cancel</button><button class="primb" id="syncSave">Connect &amp; sync</button></div>
+      </div>`;
+      document.body.appendChild(m);
+    }
+    m.style.display="flex";
+    const inp=m.querySelector("#syncToken");inp.value="";setTimeout(()=>inp.focus(),30);
+    m.querySelector("#syncCancel").onclick=()=>{m.style.display="none";};
+    m.onclick=e=>{if(e.target===m)m.style.display="none";};
+    const go=()=>{const v=inp.value.trim();if(!v)return;m.style.display="none";link(v);};
+    m.querySelector("#syncSave").onclick=go;
+    inp.onkeydown=e=>{if(e.key==="Enter")go();};
+  }
+  function injectStyle(){
+    const css=`.syncbar{display:flex;align-items:center;gap:6px;margin:12px 14px 2px}
+.syncbtn{flex:1;display:flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:#cfd0e2;font:inherit;font-size:12px;padding:7px 10px;border-radius:9px;cursor:pointer;transition:.15s;text-align:left}
+.syncbtn:hover{background:rgba(255,255,255,.12)}
+.syncbar .si{font-size:13px;line-height:1;display:inline-block}
+.syncbar.ok .syncbtn{color:#9beecf}.syncbar.ok .si{color:#5BE3B3}
+.syncbar.syncing .si{color:#7cc4ff;animation:syncspin 1s linear infinite}
+.syncbar.err .syncbtn,.syncbar.warn .syncbtn{color:#ffc0c0;border-color:rgba(255,120,120,.38)}
+@keyframes syncspin{to{transform:rotate(360deg)}}
+.syncx{background:none;border:none;color:#8a87a0;font-size:15px;line-height:1;cursor:pointer;padding:3px 7px;border-radius:6px}
+.syncx:hover{color:#fff;background:rgba(255,255,255,.1)}
+.syncmodal{position:fixed;inset:0;background:rgba(15,14,25,.62);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;z-index:1000;padding:20px}
+.syncpanel{background:#fff;color:#16151f;max-width:450px;width:100%;border-radius:14px;padding:22px 22px 18px;box-shadow:0 24px 64px rgba(0,0,0,.45);font-size:14px;line-height:1.5}
+.syncpanel h3{margin:0 0 9px;font-size:18px;font-family:"Space Grotesk",sans-serif}
+.syncpanel p{margin:0 0 11px;color:#3a3650;font-size:13px}
+.syncpanel ol{margin:0 0 13px;padding-left:18px;font-size:13px;color:#3a3650}
+.syncpanel li{margin:4px 0}
+.syncpanel a{color:#5a4fcf;font-weight:600}
+.syncpanel code{background:#f0eff8;padding:1px 5px;border-radius:5px;font-size:12px;font-family:"JetBrains Mono",monospace}
+#syncToken{width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid #d4d3e2;border-radius:9px;font-size:13px;font-family:"JetBrains Mono",monospace}
+#syncToken:focus{outline:none;border-color:#5a4fcf;box-shadow:0 0 0 3px rgba(90,79,207,.15)}
+.syncnote{font-size:11.5px;color:#8a87a0;margin:8px 2px 0;line-height:1.45}
+.syncrow{display:flex;justify-content:flex-end;gap:8px;margin-top:15px}
+.syncrow button{font:inherit;font-size:13px;font-weight:600;padding:9px 16px;border-radius:9px;cursor:pointer;border:1px solid transparent}
+.ghostb{background:#f1f0f7;color:#3a3650}.ghostb:hover{background:#e7e6f2}
+.primb{background:#5a4fcf;color:#fff}.primb:hover{background:#4a3fc0}`;
+    const st=document.createElement("style");st.textContent=css;document.head.appendChild(st);
+  }
+  const api={markChanged,link,unlink,init:function(){injectStyle();renderBar();if(token)reconcile({});}};
+  window.__cppSync=api;return api;
+})();
 window.addEventListener("hashchange",route);
 route();
+SYNC.init();
 </script>
 </body>
 </html>
