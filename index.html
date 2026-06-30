@@ -773,6 +773,222 @@ SVG.moves_steal=`<svg viewBox="0 0 620 250" role="img" aria-label="A move constr
 <path d="M524 126 V164" stroke="#16A34A" stroke-width="2" marker-end="url(#mst2)"/>
 <text x="460" y="222" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#3c6b4f">same buffer, no copy &#8212; just two pointer writes</text>
 <defs><marker id="mst1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker><marker id="mst2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker></defs></svg>`;
+SVG.linked_reverse=`<svg viewBox="0 0 620 250" role="img" aria-label="Reversing a singly linked list one node at a time with prev, cur and next pointers">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">one flip: save next, point cur back, slide all three forward</text>
+<g font-family="JetBrains Mono,monospace" font-size="14">
+<rect x="50" y="92" width="52" height="42" rx="9" fill="#EEF0FF" stroke="#5B5BD6" stroke-width="2"/><text x="76" y="118" text-anchor="middle" fill="#3a32a8" font-weight="600">1</text>
+<rect x="190" y="92" width="52" height="42" rx="9" fill="#E9FBF4" stroke="#2DD4A7" stroke-width="2"/><text x="216" y="118" text-anchor="middle" fill="#0f9b78" font-weight="600">2</text>
+<rect x="330" y="92" width="52" height="42" rx="9" fill="#FFF0F2" stroke="#0EA5E9" stroke-width="2"/><text x="356" y="118" text-anchor="middle" fill="#0b7fb8" font-weight="600">3</text>
+<rect x="470" y="92" width="52" height="42" rx="9" fill="#fff" stroke="#C9CAD9"/><text x="496" y="118" text-anchor="middle" fill="#1B1838">4</text>
+</g>
+<text x="76" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#3a32a8">prev</text>
+<text x="216" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0f9b78">cur</text>
+<text x="356" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0b7fb8">next</text>
+<path d="M190 113 H104" stroke="#2DD4A7" stroke-width="2.2" marker-end="url(#lkr)"/>
+<text x="147" y="105" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#0f9b78">cur-&gt;next = prev</text>
+<path d="M330 152 C300 178 250 178 220 152" stroke="#c9cad9" stroke-width="1.6" fill="none" marker-end="url(#lkn)"/>
+<text x="275" y="192" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#9d9ab0">next was saved first, so the rest of the list isn't lost</text>
+<path d="M470 113 H384" stroke="#c9cad9" stroke-width="1.6" marker-end="url(#lkn)"/>
+<defs>
+<marker id="lkr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#2DD4A7"/></marker>
+<marker id="lkn" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#c9cad9"/></marker>
+</defs></svg>`;
+SVG.linked_dummy=`<svg viewBox="0 0 620 250" role="img" aria-label="Merging two sorted linked lists by appending to a dummy head node so there is no special case for the first node">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">a dummy head gives tail a node to attach to from the very first step</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="40" y="64" width="40" height="34" rx="7" fill="#E9FBF4" stroke="#2DD4A7"/><text x="60" y="86" text-anchor="middle" fill="#0f9b78">1</text>
+<rect x="40" y="108" width="40" height="34" rx="7" fill="#E9FBF4" stroke="#2DD4A7"/><text x="60" y="130" text-anchor="middle" fill="#0f9b78">4</text>
+<rect x="40" y="152" width="40" height="34" rx="7" fill="#E9FBF4" stroke="#2DD4A7"/><text x="60" y="174" text-anchor="middle" fill="#0f9b78">7</text>
+<text x="60" y="208" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0f9b78">list a</text>
+<rect x="120" y="64" width="40" height="34" rx="7" fill="#FFF0F2" stroke="#0EA5E9"/><text x="140" y="86" text-anchor="middle" fill="#0b7fb8">2</text>
+<rect x="120" y="108" width="40" height="34" rx="7" fill="#FFF0F2" stroke="#0EA5E9"/><text x="140" y="130" text-anchor="middle" fill="#0b7fb8">3</text>
+<rect x="120" y="152" width="40" height="34" rx="7" fill="#FFF0F2" stroke="#0EA5E9"/><text x="140" y="174" text-anchor="middle" fill="#0b7fb8">5</text>
+<text x="140" y="208" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0b7fb8">list b</text>
+</g>
+<rect x="250" y="108" width="60" height="40" rx="9" fill="#F4F2FF" stroke="#5B5BD6" stroke-width="2" stroke-dasharray="4 3"/><text x="280" y="133" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#5B5BD6">dummy</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="340" y="108" width="40" height="40" rx="9" fill="#E9FBF4" stroke="#2DD4A7"/><text x="360" y="133" text-anchor="middle" fill="#0f9b78">1</text>
+<rect x="400" y="108" width="40" height="40" rx="9" fill="#FFF0F2" stroke="#0EA5E9"/><text x="420" y="133" text-anchor="middle" fill="#0b7fb8">2</text>
+<rect x="460" y="108" width="40" height="40" rx="9" fill="#FFF0F2" stroke="#0EA5E9"/><text x="480" y="133" text-anchor="middle" fill="#0b7fb8">3</text>
+<rect x="520" y="108" width="40" height="40" rx="9" fill="#E9FBF4" stroke="#2DD4A7"/><text x="540" y="133" text-anchor="middle" fill="#0f9b78">4</text>
+</g>
+<path d="M310 128 H338" stroke="#c9cad9" stroke-width="1.8" marker-end="url(#lkd)"/>
+<path d="M380 128 H398" stroke="#c9cad9" stroke-width="1.8" marker-end="url(#lkd)"/>
+<path d="M440 128 H458" stroke="#c9cad9" stroke-width="1.8" marker-end="url(#lkd)"/>
+<path d="M500 128 H518" stroke="#c9cad9" stroke-width="1.8" marker-end="url(#lkd)"/>
+<text x="540" y="172" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">tail</text>
+<text x="425" y="200" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6f6b8c">answer is dummy.next — never the dummy itself</text>
+<defs><marker id="lkd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#c9cad9"/></marker></defs></svg>`;
+SVG.trees_traversals=`<svg viewBox="0 0 620 320" role="img" aria-label="A small binary tree with pre-order, in-order, and post-order visit sequences">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#8B5CF6">one tree, three DFS orders</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<path d="M150 72 L92 132" stroke="#c9cad9" stroke-width="2"/>
+<path d="M150 72 L208 132" stroke="#c9cad9" stroke-width="2"/>
+<path d="M92 152 L58 212" stroke="#c9cad9" stroke-width="2"/>
+<path d="M92 152 L126 212" stroke="#c9cad9" stroke-width="2"/>
+<path d="M208 152 L242 212" stroke="#c9cad9" stroke-width="2"/>
+<circle cx="150" cy="62" r="22" fill="#F1ECFE" stroke="#8B5CF6" stroke-width="2"/><text x="150" y="67" text-anchor="middle" fill="#1B1838">4</text>
+<circle cx="92" cy="142" r="22" fill="#fff" stroke="#8B5CF6" stroke-width="1.6"/><text x="92" y="147" text-anchor="middle" fill="#1B1838">2</text>
+<circle cx="208" cy="142" r="22" fill="#fff" stroke="#8B5CF6" stroke-width="1.6"/><text x="208" y="147" text-anchor="middle" fill="#1B1838">6</text>
+<circle cx="58" cy="222" r="22" fill="#fff" stroke="#8B5CF6" stroke-width="1.6"/><text x="58" y="227" text-anchor="middle" fill="#1B1838">1</text>
+<circle cx="126" cy="222" r="22" fill="#fff" stroke="#8B5CF6" stroke-width="1.6"/><text x="126" y="227" text-anchor="middle" fill="#1B1838">3</text>
+<circle cx="242" cy="222" r="22" fill="#fff" stroke="#8B5CF6" stroke-width="1.6"/><text x="242" y="227" text-anchor="middle" fill="#1B1838">5</text>
+</g>
+<g font-family="JetBrains Mono,monospace" font-size="12.5">
+<text x="350" y="74" font-family="Space Grotesk,sans-serif" font-weight="600" fill="#5B5BD6">pre-order</text>
+<text x="350" y="94" fill="#1B1838">node, left, right</text>
+<text x="350" y="114" fill="#8B5CF6">4 2 1 3 6 5</text>
+<text x="350" y="158" font-family="Space Grotesk,sans-serif" font-weight="600" fill="#16A34A">in-order</text>
+<text x="350" y="178" fill="#1B1838">left, node, right</text>
+<text x="350" y="198" fill="#16A34A">1 2 3 4 5 6</text>
+<text x="350" y="242" font-family="Space Grotesk,sans-serif" font-weight="600" fill="#0EA5E9">post-order</text>
+<text x="350" y="262" fill="#1B1838">left, right, node</text>
+<text x="350" y="282" fill="#0EA5E9">1 3 2 5 6 4</text>
+</g>
+<text x="310" y="308" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">this is a BST, so in-order comes out sorted &#8212; that's the fact that unlocks problems</text>
+</svg>`;
+SVG.trees_bfs=`<svg viewBox="0 0 620 300" role="img" aria-label="Level-order BFS visits a binary tree one banded level at a time using a queue">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#0EA5E9">BFS &#8594; one level at a time (a queue)</text>
+<rect x="24" y="44" width="380" height="44" rx="8" fill="#EAF6FF" stroke="#cfeafd"/>
+<rect x="24" y="100" width="380" height="44" rx="8" fill="#E9FBF4" stroke="#c7eee0"/>
+<rect x="24" y="156" width="380" height="44" rx="8" fill="#F1ECFE" stroke="#e1d6fb"/>
+<text x="414" y="71" font-family="JetBrains Mono,monospace" font-size="11" fill="#0EA5E9">level 0</text>
+<text x="414" y="127" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">level 1</text>
+<text x="414" y="183" font-family="JetBrains Mono,monospace" font-size="11" fill="#8B5CF6">level 2</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<path d="M150 88 L92 122" stroke="#c9cad9" stroke-width="2"/>
+<path d="M150 88 L208 122" stroke="#c9cad9" stroke-width="2"/>
+<path d="M92 144 L58 178" stroke="#c9cad9" stroke-width="2"/>
+<path d="M92 144 L126 178" stroke="#c9cad9" stroke-width="2"/>
+<path d="M208 144 L242 178" stroke="#c9cad9" stroke-width="2"/>
+<circle cx="150" cy="66" r="20" fill="#fff" stroke="#0EA5E9" stroke-width="2"/><text x="150" y="71" text-anchor="middle" fill="#1B1838">4</text>
+<circle cx="92" cy="122" r="20" fill="#fff" stroke="#16A34A" stroke-width="1.8"/><text x="92" y="127" text-anchor="middle" fill="#1B1838">2</text>
+<circle cx="208" cy="122" r="20" fill="#fff" stroke="#16A34A" stroke-width="1.8"/><text x="208" y="127" text-anchor="middle" fill="#1B1838">6</text>
+<circle cx="58" cy="178" r="20" fill="#fff" stroke="#8B5CF6" stroke-width="1.8"/><text x="58" y="183" text-anchor="middle" fill="#1B1838">1</text>
+<circle cx="126" cy="178" r="20" fill="#fff" stroke="#8B5CF6" stroke-width="1.8"/><text x="126" y="183" text-anchor="middle" fill="#1B1838">3</text>
+<circle cx="242" cy="178" r="20" fill="#fff" stroke="#8B5CF6" stroke-width="1.8"/><text x="242" y="183" text-anchor="middle" fill="#1B1838">5</text>
+</g>
+<text x="310" y="234" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#3a3660">visit order: [4] then [2, 6] then [1, 3, 5]</text>
+<text x="310" y="258" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">pop a node, push its children &#8212; the queue always holds the current frontier left to right</text>
+<text x="310" y="280" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#0c7fc4">queue width peaks at the widest level &#8594; O(n) space worst case</text>
+</svg>`;
+SVG.tries_tree=`<svg viewBox="0 0 620 360" role="img" aria-label="A trie holding cat, car, card and dog; cat and car and card share the ca prefix path, and end-of-word nodes are filled">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">one path per prefix &#8594; "cat", "car", "card", "dog"</text>
+<text x="310" y="46" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">each edge is one letter; a filled node means a word ends here</text>
+<g stroke="#c9cad9" stroke-width="1.8" fill="none">
+<path d="M310 78 L180 128"/>
+<path d="M310 78 L450 128"/>
+<path d="M180 152 L180 200"/>
+<path d="M180 224 L120 272"/>
+<path d="M180 224 L250 272"/>
+<path d="M250 296 L250 320"/>
+<path d="M450 152 L450 200"/>
+<path d="M450 224 L450 272"/>
+</g>
+<g font-family="JetBrains Mono,monospace" font-size="11.5" fill="#8B5CF6">
+<text x="238" y="106" text-anchor="middle">c</text>
+<text x="386" y="106" text-anchor="middle">d</text>
+<text x="170" y="180" text-anchor="middle">a</text>
+<text x="138" y="252" text-anchor="middle">t</text>
+<text x="225" y="252" text-anchor="middle">r</text>
+<text x="262" y="312" text-anchor="middle">d</text>
+<text x="440" y="180" text-anchor="middle">o</text>
+<text x="440" y="252" text-anchor="middle">g</text>
+</g>
+<circle cx="310" cy="66" r="14" fill="#fff" stroke="#A855F7" stroke-width="2"/><text x="310" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#8B5CF6">root</text>
+<circle cx="180" cy="140" r="14" fill="#F3ECFE" stroke="#A855F7" stroke-width="1.8"/><text x="180" y="144" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#7c3aed">c</text>
+<circle cx="180" cy="212" r="14" fill="#F3ECFE" stroke="#A855F7" stroke-width="1.8"/><text x="180" y="216" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#7c3aed">a</text>
+<circle cx="120" cy="284" r="14" fill="#16A34A" stroke="#0f7a36" stroke-width="2"/><text x="120" y="288" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#fff" font-weight="600">t</text>
+<circle cx="250" cy="284" r="14" fill="#16A34A" stroke="#0f7a36" stroke-width="2"/><text x="250" y="288" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#fff" font-weight="600">r</text>
+<circle cx="250" cy="332" r="14" fill="#16A34A" stroke="#0f7a36" stroke-width="2"/><text x="250" y="336" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#fff" font-weight="600">d</text>
+<circle cx="450" cy="140" r="14" fill="#F3ECFE" stroke="#A855F7" stroke-width="1.8"/><text x="450" y="144" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#7c3aed">d</text>
+<circle cx="450" cy="212" r="14" fill="#F3ECFE" stroke="#A855F7" stroke-width="1.8"/><text x="450" y="216" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#7c3aed">o</text>
+<circle cx="450" cy="284" r="14" fill="#16A34A" stroke="#0f7a36" stroke-width="2"/><text x="450" y="288" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#fff" font-weight="600">g</text>
+<g font-family="Inter,sans-serif" font-size="10.5">
+<rect x="356" y="306" width="13" height="13" rx="3" fill="#F3ECFE" stroke="#A855F7"/><text x="376" y="316" fill="#6f6b8c">prefix node</text>
+<rect x="356" y="326" width="13" height="13" rx="3" fill="#16A34A" stroke="#0f7a36"/><text x="376" y="336" fill="#6f6b8c">isEnd = true (a word ends)</text></g>
+<text x="118" y="332" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#9d9ab0">"ca" is shared by all three c-words</text></svg>`;
+SVG.tries_node=`<svg viewBox="0 0 620 250" role="img" aria-label="The shape of one trie node: a children array of 26 slots indexed by letter, plus an isEnd boolean">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">what lives inside one node</text>
+<text x="310" y="46" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">26 child slots (the letter <tspan font-style="italic">is</tspan> the index) + one end-of-word flag</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="40" y="72" width="46" height="42" fill="#fff" stroke="#c9cad9"/><text x="63" y="98" text-anchor="middle" fill="#9d9ab0">&#8709;</text>
+<rect x="86" y="72" width="46" height="42" fill="#fff" stroke="#c9cad9"/><text x="109" y="98" text-anchor="middle" fill="#9d9ab0">&#8709;</text>
+<rect x="132" y="72" width="46" height="42" fill="#F3ECFE" stroke="#A855F7" stroke-width="2"/><text x="155" y="98" text-anchor="middle" fill="#7c3aed" font-weight="600">&#8226;</text>
+<rect x="178" y="72" width="46" height="42" fill="#fff" stroke="#c9cad9"/><text x="201" y="98" text-anchor="middle" fill="#9d9ab0">&#8709;</text>
+<rect x="224" y="72" width="46" height="42" fill="#fff" stroke="#c9cad9"/><text x="247" y="98" text-anchor="middle" fill="#9d9ab0">&#8709;</text>
+<rect x="270" y="72" width="36" height="42" fill="#FBFBFE" stroke="#E7E8F2"/><text x="288" y="98" text-anchor="middle" fill="#c9cad9">&#8230;</text>
+<rect x="306" y="72" width="46" height="42" fill="#F3ECFE" stroke="#A855F7" stroke-width="2"/><text x="329" y="98" text-anchor="middle" fill="#7c3aed" font-weight="600">&#8226;</text>
+<rect x="352" y="72" width="36" height="42" fill="#FBFBFE" stroke="#E7E8F2"/><text x="370" y="98" text-anchor="middle" fill="#c9cad9">&#8230;</text>
+<rect x="388" y="72" width="46" height="42" fill="#fff" stroke="#c9cad9"/><text x="411" y="98" text-anchor="middle" fill="#9d9ab0">&#8709;</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">
+<text x="63" y="132" text-anchor="middle">a</text><text x="109" y="132" text-anchor="middle">b</text><text x="155" y="132" text-anchor="middle" fill="#7c3aed" font-weight="600">c</text><text x="201" y="132" text-anchor="middle">d</text><text x="247" y="132" text-anchor="middle">e</text><text x="329" y="132" text-anchor="middle" fill="#7c3aed" font-weight="600">o</text><text x="411" y="132" text-anchor="middle">z</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="9.5" fill="#b9bac9">
+<text x="63" y="146" text-anchor="middle">[0]</text><text x="155" y="146" text-anchor="middle">[2]</text><text x="329" y="146" text-anchor="middle">[14]</text><text x="411" y="146" text-anchor="middle">[25]</text></g>
+<text x="237" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3a3660">children['c'-'a'] and children['o'-'a'] point to child nodes; the rest are null</text>
+<rect x="470" y="72" width="110" height="42" rx="9" fill="#F0FBF5" stroke="#16A34A" stroke-width="1.6"/>
+<text x="525" y="90" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#0f7a36">isEnd</text>
+<text x="525" y="106" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838" font-weight="600">false</text>
+<text x="525" y="132" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#9d9ab0">does a word end here?</text>
+<rect x="120" y="196" width="380" height="40" rx="10" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="310" y="220" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12.5" fill="#1B1838">struct TrieNode { array&lt;TrieNode*,26&gt; kids{}; bool isEnd=false; };</text></svg>`;
+SVG.heaps_array=`<svg viewBox="0 0 620 300" role="img" aria-label="A min-heap drawn as a tree and its array layout, showing node i has children at 2i+1 and 2i+2">
+<text x="160" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#EC4899">min-heap (parent &#8804; children)</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<line x1="160" y1="64" x2="100" y2="118" stroke="#c9cad9" stroke-width="1.6"/>
+<line x1="160" y1="64" x2="220" y2="118" stroke="#c9cad9" stroke-width="1.6"/>
+<line x1="100" y1="142" x2="60" y2="196" stroke="#c9cad9" stroke-width="1.6"/>
+<line x1="100" y1="142" x2="140" y2="196" stroke="#c9cad9" stroke-width="1.6"/>
+<line x1="220" y1="142" x2="180" y2="196" stroke="#c9cad9" stroke-width="1.6"/>
+<circle cx="160" cy="52" r="22" fill="#FFF0F5" stroke="#EC4899" stroke-width="2"/><text x="160" y="57" text-anchor="middle" fill="#1B1838" font-weight="600">2</text><text x="160" y="40" text-anchor="middle" font-size="9" fill="#9d9ab0">i=0</text>
+<circle cx="100" cy="130" r="22" fill="#fff" stroke="#EC4899"/><text x="100" y="135" text-anchor="middle" fill="#1B1838">5</text><text x="100" y="118" text-anchor="middle" font-size="9" fill="#9d9ab0">i=1</text>
+<circle cx="220" cy="130" r="22" fill="#fff" stroke="#EC4899"/><text x="220" y="135" text-anchor="middle" fill="#1B1838">8</text><text x="220" y="118" text-anchor="middle" font-size="9" fill="#9d9ab0">i=2</text>
+<circle cx="60" cy="208" r="22" fill="#fff" stroke="#EC4899"/><text x="60" y="213" text-anchor="middle" fill="#1B1838">9</text><text x="60" y="245" text-anchor="middle" font-size="9" fill="#9d9ab0">i=3</text>
+<circle cx="140" cy="208" r="22" fill="#fff" stroke="#EC4899"/><text x="140" y="213" text-anchor="middle" fill="#1B1838">6</text><text x="140" y="245" text-anchor="middle" font-size="9" fill="#9d9ab0">i=4</text>
+<circle cx="180" cy="208" r="22" fill="#fff" stroke="#EC4899"/><text x="180" y="213" text-anchor="middle" fill="#1B1838">7</text><text x="180" y="245" text-anchor="middle" font-size="9" fill="#9d9ab0">i=5</text></g>
+<text x="490" y="26" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#6f6b8c">stored as a flat array</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="380" y="44" width="40" height="36" fill="#FFF0F5" stroke="#EC4899" stroke-width="2"/><text x="400" y="68" text-anchor="middle" fill="#1B1838" font-weight="600">2</text>
+<rect x="420" y="44" width="40" height="36" fill="#fff" stroke="#E7E8F2"/><text x="440" y="68" text-anchor="middle" fill="#1B1838">5</text>
+<rect x="460" y="44" width="40" height="36" fill="#fff" stroke="#E7E8F2"/><text x="480" y="68" text-anchor="middle" fill="#1B1838">8</text>
+<rect x="500" y="44" width="40" height="36" fill="#fff" stroke="#E7E8F2"/><text x="520" y="68" text-anchor="middle" fill="#1B1838">9</text>
+<rect x="540" y="44" width="40" height="36" fill="#fff" stroke="#E7E8F2"/><text x="560" y="68" text-anchor="middle" fill="#1B1838">6</text>
+<rect x="580" y="44" width="40" height="36" fill="#fff" stroke="#E7E8F2"/><text x="600" y="68" text-anchor="middle" fill="#1B1838">7</text>
+<text x="400" y="96" text-anchor="middle" font-size="10" fill="#9d9ab0">0</text>
+<text x="440" y="96" text-anchor="middle" font-size="10" fill="#9d9ab0">1</text>
+<text x="480" y="96" text-anchor="middle" font-size="10" fill="#9d9ab0">2</text>
+<text x="520" y="96" text-anchor="middle" font-size="10" fill="#9d9ab0">3</text>
+<text x="560" y="96" text-anchor="middle" font-size="10" fill="#9d9ab0">4</text>
+<text x="600" y="96" text-anchor="middle" font-size="10" fill="#9d9ab0">5</text></g>
+<g font-family="Inter,sans-serif" font-size="12" fill="#3a3660">
+<text x="380" y="150">No pointers. Node at index i finds its</text>
+<text x="380" y="170">family by arithmetic alone:</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="12.5">
+<rect x="380" y="184" width="222" height="30" rx="6" fill="#FFF0F5" stroke="#EC4899"/><text x="392" y="204" fill="#d23a82">left  = 2i + 1</text>
+<rect x="380" y="220" width="222" height="30" rx="6" fill="#FFF0F5" stroke="#EC4899"/><text x="392" y="240" fill="#d23a82">right = 2i + 2</text>
+<rect x="380" y="256" width="222" height="30" rx="6" fill="#F0F9FF" stroke="#0EA5E9"/><text x="392" y="276" fill="#0b7fb8">parent = (i - 1) / 2</text></g>
+<text x="160" y="282" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#9d9ab0">complete tree, filled left-to-right</text></svg>`;
+SVG.heaps_median=`<svg viewBox="0 0 620 280" role="img" aria-label="The two-heaps median pattern: a max-heap holds the lower half and a min-heap holds the upper half, with the median sitting at their tops">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">two heaps facing each other &#8594; median in the middle</text>
+<text x="150" y="58" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12.5" font-weight="600" fill="#0EA5E9">max-heap (lower half)</text>
+<text x="470" y="58" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12.5" font-weight="600" fill="#16A34A">min-heap (upper half)</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="40" y="150" width="46" height="34" fill="#fff" stroke="#0EA5E9"/><text x="63" y="172" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="90" y="150" width="46" height="34" fill="#fff" stroke="#0EA5E9"/><text x="113" y="172" text-anchor="middle" fill="#1B1838">3</text>
+<rect x="140" y="120" width="46" height="64" fill="#F0F9FF" stroke="#0EA5E9" stroke-width="2"/><text x="163" y="158" text-anchor="middle" fill="#0b7fb8" font-weight="600">5</text>
+<text x="163" y="112" text-anchor="middle" font-size="10" fill="#0EA5E9">top = biggest small</text>
+<rect x="434" y="120" width="46" height="64" fill="#F0FDF4" stroke="#16A34A" stroke-width="2"/><text x="457" y="158" text-anchor="middle" fill="#0f7a36" font-weight="600">8</text>
+<text x="457" y="112" text-anchor="middle" font-size="10" fill="#16A34A">top = smallest big</text>
+<rect x="484" y="150" width="46" height="34" fill="#fff" stroke="#16A34A"/><text x="507" y="172" text-anchor="middle" fill="#1B1838">9</text>
+<rect x="534" y="150" width="46" height="34" fill="#fff" stroke="#16A34A"/><text x="557" y="172" text-anchor="middle" fill="#1B1838">12</text></g>
+<path d="M190 152 H236" stroke="#c9cad9" stroke-width="1.6"/>
+<path d="M384 152 H430" stroke="#c9cad9" stroke-width="1.6"/>
+<rect x="244" y="124" width="132" height="56" rx="12" fill="#FFF0F5" stroke="#EC4899" stroke-width="2"/>
+<text x="310" y="148" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#d23a82">median lives here</text>
+<text x="310" y="170" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#1B1838">(5 + 8) / 2</text>
+<g font-family="Inter,sans-serif" font-size="12" fill="#3a3660">
+<text x="310" y="222" text-anchor="middle">Keep the two sizes equal (or off by one). The median is then either the</text>
+<text x="310" y="242" text-anchor="middle">larger heap's top, or the average of both tops &#8212; an O(1) read after each insert.</text></g></svg>`;
 const plan=[
   ["Week 1","Foundations · Big-O · Pointers","how"],
   ["Week 2","Arrays · Two Pointers · Windows","arrays"],
@@ -1999,28 +2215,451 @@ names.emplace_back("built-in-place"); // construct the string directly inside th
   p(`Move semantics are the reason modern C++ can return big objects by value with no penalty, why <code>push_back(std::move(x))</code> beats <code>push_back(x)</code> for heavy types, and why "hold RAII members and let the compiler generate the rest" is the idiomatic default. Being able to define lvalue vs rvalue crisply, explain that <code>std::move</code> is only a cast, and name the Rule of Zero / RVO follow-ups signals that you know exactly where the costs live &#8212; which is most of what this question is checking.`),
   idea("Say it like this",`"An lvalue is a named, persistent object; an rvalue is a temporary about to expire. A move steals an rvalue's heap resource instead of copying it &#8212; the move constructor takes the source's pointer and nulls the source, turning an O(n) copy into an O(1) pointer transfer. <code>std::move</code> moves nothing itself; it's a cast that lets me opt a named lvalue into being moved from. The compiler moves automatically when the source is already an rvalue &#8212; returning a local, passing a temporary &#8212; and often elides even that via RVO. In my own code I aim for the Rule of Zero: hold <code>vector</code>, <code>string</code>, and <code>unique_ptr</code> members so the correct copy, move, and destructor are all generated for free."`)
 ]},
-{group:"Week 4+ · More Patterns",num:"06",id:"linked",color:"#38BDF8",title:"Linked Lists",badge:"Week 4 · full lesson coming",blocks:[
-  cue(`<b>Spot it when:</b> nodes and pointers — reversal, detecting a cycle, finding a midpoint, or merging ordered lists.`),
-  p(`This is where the Pointers lesson pays off directly. Three moves cover almost everything: reversing pointers one node at a time, the fast/slow (tortoise &amp; hare) trick for cycles and midpoints (the "flavor two" from Two Pointers, now on real <code>ListNode*</code>s), and a dummy head node to kill annoying edge cases. Draw the arrows on paper — nobody tracks linked-list pointers in their head, and the interviewer expects to see you sketch.`),
-  cx(`Time <b>O(n)</b> · space <b>O(1)</b>`),
+{group:"Week 4+ · More Patterns",num:"06",id:"linked",color:"#38BDF8",title:"Linked Lists",badge:"Week 4 · Pattern",blocks:[
+  cue(`<b>Spot it when:</b> the data is a chain of nodes joined by <code>next</code> pointers — reversing it, detecting or locating a cycle, finding the midpoint, merging two ordered lists, or reordering nodes without copying their values.`),
+  p(`This is the lesson the Pointers &amp; Memory chapter was setting up. A linked list is nothing but the pointer mental model made into a data structure: each node holds a value and a <code>next</code> pointer to the following node, and the list <em>is</em> that chain. There's no contiguous block, no index — to reach the fifth node you follow four arrows. Almost every linked-list problem reduces to <em>rewiring those arrows correctly</em>, and the only reliable way to get the rewiring right is to draw the nodes and arrows on paper and move them one step at a time. Nobody — including the interviewer — tracks four <code>ListNode*</code> in their head. Sketching is expected; it's a signal you think in pointers, not a crutch.`),
+  sub("The node, and why a list is just pointers"),
+  p(`The whole structure is one tiny struct. A node carries a payload and the address of the next node; the last node's <code>next</code> is <code>nullptr</code>, which is how you know you've reached the end.`),
+  code(`struct ListNode {
+    int val;
+    ListNode* next;
+    ListNode(int v) : val(v), next(nullptr) {}   // sane default: no successor yet
+};`),
+  p(`You hold the list by a single pointer to its first node, the <em>head</em>. From the head you can reach everything by chasing <code>next</code>; lose the head and the whole chain is unreachable (and, with raw <code>new</code>, leaked). That single-entry-point fragility is exactly why the techniques below are so careful about never dropping a pointer they still need.`),
+  note("🔗","Real C++ wouldn't use raw new here",`Interview code uses raw <code>ListNode*</code> because LeetCode hands you the nodes and the grader owns their lifetime — so these snippets never <code>delete</code>. In production you'd reach for <code>std::list</code> / <code>std::forward_list</code>, or own the nodes with smart pointers (the RAII lesson). The pointer <em>rewiring</em> is identical; only who frees the memory changes. Don't let the raw pointers here bleed into how you'd design a list for real.`),
+  sub("Linked list vs. array: the trade you're buying"),
+  p(`Back in the Arrays &amp; Hashing lesson, the array's superpower was O(1) random access: element <code>i</code> lives at <code>base + i</code>, so indexing is one multiply-and-add. A linked list throws that away — there's no formula for "the i-th node," you must walk <code>i</code> hops, so indexing and search are O(n). In exchange you buy something arrays can't do cheaply: given a pointer to a node, inserting or deleting next to it is O(1). You splice by reassigning a couple of <code>next</code> pointers; nothing shifts. An array insert in the middle is O(n) because every later element slides over.`),
+  svg("pointer","A node's <code>next</code> is just a pointer — it holds the address of another node. The list is this same picture chained: follow the arrow to reach the successor, and <code>nullptr</code> marks the end."),
+  ul([
+    `<b>Array.</b> O(1) index/access · O(n) insert or delete in the middle (everything shifts) · contiguous, cache-friendly.`,
+    `<b>Linked list.</b> O(n) index/search (you walk it) · O(1) insert or delete <em>at a node you already hold</em> · scattered in memory, pointer-chasing is cache-unfriendly.`,
+  ]),
+  idea("The O(1) splice has a hidden precondition","Linked-list insert/delete is O(1) only when you already have a pointer to the spot. If you have to <em>find</em> the spot first, that search is O(n) and dominates — so the win shows up when something else already handed you the node (a fast/slow walk, a previous loop iteration, a dummy's <code>tail</code>). Whenever an interviewer stresses \"O(1) insert,\" they're really testing whether you notice you need the node in hand."),
+  sub("Singly vs. doubly linked"),
+  p(`A <em>singly</em> linked list has only <code>next</code> — you can move forward but never back, and to delete a node you typically need its <em>predecessor</em> so you can splice around it. A <em>doubly</em> linked list adds a <code>prev</code> pointer, so each node knows both neighbours; that makes deletion O(1) given just the node itself, and enables backward traversal, at the cost of an extra pointer per node and two links to maintain on every edit. LeetCode defaults to singly linked unless it says otherwise (LRU cache is the classic doubly-linked design problem). Everything below is singly linked.`),
+  p(`Three techniques cover the overwhelming majority of singly-linked problems. Each gets its own worked example: iterative <b>reversal</b> (the canonical pointer dance), the <b>dummy head</b> node that erases first-element edge cases, and <b>fast &amp; slow</b> pointers (the linked-list payoff of the Two Pointers lesson). Learn these three cold and you'll recognize most list problems as a variation on one of them.`),
+  sub("Technique 1: iterative reversal (the pointer dance)"),
+  p(`Reversing a singly linked list is <em>the</em> canonical linked-list move, and it's worth doing until it's muscle memory. The idea: walk the list and flip each node's <code>next</code> to point at the node you just came from. You carry three pointers — <code>prev</code> (the part already reversed, growing behind you), <code>cur</code> (the node you're flipping now), and <code>next</code> (a saved handle on the rest, so flipping <code>cur</code> doesn't strand it).`),
+  p(`The order of the four lines inside the loop is the entire trick, and getting it wrong is the single most common linked-list mistake. <b>Save <code>next</code> first.</b> The moment you execute <code>cur-&gt;next = prev</code>, the original forward link is gone — if you hadn't already stashed the rest of the list in <code>next</code>, you'd have severed it and lost everything ahead. So: save, flip, then slide <code>prev</code> and <code>cur</code> forward by one. Repeat until <code>cur</code> falls off the end, at which point <code>prev</code> is the new head.`),
+  svg("linked_reverse","One iteration mid-flip. <code>next</code> is saved before anything is rewired, so the tail of the list is safe; then <code>cur-&gt;next</code> is pointed back at <code>prev</code>; finally all three names slide one node to the right. When <code>cur</code> becomes <code>nullptr</code>, <code>prev</code> holds the reversed list."),
+  worked("Reverse a singly linked list, iteratively","prev starts as nullptr (the old head becomes the new tail, whose next must be null). For each node: stash next, flip cur's link backward, then advance the pair. The loop ends when cur runs off the end; prev is then the new head.",
+`ListNode* reverseList(ListNode* head) {
+    ListNode* prev = nullptr;       // reversed portion (empty so far)
+    ListNode* cur  = head;          // node we're flipping now
+    while (cur) {
+        ListNode* next = cur->next; // 1. SAVE the rest before we clobber the link
+        cur->next = prev;           // 2. FLIP: point this node backward
+        prev = cur;                 // 3. slide prev forward...
+        cur  = next;                // 4. ...and cur forward to the saved next
+    }
+    return prev;                    // cur is null; prev is the new head
+}`),
+  pit("Losing the rest of the list",`If you write <code>cur-&gt;next = prev</code> <em>before</em> saving <code>cur-&gt;next</code>, the link to the remaining nodes is overwritten and gone — your loop then walks into <code>prev</code> and either spins or crashes. The save line must come first. This same \"stash the pointer you're about to overwrite\" discipline shows up in every list rewiring; internalize it once here.`),
+  note("📌","The recursive version exists, but",`Reversal has an elegant recursion, but it uses O(n) stack space (one frame per node, so a long list can stack-overflow) versus the iterative O(1). In an interview, lead with the iterative three-pointer version — it's the one they're checking you can write without bugs. Mention recursion as a one-liner if asked to compare.`),
+  sub("Technique 2: the dummy head node"),
+  p(`Half the bugs in linked-list code come from the <em>first</em> node being special. When you build a new list (merging, filtering, partitioning), the very first append has no existing node to attach to, so you write an awkward \"is this the first one?\" branch and then forget it in some path. The <b>dummy head</b> deletes that whole category of bug: allocate one throwaway node <em>before</em> the real list, keep a <code>tail</code> pointer that starts at the dummy, and always append to <code>tail-&gt;next</code>. Now the first real append is identical to every other append — there is no first-node special case, because the dummy is always there to attach to. At the end you return <code>dummy.next</code> and ignore the dummy itself.`),
+  svg("linked_dummy","Two sorted lists merged by always appending the smaller front node to <code>tail-&gt;next</code>. Because the dummy node exists before the first append, <code>tail</code> always has somewhere to attach — no \"is the result empty yet?\" branch. The real answer is <code>dummy.next</code>."),
+  worked("Merge two sorted lists","Dummy head + a tail pointer. Each step, splice whichever input's front node is smaller onto the tail and advance that input. When one list runs out, attach the entire remaining other list in one move — it's already sorted. Return dummy.next, never &dummy.",
+`ListNode* mergeTwoLists(ListNode* a, ListNode* b) {
+    ListNode dummy(0);              // throwaway node on the stack; not part of the answer
+    ListNode* tail = &dummy;        // where the next kept node attaches
+    while (a && b) {
+        if (a->val <= b->val) {     // <= keeps the merge stable
+            tail->next = a;         // splice a's front node on
+            a = a->next;            // advance that input
+        } else {
+            tail->next = b;
+            b = b->next;
+        }
+        tail = tail->next;          // tail follows the node we just appended
+    }
+    tail->next = a ? a : b;         // one list is empty; attach the other wholesale
+    return dummy.next;              // skip the dummy — that's the real head
+}`),
+  pit("Returning the dummy instead of dummy.next",`The dummy is scaffolding, not data — its <code>val</code> is meaningless. Return <code>dummy.next</code>. Returning <code>&amp;dummy</code> (or a pointer to it) prepends a garbage node and, worse, if <code>dummy</code> was a local stack variable, hands back a dangling pointer the instant the function returns. Keep the dummy on the stack, return its <code>next</code>, done.`),
+  idea("Dummy head = \"make the edge case not exist\"","The deeper lesson outlives linked lists: rather than detect-and-branch the awkward first/empty case, add a sentinel that makes that case structurally identical to the normal one. You'll reuse the trick for partitioning a list, removing the n-th node from the end, and adding two numbers stored as digit lists — anywhere a fresh list gets built node by node."),
+  sub("Technique 3: fast & slow pointers"),
+  p(`This is the linked-list cash-out of the Two Pointers lesson's fast/slow flavor — now on literal <code>ListNode*</code>. You can't index a list or scan it from both ends; all you have is <code>next</code>. So you run two pointers through the <em>same</em> chain at different speeds — <code>slow</code> takes one hop, <code>fast</code> takes two — and read structural facts out of where they land. Three problems fall to it: the midpoint, whether the list has a cycle, and (the follow-up) where that cycle begins.`),
+  p(`<b>Finding the midpoint.</b> When <code>fast</code> falls off the end it has travelled twice as far as <code>slow</code>, so <code>slow</code> sits at the middle. Guard <em>both</em> <code>fast</code> and <code>fast-&gt;next</code> in the loop condition, or the two-hop <code>fast-&gt;next-&gt;next</code> will dereference <code>nullptr</code> on an even-length list.`),
+  worked("Middle of the list","Both start at head. fast moves two, slow moves one; when fast can't take a full two-hop step, slow is at the midpoint. For even length this returns the second of the two middles — stop one step earlier if you want the first.",
+`ListNode* middleNode(ListNode* head) {
+    ListNode* slow = head;
+    ListNode* fast = head;
+    while (fast && fast->next) {     // guard BOTH or fast->next->next may deref null
+        slow = slow->next;          // +1
+        fast = fast->next->next;    // +2
+    }
+    return slow;                    // fast exhausted -> slow is halfway
+}`),
+  p(`<b>Detecting a cycle (Floyd's tortoise &amp; hare).</b> If the list is straight, <code>fast</code> simply hits <code>nullptr</code> and you return false. If there's a loop, both pointers get trapped circling it, and because <code>fast</code> closes the gap to <code>slow</code> by exactly one node per step, they're <em>guaranteed</em> to collide — no infinite leapfrogging. That "the gap shrinks by one each step" argument is the proof, and it's the part worth saying out loud. This is the same diagram from the Two Pointers chapter:`),
+  svg("twopointers_floyd","Inside a cycle, <code>fast</code> gains one node on <code>slow</code> every step, so the distance between them falls to zero and they meet. A straight list lets <code>fast</code> reach <code>nullptr</code> first — which is exactly how you report \"no loop.\""),
+  worked("Detect a cycle, then find where it starts","Phase 1 is Floyd: if fast catches slow, there's a loop. Phase 2 is the slick follow-up — reset one pointer to head and advance BOTH one step at a time; they meet exactly at the cycle's entry. (The why: the distance from head to the entry equals the distance from the meeting point to the entry, going around. Worth memorizing the fact even if you re-derive the proof.)",
+`ListNode* detectCycle(ListNode* head) {
+    ListNode* slow = head;
+    ListNode* fast = head;
+    while (fast && fast->next) {
+        slow = slow->next;          // +1
+        fast = fast->next->next;    // +2
+        if (slow == fast) {                 // collision -> a cycle exists
+            ListNode* p = head;
+            while (p != slow) {             // both now move +1; they meet at the start
+                p = p->next;
+                slow = slow->next;
+            }
+            return p;                       // entry node of the cycle
+        }
+    }
+    return nullptr;                 // fast escaped -> no cycle
+}`),
+  note("🔗","Why fast & slow beats a hash set here",`You <em>could</em> detect a cycle by storing every visited node in a <code>unordered_set</code> and watching for a repeat — O(n) time but O(n) space. Floyd does it in O(1) space, which is the answer interviewers are fishing for whenever they add \"can you do it without extra memory?\" The midpoint and cycle-start routines have the same property: one pass, constant space.`),
+  sub("The pitfalls that actually bite"),
+  pit("Null dereference at the boundary",`The crash-on-empty bugs all live at the ends. Before writing <code>node-&gt;next</code>, ask "can <code>node</code> be null here?" — an empty list (<code>head == nullptr</code>), the last node, or a fast pointer about to overshoot. The fast/slow loop guards <code>while (fast &amp;&amp; fast-&gt;next)</code> precisely so the two-hop never dereferences null. When you sketch, draw the empty-list and single-node cases too; they're where graders aim their hidden tests.`),
+  pit("Forgetting to advance, or advancing into a stale pointer",`Two opposite errors: (1) you rewire a link but forget to move your walking pointer, so the loop never terminates; (2) you move a pointer <em>after</em> overwriting the link it depended on, so you advance into the wrong node. The reversal loop dodges both by saving <code>next</code> first and advancing from the <em>saved</em> handle — same discipline applies whenever you rewire while walking.`),
+  cx(`Time <b>O(n)</b> — every technique here is a single pass (cycle-start is two passes, still linear). Space <b>O(1)</b> — a fixed handful of pointers, no auxiliary structure. That O(1) space is usually the whole point of the question.`),
   {t:"probs",items:[["Reverse Linked List","reverse-linked-list","easy"],["Add Two Numbers","add-two-numbers","med"],["Merge k Sorted Lists","merge-k-sorted-lists","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"07",id:"trees",color:"#8B5CF6",title:"Trees",badge:"Week 4 · full lesson coming",blocks:[
-  cue(`<b>Spot it when:</b> hierarchical data — you're recursing on left/right children, or walking the tree level by level.`),
-  p(`Nearly every tree problem is one of two things: DFS (recursion — pre/in/post-order) or BFS (a queue, processing one level at a time). Figure out which the question wants and the recursion almost writes itself. In-order traversal of a binary search tree, notably, visits values in sorted order — a fact that unlocks a whole class of problems.`),
-  cx(`Time <b>O(n)</b> · space <b>O(h)</b> (tree height)`),
+{group:"Week 4+ · More Patterns",num:"07",id:"trees",color:"#8B5CF6",title:"Trees",badge:"Week 4 · Pattern",blocks:[
+  cue(`<b>Spot it when:</b> the data is hierarchical &#8212; a node with up-to-two children, "find/insert/validate in a BST," "max depth / diameter," "level order," or anything phrased as "for each node, combine the answers from its subtrees." If you can picture recursing on <code>left</code> and <code>right</code>, it's a tree problem.`),
+  p(`Here is the liberating truth about tree problems: almost all of them are one of two traversals wearing a costume. Either you go <em>deep</em> first (DFS &#8212; plain recursion) or you go <em>wide</em> first (BFS &#8212; a queue, one level at a time). Once you've decided which, the structure of the tree does most of your bookkeeping for you and the code nearly writes itself. The hard part of "trees" isn't the algorithm &#8212; it's recognizing that the recursion you already know how to write <em>is</em> the algorithm.`),
+  sub("The node, and the one struct you'll see everywhere"),
+  p(`A binary tree is just a pile of nodes, each holding a value and two pointers &#8212; to its left child and its right child &#8212; either of which may be null. There's no contiguous buffer like a <code>vector</code>; the tree exists purely as pointers chasing pointers through the heap. The struct is so standard that LeetCode hands it to you verbatim:`),
+  code(`struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int v) : val(v), left(nullptr), right(nullptr) {}
+};`),
+  p(`If you've worked with pointers and ownership, nothing here is new &#8212; a tree is the same heap-allocated, pointer-linked world as a linked list, just branching two ways instead of one. A <em>leaf</em> is a node with no children; the <em>root</em> is the one node nobody points to. Everything you do walks down from the root following <code>left</code>/<code>right</code> until you hit <code>nullptr</code>.`),
+  note("🌳","Binary tree vs. binary search tree",`A plain <b>binary tree</b> just has the shape &#8212; up to two children per node, no rule about the values. A <b>binary search tree (BST)</b> adds one ordering invariant: for <em>every</em> node, everything in its left subtree is smaller and everything in its right subtree is larger. That invariant is the whole reason BSTs exist: it lets you search by comparison, throwing away half the tree at each step, the same way binary search throws away half an array. When a problem says "BST," it's promising you that ordering &#8212; and usually expecting you to exploit it.`),
+  sub("DFS: depth-first via recursion"),
+  p(`Depth-first means you fully explore one branch before backing up to try the next. You don't manage a stack by hand &#8212; the <em>call stack does it for you</em>. Each recursive call descends into a child; each return pops back up. (Callback to the Stack lesson: recursion <em>is</em> a stack, and you could rewrite any of this iteratively with an explicit <code>std::stack</code> if you ever needed to.) The three classic DFS orders differ only in <em>when</em> you touch the current node relative to recursing into its children:`),
+  ul([
+    `<b>Pre-order</b> &#8212; node <em>first</em>, then left subtree, then right. You see a parent before any of its descendants. Good for copying/serializing a tree top-down.`,
+    `<b>In-order</b> &#8212; left subtree, then node, then right. For a <em>BST</em> this visits values in sorted ascending order &#8212; remember this one; it's the single most useful traversal fact in interviews.`,
+    `<b>Post-order</b> &#8212; left, right, then node <em>last</em>. You finish both children before the parent, so the parent can combine results computed from below. This is the order for "compute something about each subtree" (heights, sums, deletes).`,
+  ]),
+  svg("trees_traversals","Same tree, three DFS orders &#8212; they differ only in when the node is visited relative to its children. Because this tree is a BST, the in-order sequence comes out perfectly sorted."),
+  worked("The DFS recursion template","Internalize this shape and most tree DFS is a fill-in-the-blank. Base case handles null; you visit the node and recurse on both children; <em>where</em> you put the visit line picks pre / in / post-order. Here's in-order collecting a BST into a sorted vector.",
+`void inorder(TreeNode* node, vector<int>& out) {
+    if (!node) return;              // base case: null -> nothing to do
+    inorder(node->left, out);       // 1. whole left subtree first
+    out.push_back(node->val);       // 2. then THIS node  (in-order slot)
+    inorder(node->right, out);      // 3. then whole right subtree
+}
+// On a BST, 'out' comes back sorted ascending. Move the push_back
+// to the top for pre-order, or to the bottom for post-order.`),
+  idea("Why \"the recursion writes itself\"",`The template is always: <em>base case (null) &#8594; do something with this node &#8594; recurse left &#8594; recurse right.</em> For most problems you only have to answer two questions: "what's the answer for an empty tree?" (the base case) and "given the answers for my left and right subtrees, how do I combine them into my own answer?" Answer those two and the recursion is done. That's why senior candidates barely slow down on tree problems &#8212; they're not solving a new puzzle each time, they're filling in a template they trust.`),
+  sub("BFS: breadth-first, level by level, via a queue"),
+  p(`Breadth-first does the opposite: it visits every node at depth 0, then every node at depth 1, then depth 2 &#8212; sweeping across each level left to right before going deeper. You can't do this with recursion's natural flow; you need an explicit <code>std::queue</code>. The mechanic is tiny: pop a node from the front, process it, and push its children onto the back. Because children always go behind the current frontier, the queue naturally serves nodes in level order.`),
+  svg("trees_bfs","BFS pops a node and pushes its children, so the queue always holds the current frontier. Processing a whole level at once (the inner loop over the queue's current size) is what lets you group results by depth."),
+  worked("Level-order traversal (BFS with a queue)","The key trick is snapshotting <code>q.size()</code> at the start of each level: that count is exactly how many nodes belong to the current level, so the inner loop drains precisely one level before moving on. That snapshot is what turns a flat traversal into a per-level grouping.",
+`vector<vector<int>> levelOrder(TreeNode* root) {
+    vector<vector<int>> levels;
+    if (!root) return levels;            // empty tree -> no levels
+    queue<TreeNode*> q;
+    q.push(root);
+    while (!q.empty()) {
+        int count = q.size();            // nodes in THIS level, frozen now
+        vector<int> level;
+        for (int i = 0; i < count; i++) {
+            TreeNode* node = q.front(); q.pop();
+            level.push_back(node->val);
+            if (node->left)  q.push(node->left);   // enqueue children
+            if (node->right) q.push(node->right);  // for the NEXT level
+        }
+        levels.push_back(move(level));   // one finished level
+    }
+    return levels;
+}`),
+  note("🌳","DFS or BFS? A quick chooser",`Reach for <b>BFS</b> when the question is about <em>levels or distance from the root</em>: level-order output, the minimum depth, the rightmost node of each level, "nodes at distance k." Reach for <b>DFS</b> when the question is about <em>subtree structure</em>: max depth, diameter, path sums, validating a BST, "does any root-to-leaf path equal X." If both work (and often both do), pick whichever makes the bookkeeping smaller &#8212; usually DFS, because the call stack is free and you write less code.`),
+  sub("Height, depth, and why recursion costs O(h) space"),
+  p(`Two words that get swapped constantly: <em>depth</em> is the distance from the root <em>down to a node</em> (the root is depth 0); <em>height</em> is the distance from a node <em>down to its deepest leaf</em> (a leaf has height 0). The height of the tree is the height of its root. Max depth via DFS is the cleanest possible illustration of the post-order "combine the children" idea:`),
+  worked("Maximum depth via DFS","Pure post-order: an empty tree has depth 0; otherwise this node's depth is 1 plus the deeper of its two subtrees. You compute both children's answers, then combine. Three lines, and it's the canonical \"answer the two questions\" template in miniature.",
+`int maxDepth(TreeNode* root) {
+    if (!root) return 0;                          // empty subtree -> 0
+    int left  = maxDepth(root->left);             // depth of left subtree
+    int right = maxDepth(root->right);            // depth of right subtree
+    return 1 + max(left, right);                  // me + the deeper side
+}`),
+  p(`Now the space cost, which interviewers do ask about. A DFS uses no extra data structure, so people say "O(1) space" &#8212; wrong. The recursion itself consumes stack frames, and the deepest the call stack ever gets is the <em>height</em> of the tree. So DFS is <b>O(h)</b> space. Callback to Big-O: for a <em>balanced</em> tree the height is about log&#8322;n, so it's O(log n); for a <em>skewed</em> tree &#8212; a degenerate "linked list" leaning all the way to one side &#8212; the height is n, so it degrades to O(n). The same algorithm, two very different space bills depending on the tree's shape.`),
+  cx(`DFS / BFS visit every node once &#8594; <b>O(n)</b> time. DFS space is <b>O(h)</b> (call stack): <b>O(log n)</b> balanced, <b>O(n)</b> skewed. BFS space is <b>O(w)</b>, the widest level, up to <b>O(n)</b>.`),
+  sub("BST operations: search and insert in O(h)"),
+  p(`The BST ordering invariant turns search into binary search on a tree. To find a value, start at the root and compare: if the target is smaller go left, if larger go right, and you've thrown away an entire subtree with one comparison. Each step descends one level, so search costs O(h) &#8212; O(log n) on a balanced tree, the same logarithmic win binary search gives you on a sorted array. Insert is identical: walk down as if searching, and when you fall off the bottom (<code>nullptr</code>), that empty slot is exactly where the new node belongs.`),
+  code(`TreeNode* search(TreeNode* root, int target) {
+    while (root && root->val != target)
+        root = (target < root->val) ? root->left   // smaller -> go left
+                                    : root->right;  // larger  -> go right
+    return root;                                    // node, or nullptr if absent
+}`),
+  pit("O(h) is only O(log n) if the tree stays balanced",`A BST built by inserting already-sorted values degenerates into a one-sided chain &#8212; height n, so search and insert become O(n), no better than a list. Real systems fix this with self-balancing trees (red-black, AVL), which is what <code>std::map</code> and <code>std::set</code> use under the hood. In interviews you usually don't implement balancing, but you should <em>name</em> the risk: "this is O(h), which is O(log n) only if the tree is balanced &#8212; worst case it's O(n)."`),
+  sub("Validating a BST (and the trap everyone falls into)"),
+  p(`This is the classic "looks easy, has a real trap" problem. The tempting solution is to check, at each node, that <code>node->left->val &lt; node->val &lt; node->right->val</code> &#8212; a purely <em>local</em> comparison of a node against its two immediate children. It's wrong, and it's a beloved interview filter precisely because the bug only shows up on the right input.`),
+  pit("The local check is not enough",`The BST rule isn't "each node beats its kids" &#8212; it's that <em>every</em> node in the left subtree is smaller and <em>every</em> node in the right subtree is larger. Consider root 10, with right child 15, whose left child is 6. Locally each parent-child pair looks fine (15 &gt; 10, and 6 &lt; 15). But 6 sits in 10's <em>right</em> subtree while being smaller than 10, so the tree is not a valid BST. The local check misses it because 6 and 10 are never directly compared. You need each node validated against a range inherited from <em>all</em> its ancestors, not just its parent.`),
+  p(`The fix carries a valid <code>(min, max)</code> range down the recursion. The root may be anything; as you recurse left, the current node becomes the new <em>upper</em> bound (everything left of it must be smaller); as you recurse right, it becomes the new <em>lower</em> bound. A node is valid only if it falls strictly inside the window it inherited &#8212; which encodes the constraints of every ancestor, not just the parent.`),
+  worked("Validate BST with min/max bounds","Each call carries the open interval the node must live in. Going left tightens the max to the current value; going right tightens the min. Using nullable bounds (or LONG_MIN/LONG_MAX) sidesteps overflow when a node's value sits at the int extremes. O(n) time, O(h) stack.",
+`bool valid(TreeNode* node, long lo, long hi) {
+    if (!node) return true;                       // empty subtree is valid
+    if (node->val <= lo || node->val >= hi)
+        return false;                             // outside inherited window
+    return valid(node->left,  lo, node->val)      // left: new upper bound
+        && valid(node->right, node->val, hi);     // right: new lower bound
+}
+
+bool isValidBST(TreeNode* root) {
+    return valid(root, LONG_MIN, LONG_MAX);       // root: no bounds yet
+}`),
+  idea("The in-order shortcut",`There's a slicker validation: do an <em>in-order</em> traversal and check the values come out strictly increasing. It works for the exact reason from the diagram &#8212; in-order of a valid BST is sorted, so the first time you see a value that isn't greater than the previous one, the BST property is broken. Mention both approaches in an interview: the min/max recursion shows you understand the ancestor constraints, and the in-order check shows you remember the sorted-traversal fact. Either is O(n).`),
+  sub("Putting it together"),
+  ul([
+    `<b>Decide DFS or BFS first.</b> Subtree structure &#8594; DFS. Levels or distance &#8594; BFS. Say which and why before you write code.`,
+    `<b>For DFS, answer two questions.</b> What's the answer for null (base case), and how do I combine my children's answers into mine? The template handles the rest.`,
+    `<b>For BFS, snapshot the level size.</b> Freezing <code>q.size()</code> per iteration is what separates "current level" from "everything below."`,
+    `<b>For BSTs, exploit the order.</b> Search/insert by comparison is O(h); in-order yields sorted values; validation needs ancestor bounds, not local checks.`,
+    `<b>State the space cost honestly.</b> "O(h) &#8212; O(log n) balanced, O(n) skewed" is the line that shows you understand recursion's hidden bill.`,
+  ]),
+  cx(`Traversal (DFS or BFS): <b>O(n)</b> time. DFS space <b>O(h)</b> &#183; BST search/insert <b>O(h)</b> &#8212; <b>O(log n)</b> balanced, <b>O(n)</b> skewed.`),
   {t:"probs",items:[["Invert Binary Tree","invert-binary-tree","easy"],["Validate BST","validate-binary-search-tree","med"],["Serialize & Deserialize Tree","serialize-and-deserialize-binary-tree","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"08",id:"tries",color:"#A855F7",title:"Tries",badge:"Week 5 · full lesson coming",blocks:[
-  cue(`<b>Spot it when:</b> prefix lookups, autocomplete, or searching a big dictionary of words fast.`),
-  p(`A trie is a tree where each edge is a character, so words sharing a prefix share the same path. Insert and lookup cost O(word length) regardless of how many words are stored — which is why autocomplete feels instant. Each node typically holds a map or array of child pointers plus an "is end of word" flag.`),
-  cx(`Time <b>O(L)</b> per operation (L = word length)`),
+{group:"Week 4+ · More Patterns",num:"08",id:"tries",color:"#A855F7",title:"Tries",badge:"Week 5 · Pattern",blocks:[
+  cue(`<b>Spot it when:</b> prefix lookups, autocomplete, a spell-checker, or scanning a big dictionary of words fast &#8212; especially the tell-tale phrase <em>"starts with."</em> If a hash set of whole words could answer "is this an exact word?" but can't answer "how many words begin with <code>ca</code>?", you want a trie.`),
+  p(`A trie &#8212; a <em>prefix tree</em> &#8212; is a tree where each <em>edge</em> is a single character, so the path from the root down to a node spells out a prefix. Words that share a prefix share that path: <code>cat</code>, <code>car</code>, and <code>card</code> all walk the same <code>c &#8594; a</code> steps before diverging. Nothing is stored at a node except its outgoing edges and a single boolean &#8212; the letters live on the edges, not in the nodes.`),
+  svg("tries_tree","Four words in one trie. The shared 'ca' path is walked once and reused by cat, car, and card. Green nodes have isEnd=true: a complete word ends there. Notice 'car' is a real word even though the path continues on to 'card'."),
+  p(`The payoff is the cost model. Inserting, finding a full word, and testing a prefix are each <b>O(L)</b> in the length of the query word &#8212; and crucially that is <em>independent of how many words the trie holds</em>. A dictionary of ten words and a dictionary of ten million words both answer "does <code>card</code> start a stored word?" in the same four steps. That constant-per-character cost, with no rehashing and no comparison against other entries, is exactly why autocomplete feels instant as you type.`),
+  sub("The shape of a node"),
+  p(`Every node carries two things: a way to reach its children keyed by the next character, and an <code>isEnd</code> (often called <code>isWord</code>) flag marking whether a complete word terminates at this node. For a lowercase-only alphabet the children are usually a fixed <code>array&lt;TrieNode*,26&gt;</code>, where the letter itself is the index via <code>c - 'a'</code> &#8212; the same array-as-hashmap trick from the Arrays &amp; Hashing lesson. The letter is the index, so there is no hashing and no collision: looking up a child is a single array read.`),
+  svg("tries_node","One node holds 26 child slots indexed directly by letter (children['c'-'a']) plus an isEnd boolean. Most slots are null; only letters that actually continue a word point anywhere. This is the array-as-hashmap idea again: the character is the index."),
+  code(`struct TrieNode {
+    array<TrieNode*, 26> kids{};   // {} zero-inits all 26 slots to nullptr
+    bool isEnd = false;            // does a complete word end at THIS node?
+};`),
+  note("🧠","The one idea that makes every trie problem click",`Walking the trie is just <em>following one character at a time</em>. To process a word you start at the root and, for each letter, step into <code>kids[c - 'a']</code> &#8212; creating that child when you insert, or bailing out when it is null on a lookup. Insert, search, and startsWith are <em>the same walk</em>; they differ only in what they do when a child is missing (create vs. fail) and what they check at the end (<code>isEnd</code> vs. nothing). Get the walk in your head and the three methods write themselves.`),
+  sub("Building the full Trie class"),
+  p(`The canonical interview problem ("Implement Trie") asks for exactly three operations: <code>insert(word)</code>, <code>search(word)</code> for a whole word, and <code>startsWith(prefix)</code>. Notice how <code>search</code> and <code>startsWith</code> share their entire body except the last line &#8212; both walk down following each character; <code>search</code> additionally insists the final node is marked <code>isEnd</code>, while <code>startsWith</code> only cares that the path <em>exists</em>.`),
+  worked("Implement Trie (prefix tree)","insert grows the path, creating nodes as needed and marking the last one. search and startsWith share a helper that walks to the node for a string (or returns nullptr if the path breaks). The only difference: a full word must also be flagged isEnd.",
+`class Trie {
+    struct Node {
+        array<Node*, 26> kids{};            // null until a letter is added
+        bool isEnd = false;
+    };
+    Node* root = new Node();
+
+    // walk the path for s; return the node it lands on, or nullptr
+    Node* walk(const string& s) const {
+        Node* cur = root;
+        for (char c : s) {
+            cur = cur->kids[c - 'a'];        // step one letter down
+            if (!cur) return nullptr;        // path breaks -> not present
+        }
+        return cur;
+    }
+public:
+    void insert(const string& word) {
+        Node* cur = root;
+        for (char c : word) {
+            Node*& slot = cur->kids[c - 'a'];
+            if (!slot) slot = new Node();    // create the edge if missing
+            cur = slot;
+        }
+        cur->isEnd = true;                   // mark the final node a word-end
+    }
+    bool search(const string& word) const {
+        Node* n = walk(word);
+        return n && n->isEnd;                // path exists AND a word ends here
+    }
+    bool startsWith(const string& prefix) const {
+        return walk(prefix) != nullptr;      // path exists -> good enough
+    }
+};`),
+  idea("Why startsWith is the whole point",`A plain <code>unordered_set&lt;string&gt;</code> already answers <code>search</code> in O(L) on average &#8212; so if exact-word lookup were all you needed, you would not bother with a trie. The trie earns its keep on <code>startsWith</code>: a hash set would have to scan <em>every</em> stored word to answer "does anything begin with <code>ca</code>?", but the trie answers it by walking two edges. Whenever a problem leans on prefixes, that is your signal to reach for this structure instead of a set or map.`),
+  pit("Forgetting isEnd makes \"app\" match when you only inserted \"apple\"",`The single most common trie bug. If you only check that the path exists and skip the <code>isEnd</code> flag, then after inserting just <code>apple</code> your <code>search("app")</code> returns true &#8212; because the <code>a &#8594; p &#8594; p</code> path really is present, it just was not the end of a word. <code>isEnd</code> is the entire difference between "this is a stored word" and "this is merely a prefix of one." Set it on insert; check it on search; ignore it on startsWith.`),
+  sub("Wildcard search: when '.' matches anything"),
+  p(`The follow-up problem ("Add and Search Word") adds a twist: the query may contain <code>.</code> as a wildcard that matches <em>any single character</em>. For an ordinary letter the walk is unchanged &#8212; step into that one child. But at a <code>.</code> you cannot pick a single edge, so you must try <em>all</em> of them: branch into every non-null child and recurse on the rest of the pattern. The instant a query can fan out across multiple children, an iterative walk turns into a depth-first search.`),
+  worked("Add and Search Word ('.' wildcard)","A normal char follows one edge. A '.' branches: recurse into every existing child with the rest of the pattern, and succeed if any branch does. The index i tracks how far into the pattern we are; at the end we still require isEnd.",
+`class WordDictionary {
+    struct Node { array<Node*,26> kids{}; bool isEnd=false; };
+    Node* root = new Node();
+
+    bool dfs(const string& w, int i, Node* node) const {
+        if (!node) return false;
+        if (i == (int)w.size()) return node->isEnd;   // consumed pattern
+        char c = w[i];
+        if (c == '.') {                               // wildcard: try all
+            for (Node* child : node->kids)
+                if (dfs(w, i + 1, child)) return true;
+            return false;                             // no child matched
+        }
+        return dfs(w, i + 1, node->kids[c - 'a']);    // ordinary letter
+    }
+public:
+    void addWord(const string& word) {
+        Node* cur = root;
+        for (char c : word) {
+            Node*& slot = cur->kids[c - 'a'];
+            if (!slot) slot = new Node();
+            cur = slot;
+        }
+        cur->isEnd = true;
+    }
+    bool search(const string& word) const { return dfs(word, 0, root); }
+};`),
+  note("📌","Worst case of the wildcard search",`A query of all dots, like <code>"....."</code>, forces the DFS to explore every path of that length &#8212; up to 26 branches at each of L levels. So the pathological bound is O(26&#737;), exponential in the number of wildcards. In practice queries have few dots and the real branching factor is tiny (most slots are null, and a null child returns immediately), so it stays fast &#8212; but if an interviewer asks for the worst case, that exponential is the honest answer.`),
+  sub("Combining a trie with grid DFS"),
+  p(`The hard application ("Word Search II") asks you to find which of many words appear in a 2-D letter grid, where a word snakes through adjacent cells. The naive approach &#8212; run a separate grid search for each word &#8212; rescans the board over and over. The trie collapses all that shared work: build one trie of <em>all</em> the target words, then DFS the grid once, descending the trie in lockstep with the path you are tracing. The moment your current cell has no matching child in the trie, you prune that whole branch immediately &#8212; you never wander down letter sequences that no target word could become.`),
+  ul([
+    `<b>Build once.</b> Insert every target word into a single trie up front.`,
+    `<b>DFS the grid, carry a trie node.</b> From each cell, you are at some trie node; only step to a neighbor whose letter is a live child of that node.`,
+    `<b>Collect on isEnd.</b> When the current trie node is <code>isEnd</code>, you have spelled a full target word &#8212; record it (and clear its flag to avoid duplicates).`,
+    `<b>Prune dead-ends.</b> No matching child means no target word continues this way, so you abandon the branch instantly. That pruning is the entire reason the trie wins here.`,
+  ]),
+  idea("The shape of the win",`Word Search II is really "two structures cooperating": the grid DFS supplies <em>where you can move</em>, and the trie supplies <em>whether moving there is worthwhile</em>. The trie turns a per-word search into a single shared traversal whose cost is driven by the grid, not by how many words you are hunting. If you can articulate "I put the dictionary in a trie so the board DFS prunes against all words at once," you have shown the interviewer the key insight even before writing the loop.`),
+  sub("array[26] vs. a hash map of children"),
+  p(`The child container is a real design decision worth naming out loud. A fixed <code>array&lt;TrieNode*,26&gt;</code> gives the fastest possible child lookup &#8212; a single indexed read with no hashing &#8212; but it spends 26 pointer slots <em>per node</em> whether or not they are used, which is wasteful on sparse data or large alphabets. An <code>unordered_map&lt;char,TrieNode*&gt;</code> stores only the children that exist, so it is far leaner for Unicode, mixed case, or sparse tries, at the cost of a hash per step and worse cache behavior.`),
+  ul([
+    `<b>array[26] (or [128]):</b> fastest, simplest, cache-friendly. Best when the alphabet is small and fixed (lowercase a&#8211;z) &#8212; which is most interview problems. Default to this.`,
+    `<b>unordered_map&lt;char,TrieNode*&gt;:</b> memory-proportional to actual children. Reach for it with large or unknown alphabets, sparse data, or when most slots would sit empty.`,
+  ]),
+  note("📌","The interview default",`For a LeetCode-style lowercase problem, just use the array &#8212; it is shorter to write and faster to run, and reviewers expect it. Mention the map only as the trade-off: "I'll use a 26-slot array since the alphabet is fixed; for a larger or sparse alphabet I'd switch the children to an <code>unordered_map&lt;char,TrieNode*&gt;</code> to avoid wasting 26 slots per node." Naming the alternative shows you understand the space cost without over-engineering the answer.`),
+  pit("c - 'a' off-by-one and out-of-range characters",`The index trick <code>c - 'a'</code> assumes <code>c</code> really is a lowercase letter, giving 0..25. Feed it an uppercase letter, a digit, or a space and you index out of bounds &#8212; silent memory corruption, not a clean error. If the problem promises lowercase you are fine; if it does not, validate the character or switch to the map. The same care applies to building a child: index with the wrong base (<code>c - '0'</code>, say) and the whole structure is quietly mis-wired.`),
+  pit("Leaking every node you allocate",`Each <code>new Node()</code> here is never freed &#8212; fine for a single LeetCode submission that exits immediately, but a leak in real code. Callback to the RAII lesson: production code makes children <code>array&lt;unique_ptr&lt;TrieNode&gt;,26&gt;</code> (or a <code>map</code> of <code>unique_ptr</code>), so destroying the root recursively frees the entire tree for free, with no manual <code>delete</code> walk. The raw-pointer version is an interview shortcut; the owning-pointer version is what you would actually ship.`),
+  idea("How to narrate it in the room",`Say the recognition cue, then the structure: "This is prefix-driven, so I'll use a trie &#8212; each node has 26 child slots and an <code>isEnd</code> flag. Insert, search, and startsWith are all the same character-by-character walk; they're O(L) in the word length, independent of how many words I've stored." Front-loading that the cost does not depend on dictionary size is the line that signals you actually understand <em>why</em> the trie is the right tool, not just that it is.`),
+  cx(`insert / search / startsWith all <b>O(L)</b> in the query length (independent of word count) &#183; space <b>O(total characters &#215; alphabet)</b> &#8212; up to 26 child slots per node`),
   {t:"probs",items:[["Implement Trie","implement-trie-prefix-tree","med"],["Add & Search Word","design-add-and-search-words-data-structure","med"],["Word Search II","word-search-ii","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"09",id:"heaps",color:"#EC4899",title:"Heaps / Priority Queue",badge:"Week 6 · full lesson coming",blocks:[
-  cue(`<b>Spot it when:</b> top-K, the K-th largest/smallest, a streaming median, or repeatedly grabbing the current min or max.`),
-  p(`A <code>priority_queue</code> always hands you the extreme element in O(log n). For "top K," keep a heap of size K and let everything else fall out. For a running median, balance two heaps — a max-heap for the lower half and a min-heap for the upper half — so the middle is always at their tops.`),
-  cx(`push/pop <b>O(log n)</b> · peek <b>O(1)</b>`),
+{group:"Week 4+ · More Patterns",num:"09",id:"heaps",color:"#EC4899",title:"Heaps / Priority Queue",badge:"Week 6 · Pattern",blocks:[
+  cue(`<b>Spot it when:</b> you need the <em>top K</em> of something, the <em>K-th largest / smallest</em>, a <em>streaming median</em>, or you keep reaching for "give me the current min/max, then the next one, then the next." The tell is a <em>partial</em> order: you never need the whole thing sorted, only the extreme element &#8212; over and over, often as data streams in.`),
+  p(`A heap is the data structure for "I only care about the most extreme element, repeatedly." It gives you the min (or the max) in O(1), and lets you remove it or insert a new value in O(log n). That's strictly cheaper than keeping the whole collection sorted, and the saving is the entire point: sorting buys you a <em>total</em> order you usually don't need. A heap buys you just enough order to know what's on top &#8212; and nothing more.`),
+  p(`Concretely, a binary heap is a <em>complete</em> binary tree (every level full except possibly the last, which fills left to right) obeying the <em>heap property</em>: in a <b>min-heap</b> every parent is &#8804; its children, so the global minimum sits at the root; in a <b>max-heap</b> every parent is &#8805; its children, so the maximum is at the root. Note what the property does <em>not</em> say: siblings are unordered, and a node deep on the left can be larger than a node shallow on the right. The order is purely vertical, parent-to-child. That looseness is exactly why a heap is cheap to maintain.`),
+  sub("The array trick: a tree with no pointers"),
+  p(`Here's the part that makes heaps fast and memory-friendly, and the thing interviewers love to hear you explain. Because the tree is always <em>complete</em>, you don't need any node objects or pointers at all &#8212; you can pack it into a flat array, level by level, left to right. The root is index 0, then its two children, then their four children, and so on. The shape is fixed, so position <em>is</em> the structure.`),
+  svg("heaps_array","A min-heap as a tree on the left, the very same nodes as a flat array on the right. The root (the minimum) is index 0; each node's children and parent are found by arithmetic, so the tree needs no pointers at all."),
+  p(`That layout lets you navigate the "tree" with pure arithmetic. For the node at index <code>i</code>: its left child is at <code>2i+1</code>, its right child is at <code>2i+2</code>, and its parent is at <code>(i-1)/2</code> (integer division). No allocations, no pointer chasing, perfect cache locality &#8212; as a game-engine dev you'll appreciate that a "tree" here is really just a contiguous <code>vector</code> you index into. This is also why heaps don't fragment memory the way a pointer-based tree does.`),
+  note("📌","Why the heap property is enough",`A sorted array gives you a total order: you know exactly where every element ranks. A heap gives you far less &#8212; only that the root is the extreme and each parent beats its kids &#8212; but that's <em>precisely</em> what "give me the next min/max" needs. Paying for a full sort when you only consume the top few elements is the waste a heap exists to avoid. Right tool, right amount of order.`),
+  sub("push and pop: sift up, sift down"),
+  p(`Both mutations work by adding/removing at the array's <em>edge</em> and then restoring the heap property with a single walk up or down a path &#8212; never touching the whole tree. To <b>push</b>: append the new value to the end of the array (keeping the tree complete), then <em>sift up</em> &#8212; while it's smaller than its parent (in a min-heap), swap them. It bubbles up until it finds its level. The path from a leaf to the root is the tree's height, <code>log n</code>, so push is O(log n).`),
+  p(`To <b>pop</b> the root (the min): move the <em>last</em> element into the root slot, shrink the array by one (still complete), then <em>sift down</em> &#8212; repeatedly swap the value with its <em>smaller</em> child until both children are &#8805; it. Again you walk one root-to-leaf path, so pop is O(log n). Reading the <b>top</b> is just <code>array[0]</code>, O(1) &#8212; you never pay unless you actually remove. That O(1) peek plus O(log n) update is the whole performance story.`),
+  worked("A min-heap by hand (the mechanics)","You'll almost always use std::priority_queue, but writing the two sifts once makes the cost model click. Notice both operations only ever follow a single path up or down the tree &#8212; that path is the height, log n.",
+`class MinHeap {
+    vector<int> h;                               // the complete tree, packed flat
+    void siftUp(int i) {
+        while (i > 0) {
+            int parent = (i - 1) / 2;
+            if (h[i] >= h[parent]) break;        // heap property holds -> stop
+            swap(h[i], h[parent]);               // smaller than parent -> rise
+            i = parent;
+        }
+    }
+    void siftDown(int i) {
+        int n = h.size();
+        while (true) {
+            int l = 2*i + 1, r = 2*i + 2, small = i;
+            if (l < n && h[l] < h[small]) small = l;
+            if (r < n && h[r] < h[small]) small = r;
+            if (small == i) break;               // both children >= i -> done
+            swap(h[i], h[small]);                // sink past the smaller child
+            i = small;
+        }
+    }
+public:
+    void push(int x) { h.push_back(x); siftUp(h.size() - 1); }
+    int  top() const { return h[0]; }            // the min, O(1)
+    void pop() {
+        h[0] = h.back(); h.pop_back();           // last element fills the root
+        if (!h.empty()) siftDown(0);             // restore from the top
+    }
+    bool empty() const { return h.empty(); }
+};`),
+  note("📌","Building a heap from an array is O(n), not O(n log n)",`If you already have all the data, don't push n times (that's O(n log n)). Instead <em>heapify</em>: place everything in the array as-is, then sift-down every non-leaf node from the bottom up. It looks like n &#215; log n, but most nodes are near the bottom with tiny subtrees, and the sum works out to <b>O(n)</b>. <code>std::make_heap</code> does this, and <code>priority_queue</code>'s range constructor uses it. Worth a sentence in an interview when you're handed a full array up front.`),
+  sub("std::priority_queue — and the comparator gotcha"),
+  p(`In practice you reach for <code>std::priority_queue</code>, the STL heap adapter. The one thing to burn into memory: <b>it is a MAX-heap by default</b> &#8212; <code>top()</code> gives you the <em>largest</em> element. That surprises people who expect "queue" to mean smallest-first. To get a min-heap you supply the comparator <code>greater&lt;int&gt;</code>, which means writing out the full template: <code>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt;</code>.`),
+  code(`#include <queue>
+
+priority_queue<int> maxHeap;                 // DEFAULT is a MAX-heap
+maxHeap.push(5); maxHeap.push(9);
+int big = maxHeap.top();                      // 9  (largest), O(1)
+maxHeap.pop();                                // removes 9; returns void, like stack
+
+// min-heap: spell out the type and pass greater<>
+priority_queue<int, vector<int>, greater<int>> minHeap;
+minHeap.push(5); minHeap.push(9);
+int small = minHeap.top();                     // 5  (smallest)
+
+// build from existing data in O(n) via the range constructor (heapify):
+vector<int> data = {7, 2, 9, 4};
+priority_queue<int> pq(data.begin(), data.end());`),
+  pit("greater<> gives you a MIN-heap — yes, it feels backwards",`The comparator is the "is a before b in priority?" relation, and <code>priority_queue</code> puts the element that is <em>least</em> preferred by that order on top. With the default <code>less&lt;&gt;</code> the largest ends up on top (max-heap); with <code>greater&lt;&gt;</code> the <em>smallest</em> ends up on top (min-heap). It reads inverted every time. The reliable move: don't reason it out under pressure &#8212; memorize "<code>greater&lt;&gt;</code> &#8594; min-heap" as a fact, and double-check with one tiny example before you trust it. Also note <code>top()</code> + <code>pop()</code> are two steps, exactly like <code>std::stack</code>: <code>pop()</code> returns <code>void</code>.`),
+  sub("The signature trick: top-K with a size-K heap"),
+  p(`This is the move that turns "heap" into an interview pattern. To find the K largest (or the K-th largest) out of <code>n</code> elements, you do <em>not</em> sort all <code>n</code>. You keep a heap holding only the best K seen so far, and let everything else fall out as you stream through. Here's the counterintuitive twist worth pausing on: <b>for the K LARGEST, you use a MIN-heap of size K.</b>`),
+  p(`Why a min-heap for the <em>largest</em>? Because the job of the heap is to make eviction cheap. The <em>smallest</em> of your current K-best sits at the min-heap's top, ready to be kicked out the instant something bigger arrives. For each new element: if the heap has fewer than K, push it; otherwise, if the new value beats the top (the weakest of your champions), pop the top and push the newcomer. After one pass the heap holds exactly the K largest, and its top is the K-th largest. Each of <code>n</code> elements costs at most O(log K), so the whole thing is <b>O(n log K)</b> &#8212; better than O(n log n) sorting whenever K is small, and it works on a stream you can't sort because it never ends.`),
+  worked("Kth largest in a stream (min-heap of size K)","Keep a min-heap capped at size k. Its top is always the k-th largest seen so far. When a new value arrives that beats the weakest champion, evict the top and admit the newcomer. O(log k) per add.",
+`class KthLargest {
+    int k;
+    priority_queue<int, vector<int>, greater<int>> minHeap;  // size <= k
+public:
+    KthLargest(int k, const vector<int>& nums) : k(k) {
+        for (int x : nums) add(x);
+    }
+    int add(int val) {
+        minHeap.push(val);
+        if ((int)minHeap.size() > k)
+            minHeap.pop();                       // drop the smallest -> keep top k
+        return minHeap.top();                    // the k-th largest, O(1)
+    }
+};`),
+  idea("The mirror you should keep straight",`K <em>largest</em> &#8594; <b>min</b>-heap of size K (the smallest champion is on top, first to be evicted). K <em>smallest</em> &#8594; <b>max</b>-heap of size K (the largest champion is on top, first to go). Pick the heap whose top is the element you'd most want to <em>throw away</em>. Using the wrong direction here is the single most common heap bug in interviews &#8212; say the direction and <em>why</em> out loud before you code, and you'll catch yourself.`),
+  sub("Custom comparators for richer elements"),
+  p(`Real problems rarely heap on bare <code>int</code>s &#8212; you order points by distance, tasks by deadline, edges by weight. <code>priority_queue</code> takes any element type plus a comparator. For pairs the default ordering compares <code>.first</code> then <code>.second</code>, which is often all you need (pack the priority into <code>first</code>). For anything custom, pass a lambda or functor. Below, "K closest points to origin": you want the K <em>smallest</em> distances, so by the mirror rule you keep a <b>max</b>-heap of size K, evicting the farthest point whenever a closer one shows up.`),
+  worked("K closest points to origin (max-heap of size K)","Want the k SMALLEST distances, so keep a max-heap capped at k: the farthest of your current best sits on top, ready to be evicted. Compare squared distance (no sqrt needed). O(n log k), and only k points ever live in memory.",
+`vector<vector<int>> kClosest(const vector<vector<int>>& points, int k) {
+    // ordering by squared distance; greater dist == lower priority -> max-heap on top
+    auto cmp = [](const vector<int>& a, const vector<int>& b) {
+        return a[0]*a[0] + a[1]*a[1] < b[0]*b[0] + b[1]*b[1];  // a "less" -> b on top
+    };
+    priority_queue<vector<int>, vector<vector<int>>, decltype(cmp)> maxHeap(cmp);
+    for (const auto& p : points) {
+        maxHeap.push(p);
+        if ((int)maxHeap.size() > k)
+            maxHeap.pop();                       // evict the farthest -> keep k closest
+    }
+    vector<vector<int>> result;
+    while (!maxHeap.empty()) {                    // drain what's left: the k closest
+        result.push_back(maxHeap.top());
+        maxHeap.pop();
+    }
+    return result;
+}`),
+  note("📌","Reading the comparator without second-guessing",`A <code>priority_queue</code> comparator returns true when its first arg has <em>lower</em> priority &#8212; i.e. should sit <em>below</em> the other and surface <em>later</em>. So returning "a's distance &lt; b's distance" means smaller distances are low-priority and the <em>largest</em> distance bubbles to the top: a max-heap by distance. It's the same inverted logic as <code>greater&lt;&gt;</code>. When in doubt, ask "what do I want on top to evict?" &#8212; here, the farthest &#8212; and write the comparator so that element wins the top slot.`),
+  sub("Two heaps: the streaming-median pattern"),
+  p(`The hard-tier classic: numbers arrive one at a time and after each you must report the <em>median</em> of everything seen so far. Re-sorting per query is O(n log n) each &#8212; hopeless on a stream. The elegant answer is <b>two heaps</b> that split the data at the median. A <em>max-heap</em> holds the lower half, so its top is the largest of the small numbers. A <em>min-heap</em> holds the upper half, so its top is the smallest of the big numbers. The median is sitting right where those two halves meet &#8212; at one or both of the tops.`),
+  svg("heaps_median","Two heaps facing each other: a max-heap holds the lower half (its top is the biggest small value) and a min-heap holds the upper half (its top is the smallest big value). Kept balanced in size, the median is always at the tops."),
+  p(`The whole trick is keeping the halves <em>balanced</em>: the two heaps differ in size by at most one. If they're equal, the median is the average of the two tops; if one is larger, its top <em>is</em> the median. Each insertion is a push plus at most one rebalancing transfer between heaps &#8212; all O(log n) &#8212; and the median query is then an O(1) read of one or two tops. This "split at the boundary, keep both sides balanced, read the frontier" idea generalizes well beyond medians.`),
+  worked("Find median from a data stream (two heaps + rebalance)","lo is a max-heap (lower half), hi is a min-heap (upper half). Push to lo, shove its top over to hi, then rebalance sizes so lo is never smaller than hi. The median is lo's top, or the average of both tops. O(log n) per add, O(1) per query.",
+`class MedianFinder {
+    priority_queue<int> lo;                                   // max-heap: lower half
+    priority_queue<int, vector<int>, greater<int>> hi;        // min-heap: upper half
+public:
+    void addNum(int num) {
+        lo.push(num);                            // 1. always land in the lower half
+        hi.push(lo.top()); lo.pop();             // 2. push its max up to the high side
+        if (hi.size() > lo.size()) {             // 3. rebalance: keep lo >= hi in size
+            lo.push(hi.top()); hi.pop();
+        }
+    }
+    double findMedian() {
+        if (lo.size() > hi.size()) return lo.top();           // odd count -> lo's top
+        return (lo.top() + hi.top()) / 2.0;                   // even -> average of tops
+    }
+};`),
+  idea("Why this beats sorting, in one line",`Sorting gives a total order you immediately throw away after reading one element. The two-heaps trick maintains only the order that matters &#8212; the boundary between the halves &#8212; at O(log n) per update and O(1) per query. Whenever the answer depends on a <em>frontier</em> of a stream (a median, a running K-th value, the next event by time) rather than the full ranking, heaps are the tool, and "I'd keep two heaps balanced around the median" is a senior-sounding opener.`),
+  sub("When a heap beats sorting"),
+  ul([
+    `<b>Streaming / unbounded data.</b> You can't sort a stream that never ends; a heap absorbs each element in O(log n) and always knows the current extreme.`,
+    `<b>You only need the top few.</b> Top-K, K-th largest, "the closest N" &#8212; a size-K heap is O(n log K), beating a full O(n log n) sort when K &#8814; n.`,
+    `<b>Repeated extract-min/max.</b> Dijkstra, Prim's MST, event simulation, task schedulers, Huffman coding &#8212; anything that loops "grab the smallest, process, maybe add more."`,
+    `<b>A moving frontier.</b> Running median, merging K sorted lists by always pulling the smallest head &#8212; partial order at the boundary is all you need.`,
+  ]),
+  pit("A heap is NOT sorted — only the top is ordered",`The most common misread. Iterating a <code>priority_queue</code> (or its backing array) does <em>not</em> give you sorted output; the heap property only guarantees the <em>root</em> is the extreme. The siblings and deeper nodes are in no particular order. If you need everything in order, you must <em>pop one at a time</em> &#8212; which, done n times, is exactly heapsort at O(n log n). Don't assume the array is sorted just because the front element is.`),
+  pit("Wrong heap direction for top-K",`Reaching for a max-heap to find the K <em>largest</em> feels natural and is the classic trap: a max-of-everything heap is O(n log n) and stores all n elements. The size-K answer flips it &#8212; min-heap for K largest, max-heap for K smallest &#8212; so only K elements are ever resident and each add is O(log K). If you catch yourself building an n-sized heap to read just K elements off the top, stop and invert.`),
+  cx(`<code>top</code> <b>O(1)</b> &#183; <code>push</code> / <code>pop</code> <b>O(log n)</b> &#183; build-from-array (heapify) <b>O(n)</b> &#183; top-K with a size-K heap <b>O(n log K)</b> time, <b>O(K)</b> space`),
   {t:"probs",items:[["Kth Largest in a Stream","kth-largest-element-in-a-stream","easy"],["K Closest Points to Origin","k-closest-points-to-origin","med"],["Find Median from Data Stream","find-median-from-data-stream","hard"]]}
 ]},
 {group:"Week 4+ · More Patterns",num:"10",id:"backtrack",color:"#F43F5E",title:"Backtracking",badge:"Week 6 · full lesson coming",blocks:[
