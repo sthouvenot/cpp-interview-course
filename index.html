@@ -989,6 +989,206 @@ SVG.heaps_median=`<svg viewBox="0 0 620 280" role="img" aria-label="The two-heap
 <g font-family="Inter,sans-serif" font-size="12" fill="#3a3660">
 <text x="310" y="222" text-anchor="middle">Keep the two sizes equal (or off by one). The median is then either the</text>
 <text x="310" y="242" text-anchor="middle">larger heap's top, or the average of both tops &#8212; an O(1) read after each insert.</text></g></svg>`;
+SVG.backtrack_tree=`<svg viewBox="0 0 620 360" role="img" aria-label="The subsets decision tree for [1,2,3]: every level decides include or exclude one element, the eight leaves are the eight subsets">
+<text x="310" y="24" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">subsets of [1,2,3] &#8594; decide include / exclude, one element per level</text>
+<text x="310" y="42" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">left edge = skip the element &#183; right edge = take it &#183; 3 decisions &#8594; 2&#179; = 8 leaves</text>
+<g font-family="JetBrains Mono,monospace" font-size="11">
+<rect x="278" y="56" width="64" height="26" rx="7" fill="#FFF0F2" stroke="#F43F5E"/><text x="310" y="73" text-anchor="middle" fill="#E11D48">{ }</text>
+<rect x="150" y="128" width="64" height="26" rx="7" fill="#FFF0F2" stroke="#F6C7CF"/><text x="182" y="145" text-anchor="middle" fill="#1B1838">{ }</text>
+<rect x="406" y="128" width="64" height="26" rx="7" fill="#FFF0F2" stroke="#F43F5E"/><text x="438" y="145" text-anchor="middle" fill="#E11D48">{1}</text>
+<rect x="78" y="200" width="60" height="26" rx="7" fill="#FFF0F2" stroke="#F6C7CF"/><text x="108" y="217" text-anchor="middle" fill="#1B1838">{ }</text>
+<rect x="222" y="200" width="60" height="26" rx="7" fill="#FFF0F2" stroke="#F6C7CF"/><text x="252" y="217" text-anchor="middle" fill="#1B1838">{2}</text>
+<rect x="338" y="200" width="60" height="26" rx="7" fill="#FFF0F2" stroke="#F6C7CF"/><text x="368" y="217" text-anchor="middle" fill="#1B1838">{1}</text>
+<rect x="482" y="200" width="68" height="26" rx="7" fill="#FFF0F2" stroke="#F43F5E"/><text x="516" y="217" text-anchor="middle" fill="#E11D48">{1,2}</text>
+</g>
+<g font-family="JetBrains Mono,monospace" font-size="10">
+<rect x="40" y="276" width="56" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A"/><text x="68" y="292" text-anchor="middle" fill="#0f7a36">{ }</text>
+<rect x="106" y="276" width="56" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A"/><text x="134" y="292" text-anchor="middle" fill="#0f7a36">{3}</text>
+<rect x="200" y="276" width="56" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A"/><text x="228" y="292" text-anchor="middle" fill="#0f7a36">{2}</text>
+<rect x="266" y="276" width="64" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A"/><text x="298" y="292" text-anchor="middle" fill="#0f7a36">{2,3}</text>
+<rect x="316" y="276" width="56" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A"/><text x="344" y="292" text-anchor="middle" fill="#0f7a36">{1}</text>
+<rect x="382" y="276" width="64" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A"/><text x="414" y="292" text-anchor="middle" fill="#0f7a36">{1,3}</text>
+<rect x="466" y="276" width="64" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A"/><text x="498" y="292" text-anchor="middle" fill="#0f7a36">{1,2}</text>
+<rect x="534" y="276" width="72" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A"/><text x="570" y="292" text-anchor="middle" fill="#0f7a36">{1,2,3}</text>
+</g>
+<g stroke="#c9cad9" stroke-width="1.4" fill="none">
+<path d="M290 82 L196 128"/><path d="M330 82 L424 128"/>
+<path d="M168 154 L120 200"/><path d="M196 154 L244 200"/>
+<path d="M424 154 L376 200"/><path d="M452 154 L508 200"/>
+<path d="M96 226 L68 276"/><path d="M120 226 L134 276"/>
+<path d="M240 226 L228 276"/><path d="M264 226 L298 276"/>
+<path d="M356 226 L344 276"/><path d="M380 226 L414 276"/>
+<path d="M500 226 L498 276"/><path d="M524 226 L570 276"/>
+</g>
+<g font-family="Inter,sans-serif" font-size="10">
+<text x="232" y="106" fill="#9d9ab0">skip 1</text><text x="380" y="106" fill="#E11D48">take 1</text>
+<text x="328" y="328" text-anchor="middle" fill="#0f7a36">the 8 leaves ARE the 8 subsets &#8212; recording a leaf = one complete solution</text>
+</g></svg>`;
+SVG.backtrack_undo=`<svg viewBox="0 0 620 240" role="img" aria-label="The choose, recurse, un-choose cycle: push a choice onto the path, recurse deeper, then pop it to restore the path before trying the next sibling">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">choose &#8594; recurse &#8594; un-choose (one shared path, mutated and restored)</text>
+<g font-family="JetBrains Mono,monospace" font-size="12">
+<text x="100" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">path before</text>
+<rect x="60" y="82" width="36" height="30" fill="#FFF0F2" stroke="#F43F5E"/><text x="78" y="103" text-anchor="middle" fill="#1B1838">a</text>
+<rect x="96" y="82" width="36" height="30" fill="#FFF0F2" stroke="#F43F5E"/><text x="114" y="103" text-anchor="middle" fill="#1B1838">b</text>
+<text x="300" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#16A34A">choose c &#8594; recurse</text>
+<rect x="240" y="82" width="36" height="30" fill="#FFF0F2" stroke="#F43F5E"/><text x="258" y="103" text-anchor="middle" fill="#1B1838">a</text>
+<rect x="276" y="82" width="36" height="30" fill="#FFF0F2" stroke="#F43F5E"/><text x="294" y="103" text-anchor="middle" fill="#1B1838">b</text>
+<rect x="312" y="82" width="36" height="30" fill="#E7F6ED" stroke="#16A34A" stroke-width="2"/><text x="330" y="103" text-anchor="middle" fill="#0f7a36">c</text>
+<text x="510" y="70" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#E11D48">un-choose &#8594; path restored</text>
+<rect x="470" y="82" width="36" height="30" fill="#FFF0F2" stroke="#F43F5E"/><text x="488" y="103" text-anchor="middle" fill="#1B1838">a</text>
+<rect x="506" y="82" width="36" height="30" fill="#FFF0F2" stroke="#F43F5E"/><text x="524" y="103" text-anchor="middle" fill="#1B1838">b</text>
+<rect x="542" y="82" width="36" height="30" fill="#fff" stroke="#E7E8F2" stroke-dasharray="3 3"/><text x="560" y="103" text-anchor="middle" fill="#c9cad9">c</text>
+</g>
+<path d="M150 97 H232" stroke="#16A34A" stroke-width="2" fill="none" marker-end="url(#abf)"/>
+<path d="M360 97 H462" stroke="#E11D48" stroke-width="2" fill="none" marker-end="url(#abr)"/>
+<text x="190" y="138" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">path.push_back(c)</text>
+<text x="412" y="138" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#E11D48">path.pop_back()</text>
+<text x="310" y="180" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#3a3660">The pop is the whole pattern. Without it, c leaks into the next sibling branch</text>
+<text x="310" y="200" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#3a3660">and every later subtree is polluted &#8212; the single most common backtracking bug.</text>
+<defs>
+<marker id="abf" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker>
+<marker id="abr" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#E11D48"/></marker>
+</defs></svg>`;
+SVG.graphs_adjlist=`<svg viewBox="0 0 620 300" role="img" aria-label="A small graph drawn as circles and edges next to its adjacency-list representation">
+<text x="160" y="28" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#0EA5E9">the graph</text>
+<g stroke="#c9cad9" stroke-width="2" fill="none">
+<line x1="160" y1="78" x2="80" y2="158"/>
+<line x1="160" y1="78" x2="250" y2="150"/>
+<line x1="80" y1="158" x2="160" y2="230"/>
+<line x1="250" y1="150" x2="160" y2="230"/>
+<line x1="80" y1="158" x2="250" y2="150"/></g>
+<g font-family="JetBrains Mono,monospace" font-size="15" font-weight="600">
+<circle cx="160" cy="78" r="22" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="2"/><text x="160" y="84" text-anchor="middle" fill="#0c7fc4">0</text>
+<circle cx="80" cy="158" r="22" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="2"/><text x="80" y="164" text-anchor="middle" fill="#0c7fc4">1</text>
+<circle cx="250" cy="150" r="22" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="2"/><text x="250" y="156" text-anchor="middle" fill="#0c7fc4">2</text>
+<circle cx="160" cy="230" r="22" fill="#E0F2FE" stroke="#0EA5E9" stroke-width="2"/><text x="160" y="236" text-anchor="middle" fill="#0c7fc4">3</text></g>
+<text x="460" y="28" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#5B5BD6">adjacency list</text>
+<g font-family="JetBrains Mono,monospace" font-size="12.5">
+<rect x="332" y="52" width="52" height="32" rx="7" fill="#EDE9FC" stroke="#5B5BD6"/><text x="358" y="73" text-anchor="middle" fill="#4a3fc0">0:</text>
+<rect x="394" y="52" width="200" height="32" rx="7" fill="#F4F2FF" stroke="#d9d2f5"/><text x="408" y="73" fill="#1B1838">{ 1, 2 }</text>
+<rect x="332" y="96" width="52" height="32" rx="7" fill="#EDE9FC" stroke="#5B5BD6"/><text x="358" y="117" text-anchor="middle" fill="#4a3fc0">1:</text>
+<rect x="394" y="96" width="200" height="32" rx="7" fill="#F4F2FF" stroke="#d9d2f5"/><text x="408" y="117" fill="#1B1838">{ 0, 2, 3 }</text>
+<rect x="332" y="140" width="52" height="32" rx="7" fill="#EDE9FC" stroke="#5B5BD6"/><text x="358" y="161" text-anchor="middle" fill="#4a3fc0">2:</text>
+<rect x="394" y="140" width="200" height="32" rx="7" fill="#F4F2FF" stroke="#d9d2f5"/><text x="408" y="161" fill="#1B1838">{ 0, 1, 3 }</text>
+<rect x="332" y="184" width="52" height="32" rx="7" fill="#EDE9FC" stroke="#5B5BD6"/><text x="358" y="205" text-anchor="middle" fill="#4a3fc0">3:</text>
+<rect x="394" y="184" width="200" height="32" rx="7" fill="#F4F2FF" stroke="#d9d2f5"/><text x="408" y="205" fill="#1B1838">{ 1, 2 }</text></g>
+<text x="460" y="252" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#6f6b8c">each node maps to a list of its neighbors</text>
+<text x="460" y="272" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#8a86a8">vector&lt;vector&lt;int&gt;&gt; adj(4);</text></svg>`;
+SVG.graphs_bfs=`<svg viewBox="0 0 620 320" role="img" aria-label="BFS expanding outward from a source in concentric frontier rings, one ring per level">
+<text x="310" y="28" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#0EA5E9">BFS expands in level-by-level frontiers</text>
+<circle cx="310" cy="175" r="128" fill="none" stroke="#E7E8F2" stroke-width="1.4" stroke-dasharray="4 4"/>
+<circle cx="310" cy="175" r="78" fill="none" stroke="#E7E8F2" stroke-width="1.4" stroke-dasharray="4 4"/>
+<g stroke="#c9cad9" stroke-width="1.8">
+<line x1="310" y1="175" x2="232" y2="175"/><line x1="310" y1="175" x2="388" y2="175"/><line x1="310" y1="175" x2="310" y2="97"/>
+<line x1="232" y1="175" x2="182" y2="175"/><line x1="388" y1="175" x2="438" y2="175"/><line x1="310" y1="97" x2="310" y2="47"/>
+<line x1="232" y1="175" x2="216" y2="113"/><line x1="388" y1="175" x2="404" y2="113"/></g>
+<g font-family="JetBrains Mono,monospace" font-size="13" font-weight="600">
+<circle cx="310" cy="175" r="22" fill="#16A34A" stroke="#0f7a36" stroke-width="2"/><text x="310" y="180" text-anchor="middle" fill="#fff">src</text>
+<circle cx="232" cy="175" r="18" fill="#DDF4FB" stroke="#0EA5E9" stroke-width="2"/><text x="232" y="180" text-anchor="middle" fill="#0c7fc4">1</text>
+<circle cx="388" cy="175" r="18" fill="#DDF4FB" stroke="#0EA5E9" stroke-width="2"/><text x="388" y="180" text-anchor="middle" fill="#0c7fc4">1</text>
+<circle cx="310" cy="97" r="18" fill="#DDF4FB" stroke="#0EA5E9" stroke-width="2"/><text x="310" y="102" text-anchor="middle" fill="#0c7fc4">1</text>
+<circle cx="182" cy="175" r="16" fill="#EDE9FC" stroke="#5B5BD6" stroke-width="2"/><text x="182" y="180" text-anchor="middle" fill="#4a3fc0">2</text>
+<circle cx="438" cy="175" r="16" fill="#EDE9FC" stroke="#5B5BD6" stroke-width="2"/><text x="438" y="180" text-anchor="middle" fill="#4a3fc0">2</text>
+<circle cx="310" cy="47" r="16" fill="#EDE9FC" stroke="#5B5BD6" stroke-width="2"/><text x="310" y="52" text-anchor="middle" fill="#4a3fc0">2</text>
+<circle cx="216" cy="113" r="16" fill="#EDE9FC" stroke="#5B5BD6" stroke-width="2"/><text x="216" y="118" text-anchor="middle" fill="#4a3fc0">2</text>
+<circle cx="404" cy="113" r="16" fill="#EDE9FC" stroke="#5B5BD6" stroke-width="2"/><text x="404" y="118" text-anchor="middle" fill="#4a3fc0">2</text></g>
+<g font-family="Inter,sans-serif" font-size="12">
+<text x="310" y="312" text-anchor="middle" fill="#16A34A" font-weight="600">level 0</text>
+<text x="150" y="240" text-anchor="middle" fill="#0c7fc4" font-weight="600">level 1</text>
+<text x="470" y="240" text-anchor="middle" fill="#4a3fc0" font-weight="600">level 2</text></g>
+<text x="310" y="300" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#8a86a8">level = shortest-path distance from src</text></svg>`;
+SVG.dp_memo=`<svg viewBox="0 0 620 320" role="img" aria-label="The recursion tree for fib(5) recomputes the same subproblems many times; a memo cache collapses it to a line">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">fib(5): the same subproblems recur &#8212; memo computes each once</text>
+<g font-family="JetBrains Mono,monospace" font-size="11.5">
+<rect x="276" y="42" width="68" height="28" rx="7" fill="#E0F2FE" stroke="#0EA5E9"/><text x="310" y="61" text-anchor="middle" fill="#0c7fc4">fib(5)</text>
+<rect x="166" y="100" width="68" height="28" rx="7" fill="#E0F2FE" stroke="#0EA5E9"/><text x="200" y="119" text-anchor="middle" fill="#0c7fc4">fib(4)</text>
+<rect x="386" y="100" width="68" height="28" rx="7" fill="#FFF7EC" stroke="#FF8A3D"/><text x="420" y="119" text-anchor="middle" fill="#c2660f">fib(3)</text>
+<rect x="86" y="158" width="68" height="28" rx="7" fill="#FFF7EC" stroke="#FF8A3D"/><text x="120" y="177" text-anchor="middle" fill="#c2660f">fib(3)</text>
+<rect x="246" y="158" width="68" height="28" rx="7" fill="#F4F2FF" stroke="#8B5CF6"/><text x="280" y="177" text-anchor="middle" fill="#6D5BD0">fib(2)</text>
+<rect x="346" y="158" width="68" height="28" rx="7" fill="#F4F2FF" stroke="#8B5CF6"/><text x="380" y="177" text-anchor="middle" fill="#6D5BD0">fib(2)</text>
+<rect x="456" y="158" width="68" height="28" rx="7" fill="#FBFBFE" stroke="#E7E8F2"/><text x="490" y="177" text-anchor="middle" fill="#9d9ab0">fib(1)</text>
+<rect x="26" y="216" width="68" height="28" rx="7" fill="#F4F2FF" stroke="#8B5CF6"/><text x="60" y="235" text-anchor="middle" fill="#6D5BD0">fib(2)</text>
+<rect x="126" y="216" width="68" height="28" rx="7" fill="#FBFBFE" stroke="#E7E8F2"/><text x="160" y="235" text-anchor="middle" fill="#9d9ab0">fib(1)</text></g>
+<g stroke="#c9cad9" stroke-width="1.4">
+<path d="M290 70 L218 100"/><path d="M330 70 L402 100"/>
+<path d="M186 128 L138 158"/><path d="M214 128 L274 158"/>
+<path d="M404 128 L372 158"/><path d="M436 128 L490 158"/>
+<path d="M106 186 L66 216"/><path d="M134 186 L160 216"/></g>
+<rect x="350" y="222" width="252" height="76" rx="11" fill="#F0FBF5" stroke="#16A34A"/>
+<text x="476" y="244" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#0f7a36"><tspan font-family="JetBrains Mono,monospace" fill="#c2660f">fib(3)</tspan> appears twice, <tspan font-family="JetBrains Mono,monospace" fill="#6D5BD0">fib(2)</tspan> three times.</text>
+<text x="476" y="262" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#0f7a36">Naive recursion redoes them all: <tspan font-family="JetBrains Mono,monospace">O(2&#8319;)</tspan>.</text>
+<text x="476" y="284" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" font-weight="600" fill="#16A34A">Cache each value once &#8594; O(n).</text></svg>`;
+SVG.dp_grid=`<svg viewBox="0 0 620 330" role="img" aria-label="A 2D edit-distance table; each cell depends on its top, left, and diagonal neighbors">
+<text x="310" y="24" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">edit distance: dp[i][j] is built from three neighbors</text>
+<text x="310" y="44" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#6f6b8c">rows = "HORSE" &#160; cols = "ROS" &#160; dp[i][j] = edits for first i, first j chars</text>
+<g font-family="JetBrains Mono,monospace" font-size="11" fill="#8a86a8">
+<text x="92" y="74" text-anchor="middle"></text><text x="150" y="74" text-anchor="middle">&#8709;</text><text x="208" y="74" text-anchor="middle">R</text><text x="266" y="74" text-anchor="middle">O</text><text x="324" y="74" text-anchor="middle">S</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="11" fill="#8a86a8">
+<text x="92" y="105" text-anchor="middle">&#8709;</text><text x="92" y="147" text-anchor="middle">H</text><text x="92" y="189" text-anchor="middle">O</text><text x="92" y="231" text-anchor="middle">R</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="122" y="84" width="56" height="38" fill="#F0FBF5" stroke="#a9d6bb"/><text x="150" y="108" text-anchor="middle" fill="#1B1838">0</text>
+<rect x="178" y="84" width="56" height="38" fill="#F0FBF5" stroke="#a9d6bb"/><text x="206" y="108" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="234" y="84" width="56" height="38" fill="#F0FBF5" stroke="#a9d6bb"/><text x="262" y="108" text-anchor="middle" fill="#1B1838">2</text>
+<rect x="290" y="84" width="56" height="38" fill="#F0FBF5" stroke="#a9d6bb"/><text x="318" y="108" text-anchor="middle" fill="#1B1838">3</text>
+<rect x="122" y="122" width="56" height="38" fill="#F0FBF5" stroke="#a9d6bb"/><text x="150" y="146" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="178" y="122" width="56" height="38" fill="#E0F2FE" stroke="#0EA5E9"/><text x="206" y="146" text-anchor="middle" fill="#0c7fc4">1</text>
+<rect x="234" y="122" width="56" height="38" fill="#E0F2FE" stroke="#0EA5E9"/><text x="262" y="146" text-anchor="middle" fill="#0c7fc4">2</text>
+<rect x="290" y="122" width="56" height="38" fill="#fff" stroke="#c9cad9"/><text x="318" y="146" text-anchor="middle" fill="#9d9ab0">3</text>
+<rect x="122" y="160" width="56" height="38" fill="#F0FBF5" stroke="#a9d6bb"/><text x="150" y="184" text-anchor="middle" fill="#1B1838">2</text>
+<rect x="178" y="160" width="56" height="38" fill="#E0F2FE" stroke="#0EA5E9"/><text x="206" y="184" text-anchor="middle" fill="#0c7fc4">2</text>
+<rect x="234" y="160" width="56" height="38" fill="#E7F6ED" stroke="#16A34A" stroke-width="2.5"/><text x="262" y="184" text-anchor="middle" fill="#0f7a36" font-weight="600">1</text>
+<rect x="290" y="160" width="56" height="38" fill="#fff" stroke="#c9cad9"/><text x="318" y="184" text-anchor="middle" fill="#9d9ab0">2</text>
+<rect x="122" y="198" width="56" height="38" fill="#fff" stroke="#c9cad9"/><text x="150" y="222" text-anchor="middle" fill="#9d9ab0">3</text>
+<rect x="178" y="198" width="56" height="38" fill="#fff" stroke="#c9cad9"/><text x="206" y="222" text-anchor="middle" fill="#9d9ab0">2</text>
+<rect x="234" y="198" width="56" height="38" fill="#fff" stroke="#c9cad9"/><text x="262" y="222" text-anchor="middle" fill="#9d9ab0">2</text>
+<rect x="290" y="198" width="56" height="38" fill="#fff" stroke="#c9cad9"/><text x="318" y="222" text-anchor="middle" fill="#9d9ab0">2</text></g>
+<path d="M250 154 L250 168" stroke="#16A34A" stroke-width="1.8" marker-end="url(#dpg)"/>
+<path d="M222 178 L240 178" stroke="#16A34A" stroke-width="1.8" marker-end="url(#dpg)"/>
+<path d="M222 154 L242 170" stroke="#16A34A" stroke-width="1.8" marker-end="url(#dpg)"/>
+<g font-family="Inter,sans-serif" font-size="11.5">
+<rect x="372" y="120" width="230" height="56" rx="9" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="388" y="140" fill="#3a3660">chars match (O = O): take the</text>
+<text x="388" y="158" fill="#3a3660"><tspan font-weight="600" fill="#16A34A">diagonal</tspan> &#8594; <tspan font-family="JetBrains Mono,monospace">dp[i-1][j-1]</tspan>, no cost</text>
+<rect x="372" y="184" width="230" height="76" rx="9" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="388" y="204" fill="#3a3660">chars differ: 1 + min of</text>
+<text x="388" y="222" fill="#3a3660"><tspan font-family="JetBrains Mono,monospace" fill="#0c7fc4">top</tspan> (delete), <tspan font-family="JetBrains Mono,monospace" fill="#0c7fc4">left</tspan> (insert),</text>
+<text x="388" y="240" fill="#3a3660"><tspan font-family="JetBrains Mono,monospace" fill="#16A34A">diagonal</tspan> (replace)</text></g>
+<text x="310" y="288" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">fill row by row, left to right &#8594; every neighbor is ready before you need it</text>
+<text x="310" y="310" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#8a86a8">the bottom-right cell holds the final answer: 3 edits HORSE &#8594; ROS</text>
+<defs><marker id="dpg" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker></defs></svg>`;
+SVG.intervals_merge=`<svg viewBox="0 0 620 300" role="img" aria-label="Overlapping intervals drawn as bars on a number line, then merged into combined bars">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">sort by start, sweep left to right, fuse anything that overlaps</text>
+<text x="40" y="58" font-family="Inter,sans-serif" font-size="11.5" fill="#9d9ab0">before &#8212; four intervals, already sorted by start</text>
+<g font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">
+<rect x="60" y="70" width="150" height="26" rx="6" fill="#FFF3E6" stroke="#FF8A3D" stroke-width="1.6"/><text x="135" y="87" text-anchor="middle">[1, 4]</text>
+<rect x="150" y="104" width="120" height="26" rx="6" fill="#FFF3E6" stroke="#FF8A3D" stroke-width="1.6"/><text x="210" y="121" text-anchor="middle">[3, 6]</text>
+<rect x="330" y="70" width="90" height="26" rx="6" fill="#FFF3E6" stroke="#FF8A3D" stroke-width="1.6"/><text x="375" y="87" text-anchor="middle">[8, 10]</text>
+<rect x="390" y="104" width="120" height="26" rx="6" fill="#FFF3E6" stroke="#FF8A3D" stroke-width="1.6"/><text x="450" y="121" text-anchor="middle">[9, 12]</text>
+</g>
+<text x="135" y="156" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#F59E0B">3 &#8804; 4 &#8594; overlap</text>
+<text x="420" y="156" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#F59E0B">9 &#8804; 10 &#8594; overlap</text>
+<line x1="40" y1="178" x2="580" y2="178" stroke="#E7E8F2" stroke-width="1.5"/>
+<text x="40" y="204" font-family="Inter,sans-serif" font-size="11.5" fill="#9d9ab0">after &#8212; two merged intervals</text>
+<g font-family="JetBrains Mono,monospace" font-size="12" fill="#1B1838">
+<rect x="60" y="216" width="210" height="30" rx="7" fill="#E7F6ED" stroke="#16A34A" stroke-width="2"/><text x="165" y="236" text-anchor="middle" fill="#0f7a36" font-weight="600">[1, 6]</text>
+<rect x="330" y="216" width="180" height="30" rx="7" fill="#E7F6ED" stroke="#16A34A" stroke-width="2"/><text x="420" y="236" text-anchor="middle" fill="#0f7a36" font-weight="600">[8, 12]</text>
+</g>
+<text x="310" y="280" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#16A34A">each merged end = max(end so far, next end)</text></svg>`;
+SVG.intervals_overlap=`<svg viewBox="0 0 620 230" role="img" aria-label="The overlap test: two intervals overlap if and only if a is less than or equal to d and c is less than or equal to b">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">[a, b] and [c, d] overlap &#8660; a &#8804; d &amp;&amp; c &#8804; b</text>
+<text x="40" y="62" font-family="Inter,sans-serif" font-size="11.5" fill="#16A34A">overlapping</text>
+<g font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">
+<rect x="90" y="74" width="170" height="26" rx="6" fill="#E7F6ED" stroke="#16A34A" stroke-width="1.8"/><text x="105" y="91" fill="#0f7a36">a</text><text x="246" y="91" text-anchor="end" fill="#0f7a36">b</text>
+<rect x="200" y="108" width="170" height="26" rx="6" fill="#E7F6ED" stroke="#16A34A" stroke-width="1.8"/><text x="215" y="125" fill="#0f7a36">c</text><text x="356" y="125" text-anchor="end" fill="#0f7a36">d</text>
+</g>
+<rect x="200" y="74" width="60" height="60" fill="#16A34A" opacity="0.12"/>
+<text x="290" y="125" font-family="Inter,sans-serif" font-size="10.5" fill="#0f7a36">c starts before b ends &#8594; shared region exists</text>
+<text x="40" y="172" font-family="Inter,sans-serif" font-size="11.5" fill="#d23a52">disjoint</text>
+<g font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">
+<rect x="90" y="184" width="120" height="26" rx="6" fill="#FFF0F2" stroke="#FF5D73" stroke-width="1.8"/><text x="105" y="201" fill="#d23a52">a</text><text x="196" y="201" text-anchor="end" fill="#d23a52">b</text>
+<rect x="300" y="184" width="120" height="26" rx="6" fill="#FFF0F2" stroke="#FF5D73" stroke-width="1.8"/><text x="315" y="201" fill="#d23a52">c</text><text x="406" y="201" text-anchor="end" fill="#d23a52">d</text>
+</g>
+<text x="450" y="201" font-family="Inter,sans-serif" font-size="10.5" fill="#d23a52">c &gt; b &#8594; the &amp;&amp; fails &#8594; no overlap</text></svg>`;
 const plan=[
   ["Week 1","Foundations · Big-O · Pointers","how"],
   ["Week 2","Arrays · Two Pointers · Windows","arrays"],
@@ -2662,29 +2862,467 @@ public:
   cx(`<code>top</code> <b>O(1)</b> &#183; <code>push</code> / <code>pop</code> <b>O(log n)</b> &#183; build-from-array (heapify) <b>O(n)</b> &#183; top-K with a size-K heap <b>O(n log K)</b> time, <b>O(K)</b> space`),
   {t:"probs",items:[["Kth Largest in a Stream","kth-largest-element-in-a-stream","easy"],["K Closest Points to Origin","k-closest-points-to-origin","med"],["Find Median from Data Stream","find-median-from-data-stream","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"10",id:"backtrack",color:"#F43F5E",title:"Backtracking",badge:"Week 6 · full lesson coming",blocks:[
-  cue(`<b>Spot it when:</b> "generate ALL" combinations, permutations, or subsets — or "find every way to do X."`),
-  p(`The template never changes: choose → recurse → un-choose. You add to a partial solution, explore deeper, then undo that last choice and try the next option. The art is pruning: cut off branches that obviously can't lead to a valid answer, because the raw search space is exponential and pruning is the only thing that makes it tractable.`),
-  cx(`Exponential in general — pruning is what saves you`),
+{group:"Week 4+ · More Patterns",num:"10",id:"backtrack",color:"#F43F5E",title:"Backtracking",badge:"Week 6 · Pattern",blocks:[
+  cue(`<b>Spot it when:</b> the problem says <em>"generate all"</em> &#8212; all subsets, all combinations, all permutations &#8212; or <em>"find every way to do X,"</em> or <em>"is there any arrangement that satisfies these constraints?"</em> (N-Queens, sudoku, word search). The tell is that you can't compute the answer with a formula or a single pass; you have to actually <em>try possibilities</em>, and each choice opens up a fresh set of follow-on choices.`),
+  p(`Backtracking is a <em>guided exhaustive search</em>. You build a solution one choice at a time; after each choice you recurse to extend it further; and when a branch is exhausted you <b>undo the last choice</b> and try the next option. That undo is the move that gives the pattern its name &#8212; you walk forward into a partial solution, hit a dead end or a complete answer, then back up exactly one step and take a different fork. It is brute force with a brain: you still explore the whole space in principle, but you abandon hopeless branches the moment you can prove they're hopeless.`),
+  p(`If you ship real C++ you already have the mental model, you just call it something else: it's depth-first search with explicit state that you mutate on the way down and restore on the way up &#8212; the same shape as a transform stack you push before recursing into a scene node and pop afterward. Backtracking is DFS over a tree of <em>decisions</em>, and the &#8220;pop&#8221; is non-negotiable for the same reason it is in a render traversal: leave it out and one branch's state bleeds into its siblings.`),
+  sub("The decision tree is the whole picture"),
+  p(`Draw the search as a tree and everything clicks. Every <b>node</b> is a partial solution (&#8220;so far I've chosen these elements&#8221;). Every <b>edge</b> is one decision (&#8220;include the next element / skip it&#8221;, or &#8220;place the queen in column 3&#8221;). The <b>root</b> is the empty partial solution; the <b>leaves</b> are complete solutions (or dead ends). Running the algorithm <em>is</em> a depth-first walk over that tree: descend an edge to make a choice, recurse, and when you return, step back up that edge &#8212; the un-choose.`),
+  svg("backtrack_tree","The subsets-of-[1,2,3] decision tree. Each of the three levels decides one element: the left edge skips it, the right edge takes it. Three binary decisions give 2&#179; = 8 leaves, and the eight leaves are exactly the eight subsets. Recording a complete solution means writing down the path when you reach a leaf."),
+  p(`Seeing the tree tells you two things at once. First, <em>how big the search is</em>: the number of leaves is the size of the answer space, and it's almost always exponential &#8212; 2&#8319; for include/exclude problems, n! for orderings. Second, <em>where to cut</em>: if you can look at a node and prove no leaf beneath it can ever be valid, you delete that whole subtree instead of walking it. That deletion &#8212; <b>pruning</b> &#8212; is what turns an exponential blow-up into something that finishes.`),
+  sub("The universal template"),
+  p(`Almost every backtracking solution is the same four-part skeleton. Memorize this shape and most problems become a matter of filling in the blanks:`),
+  ul([
+    `<b>Base case</b> &#8212; the partial solution is complete (right length, target hit, board full). Record a copy of it and return.`,
+    `<b>Choose</b> &#8212; make one decision: push an element onto the path, mark a cell used, place a queen.`,
+    `<b>Recurse</b> &#8212; descend with that choice in place to extend the solution further.`,
+    `<b>Un-choose</b> &#8212; undo that exact decision (pop the element, unmark the cell) so the next loop iteration starts from a clean slate.`,
+  ]),
+  code(`void backtrack(State& path, /* what's left to decide */) {
+    if (isComplete(path)) {            // BASE CASE
+        results.push_back(path);       // record a COPY of the finished solution
+        return;
+    }
+    for (auto choice : optionsFrom(path)) {
+        if (!isValid(choice)) continue;  // PRUNE: skip doomed branches early
+        path.push_back(choice);          // CHOOSE
+        backtrack(path, /* advanced */); // RECURSE deeper
+        path.pop_back();                 // UN-CHOOSE: restore for the next sibling
+    }
+}`),
+  svg("backtrack_undo","The choose / recurse / un-choose cycle operating on one shared path. You push a choice, recurse into the subtree it opens, then pop it to restore the path before the loop tries the next sibling. The pop is the entire pattern: skip it and the choice leaks sideways into every later branch."),
+  note("📌","Why one shared, mutated path &#8212; not a fresh copy each call","You could pass the path <em>by value</em> so every recursive call gets its own copy; it'd be correct and you'd never need to un-choose. But that copy costs <b>O(path length)</b> at every single node, and there are exponentially many nodes &#8212; you'd pay an O(n) tax billions of times. The idiomatic version keeps <em>one</em> path as a reference (<code>vector&lt;int&gt;&amp; path</code>), mutates it on the way down, and restores it on the way up. The push/pop pair is O(1). That's why the un-choose exists: it's the price of not copying."),
+  sub("Shape 1 &#8212; Subsets (the cleanest template)"),
+  p(`Subsets is the purest backtracking problem because every element gets exactly one binary decision: <em>in or out</em>. There's no ordering to worry about and no target to hit &#8212; you just walk the include/exclude tree from the diagram, and <em>every node is itself a valid subset</em>, so you record the path at every step rather than only at the leaves. An <code>index</code> parameter tracks how deep you are; when it reaches the end, that branch is fully decided.`),
+  worked("All subsets","Two recursive calls per element &#8212; one that takes nums[i], one that skips it &#8212; mirroring the two edges out of each node. We record the path on entry (so we capture the empty set and every partial set), then for each remaining element: choose it, recurse, un-choose. Note results takes a copy of path; path itself keeps mutating.",
+`void dfs(const vector<int>& nums, int start,
+         vector<int>& path, vector<vector<int>>& results) {
+    results.push_back(path);              // every node is a valid subset -> record it
+    for (int i = start; i < nums.size(); i++) {
+        path.push_back(nums[i]);          // CHOOSE: include nums[i]
+        dfs(nums, i + 1, path, results);  // RECURSE on the elements after i
+        path.pop_back();                  // UN-CHOOSE: drop it, try the next i
+    }
+}
+
+vector<vector<int>> subsets(const vector<int>& nums) {
+    vector<vector<int>> results;
+    vector<int> path;
+    dfs(nums, 0, path, results);
+    return results;
+}`),
+  idea("The start index is doing real work","Passing <code>i + 1</code> (not <code>start + 1</code>) into the recursion is what stops you from ever looking back at an earlier element. That single rule guarantees each subset is generated <em>once</em>, in sorted order, with no permuted duplicates like {1,2} and {2,1}. The same <code>start</code> discipline reappears in combinations below &#8212; it's the standard way to say &#8220;only consider elements from here forward.&#8221;"),
+  sub("Shape 2 &#8212; Combinations &amp; combination sum (start index + pruning)"),
+  p(`Combinations are subsets with a constraint &#8212; pick exactly <em>k</em> of <em>n</em>, or pick any number that <em>sum to a target</em>. The <code>start</code> index is the hero again: because order doesn't matter for a combination, you only ever extend forward from the last index you took, which kills the {2,1}-vs-{1,2} duplication for free. The twist in <em>combination sum</em> is <em>reuse</em>: if the same number may be used multiple times, you recurse with <code>i</code> instead of <code>i + 1</code> so the current element stays available.`),
+  p(`This is also where pruning earns its keep. Sort the candidates first; then inside the loop, the moment the running sum would exceed the target you can <code>break</code> &#8212; not <code>continue</code>. Because the array is sorted, every later candidate is even larger, so if <em>this</em> one overshoots, all of them do, and the entire rest of the loop is a dead subtree you skip outright. That one <code>break</code> can chop the search by orders of magnitude.`),
+  worked("Combination Sum (reuse allowed, with pruning)","Sort so we can prune. We recurse with i (not i + 1) so each number can be reused. The pruning is the break: once target - nums[i] < 0, this candidate and every larger one overshoot, so we abandon the whole tail. remain hitting exactly 0 is a complete solution; going negative is already cut off by the break.",
+`void dfs(const vector<int>& nums, int start, int remain,
+         vector<int>& path, vector<vector<int>>& results) {
+    if (remain == 0) {                    // BASE CASE: exact target hit
+        results.push_back(path);
+        return;
+    }
+    for (int i = start; i < nums.size(); i++) {
+        if (nums[i] > remain) break;      // PRUNE: sorted, so all later i overshoot too
+        path.push_back(nums[i]);          // CHOOSE
+        dfs(nums, i, remain - nums[i],    // RECURSE with i -> reuse nums[i] allowed
+            path, results);
+        path.pop_back();                  // UN-CHOOSE
+    }
+}
+
+vector<vector<int>> combinationSum(vector<int> nums, int target) {
+    sort(nums.begin(), nums.end());       // enables the break-prune
+    vector<vector<int>> results;
+    vector<int> path;
+    dfs(nums, 0, target, path, results);
+    return results;
+}`),
+  note("📌","Reuse vs no-reuse is a one-character change","Recurse with <code>i</code> and the current element stays in play &#8212; you can pick it again (combination sum). Recurse with <code>i + 1</code> and you move strictly past it &#8212; each element used at most once (subsets, &#8220;pick k&#8221;, combination-sum-II). Same loop, same prune, one digit different. Knowing which you need is the entire distinction between two whole problem families."),
+  sub("Shape 3 &#8212; Permutations &amp; N-Queens (tracking used state)"),
+  p(`Permutations break the start-index trick on purpose: here <em>order matters</em>, so {1,2,3} and {3,2,1} are different answers and you must be able to reach back to elements you skipped. You can't use a forward-only <code>start</code>; instead you carry a <code>used[]</code> array (or a visited set / a bitmask) that marks which elements are already in the current path. Each level loops over <em>all</em> elements, skipping the used ones &#8212; and the un-choose now has to clear the <code>used</code> flag as well as pop the path.`),
+  worked("Permutations (used[] array)","Every level considers every element and skips the ones already placed. The choose/un-choose is now a pair of mutations: set used[i] + push, then pop + clear used[i]. When the path is full we've placed all n elements in some order, so record it. n! leaves, because the first level has n choices, the next n-1, and so on.",
+`void dfs(const vector<int>& nums, vector<bool>& used,
+         vector<int>& path, vector<vector<int>>& results) {
+    if (path.size() == nums.size()) {     // BASE CASE: a full ordering
+        results.push_back(path);
+        return;
+    }
+    for (int i = 0; i < nums.size(); i++) {
+        if (used[i]) continue;            // already in the current permutation
+        used[i] = true; path.push_back(nums[i]);   // CHOOSE
+        dfs(nums, used, path, results);            // RECURSE
+        path.pop_back(); used[i] = false;          // UN-CHOOSE: pop AND unmark
+    }
+}
+
+vector<vector<int>> permute(const vector<int>& nums) {
+    vector<vector<int>> results;
+    vector<int> path;
+    vector<bool> used(nums.size(), false);
+    dfs(nums, used, path, results);
+    return results;
+}`),
+  note("👑","N-Queens is the same skeleton with smarter pruning","Place one queen per row, recursing row by row. The &#8220;used&#8221; state is three boolean sets &#8212; columns taken, and the two diagonal directions (a cell's <code>row + col</code> identifies one diagonal, <code>row - col</code> the other). Before placing, you check those three; if the square is attacked you <code>continue</code>. That constraint check is the pruning, and it's brutal: it discards the vast majority of the n&#8319; raw placements before you ever recurse, which is the only reason an 8-, 12-, even 14-queens board solves instantly. The choose/recurse/un-choose loop underneath is identical to permutations."),
+  sub("Pruning is the whole game"),
+  p(`Bear down on this, because it's what separates a solution that runs from one that times out. The raw decision tree is exponential and there is no asymptotic trick that changes that &#8212; you cannot make &#8220;generate all permutations&#8221; sub-factorial, because there <em>are</em> n! of them. What you <em>can</em> do is refuse to walk subtrees that can't contain a valid leaf. Every prune deletes an entire exponential sub-tree for the cost of one cheap test. The earlier and cheaper the test, the more you save:`),
+  ul([
+    `<b>Sort + break.</b> Order the candidates so that once one choice violates a monotone bound (sum exceeds target, value too large), every later sibling does too &#8212; then <code>break</code> the loop, not <code>continue</code>.`,
+    `<b>Constraint checks.</b> N-Queens column/diagonal sets, sudoku row/col/box validity &#8212; test the move <em>before</em> recursing so you never descend into an already-broken board.`,
+    `<b>Feasibility / remaining-budget bounds.</b> If even the best-case completion of this branch can't beat your target or fit the remaining slots, abandon it now.`,
+  ]),
+  sub("Avoiding duplicate results"),
+  p(`When the input contains <em>repeated values</em>, the naive tree produces duplicate solutions &#8212; [1,2] generated twice because there were two indistinguishable 1's. The fix is a small, very common idiom: <b>sort first, then skip equal siblings at the same tree level.</b> Within one loop, if a candidate equals the previous candidate <em>and</em> that previous one wasn't the choice you just made on this level, skip it &#8212; otherwise you'd explore an identical subtree twice.`),
+  code(`sort(nums.begin(), nums.end());
+for (int i = start; i < nums.size(); i++) {
+    if (i > start && nums[i] == nums[i - 1]) continue;  // skip duplicate SIBLINGS
+    path.push_back(nums[i]);
+    dfs(nums, i + 1, path, results);
+    path.pop_back();
+}`),
+  idea("Read the i > start guard carefully","The condition is <code>i &gt; start &amp;&amp; nums[i] == nums[i-1]</code>, not just <code>nums[i] == nums[i-1]</code>. The <code>i &gt; start</code> part is essential: it permits the <em>first</em> occurrence of a repeated value to be chosen (so {1,1} is still reachable when there are two 1's), and only suppresses the <em>second-and-later</em> copies as siblings of the same parent. Drop the guard and you'd wrongly forbid legitimate repeats inside one combination."),
+  pit("Forgetting to un-choose","The number-one backtracking bug. If you <code>push_back</code> but never <code>pop_back</code>, the choice leaks out of its subtree and pollutes every sibling and cousin branch &#8212; results come back too long, full of stray elements, and you'll stare at it for ages. The discipline: every mutation on the way down gets a matching reversal on the way up, in the <em>opposite</em> order. If you set a <code>used</code> flag <em>and</em> pushed, you must clear the flag <em>and</em> pop."),
+  pit("Recording a reference instead of a copy","<code>results.push_back(path)</code> works because it copies the vector. If you instead stored a pointer or reference to the shared <code>path</code> (or moved it), every &#8220;saved&#8221; solution would alias the <em>same</em> mutating buffer, and by the end they'd all read identical (and wrong). When the recording line runs, you want a snapshot frozen in time &#8212; a value copy &#8212; not a live view of a vector you're about to mutate again."),
+  pit("Mishandling duplicates &#8212; wrong level or wrong dedupe","Two classic slips: deduping by the wrong rule (using a per-call <code>set</code> when sort + skip-sibling is cleaner, or vice-versa), and forgetting the <code>i &gt; start</code> half of the guard so you also kill valid repeats. Decide up front whether reuse is allowed and whether the input has duplicates &#8212; those two questions fully determine which template you're writing."),
+  note("🧠","Saying it out loud in the interview","Name the structure before you write a line: &#8220;This is generate-all, so it's backtracking &#8212; I'll do choose / recurse / un-choose over a decision tree.&#8221; Then state your two policy decisions: &#8220;elements reused or not&#8221; (i vs i+1) and &#8220;duplicates in the input&#8221; (sort + skip siblings). Then name your prune. Interviewers are listening for exactly that decomposition &#8212; template, policy, prune &#8212; and once you've said it, the code is mechanical."),
+  cx(`Time is <b>exponential</b> by nature &#8212; <b>O(2&#8319; &#183; n)</b> for subsets, <b>O(n! &#183; n)</b> for permutations (the &#215;n is copying each finished path) &#8212; because the output itself is that large. Recursion depth and the shared path make space <b>O(n)</b> beyond the results. Pruning doesn't change the worst-case asymptotics; it's what makes the <em>typical</em> case finish, by deleting whole subtrees the bound can't change.`),
   {t:"probs",items:[["Subsets","subsets","med"],["Combination Sum","combination-sum","med"],["N-Queens","n-queens","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"11",id:"graphs",color:"#0EA5E9",title:"Graphs",badge:"Week 7 · full lesson coming",blocks:[
-  cue(`<b>Spot it when:</b> nodes + edges, grids, connectivity, shortest paths, or dependencies ("do X before Y").`),
-  p(`Grids are graphs in disguise. BFS (a queue) finds shortest paths in unweighted graphs; DFS (recursion or a stack) explores connectivity and components; topological sort orders things with dependencies. Most solutions start by building an adjacency list, then run one of those traversals while tracking a <code>visited</code> set to avoid cycles.`),
-  cx(`Time <b>O(V + E)</b> (vertices + edges)`),
-  {t:"probs",items:[["Number of Islands","number-of-islands","med"],["Course Schedule","course-schedule","med"],["Word Ladder","word-ladder","hard"]]}
+{group:"Week 4+ · More Patterns",num:"11",id:"graphs",color:"#0EA5E9",title:"Graphs",badge:"Week 7 · Pattern",blocks:[
+cue(`<b>Spot it when:</b> the input is a network of things connected to other things &#8212; cities and roads, people and friendships, web pages and links, course prerequisites &#8212; or a grid where cells touch their neighbors. The giveaway words are <em>connected</em>, <em>reachable</em>, <em>shortest</em>, <em>cycle</em>, <em>component</em>, and <em>"do X before Y."</em> The moment a problem is about <em>relationships between items</em> rather than the items in a line, you're in graph territory.`),
+p(`A graph is the most general data structure there is: just <b>nodes</b> (also called vertices) and <b>edges</b> that connect pairs of them. Trees and linked lists are graphs with extra rules; an array of "who's next to whom" is a graph. Almost every graph interview problem reduces to the same two-step recipe &#8212; <em>pick a representation, then run a traversal</em> &#8212; so once those two moves are reflexive, the whole category gets a lot less scary.`),
+p(`Three properties describe any graph, and naming them early in an interview shows you know what you're looking at. <b>Directed vs undirected:</b> does an edge go both ways (friendship) or just one (a one-way street, a "follows" relationship)? <b>Weighted vs unweighted:</b> does each edge carry a cost &#8212; a distance, a time, a price &#8212; or is every hop equal? <b>Cyclic vs acyclic:</b> can you follow edges and end up back where you started? These three questions decide which algorithm you reach for; answer them first.`),
+sub("Representation: adjacency list vs matrix"),
+p(`Before you can traverse a graph you have to store it, and the choice of storage is the first real decision. The workhorse is the <b>adjacency list</b>: for each node, keep the list of its direct neighbors. In C++ that's a <code>vector&lt;vector&lt;int&gt;&gt;</code> when nodes are numbered <code>0..n-1</code>, or an <code>unordered_map&lt;T, vector&lt;T&gt;&gt;</code> when they're labelled with strings or arbitrary values. To visit a node's neighbors you just walk its list.`),
+svg("graphs_adjlist","An undirected graph and its adjacency list. Node 1 connects to 0, 2, and 3, so adj[1] = {0, 2, 3}. For an undirected edge you add it in both directions; for a directed edge, only one."),
+p(`The alternative is an <b>adjacency matrix</b>: an <code>n&#215;n</code> grid where <code>m[i][j]</code> is <code>1</code> (or the edge weight) if an edge exists, else <code>0</code>. It answers "is there an edge from i to j?" in O(1), which is occasionally what you need. But it always costs O(V&#178;) space whether the graph is dense or nearly empty, and iterating one node's neighbors means scanning a whole row of mostly zeros. For the sparse graphs that dominate interviews &#8212; where each node has only a handful of edges &#8212; the adjacency list wins on both memory and traversal speed.`),
+note("📌","Which one, and when",`Default to the <b>adjacency list</b>. It's O(V + E) space and lets a traversal touch each edge exactly once. Reach for the <b>matrix</b> only when the graph is dense (E approaches V&#178;), when you need constant-time "is there an edge?" lookups, or when the problem literally hands you a matrix already. In a real game engine you've already made this trade a hundred times &#8212; a navmesh adjacency list vs a tile-based grid &#8212; it's the same instinct here.`),
+sub("Grids are graphs in disguise"),
+p(`This is the single most useful reframe in the whole topic, because a huge fraction of "graph" interview problems never mention the word graph &#8212; they hand you a 2D grid. The trick: <em>every cell is a node, and its edges are its neighbors.</em> Usually that means the four orthogonal neighbors (up, down, left, right); sometimes eight if diagonals count. You don't build an adjacency list at all &#8212; the grid <em>is</em> the adjacency structure, and you compute neighbors on the fly with a direction table.`),
+code(`// the standard 4-direction trick: pair each dr with the matching dc
+int dr[] = {-1, 1, 0, 0};        // up, down, stay, stay
+int dc[] = {0, 0, -1, 1};        // stay, stay, left, right
+
+for (int d = 0; d < 4; d++) {
+    int nr = r + dr[d];          // neighbor row
+    int nc = c + dc[d];          // neighbor col
+    if (nr < 0 || nr >= rows) continue;   // off the top/bottom -> skip
+    if (nc < 0 || nc >= cols) continue;   // off the sides -> skip
+    // (nr, nc) is a valid neighbor cell -> treat it like an edge
+}`),
+p(`Internalize this little loop. "Islands," "rotting oranges," "flood fill," "shortest path in a maze," "surrounded regions" &#8212; they're all the same grid-as-graph traversal with different bookkeeping. Once you see the cells-as-nodes mapping, you write the same BFS or DFS you'd write for any graph.`),
+sub("BFS — breadth-first, the queue, shortest paths"),
+p(`<b>Breadth-first search</b> explores the graph in <em>rings</em>: first the source, then everything one hop away, then everything two hops away, and so on. You manage this with a <b>queue</b> (<code>std::queue</code>): dequeue a node, enqueue all its unvisited neighbors, repeat until the queue empties. Because you finish an entire "level" before touching the next one, the first time BFS reaches a node it has reached it by the <em>fewest possible hops</em>.`),
+svg("graphs_bfs","BFS fans out from the source in concentric frontiers. Everything at level 1 is one edge away; level 2 is two edges away. The level a node is discovered on equals its shortest-path distance from the source &#8212; which is exactly why BFS solves unweighted shortest path."),
+p(`That last sentence is the whole reason BFS matters: <b>in an unweighted graph, BFS finds the shortest path.</b> Every edge counts as one step, the rings grow by exactly one step each, so the level at which a node first appears <em>is</em> its minimum distance from the source. If an interviewer says "fewest moves," "shortest sequence," "minimum number of steps" on an unweighted graph or grid, BFS is the answer almost every time. (If the edges have <em>weights</em>, BFS breaks &#8212; that's Dijkstra's job, below.)`),
+note("📌","Mark visited at enqueue time, not dequeue time",`This is the BFS subtlety interviewers probe for. You must mark a node <code>visited</code> the moment you <em>enqueue</em> it &#8212; not when you later dequeue it. If you wait until dequeue, the same node can be enqueued many times before it's first processed (every neighbor that sees it adds another copy), which bloats the queue and can flip the algorithm from O(V + E) toward exponential. The rule: <em>a node enters the queue exactly once, and you flip its visited flag at that instant.</em>`),
+worked("Shortest path in an unweighted grid (BFS)","The canonical BFS: a queue of cells plus a distance, marking visited at enqueue. The first time we pop the target, its stored distance is the shortest. Note the visited mark happens right as we push the neighbor &#8212; never after popping.",
+`int shortestPath(const vector<vector<int>>& grid,
+                 pair<int,int> start, pair<int,int> goal) {
+    int rows = grid.size(), cols = grid[0].size();
+    vector<vector<bool>> visited(rows, vector<bool>(cols, false));
+    queue<tuple<int,int,int>> q;             // {row, col, distance}
+
+    auto [sr, sc] = start;
+    q.push({sr, sc, 0});
+    visited[sr][sc] = true;                  // mark AT enqueue, not dequeue
+
+    int dr[] = {-1, 1, 0, 0}, dc[] = {0, 0, -1, 1};
+    while (!q.empty()) {
+        auto [r, c, dist] = q.front(); q.pop();
+        if (make_pair(r, c) == goal) return dist;   // first hit = shortest
+        for (int d = 0; d < 4; d++) {
+            int nr = r + dr[d], nc = c + dc[d];
+            if (nr < 0 || nr >= rows || nc < 0 || nc >= cols) continue;
+            if (visited[nr][nc] || grid[nr][nc] == 1) continue;  // wall or seen
+            visited[nr][nc] = true;          // mark the instant we enqueue
+            q.push({nr, nc, dist + 1});
+        }
+    }
+    return -1;                               // goal unreachable
+}`),
+sub("DFS — depth-first, recursion or a stack, connectivity"),
+p(`<b>Depth-first search</b> does the opposite of BFS: instead of fanning out evenly, it plunges down one path as far as it can go, then backtracks and tries the next branch. You can write it two ways. The natural form is <em>recursion</em> &#8212; visit a node, then recurse into each unvisited neighbor &#8212; which leans on the call stack you met in the Stack lesson. The explicit form swaps the call stack for your own <code>std::stack</code> and loops. Same traversal, different bookkeeping.`),
+p(`DFS is the tool for <em>connectivity</em> questions: is everything reachable from here? How many separate <b>connected components</b> are there? Which cells form one blob? Because DFS commits fully to a region before moving on, it naturally "floods" a connected area &#8212; which is exactly what flood fill and island-counting need. BFS could do these too (any traversal that visits everything reachable works), but DFS is usually the shorter code for "explore this whole region."`),
+worked("Number of Islands (grid DFS / flood fill)","Walk every cell; each time we find unvisited land, that's a new island, and a DFS sinks the entire connected blob so we never count it twice. We mark visited by overwriting the cell to '0' in place &#8212; the classic flood-fill trick that saves a separate visited array.",
+`int numIslands(vector<vector<char>>& grid) {
+    int rows = grid.size(), cols = grid[0].size(), count = 0;
+
+    function<void(int,int)> sink = [&](int r, int c) {
+        if (r < 0 || r >= rows || c < 0 || c >= cols) return; // off-grid
+        if (grid[r][c] != '1') return;       // water or already-sunk land
+        grid[r][c] = '0';                     // mark visited by sinking it
+        sink(r - 1, c); sink(r + 1, c);       // flood the 4 neighbors
+        sink(r, c - 1); sink(r, c + 1);
+    };
+
+    for (int r = 0; r < rows; r++)
+        for (int c = 0; c < cols; c++)
+            if (grid[r][c] == '1') {          // fresh, unvisited land
+                count++;                      // a brand-new island
+                sink(r, c);                   // remove its whole body
+            }
+    return count;
+}`),
+idea("Why the visited set is non-negotiable",`Both BFS and DFS <em>must</em> track which nodes they've already seen, because real graphs have cycles &#8212; follow the edges and you loop back. Without a <code>visited</code> set you revisit nodes forever (infinite loop) or, on a branchy graph, re-explore the same subtrees exponentially. The visited check is what bounds the work to O(V + E): each node is processed once, each edge inspected a constant number of times. In the islands solution above, overwriting <code>'1'</code> to <code>'0'</code> <em>is</em> the visited set &#8212; a sunk cell can never be re-entered.`),
+sub("Topological sort — ordering by dependencies"),
+p(`Some graphs encode <em>"this must happen before that"</em>: course prerequisites, build targets, task schedules, package installs. A directed edge <code>A &#8594; B</code> means "A before B." A <b>topological sort</b> produces a linear ordering of all nodes that respects every such edge &#8212; a valid order to do the work. It only exists if the graph is a <b>DAG</b> (directed acyclic graph); a <em>cycle</em> means a circular dependency ("A needs B, B needs A"), and then no valid order exists at all. Detecting that cycle is itself the answer to a whole class of problems &#8212; <em>Course Schedule</em> is exactly "is this a DAG?"`),
+p(`The cleanest approach is <b>Kahn's algorithm</b>, which is just BFS driven by <em>in-degrees</em>. The in-degree of a node is how many edges point <em>into</em> it &#8212; how many prerequisites it still has unsatisfied. Start by enqueueing every node with in-degree 0 (no prerequisites). Each time you pop one, "complete" it: decrement the in-degree of each node it points to, and enqueue any that just hit zero. If you manage to output all <code>n</code> nodes this way, you found a valid order; if you get stuck with nodes still un-output, those nodes form a cycle.`),
+worked("Course Schedule (cycle detection via Kahn's BFS)","Build the graph and in-degree array from the prerequisite pairs, queue everything with no prerequisites, then peel nodes off layer by layer. If we manage to finish all n courses, there's no cycle; if some never reach in-degree 0, they're stuck in a dependency loop.",
+`bool canFinish(int n, const vector<vector<int>>& prereqs) {
+    vector<vector<int>> adj(n);              // adj[a] = courses that need a first
+    vector<int> indeg(n, 0);                 // indeg[b] = how many prereqs b has
+    for (const auto& p : prereqs) {          // p = {course, prereq}: prereq -> course
+        adj[p[1]].push_back(p[0]);
+        indeg[p[0]]++;
+    }
+
+    queue<int> q;
+    for (int i = 0; i < n; i++)
+        if (indeg[i] == 0) q.push(i);        // start with the no-prereq courses
+
+    int done = 0;
+    while (!q.empty()) {
+        int course = q.front(); q.pop();
+        done++;                              // this course is now satisfiable
+        for (int next : adj[course])
+            if (--indeg[next] == 0)          // one prereq cleared; all cleared?
+                q.push(next);                // -> it's ready, queue it
+    }
+    return done == n;                        // finished all -> no cycle -> valid
+}`),
+note("📌","The DFS alternative: post-order",`Topological sort can also be done with DFS: run DFS, and as each node <em>finishes</em> (all its descendants explored), push it onto a list; the <em>reverse</em> of that finish order is a valid topological ordering. To detect cycles this way you track nodes currently <em>on the recursion stack</em> &#8212; revisiting one of those means a back-edge, i.e. a cycle. Kahn's is usually easier to reason about under interview pressure (no recursion-color bookkeeping), but knowing both, and that they're equivalent, is the senior-level answer.`),
+sub("Awareness level: Dijkstra and Union-Find"),
+p(`Two more tools are worth recognizing by name even if you don't implement them cold. <b>Dijkstra's algorithm</b> is BFS's weighted cousin: when edges carry positive costs and you want the cheapest path, you replace the plain queue with a <b>min-heap</b> (<code>priority_queue</code>) so you always expand the closest-so-far node next. The mental tag: <em>"unweighted shortest path &#8594; BFS; weighted shortest path &#8594; Dijkstra with a heap."</em>`),
+p(`<b>Union-Find</b> (a disjoint-set union, or DSU) is a tiny structure for the question "are these two nodes in the same connected group?" answered nearly in O(1). You <code>union</code> two nodes to merge their groups and <code>find</code> a node's group representative; with path compression it's almost constant time. It shines for incremental connectivity &#8212; counting components as edges are added, detecting whether adding an edge closes a cycle (Kruskal's MST, "redundant connection"). You don't need it for the three problems below, but when a problem is purely "group these and ask who's connected," DSU is often the cleanest tool.`),
+sub("Common pitfalls"),
+pit("No visited set &#8594; infinite loop or exponential blowup",`The number-one graph bug. Any graph with a cycle will trap an unguarded traversal forever; even an acyclic-but-branchy graph re-explores shared subtrees exponentially. Always have a <code>visited</code> structure &#8212; a <code>vector&lt;bool&gt;</code>, an <code>unordered_set</code>, or an in-place marker like sinking grid cells to <code>'0'</code> &#8212; and check it before you recurse or enqueue.`),
+pit("BFS: marking visited at dequeue instead of enqueue",`If you mark a node visited only when you pop it, every neighbor that sees it will push another copy first. The queue fills with duplicates, you do redundant work, and the clean O(V + E) bound is gone. Flip the visited flag at the <em>moment you enqueue</em>, so each node enters the queue exactly once.`),
+pit("Off-by-one / out-of-bounds on grid neighbors",`The four-direction loop is where boundary bugs live. Check <code>nr/nc</code> against <code>[0, rows)</code> and <code>[0, cols)</code> <em>before</em> indexing the grid &#8212; an unchecked <code>grid[nr][nc]</code> at the edge is undefined behavior, not a clean error. Order matters: bounds-check first, <em>then</em> look at the cell's contents.`),
+pit("Deep DFS recursion blows the call stack",`Callback to the Stack lesson: recursion <em>is</em> the call stack, and a DFS on a graph with hundreds of thousands of nodes (a long grid corridor, a degenerate chain) can overflow it and crash. On large inputs, convert the recursive DFS to an iterative one with an explicit <code>std::stack</code> &#8212; same traversal, but the stack lives on the heap where it can grow. Or use BFS, whose queue has the same protection.`),
+idea("The interview framing",`Narrate the recipe out loud: <em>"This is a graph &#8212; nodes are the cells, edges are the four neighbors. I want the fewest steps, so I'll BFS from the source, marking visited at enqueue, and the first time I reach the goal that distance is the answer; it's O(V + E)."</em> Stating the representation, the traversal choice with its reason, the visited discipline, and the complexity &#8212; in one breath, before writing code &#8212; is exactly what reads as fluency to an interviewer.`),
+cx(`Both BFS and DFS visit every node once and every edge a constant number of times, so a traversal is <b>O(V + E)</b> time. Space is <b>O(V)</b> for the visited set plus the queue or recursion stack. An adjacency list is <b>O(V + E)</b> space; a matrix is <b>O(V&#178;)</b>.`),
+{t:"probs",items:[["Number of Islands","number-of-islands","med"],["Course Schedule","course-schedule","med"],["Word Ladder","word-ladder","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"12",id:"dp",color:"#84CC16",title:"Dynamic Programming",badge:"Week 8 · full lesson coming",blocks:[
-  cue(`<b>Spot it when:</b> overlapping subproblems plus a "min / max / number of ways" that builds on smaller answers.`),
-  p(`Define the subproblem in one sentence first ("<code>dp[i]</code> = the best answer using the first i items"). Then find the recurrence — how <code>dp[i]</code> is built from earlier <code>dp</code> values — and fill the table. Always start from the plain recursive brute force, confirm it's correct, then add memoization to cache repeated subproblems. DP is the pattern most worth slowing down on; it rewards understanding over memorization.`),
-  cx(`Usually <b>O(n)</b> or <b>O(n·m)</b>`),
+{group:"Week 4+ · More Patterns",num:"12",id:"dp",color:"#84CC16",title:"Dynamic Programming",badge:"Week 8 · Pattern",blocks:[
+  cue(`<b>Spot it when:</b> the question asks for a <em>min / max / longest / count of ways</em>, you make a <em>choice at each step</em> (take it or skip it, this coin or that one), and a brute-force solution would keep recomputing the same smaller problem. That last tell is the real one: if your recursion solves <code>f(3)</code> over and over, you're looking at dynamic programming.`),
+  p(`Dynamic programming sounds intimidating and isn't. Strip the name away and it's one idea: <em>solve each smaller subproblem exactly once, remember the answer, and build the big answer out of the small ones.</em> No clever data structure, no trick &#8212; just recursion with a memory. The reason it has a reputation is that the hard part isn't the code (the loop is usually four lines); it's <em>defining the subproblem</em>. Get the definition right and the rest is mechanical. This is the topic most worth slowing down on, because the payoff is recognizing a whole family of problems as the same problem.`),
+  sub("The two preconditions: when DP even applies"),
+  p(`DP works on a problem only when two things are true. First, <b>overlapping subproblems</b>: the same smaller problem comes up again and again as you break the big one down. (If every subproblem were distinct, caching would buy you nothing &#8212; that's plain divide-and-conquer, like merge sort.) Second, <b>optimal substructure</b>: the best answer to the whole is built out of the best answers to its parts. The cheapest way to make 11 cents is one coin plus the cheapest way to make the remaining amount &#8212; the optimal big answer reuses optimal small answers. When both hold, you can compute each subproblem once and combine.`),
+  ul([
+    `<b>Overlapping subproblems</b> &#8594; caching pays off. The naive recursion revisits the same inputs; storing them collapses exponential work to polynomial.`,
+    `<b>Optimal substructure</b> &#8594; the recurrence is valid. You can express the answer for size <code>n</code> in terms of answers for smaller sizes, and combining optimal parts gives an optimal whole.`,
+    `<b>Missing either?</b> It's not DP. No overlap means divide-and-conquer; no optimal substructure (the parts interfere) means you may need a different technique entirely.`,
+  ]),
+  sub("The recipe: four questions, in order"),
+  p(`Every DP problem yields to the same four-step ritual. Interviewers want to <em>hear</em> you walk through it &#8212; narrating these steps out loud is half the signal. The order matters: each answer constrains the next.`),
+  ul([
+    `<b>1. Define the subproblem in one sentence.</b> "<code>dp[i]</code> = the best answer using the first <code>i</code> items," or "<code>dp[i]</code> = the best answer <em>ending at</em> index <code>i</code>." If you can't say it in one clean sentence, stop &#8212; a fuzzy definition is the #1 cause of a wrong solution.`,
+    `<b>2. Find the recurrence.</b> How is <code>dp[i]</code> built from earlier <code>dp</code> values? Almost always it's a <em>choice</em>: take this item or skip it, use this coin or don't &#8212; take the min/max/sum over the options.`,
+    `<b>3. Set the base cases.</b> The smallest inputs you can answer with no recursion: <code>dp[0]</code>, an empty string, amount zero. Get these wrong and the whole table is poisoned.`,
+    `<b>4. Decide the iteration order.</b> Fill the table so that every value a cell needs is already computed when you reach it. For 1D that's usually just left-to-right; for 2D it's row-by-row.`,
+  ]),
+  note(`&#128205;`,"Subproblem definition is the whole game",`If you take one thing from this lesson: <b>nail the subproblem sentence before writing any code.</b> "<code>dp[amount]</code> = the minimum number of coins that sum to exactly <code>amount</code>" is a good definition &#8212; precise, one number per state, obviously composable. "<code>dp[i]</code> = something about the array up to <code>i</code>" is a bad one, because "something" hides the bug. Nearly every failed DP attempt traces back to a definition that was ambiguous or didn't actually compose. Spend your time here.`),
+  sub("Memoization vs tabulation: same idea, two directions"),
+  p(`Once you have a recurrence, there are two ways to realize it, and they compute identical values &#8212; just in opposite order. <b>Memoization</b> (top-down) is the natural one: write the plain recursion exactly as the recurrence reads, then add a cache so each input is computed once. <b>Tabulation</b> (bottom-up) flips it: start from the base cases and fill a table iteratively until you reach the answer. Top-down is easier to <em>derive</em> (it's just your recursion plus a map); bottom-up is usually faster and avoids deep call stacks, and it's what unlocks the space optimizations below.`),
+  ul([
+    `<b>Memoization (top-down).</b> Recurse as the recurrence dictates; before doing work, check a cache; after computing, store the result. You only ever fill the subproblems you actually reach.`,
+    `<b>Tabulation (bottom-up).</b> Allocate the table, seed the base cases, loop in dependency order filling each cell from earlier ones. You fill every cell, but with no recursion overhead.`,
+    `<b>Which to use?</b> Reach for memoization first in an interview &#8212; it's the most direct translation of your recurrence and the hardest to get wrong. Convert to tabulation if you need the speed or the space trick.`,
+  ]),
+  sub("Always start from the brute force"),
+  p(`Here's the workflow that never fails you under pressure: <b>write the plain recursive brute force first, confirm it's correct, then add a cache.</b> Don't try to invent the table directly &#8212; that's where people freeze. The brute force <em>is</em> the recurrence written as code; once it's right, memoizing is a two-line edit. And the contrast between the two makes the payoff vivid. Take Fibonacci, the canonical example. The naive recursion recomputes the same values an exponential number of times:`),
+  code(`// Naive: correct, but recomputes everything. O(2^n) time.
+long long fib(int n) {
+    if (n <= 1) return n;                 // base cases
+    return fib(n - 1) + fib(n - 2);       // the recurrence
+}`),
+  p(`Recall the recursion-tree picture from the Big-O lesson: this tree branches two ways at every level and is <code>n</code> deep, so it has on the order of <code>2&#8319;</code> nodes &#8212; and most of them recompute a value that was already computed elsewhere in the tree. <code>fib(50)</code> launches over a billion calls. The diagram below shows the overlap: <code>fib(3)</code> shows up twice, <code>fib(2)</code> three times, all redone from scratch.`),
+  svg("dp_memo","The recursion tree for fib(5). The same subproblems recur all over the tree &#8212; fib(3) twice, fib(2) three times &#8212; and naive recursion redoes each one. A memo computes each value exactly once, collapsing O(2^n) to O(n)."),
+  worked("Climbing Stairs / Fibonacci: brute force &#8594; memo &#8594; O(1) space","The same recurrence, three ways. Climbing Stairs is literally Fibonacci: the ways to reach step n = ways to reach n-1 (take 1 step) + ways to reach n-2 (take 2). First memoize the brute force; then notice you only ever read the last two values, so you can throw the whole array away.",
+`// (1) Top-down memo: the brute force plus a cache. O(n) time, O(n) space.
+long long climbMemo(int n, vector<long long>& memo) {
+    if (n <= 2) return n;                  // 1 way to step 1, 2 ways to step 2
+    if (memo[n] != -1) return memo[n];     // already solved -> reuse
+    memo[n] = climbMemo(n - 1, memo) + climbMemo(n - 2, memo);
+    return memo[n];
+}
+
+// (2) Bottom-up table: same values, filled iteratively. O(n) time, O(n) space.
+int climbTable(int n) {
+    if (n <= 2) return n;
+    vector<int> dp(n + 1);
+    dp[1] = 1; dp[2] = 2;                  // base cases
+    for (int i = 3; i <= n; i++)
+        dp[i] = dp[i - 1] + dp[i - 2];     // each step from the two before it
+    return dp[n];
+}
+
+// (3) Rolling variables: only the last two values are ever needed. O(1) space.
+int climbOptimal(int n) {
+    if (n <= 2) return n;
+    int prev2 = 1, prev1 = 2;              // dp[i-2], dp[i-1]
+    for (int i = 3; i <= n; i++) {
+        int cur = prev1 + prev2;
+        prev2 = prev1;                     // slide the window forward
+        prev1 = cur;
+    }
+    return prev1;
+}`),
+  idea("The memoization edit is mechanical","Notice what turned the O(2^n) brute force into O(n): one cache lookup at the top, one store at the bottom. That's the entire transformation. In an interview, write the naive recursion, say \"this recomputes subproblems, so I'll memoize,\" then add those two lines. You don't have to be clever &#8212; you have to be systematic."),
+  sub("1D DP: a table indexed by one number"),
+  p(`The Fibonacci family is <em>1D</em> DP: the state is a single index, so the answer lives in a one-dimensional array <code>dp[i]</code>. Most "min/max/count along a sequence" problems are 1D &#8212; house robber, climbing stairs, longest increasing subsequence, and the coin-change problem below. The pattern is always: one number identifies a subproblem, and <code>dp[i]</code> combines a few earlier entries. The canonical 1D <em>optimization</em> problem &#8212; the one that shows up constantly &#8212; is coin change.`),
+  worked("Coin Change: fewest coins to make an amount","Subproblem: dp[a] = the minimum number of coins that sum to exactly a. Recurrence: for each coin c, making a costs 1 + dp[a - c] (use one c, then optimally make the rest). Take the min over all coins. Base case dp[0] = 0. This is 'unbounded' &#8212; coins can repeat &#8212; which is why the inner loop tries every coin at every amount.",
+`int coinChange(const vector<int>& coins, int amount) {
+    const int INF = amount + 1;                  // sentinel: 'impossible', bigger than any real answer
+    vector<int> dp(amount + 1, INF);             // dp[a] = fewest coins for amount a
+    dp[0] = 0;                                   // base case: zero coins make zero
+    for (int a = 1; a <= amount; a++) {          // fill amounts in increasing order
+        for (int c : coins) {                    // try every coin as the last one used
+            if (c <= a && dp[a - c] + 1 < dp[a]) // can we afford c, and does it help?
+                dp[a] = dp[a - c] + 1;           // one c plus the best way to make a - c
+        }
+    }
+    return dp[amount] > amount ? -1 : dp[amount]; // still INF -> no combination works
+}`),
+  p(`Why does iterating <code>a</code> from small to large work? Because <code>dp[a]</code> only ever reads <code>dp[a - c]</code> for positive <code>c</code> &#8212; strictly smaller amounts &#8212; and those are already final by the time we reach <code>a</code>. That's step 4 of the recipe in action: the iteration order guarantees every dependency is ready. Flip the loops or count down and you'd be reading values that aren't filled yet.`),
+  note(`&#128202;`,"Number-of-ways is the same skeleton",`Swap <code>min</code> for <code>+</code> and you get the counting variant. "<em>How many ways</em> to make this amount" uses <code>dp[a] += dp[a - c]</code> with <code>dp[0] = 1</code>; "<em>how many ways</em> to climb" uses <code>dp[i] = dp[i-1] + dp[i-2]</code>. The recurrence skeleton &#8212; "combine the subproblems reachable in one choice" &#8212; is shared; only the combine operator changes (min/max for optimization, sum for counting). Spotting that they're the same problem is the level-up.`),
+  sub("2D DP: a grid over two inputs"),
+  p(`When the state needs <em>two</em> indices &#8212; a position in string A and a position in string B, a row and a column &#8212; the table becomes a 2D grid <code>dp[i][j]</code>. This is the family for problems comparing two sequences (edit distance, longest common subsequence) or moving through a grid (unique paths, minimum path sum). The mechanics don't change; there's just one more loop, and the iteration order has to respect dependencies in two directions. The flagship is <b>edit distance</b>: the minimum number of single-character insertions, deletions, or replacements to turn one string into another.`),
+  p(`The subproblem: <code>dp[i][j]</code> = the edit distance between the first <code>i</code> characters of word A and the first <code>j</code> characters of word B. The recurrence reads off the three operations directly. If the current characters match, you pay nothing and inherit the diagonal, <code>dp[i-1][j-1]</code>. If they differ, you take <code>1 +</code> the cheapest of three neighbors: <em>delete</em> a char from A (<code>dp[i-1][j]</code>, the cell above), <em>insert</em> a char into A (<code>dp[i][j-1]</code>, the cell to the left), or <em>replace</em> (<code>dp[i-1][j-1]</code>, the diagonal). Each cell depends only on its top, left, and diagonal &#8212; so filling row by row, left to right, always has them ready.`),
+  svg("dp_grid","The edit-distance table for HORSE &#8594; ROS. Each cell dp[i][j] is built from three already-filled neighbors: top (delete), left (insert), and diagonal (replace, or free if the characters match). Filling row by row keeps every dependency ready; the bottom-right cell is the answer."),
+  worked("Edit Distance: the canonical 2D grid","Base cases form the first row and column: turning a string of length k into the empty string takes k deletions, so dp[i][0] = i and dp[0][j] = j. Then each interior cell is one min over the three operations. The bottom-right corner holds the answer. O(n*m) time and space.",
+`int minDistance(const string& a, const string& b) {
+    int n = a.size(), m = b.size();
+    vector<vector<int>> dp(n + 1, vector<int>(m + 1));   // (n+1) x (m+1) grid
+    for (int i = 0; i <= n; i++) dp[i][0] = i;           // a[0..i) -> "" : i deletions
+    for (int j = 0; j <= m; j++) dp[0][j] = j;           // "" -> b[0..j) : j insertions
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            if (a[i - 1] == b[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1];              // chars match -> free, take diagonal
+            } else {
+                dp[i][j] = 1 + min({ dp[i - 1][j],       // delete from a (cell above)
+                                     dp[i][j - 1],       // insert into a (cell to the left)
+                                     dp[i - 1][j - 1] }); // replace      (the diagonal)
+            }
+        }
+    }
+    return dp[n][m];                                      // edits over the full strings
+}`),
+  pit("Watch the index offset between the table and the strings",`The table is sized <code>(n+1) &#215; (m+1)</code> so row/column 0 can represent the empty prefix &#8212; which means <code>dp[i][j]</code> compares <code>a[i-1]</code> and <code>b[j-1]</code>, <em>not</em> <code>a[i]</code> and <code>b[j]</code>. That off-by-one between "the first <code>i</code> characters" and "index <code>i</code>" is the single most common 2D-DP bug. Decide up front that table index <code>i</code> means "<code>i</code> characters consumed," and the string index is always <code>i - 1</code>.`),
+  sub("Space optimization: you rarely need the whole table"),
+  p(`Look back at the three Fibonacci versions: the O(1)-space one works because <code>dp[i]</code> only reads <code>dp[i-1]</code> and <code>dp[i-2]</code> &#8212; the last two values. Once a value is two steps behind, it's never read again, so storing the full array is wasted memory. The general principle: <b>if <code>dp[i]</code> only depends on a fixed window of recent entries, keep just that window in a few rolling variables.</b> This drops 1D problems from O(n) space to O(1).`),
+  p(`The same trick works in 2D. Edit distance's <code>dp[i][j]</code> reads only from row <code>i</code> and row <code>i-1</code> &#8212; never row <code>i-2</code> or earlier. So you can keep <em>two rows</em> (or even one, with care) instead of the whole grid, cutting space from O(n&#183;m) to O(m). The time stays the same; you're just not hoarding rows you'll never look at again. Mentioning this optimization after you've got a working table is a clean way to show depth &#8212; "this is O(n&#183;m) space, but since each row only needs the previous one, I can reduce it to O(m)."`),
+  idea("Optimize space only after correctness","Write the full-table version first and get it right; the rolling-array version is an optimization, not a starting point. Squeezing to O(1) space up front is exactly how off-by-one bugs sneak in (you overwrite a value you still needed). Correct-then-optimize is the order that keeps you out of trouble &#8212; and interviewers would rather see a correct O(n) table than a buggy O(1) attempt."),
+  sub("How to recognize DP in the room"),
+  p(`You won't be told "this is a DP problem." The signals, in rough order of reliability: the prompt asks for a <em>minimum, maximum, longest, shortest, or count of ways</em>; there's a <em>sequence of choices</em> where each choice constrains the next; and your first instinct &#8212; a brute-force recursion trying all options &#8212; would <em>recompute the same subproblem</em> many times. When you notice that last one, say it: "the brute force recomputes overlapping subproblems, so I'll memoize." That single sentence frames the whole solution and tells the interviewer you've recognized the pattern.`),
+  ul([
+    `<b>"Min / max / longest / count of ways."</b> Optimization or counting over a structure is the loudest DP tell.`,
+    `<b>A choice at each step.</b> Take it or skip it; this coin or that; cut here or there. The choices compound, and you want the best combination.`,
+    `<b>A brute force that recomputes.</b> If your recursion solves the same smaller instance repeatedly, caching it is DP. This is the precondition (overlapping subproblems) showing up in practice.`,
+  ]),
+  sub("The pitfalls that sink DP solutions"),
+  pit("A wrong or ambiguous subproblem definition",`This is the #1 failure, full stop. If <code>dp[i]</code> means something fuzzy &#8212; or means two different things in different lines of your code &#8212; nothing downstream can be correct, and you'll waste the whole interview debugging a recurrence that was never sound. Force yourself to write the one-sentence definition first and check that the recurrence and base cases both speak to <em>that exact</em> definition. "Best answer ending at <code>i</code>" and "best answer using the first <code>i</code>" are different subproblems with different recurrences &#8212; pick one and stay consistent.`),
+  pit("Missing or wrong base cases",`The recurrence only covers the inductive step; the base cases are the floor it stands on. Forget <code>dp[0] = 0</code> in coin change, or seed it with the wrong value, and every cell built on it inherits the error silently. Before trusting a table, hand-check the smallest inputs: does <code>dp[0]</code> / the empty-string row / amount-zero actually hold the right answer? Base-case bugs don't crash &#8212; they just quietly return a number that's off.`),
+  pit("Iterating in an order where a dependency isn't ready yet",`<code>dp[i]</code> must be computed <em>after</em> everything it reads. If you fill the table in the wrong direction &#8212; counting down when the recurrence reads smaller indices, or looping the two strings in the wrong nesting &#8212; you'll read cells that are still at their initial value and get a wrong (not crashing) answer. After you write the recurrence, trace which earlier cells it touches and make the loop order put those first.`),
+  pit("Off-by-one on the table size",`Sizing the table is where indices bite. A 1D table over amounts <code>0..amount</code> needs <code>amount + 1</code> slots; a 2D string table needs <code>(n+1) &#215; (m+1)</code> so the empty prefix gets row/column 0. Allocate one too few and you index out of bounds (or, worse, silently truncate the answer). When the table has a "size 0" base case &#8212; empty string, zero amount &#8212; remember the <code>+1</code>.`),
+  idea("The interview narration that lands","Walk the four steps out loud: \"Subproblem: dp[i] is X. Recurrence: dp[i] is the min over these choices. Base case: dp[0] is Y. I'll fill it in this order so dependencies are ready.\" Then: \"I'll start with the recursive brute force, confirm it, and memoize the overlapping subproblems.\" Saying this before you code is the difference between looking like you memorized a solution and looking like you can derive one. The recipe is the skill; the table is just bookkeeping."),
+  cx(`Typically <b>O(n)</b> states for 1D or <b>O(n&#183;m)</b> for 2D, each filled in O(1) (or O(choices)) &#8212; so <b>O(n)</b> / <b>O(n&#183;m)</b> time. Space matches the table, but often drops to <b>O(1)</b> or <b>O(m)</b> with a rolling window.`),
   {t:"probs",items:[["Climbing Stairs","climbing-stairs","easy"],["Coin Change","coin-change","med"],["Edit Distance","edit-distance","hard"]]}
 ]},
-{group:"Week 4+ · More Patterns",num:"13",id:"intervals",color:"#F59E0B",title:"Intervals",badge:"Week 8 · full lesson coming",blocks:[
-  cue(`<b>Spot it when:</b> ranges with a start and end — overlaps, merging, or scheduling.`),
-  p(`Almost always step one: sort by start time. After that a single left-to-right pass lets you ask "does this interval start before the previous one ended?" — and from that one check you can merge overlaps, count them, or schedule. The sort dominates the cost, so these are O(n log n).`),
-  cx(`Time <b>O(n log n)</b> — the sort dominates`),
-  {t:"probs",items:[["Merge Intervals","merge-intervals","med"],["Insert Interval","insert-interval","med"],["Non-overlapping Intervals","non-overlapping-intervals","med"]]}
+{group:"Week 4+ · More Patterns",num:"13",id:"intervals",color:"#F59E0B",title:"Intervals",badge:"Week 8 · Pattern",blocks:[
+cue(`<b>Spot it when:</b> the input is a list of <code>[start, end]</code> ranges and the question is about <em>overlap</em> — merge the ones that touch, insert a new range, count how many you must drop, or find how many fit at once (meeting rooms). Any prompt with "intervals," "ranges," "meetings," "appointments," or "[start, end]" pairs is pointing here.`),
+p(`An interval is just a pair: a <code>start</code> and an <code>end</code> bounding a range on a number line — a meeting from 9 to 10, a segment from index 3 to 7. On their own they're trivial. What makes the family its own pattern is that the interesting questions are all about how intervals <em>relate</em>: do two of them collide, can you fuse a cluster into one, how few can you keep so none collide. The brute force is to compare every pair — O(n&#178;) — but almost every interval problem collapses to O(n log n) the moment you do the one move that defines the pattern.`),
+idea("The one move: sort first","Raw intervals arrive in arbitrary order, and arbitrary order hides the structure. <em>Sort them</em> — almost always by <code>start</code>, occasionally by <code>end</code> — and suddenly a single left-to-right sweep can answer the whole question, because once they're ordered you only ever have to compare each interval against the one you're currently holding, never against all the rest. The sort is the algorithm; the sweep after it is bookkeeping."),
+p(`Before any of that, you need the primitive everything is built on: <em>do two intervals overlap?</em> Get this test exactly right and the rest of the pattern is mechanical.`),
+sub("The overlap test (memorize this)"),
+p(`Two intervals <code>[a, b]</code> and <code>[c, d]</code> overlap <em>if and only if</em> <code>a &lt;= d &amp;&amp; c &lt;= b</code>. That looks fiddly, so reason about its opposite instead, which is far easier to see: two ranges <em>fail</em> to overlap only when one sits entirely to the left of the other — either <code>b &lt; c</code> (the first ends before the second starts) or <code>d &lt; a</code> (the second ends before the first starts). Negate that "one of these two disjoint cases" and you get exactly <code>a &lt;= d &amp;&amp; c &lt;= b</code>. So the overlap condition is really "neither one finishes before the other begins."`),
+svg("intervals_overlap","Two intervals overlap exactly when neither finishes before the other starts: a &#8804; d and c &#8804; b. In the disjoint case the second range begins after the first ends, so c &gt; b and the test is false."),
+note("📌","Once sorted by start, the test simplifies",`After you sort by <code>start</code>, you compare each interval only against the one before it, and you already know the earlier one started first — so <code>a &lt;= c</code> is guaranteed and half the test is free. Overlap then reduces to the single check <code>c &lt;= b</code>: <em>does this interval start at or before the previous one ended?</em> That one comparison is the engine of the whole sweep — it's what you'll write in merge, in insert, and in scheduling.`),
+pit("Do touching endpoints count as overlapping?",`Does <code>[1, 2]</code> overlap <code>[2, 3]</code>? With the <code>&lt;=</code> test above, yes — they share the point 2. But many scheduling problems treat <code>end</code> as exclusive (a meeting "ending at 2" frees the room at 2, so a meeting "starting at 2" is fine). That flips the comparison to strict <code>&lt;</code>. There is no universal answer — it depends on the convention. <b>Ask the interviewer:</b> "are these closed intervals, and do shared endpoints count as a conflict?" Picking the wrong one silently merges (or splits) one interval at the boundary.`),
+sub("Worked example 1: merge intervals"),
+p(`The canonical problem: given a pile of intervals, fuse every group that overlaps into one. Sort by <code>start</code>, then sweep. Hold a "current" merged interval; for each next interval, ask the one simplified question — <em>does it start at or before the current one's end?</em> If yes, they overlap, so extend the current interval's end to the larger of the two ends (the next interval might end sooner <em>or</em> later — don't blindly overwrite). If no, the current interval is finished: push it to the output and make the next interval the new current.`),
+svg("intervals_merge","Sorted by start, the sweep fuses [1,4]+[3,6] into [1,6] and [8,10]+[9,12] into [8,12]. The merged end is always max(current end, next end) — never just the next end, since the incoming interval can finish earlier."),
+worked("Merge all overlapping intervals","Sort by start so overlaps are always adjacent. Carry one 'current' interval; extend it while the next overlaps, otherwise flush it and start fresh. The max on the end is the line people forget — the next interval can be nested entirely inside the current one.",
+`vector<vector<int>> merge(vector<vector<int>>& intervals) {
+    sort(intervals.begin(), intervals.end());   // by start (first element)
+    vector<vector<int>> out;
+    for (const auto& iv : intervals) {
+        // no current, or current ends before this one starts -> disjoint
+        if (out.empty() || out.back()[1] < iv[0]) {
+            out.push_back(iv);                   // start a new merged block
+        } else {
+            out.back()[1] = max(out.back()[1], iv[1]);  // extend the end
+        }
+    }
+    return out;
+}`),
+idea("Why adjacency is enough","After sorting by start, if interval i overlaps interval i+2, it must also overlap i+1 — because i+1 started no later than i+2 and (since it overlaps i) no earlier than i's start. So overlapping intervals form contiguous runs, and you never need to look back past the current merged block. That's the whole reason one linear sweep suffices instead of all-pairs comparison."),
+sub("Worked example 2: insert a new interval"),
+p(`Now a twist: you're handed a list that is <em>already</em> sorted and non-overlapping, plus one new interval to splice in. You could just append it and re-run merge, but there's a cleaner O(n) pass that exploits the existing sort. Walk the list once and bucket each existing interval into one of three phases relative to the new one:`),
+ul([
+  `<b>Entirely before</b> the new interval (<code>existing.end &lt; new.start</code>) — it can't overlap, so copy it straight to the output.`,
+  `<b>Overlapping</b> the new interval — don't emit it yet; instead <em>absorb</em> it into the new interval by widening <code>new.start = min(...)</code> and <code>new.end = max(...)</code>. Keep doing this for the whole overlapping run.`,
+  `<b>Entirely after</b> the new interval (<code>existing.start &gt; new.end</code>) — the merged new interval is now final, so push it once, then copy the rest verbatim.`,
+]),
+p(`Because the input was pre-sorted, these three phases occur in exactly that order — a block of "before," then a contiguous run of "overlapping," then a block of "after" — so a single forward pass handles all three with no sorting at all. This is the version interviewers like, because it shows you noticed the input was already ordered and didn't waste an O(n log n) sort.`),
+worked("Insert and merge into a sorted, non-overlapping list","Three phases in order: copy everything that ends before the new one starts, swallow the overlapping run into the new interval, then drop the merged result and copy the tail. One linear pass, no sort needed — the input is already sorted.",
+`vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int> ni) {
+    vector<vector<int>> out;
+    int i = 0, n = intervals.size();
+    // phase 1: intervals entirely before the new one
+    while (i < n && intervals[i][1] < ni[0])
+        out.push_back(intervals[i++]);
+    // phase 2: absorb every interval that overlaps the new one
+    while (i < n && intervals[i][0] <= ni[1]) {
+        ni[0] = min(ni[0], intervals[i][0]);
+        ni[1] = max(ni[1], intervals[i][1]);
+        i++;
+    }
+    out.push_back(ni);                 // the fully merged new interval
+    // phase 3: intervals entirely after
+    while (i < n)
+        out.push_back(intervals[i++]);
+    return out;
+}`),
+pit("Don't emit the new interval too early",`The bug is pushing <code>ni</code> at the first overlap. You must keep widening it across the <em>entire</em> overlapping run and push it exactly once, after the run ends. Push it inside the loop and you'll emit a half-merged fragment, then more fragments — splitting one interval into several. The single <code>out.push_back(ni)</code> sits <em>between</em> the overlap loop and the tail loop for a reason.`),
+sub("Worked example 3: non-overlapping intervals (scheduling)"),
+p(`Here the sort key flips, and that flip is the whole lesson. The question: given a set of intervals, what's the <em>minimum</em> number to remove so the rest don't overlap? Equivalently — keep as many non-overlapping intervals as possible. This is the classic <b>activity-selection</b> problem, and the greedy answer is famous: <em>sort by <code>end</code> time, and always keep the interval that finishes earliest.</em>`),
+p(`The intuition is worth internalizing because it's not obvious. When two intervals conflict, which should you keep? The one that <em>ends sooner</em> — because it leaves the most room on the number line for everything after it, and it can never be a worse choice than the one ending later (anything the early-finisher conflicts with, the late-finisher also conflicts with). So you sweep left to right tracking the end of the last interval you kept; if the next interval starts before that end, it overlaps and you discard it (count a removal); otherwise it's safe, so keep it and advance the boundary.`),
+worked("Minimum removals to make intervals non-overlapping","Sort by END, not start. Greedily keep the earliest-finishing interval; whenever the next one starts before your kept boundary, it conflicts, so count it as a removal and skip it. Everything you don't remove is the largest non-overlapping set.",
+`int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+    if (intervals.empty()) return 0;
+    sort(intervals.begin(), intervals.end(),
+         [](const vector<int>& a, const vector<int>& b) {
+             return a[1] < b[1];          // sort by END time
+         });
+    int removed = 0;
+    int prevEnd = intervals[0][1];        // boundary of the last kept interval
+    for (int i = 1; i < (int)intervals.size(); i++) {
+        if (intervals[i][0] < prevEnd) {  // starts before we're free -> conflict
+            removed++;                    // drop the later-ending one (this one)
+        } else {
+            prevEnd = intervals[i][1];    // no conflict -> keep, advance boundary
+        }
+    }
+    return removed;
+}`),
+pit("Merging sorts by start; scheduling sorts by end",`This is the single most common interval mistake. <b>Merging</b> overlaps needs sort-by-<code>start</code> so that overlapping intervals land next to each other. <b>Greedy scheduling</b> (max non-overlapping set, max meetings in one room) needs sort-by-<code>end</code> so that "keep the earliest finisher" is even expressible. Sort by the wrong key and the sweep still runs — it just returns a confidently wrong answer. Before you write the comparator, ask: am I fusing ranges (start) or selecting a conflict-free subset (end)?`),
+sub("Awareness: the sweep line and meeting rooms"),
+p(`One more idea worth recognizing even if you don't drill it: the <b>sweep line</b>, and its poster child "minimum meeting rooms." The question — what's the most intervals that are active <em>at the same instant</em>? — equals the minimum number of rooms you need, because each concurrently-active meeting demands its own room. The trick is to stop thinking in whole intervals and think in <em>events</em>: every interval contributes a <code>+1</code> at its start and a <code>-1</code> at its end. Sort all those event points by time and sweep through them, keeping a running counter; the <em>peak</em> the counter reaches is the maximum concurrency, i.e. the room count.`),
+p(`A common equivalent implementation skips the explicit events: sort the starts and ends into two separate arrays and walk them together, or — the version most people reach for — push interval ends into a <em>min-heap</em>. When a new meeting starts, if the earliest end in the heap is already &#8804; the new start, that room freed up: pop it and reuse it; otherwise allocate a new room by pushing. The heap size at its largest is your answer. You don't need to write this cold today, but recognize "max things active at once" as a sweep-line / min-heap-of-ends problem so you can name it on the spot.`),
+note("📌","Half-open intervals make endpoints painless",`Library and engine code often models a range as half-open <code>[start, end)</code> — the end is excluded. It's not arbitrary: with half-open intervals, <code>[1, 2)</code> and <code>[2, 3)</code> are adjacent but <em>not</em> overlapping, so the touching-endpoint ambiguity from earlier simply vanishes, and the overlap test cleanly becomes strict <code>a &lt; d &amp;&amp; c &lt; b</code>. If you have the freedom to choose the convention, half-open removes a whole class of off-by-one bugs.`),
+sub("Recognizing the family in the interview"),
+p(`The interval pattern is one of the easiest to <em>name</em> once you've seen it, and naming it is most of the battle. When you spot <code>[start, end]</code> pairs, say the move out loud: <em>"these are intervals, so step one is to sort — by start if I'm merging, by end if I'm scheduling — then one linear sweep with the overlap check."</em> That single sentence frames the entire solution and tells the interviewer you've recognized the structure, before you've written a line.`),
+ul([
+  `<b>Merge / consolidate</b> ranges, <b>insert</b> into a sorted set, or detect <b>any</b> overlap &#8594; sort by <code>start</code>, sweep, fuse on <code>next.start &lt;= cur.end</code>.`,
+  `<b>Max non-overlapping subset</b> / min removals / most meetings in a room &#8594; sort by <code>end</code>, greedily keep the earliest finisher.`,
+  `<b>Max concurrency</b> / minimum rooms &#8594; sweep line of +1/-1 events, or a min-heap of end times; the peak is the answer.`,
+]),
+pit("State the boundary convention up front",`Almost every interval bug traces back to an unstated assumption: closed vs half-open, do shared endpoints conflict, and is the input pre-sorted. Surface all three before coding. Confirm the comparator (<code>start</code> vs <code>end</code>), confirm whether <code>&lt;</code> or <code>&lt;=</code> is the overlap test for this problem, and confirm whether you can skip the sort because the data already arrived ordered. Two minutes of clarification saves a wrong answer on the boundary cases interviewers always test.`),
+cx(`Merge / insert / scheduling: time <b>O(n log n)</b> — the sort dominates; the sweep after it is <b>O(n)</b>. Space <b>O(n)</b> for the output (O(1) extra beyond it). Insert-into-sorted is <b>O(n)</b> outright, since the input is already ordered and needs no sort. Sweep-line meeting rooms: <b>O(n log n)</b> for the sort or the heap operations.`),
+{t:"probs",items:[["Merge Intervals","merge-intervals","med"],["Insert Interval","insert-interval","med"],["Non-overlapping Intervals","non-overlapping-intervals","med"]]}
 ]},
 {group:"Beyond Code",num:"▦",id:"sysdesign",color:"#14B8A6",title:"System Design Basics",badge:"Week 10 · intro",blocks:[
   cue(`Even for a mid-level role, you'll often get a lightweight design round: "design a URL shortener," "design a rate limiter." It's not about a perfect answer — it's about structured thinking out loud.`),
