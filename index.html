@@ -1189,6 +1189,202 @@ SVG.intervals_overlap=`<svg viewBox="0 0 620 230" role="img" aria-label="The ove
 <rect x="300" y="184" width="120" height="26" rx="6" fill="#FFF0F2" stroke="#FF5D73" stroke-width="1.8"/><text x="315" y="201" fill="#d23a52">c</text><text x="406" y="201" text-anchor="end" fill="#d23a52">d</text>
 </g>
 <text x="450" y="201" font-family="Inter,sans-serif" font-size="10.5" fill="#d23a52">c &gt; b &#8594; the &amp;&amp; fails &#8594; no overlap</text></svg>`;
+SVG.polymorphism_vtable=`<svg viewBox="0 0 620 300" role="img" aria-label="Two objects each store a hidden vptr pointing at their class vtable of function pointers">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#6D5BD0">each object holds a hidden vptr &#8594; its class's vtable of function pointers</text>
+<rect x="34" y="60" width="150" height="92" rx="11" fill="#F4F2FF" stroke="#8B5CF6" stroke-width="1.6"/>
+<text x="109" y="82" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#6D5BD0">Circle obj</text>
+<rect x="50" y="94" width="118" height="26" rx="6" fill="#fff" stroke="#cfc6f2"/><text x="109" y="111" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">vptr</text>
+<rect x="50" y="122" width="118" height="22" rx="5" fill="#fff" stroke="#e2e2ec"/><text x="109" y="138" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8a86a8">r = 2.0</text>
+<rect x="34" y="178" width="150" height="92" rx="11" fill="#EAF6FF" stroke="#0EA5E9" stroke-width="1.6"/>
+<text x="109" y="200" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#0c7fc4">Rectangle obj</text>
+<rect x="50" y="212" width="118" height="26" rx="6" fill="#fff" stroke="#bfe1f7"/><text x="109" y="229" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">vptr</text>
+<rect x="50" y="240" width="118" height="22" rx="5" fill="#fff" stroke="#e2e2ec"/><text x="109" y="256" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8a86a8">w=3 h=4</text>
+<rect x="300" y="52" width="190" height="100" rx="12" fill="#F4F2FF" stroke="#8B5CF6" stroke-width="1.6"/>
+<text x="395" y="74" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="600" fill="#6D5BD0">Circle vtable</text>
+<rect x="316" y="86" width="158" height="26" rx="6" fill="#fff" stroke="#cfc6f2"/><text x="395" y="103" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#1B1838">[0] &amp;Circle::area</text>
+<rect x="316" y="116" width="158" height="26" rx="6" fill="#fff" stroke="#cfc6f2"/><text x="395" y="133" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#1B1838">[1] &amp;Circle::~Circle</text>
+<rect x="300" y="180" width="190" height="100" rx="12" fill="#EAF6FF" stroke="#0EA5E9" stroke-width="1.6"/>
+<text x="395" y="202" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="12" font-weight="600" fill="#0c7fc4">Rectangle vtable</text>
+<rect x="316" y="214" width="158" height="26" rx="6" fill="#fff" stroke="#bfe1f7"/><text x="395" y="231" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#1B1838">[0] &amp;Rectangle::area</text>
+<rect x="316" y="244" width="158" height="26" rx="6" fill="#fff" stroke="#bfe1f7"/><text x="395" y="261" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#1B1838">[1] &amp;Rectangle::~Rectangle</text>
+<path d="M168 107 C230 107 250 95 298 96" stroke="#8B5CF6" stroke-width="1.8" fill="none" marker-end="url(#arv)"/>
+<path d="M168 225 C230 225 250 230 298 226" stroke="#0EA5E9" stroke-width="1.8" fill="none" marker-end="url(#arv2)"/>
+<text x="556" y="120" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#7d72a6">p-&gt;area()</text>
+<text x="556" y="138" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#9d9ab0">jumps via</text>
+<text x="556" y="152" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#9d9ab0">vtable[0]</text>
+<path d="M490 100 C522 100 522 100 540 108" stroke="#c9cad9" stroke-width="1.4" fill="none"/>
+<defs><marker id="arv" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#8B5CF6"/></marker><marker id="arv2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#0EA5E9"/></marker></defs></svg>`;
+SVG.polymorphism_slice=`<svg viewBox="0 0 620 250" role="img" aria-label="Object slicing copies a derived object into a base-sized slot and drops the extra part">
+<rect x="20" y="24" width="280" height="200" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="160" y="48" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#16A34A">by reference &#8594; whole object</text>
+<rect x="70" y="68" width="180" height="36" rx="7" fill="#fff" stroke="#a9d6bb"/><text x="160" y="91" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">Base part (vptr, name)</text>
+<rect x="70" y="106" width="180" height="36" rx="7" fill="#E7F6ED" stroke="#16A34A"/><text x="160" y="129" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">Derived part (radius)</text>
+<text x="160" y="170" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#3c6b4f">const Shape&amp; s = circle;</text>
+<text x="160" y="196" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">vptr intact &#8594; virtual call</text>
+<text x="160" y="212" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">dispatches to Circle</text>
+<rect x="320" y="24" width="280" height="200" rx="12" fill="#FFF5F6" stroke="#F6D5DC"/>
+<text x="460" y="48" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#E11D48">by value &#8594; SLICED</text>
+<rect x="370" y="68" width="180" height="36" rx="7" fill="#fff" stroke="#d9b0ba"/><text x="460" y="91" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">Base part (vptr, name)</text>
+<rect x="370" y="106" width="180" height="36" rx="7" fill="#FCE7EC" stroke="#E11D48" stroke-dasharray="4 3"/><text x="460" y="129" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#E11D48">radius &#8212; dropped</text>
+<path d="M380 113 L540 135" stroke="#E11D48" stroke-width="1.4"/><path d="M380 135 L540 113" stroke="#E11D48" stroke-width="1.4"/>
+<text x="460" y="170" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#9c6671">Shape s = circle;</text>
+<text x="460" y="196" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a3b46">vptr reset to Base &#8594; call</text>
+<text x="460" y="212" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a3b46">dispatches to Shape, not Circle</text></svg>`;
+SVG.typesystem_casts=`<svg viewBox="0 0 620 360" role="img" aria-label="Which named cast to use, ordered from safe to dangerous">
+<text x="310" y="28" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="15" font-weight="600" fill="#1B1838">which cast? &#8212; safe at the top, dangerous at the bottom</text>
+<rect x="40" y="46" width="540" height="60" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="62" y="74" font-family="JetBrains Mono,monospace" font-size="13.5" font-weight="600" fill="#16A34A">static_cast&lt;T&gt;</text>
+<text x="62" y="94" font-family="Inter,sans-serif" font-size="12" fill="#3c6b4f">related types &amp; numeric conversions, checked at compile time</text>
+<circle cx="552" cy="76" r="11" fill="#E7F6ED" stroke="#16A34A"/><text x="552" y="80" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">&#10003;</text>
+<rect x="40" y="116" width="540" height="60" rx="12" fill="#EAF6FF" stroke="#bfe1f7"/>
+<text x="62" y="144" font-family="JetBrains Mono,monospace" font-size="13.5" font-weight="600" fill="#0c7fc4">dynamic_cast&lt;T*&gt;</text>
+<text x="62" y="164" font-family="Inter,sans-serif" font-size="12" fill="#2b6585">safe downcast in a polymorphic hierarchy, checked at run time</text>
+<circle cx="552" cy="146" r="11" fill="#DDF0FB" stroke="#0EA5E9"/><text x="552" y="150" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0c7fc4">&#10003;</text>
+<rect x="40" y="186" width="540" height="60" rx="12" fill="#FFF7EC" stroke="#f3dcae"/>
+<text x="62" y="214" font-family="JetBrains Mono,monospace" font-size="13.5" font-weight="600" fill="#C2790B">const_cast&lt;T&gt;</text>
+<text x="62" y="234" font-family="Inter,sans-serif" font-size="12" fill="#8a6516">add or strip const only &#8212; writing through a stripped const is UB</text>
+<circle cx="552" cy="216" r="11" fill="#FBEFD6" stroke="#E8950C"/><text x="552" y="220" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#C2790B">!</text>
+<rect x="40" y="256" width="540" height="60" rx="12" fill="#FFF0F2" stroke="#F6D5DC"/>
+<text x="62" y="284" font-family="JetBrains Mono,monospace" font-size="13.5" font-weight="600" fill="#E11D48">reinterpret_cast&lt;T&gt;</text>
+<text x="62" y="304" font-family="Inter,sans-serif" font-size="12" fill="#9c4a5a">raw bit reinterpretation between unrelated pointers &#8212; no checks</text>
+<circle cx="552" cy="286" r="11" fill="#FCE7EC" stroke="#E11D48"/><text x="552" y="290" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#E11D48">&#10007;</text>
+<text x="310" y="340" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#8a86a8">a C-style <tspan font-family="JetBrains Mono,monospace" fill="#6f6b8c">(T)x</tspan> cast is silently <tspan font-weight="600">any of these</tspan> &#8212; whichever compiles first</text></svg>`;
+SVG.typesystem_deduce=`<svg viewBox="0 0 620 250" role="img" aria-label="auto strips reference and const, decltype preserves them">
+<text x="310" y="28" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#6f6b8c">const int x = 7;&#160;&#160;const int&amp; r = x;</text>
+<rect x="40" y="46" width="260" height="160" rx="12" fill="#F4F2FF" stroke="#d9d2f5"/>
+<text x="170" y="72" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#6D5BD0">auto &#8212; strips it off</text>
+<rect x="64" y="86" width="212" height="34" rx="7" fill="#fff" stroke="#cabdf0"/><text x="170" y="108" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#1B1838">auto a = r;</text>
+<text x="170" y="142" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" font-weight="600" fill="#6D5BD0">a&#160;:&#160;int</text>
+<text x="170" y="164" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7d72a6">dropped the &amp; and the const</text>
+<text x="170" y="186" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#9a90c0">a fresh, mutable copy</text>
+<rect x="320" y="46" width="260" height="160" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="450" y="72" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#16A34A">decltype &#8212; keeps it exact</text>
+<rect x="344" y="86" width="212" height="34" rx="7" fill="#fff" stroke="#a9d6bb"/><text x="450" y="108" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#1B1838">decltype(r) d = r;</text>
+<text x="450" y="142" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" font-weight="600" fill="#16A34A">d&#160;:&#160;const int&amp;</text>
+<text x="450" y="164" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">reference and const preserved</text>
+<text x="450" y="186" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5e8a6f">an alias for x, read-only</text>
+<text x="310" y="234" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#8a86a8">want the alias from <tspan font-family="JetBrains Mono,monospace" fill="#6D5BD0">auto</tspan>? say so: <tspan font-family="JetBrains Mono,monospace" fill="#16A34A">const auto&amp; a = r;</tspan></text></svg>`;
+SVG.concurrency_race=`<svg viewBox="0 0 620 270" role="img" aria-label="Two threads racing on a shared counter lose an update; a mutex serializes the read-modify-write and fixes it">
+<rect x="20" y="24" width="280" height="226" rx="12" fill="#FFF5F6" stroke="#F6D5DC"/>
+<text x="160" y="48" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13.5" font-weight="600" fill="#E11D48">data race &#8594; lost update</text>
+<rect x="40" y="66" width="100" height="24" rx="6" fill="#fff" stroke="#E11D48"/><text x="90" y="83" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">Thread A</text>
+<rect x="180" y="66" width="100" height="24" rx="6" fill="#fff" stroke="#E11D48"/><text x="230" y="83" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">Thread B</text>
+<g font-family="JetBrains Mono,monospace" font-size="10.5" fill="#7a3b46">
+<text x="46" y="112">read  c = 41</text>
+<text x="186" y="130">read  c = 41</text>
+<text x="46" y="148">+1    &#8594; 42</text>
+<text x="186" y="166">+1    &#8594; 42</text>
+<text x="46" y="184">write c = 42</text>
+<text x="186" y="202">write c = 42</text></g>
+<path d="M150 100 V214" stroke="#F0B6C2" stroke-width="1.4" stroke-dasharray="3 3"/>
+<text x="160" y="238" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" font-weight="600" fill="#E11D48">two +1s, but c = 42 (UB)</text>
+<rect x="320" y="24" width="280" height="226" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="460" y="48" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13.5" font-weight="600" fill="#16A34A">mutex &#8594; serialized, correct</text>
+<rect x="340" y="66" width="100" height="24" rx="6" fill="#fff" stroke="#16A34A"/><text x="390" y="83" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">Thread A</text>
+<rect x="480" y="66" width="100" height="24" rx="6" fill="#fff" stroke="#16A34A"/><text x="530" y="83" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#1B1838">Thread B</text>
+<rect x="340" y="100" width="100" height="78" rx="7" fill="#E7F6ED" stroke="#16A34A"/>
+<g font-family="JetBrains Mono,monospace" font-size="10.5" fill="#3c6b4f">
+<text x="350" y="118">lock</text>
+<text x="350" y="134">read 41</text>
+<text x="350" y="150">+1, write 42</text>
+<text x="350" y="166">unlock</text></g>
+<rect x="480" y="186" width="100" height="50" rx="7" fill="#E7F6ED" stroke="#16A34A"/>
+<g font-family="JetBrains Mono,monospace" font-size="10.5" fill="#3c6b4f">
+<text x="490" y="204">lock, read 42</text>
+<text x="490" y="220">+1, write 43</text></g>
+<path d="M390 178 V186 H480" stroke="#16A34A" stroke-width="1.6" fill="none" marker-end="url(#arg2)"/>
+<text x="460" y="252" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" font-weight="600" fill="#16A34A">B waits its turn &#8594; c = 43</text>
+<defs><marker id="arg2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker></defs></svg>`;
+SVG.concurrency_deadlock=`<svg viewBox="0 0 620 250" role="img" aria-label="A deadlock cycle: thread A holds lock 1 and waits for lock 2 while thread B holds lock 2 and waits for lock 1; consistent lock ordering breaks the cycle">
+<rect x="20" y="24" width="340" height="206" rx="12" fill="#FFF5F6" stroke="#F6D5DC"/>
+<text x="190" y="48" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13.5" font-weight="600" fill="#E11D48">deadlock &#8212; a wait cycle</text>
+<rect x="44" y="78" width="92" height="40" rx="9" fill="#fff" stroke="#E11D48"/><text x="90" y="103" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#1B1838">Thread A</text>
+<rect x="244" y="78" width="92" height="40" rx="9" fill="#fff" stroke="#E11D48"/><text x="290" y="103" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#1B1838">Thread B</text>
+<rect x="44" y="170" width="92" height="36" rx="9" fill="#FFF0F2" stroke="#E11D48"/><text x="90" y="192" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#d23a52">Lock 1</text>
+<rect x="244" y="170" width="92" height="36" rx="9" fill="#FFF0F2" stroke="#E11D48"/><text x="290" y="192" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#d23a52">Lock 2</text>
+<path d="M90 170 V118" stroke="#16A34A" stroke-width="2" marker-end="url(#arh)"/><text x="64" y="146" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#0f7a36">holds</text>
+<path d="M290 170 V118" stroke="#16A34A" stroke-width="2" marker-end="url(#arh)"/><text x="316" y="146" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#0f7a36">holds</text>
+<path d="M136 100 H244" stroke="#E11D48" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#arz)"/><text x="190" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#d23a52">wants L2</text>
+<path d="M244 110 H136" stroke="#E11D48" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#arz)"/><text x="190" y="128" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#d23a52">wants L1</text>
+<text x="190" y="224" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" font-weight="600" fill="#E11D48">neither can proceed &#8212; frozen</text>
+<rect x="380" y="24" width="220" height="206" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="490" y="48" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13.5" font-weight="600" fill="#16A34A">consistent order &#8594; fixed</text>
+<rect x="408" y="74" width="164" height="32" rx="7" fill="#E7F6ED" stroke="#16A34A"/><text x="490" y="94" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0f7a36">A: lock 1, then 2</text>
+<rect x="408" y="116" width="164" height="32" rx="7" fill="#E7F6ED" stroke="#16A34A"/><text x="490" y="136" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0f7a36">B: lock 1, then 2</text>
+<text x="490" y="176" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#3c6b4f">everyone grabs L1 first,</text>
+<text x="490" y="194" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#3c6b4f">so no one is stuck holding it</text>
+<text x="490" y="218" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" font-weight="600" fill="#16A34A">no cycle &#8594; no deadlock</text>
+<defs><marker id="arh" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker><marker id="arz" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#E11D48"/></marker></defs></svg>`;
+SVG.stl_pick=`<svg viewBox="0 0 620 360" role="img" aria-label="A decision flow for choosing an STL container: ask whether you need sorted order, lookups by key, or fast access at both ends, and follow the arrows to vector, deque, map, or unordered_map">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">which container? — three questions, four common answers</text>
+<rect x="222" y="44" width="176" height="42" rx="10" fill="#FFF7EC" stroke="#FF8A3D"/>
+<text x="310" y="64" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#c2660f" font-weight="600">need lookup by key?</text>
+<text x="310" y="79" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#9c5a14">("does X exist / X &#8594; value")</text>
+<path d="M222 65 H150 V112" stroke="#c9cad9" stroke-width="1.6" fill="none" marker-end="url(#slp)"/>
+<text x="178" y="58" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#16A34A">yes</text>
+<path d="M398 65 H470 V112" stroke="#c9cad9" stroke-width="1.6" fill="none" marker-end="url(#slp)"/>
+<text x="442" y="58" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#E11D48">no</text>
+<rect x="62" y="114" width="176" height="42" rx="10" fill="#FFF7EC" stroke="#FF8A3D"/>
+<text x="150" y="134" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#c2660f" font-weight="600">need sorted order?</text>
+<text x="150" y="149" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#9c5a14">(range / floor / ceiling)</text>
+<path d="M150 156 V196 H92" stroke="#c9cad9" stroke-width="1.6" fill="none" marker-end="url(#slp)"/>
+<text x="120" y="180" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#16A34A">yes</text>
+<path d="M150 156 V196 H210" stroke="#c9cad9" stroke-width="1.6" fill="none" marker-end="url(#slp)"/>
+<text x="186" y="180" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#E11D48">no</text>
+<rect x="382" y="114" width="176" height="42" rx="10" fill="#FFF7EC" stroke="#FF8A3D"/>
+<text x="470" y="134" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#c2660f" font-weight="600">fast at both ends?</text>
+<text x="470" y="149" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#9c5a14">(push/pop front &amp; back)</text>
+<path d="M470 156 V196 H412" stroke="#c9cad9" stroke-width="1.6" fill="none" marker-end="url(#slp)"/>
+<text x="440" y="180" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#16A34A">yes</text>
+<path d="M470 156 V196 H530" stroke="#c9cad9" stroke-width="1.6" fill="none" marker-end="url(#slp)"/>
+<text x="506" y="180" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#E11D48">no</text>
+<g font-family="JetBrains Mono,monospace">
+<rect x="28" y="208" width="128" height="58" rx="10" fill="#F0FBF5" stroke="#16A34A"/>
+<text x="92" y="232" text-anchor="middle" font-size="12.5" fill="#0f7a36" font-weight="600">std::map</text>
+<text x="92" y="252" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#3c6b4f">O(log n), sorted</text>
+<rect x="166" y="208" width="138" height="58" rx="10" fill="#EEF0FF" stroke="#5B5BD6"/>
+<text x="235" y="232" text-anchor="middle" font-size="11.5" fill="#4b3fc0" font-weight="600">unordered_map</text>
+<text x="235" y="252" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#5b4f86">O(1) avg, no order</text>
+<rect x="346" y="208" width="128" height="58" rx="10" fill="#FFF0F2" stroke="#0EA5E9"/>
+<text x="410" y="232" text-anchor="middle" font-size="12.5" fill="#0b7fb8" font-weight="600">std::deque</text>
+<text x="410" y="252" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#0b6a96">O(1) both ends</text>
+<rect x="484" y="208" width="108" height="58" rx="10" fill="#FFF0F2" stroke="#FF5D73"/>
+<text x="538" y="232" text-anchor="middle" font-size="12.5" fill="#d23a52" font-weight="600">std::vector</text>
+<text x="538" y="252" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#a23a4a">the default</text>
+</g>
+<rect x="120" y="296" width="380" height="40" rx="10" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="310" y="320" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3a3660">when in doubt, it's <tspan font-family="JetBrains Mono,monospace" fill="#d23a52">vector</tspan> — contiguous, cache-friendly, O(1) index</text>
+<defs><marker id="slp" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#c9cad9"/></marker></defs></svg>`;
+SVG.stl_invalidate=`<svg viewBox="0 0 620 290" role="img" aria-label="A vector reallocating to a new larger buffer during push_back: the old buffer is freed and an iterator captured before the push is left dangling at the freed address">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">push_back grows the buffer &#8594; the old iterator dangles</text>
+<rect x="20" y="44" width="280" height="200" rx="12" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="160" y="68" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#6f6b8c">before — capacity full (4 of 4)</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="44" y="92" width="48" height="40" fill="#fff" stroke="#a9b4e0"/><text x="68" y="118" text-anchor="middle" fill="#1B1838">3</text>
+<rect x="92" y="92" width="48" height="40" fill="#EEF0FF" stroke="#5B5BD6" stroke-width="2"/><text x="116" y="118" text-anchor="middle" fill="#3a32a8" font-weight="600">1</text>
+<rect x="140" y="92" width="48" height="40" fill="#fff" stroke="#a9b4e0"/><text x="164" y="118" text-anchor="middle" fill="#1B1838">4</text>
+<rect x="188" y="92" width="48" height="40" fill="#fff" stroke="#a9b4e0"/><text x="212" y="118" text-anchor="middle" fill="#1B1838">1</text></g>
+<text x="116" y="84" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#5B5BD6">it</text>
+<path d="M116 150 V134" stroke="#5B5BD6" stroke-width="2" marker-end="url(#sli1)"/>
+<text x="140" y="170" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#5B5BD6">it = &amp;v[1] @ 0xA0</text>
+<text x="160" y="206" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#8a86a8">buffer @ 0xA0</text>
+<text x="160" y="228" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6f6b8c">v.push_back(9) — no room left…</text>
+<path d="M304 144 H332" stroke="#9d9ab0" stroke-width="1.8" marker-end="url(#sli2)"/>
+<rect x="336" y="44" width="264" height="200" rx="12" fill="#FFF5F6" stroke="#F6D5DC"/>
+<text x="468" y="68" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#E11D48">after — new buffer @ 0xC0, old one freed</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<rect x="360" y="92" width="44" height="40" fill="#fff" stroke="#d9b0ba"/><text x="382" y="118" text-anchor="middle" fill="#1B1838">3</text>
+<rect x="404" y="92" width="44" height="40" fill="#fff" stroke="#d9b0ba"/><text x="426" y="118" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="448" y="92" width="44" height="40" fill="#fff" stroke="#d9b0ba"/><text x="470" y="118" text-anchor="middle" fill="#1B1838">4</text>
+<rect x="492" y="92" width="44" height="40" fill="#fff" stroke="#d9b0ba"/><text x="514" y="118" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="536" y="92" width="44" height="40" fill="#E7F6ED" stroke="#16A34A"/><text x="558" y="118" text-anchor="middle" fill="#16A34A">9</text></g>
+<text x="468" y="158" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#7a3b46">elements copied/moved to 0xC0</text>
+<rect x="364" y="178" width="212" height="52" rx="9" fill="#FCE7EC" stroke="#E11D48" stroke-dasharray="4 3"/>
+<text x="470" y="200" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#E11D48" font-weight="600">it still points at 0xA0 — freed!</text>
+<text x="470" y="220" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#9c4a5a">dereferencing it now is undefined behavior</text>
+<defs>
+<marker id="sli1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#5B5BD6"/></marker>
+<marker id="sli2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#9d9ab0"/></marker></defs></svg>`;
 const plan=[
   ["Week 1","Foundations · Big-O · Pointers","how"],
   ["Week 2","Arrays · Two Pointers · Windows","arrays"],
@@ -3323,6 +3519,597 @@ ul([
 pit("State the boundary convention up front",`Almost every interval bug traces back to an unstated assumption: closed vs half-open, do shared endpoints conflict, and is the input pre-sorted. Surface all three before coding. Confirm the comparator (<code>start</code> vs <code>end</code>), confirm whether <code>&lt;</code> or <code>&lt;=</code> is the overlap test for this problem, and confirm whether you can skip the sort because the data already arrived ordered. Two minutes of clarification saves a wrong answer on the boundary cases interviewers always test.`),
 cx(`Merge / insert / scheduling: time <b>O(n log n)</b> — the sort dominates; the sweep after it is <b>O(n)</b>. Space <b>O(n)</b> for the output (O(1) extra beyond it). Insert-into-sorted is <b>O(n)</b> outright, since the input is already ordered and needs no sort. Sweep-line meeting rooms: <b>O(n log n)</b> for the sort or the heap operations.`),
 {t:"probs",items:[["Merge Intervals","merge-intervals","med"],["Insert Interval","insert-interval","med"],["Non-overlapping Intervals","non-overlapping-intervals","med"]]}
+]},
+{group:"C++ Deep Dives",num:"◇",id:"polymorphism",color:"#7C3AED",title:"Polymorphism & the Object Model",badge:"C++ deep dive",blocks:[
+cue(`Two questions you will almost certainly be asked: "What is a virtual function and how does it work under the hood?" and "Why does a base class need a virtual destructor?" Both are really one question about the C++ <em>object model</em> &#8212; what a polymorphic object actually looks like in memory and what happens when you call through a base pointer. This chapter builds that model from the ground up, then turns it into answers you can deliver without hesitating. It leans hard on RAII (virtual destructors) and Pointers (calling through a base pointer), so those lessons are the prerequisites.`),
+p(`<em>Polymorphism</em> means "many forms": one piece of code that works with many concrete types through a shared interface. C++ gives you two flavors, and the interview cares that you know they're different. <b>Static (compile-time) polymorphism</b> &#8212; templates and overloading &#8212; the compiler picks the exact function at compile time, so there's zero runtime cost. <b>Dynamic (runtime) polymorphism</b> &#8212; virtual functions &#8212; the <em>actual</em> type isn't known until runtime, so the call is resolved then, through a level of indirection. This chapter is mostly about the second kind, because that's where the object model, the vtable, and all the classic pitfalls live.`),
+sub("The setup: a base pointer calling a derived override"),
+p(`Here's the entire mechanism in one shape. You have a base class with a <code>virtual</code> function, and derived classes that <code>override</code> it. You hold a derived object through a <em>base</em> pointer or reference, call the virtual function, and the <em>derived</em> version runs &#8212; even though the static type of the pointer is "base." That's dynamic dispatch: the call goes to the object's real type, decided at runtime, not to whatever the pointer's declared type suggests.`),
+code(`struct Shape {
+    virtual double area() const = 0;   // pure virtual -> Shape is abstract
+    virtual ~Shape() = default;        // virtual dtor (see below -- this is mandatory)
+};
+
+struct Circle : Shape {
+    double r;
+    explicit Circle(double r) : r(r) {}
+    double area() const override { return 3.14159 * r * r; }   // override keyword
+};
+
+struct Rectangle : Shape {
+    double w, h;
+    Rectangle(double w, double h) : w(w), h(h) {}
+    double area() const override { return w * h; }
+};
+
+void printArea(const Shape& s) {       // takes ANY Shape, by reference
+    std::cout << s.area() << '\\n';     // dynamic dispatch -> the real type's area()
+}`),
+p(`<code>printArea</code> is the payoff. It was compiled once, knowing nothing about <code>Circle</code> or <code>Rectangle</code>, yet it calls the right <code>area()</code> for whatever you hand it. Add a <code>Triangle</code> next year and <code>printArea</code> works on it unchanged. That open-ended extensibility &#8212; new types slotting into old code &#8212; is the reason runtime polymorphism exists.`),
+note(`&#128221;`,`The trigger: a base reference or pointer`,`Dynamic dispatch only happens when you call a virtual function <em>through a pointer or reference</em> to a base. Call it on a concrete object by value (<code>Circle c; c.area();</code>) and the compiler already knows the type, so it dispatches statically &#8212; no vtable lookup. The indirection is the price of not knowing the type until runtime; when the type <em>is</em> known, you don't pay it.`),
+sub("Under the hood: the vptr and the vtable"),
+p(`This is the part interviewers probe, and it's genuinely simple once you see the layout. When a class has any virtual function, the compiler does two things. First, it builds <b>one vtable per class</b> &#8212; a static, read-only array of function pointers, one slot per virtual function, filled in with that class's overrides. <code>Circle</code>'s vtable points its <code>area</code> slot at <code>Circle::area</code>; <code>Rectangle</code>'s points the same slot at <code>Rectangle::area</code>. There is exactly one vtable per class, shared by every object of that class.`),
+p(`Second, the compiler adds a hidden pointer &#8212; the <b>vptr</b> &#8212; as an invisible first member of every object. The constructor sets each object's vptr to point at <em>its</em> class's vtable. So a <code>Circle</code> object's vptr points at the Circle vtable; a <code>Rectangle</code> object's vptr points at the Rectangle vtable. The object carries, in its own bytes, the answer to "what am I really?"`),
+svg("polymorphism_vtable","Every polymorphic object starts with a hidden vptr (set by its constructor) pointing at its class's vtable &#8212; a shared array of function pointers. A virtual call reads the vptr, indexes the fixed slot, and jumps. Two object types, two vtables, same slot index."),
+p(`Now the call. <code>p-&gt;area()</code> where <code>p</code> is a <code>Shape*</code> compiles to roughly: "follow <code>p</code>'s vptr to the vtable, load the pointer in the <code>area</code> slot (a fixed, known index), and jump to it." Two pointer dereferences and an indirect jump. The <em>index</em> is decided at compile time (it's always slot 0 for <code>area</code>); the <em>target</em> is decided at runtime by whichever vtable the vptr happens to point at. That single indirection is the whole of dynamic dispatch &#8212; no type tags, no <code>if/else</code> ladder, no string comparison. Just "read the object's vptr and jump through it."`),
+note(`&#129504;`,`Say this and the interviewer relaxes`,`"Each polymorphic class has one vtable of function pointers. Each object stores a hidden vptr to its class's vtable, set in the constructor. A virtual call is an indirect jump: dereference the vptr, index the known slot, call. The slot index is fixed at compile time; the target is chosen at runtime by the object's actual type." That's the mechanism, stated completely, in four sentences.`),
+sub("Virtual destructors: the non-negotiable one"),
+p(`Here's the rule that, if you forget it, leaks memory or worse: <b>if a class is meant to be deleted through a base pointer, its destructor must be <code>virtual</code>.</b> Walk through why. You <code>delete</code> a <code>Shape*</code> that actually points at a <code>Circle</code>. If <code>~Shape</code> is <em>not</em> virtual, the call is dispatched statically &#8212; the compiler sees a <code>Shape*</code> and calls <code>~Shape</code> only. <code>~Circle</code> never runs. The <code>Circle</code> part of the object &#8212; its members, anything it owned &#8212; is never destroyed. That's a leak at best; with members that own resources, it's a real bug. The standard calls deleting through a base pointer with a non-virtual destructor <b>undefined behavior</b>, full stop.`),
+p(`Make the destructor virtual and it goes in the vtable like any other virtual function. Now <code>delete p</code> dispatches to <code>~Circle</code> first (which then chains to <code>~Shape</code> automatically, base-after-derived, the way destructors always run). The whole object is destroyed. This is the same RAII story from the smart-pointers lesson, one level up: the destructor has to actually <em>be the derived one</em> for RAII members to clean themselves up.`),
+worked("Why the missing virtual dtor leaks","Both versions delete a derived object through a base pointer. With a non-virtual base destructor, only <code>~Base</code> runs &#8212; the <code>Derived</code> part, including its owned <code>buffer</code>, is never destroyed. One <code>virtual</code> keyword fixes it: the destructor enters the vtable, so <code>delete</code> dispatches to <code>~Derived</code> first, then chains up to <code>~Base</code>.",
+`struct BadBase {
+    ~BadBase() { }                       // NOT virtual -- the bug
+};
+struct BadDerived : BadBase {
+    std::unique_ptr<int[]> buffer = std::make_unique<int[]>(1000);
+};
+
+BadBase* p = new BadDerived();
+delete p;        // calls ~BadBase only -> ~BadDerived never runs -> buffer LEAKS
+                 // (formally: undefined behavior)
+
+// --- the fix: one keyword ---
+struct Base {
+    virtual ~Base() = default;           // virtual -> goes in the vtable
+};
+struct Derived : Base {
+    std::unique_ptr<int[]> buffer = std::make_unique<int[]>(1000);
+};
+
+Base* q = new Derived();
+delete q;        // dispatches to ~Derived (frees buffer), then chains to ~Base. Correct.`),
+note(`&#128221;`,`The shortcut: unique_ptr to base needs it too`,`This isn't just about hand-written <code>delete</code>. <code>std::unique_ptr&lt;Shape&gt; s = std::make_unique&lt;Circle&gt;(2.0);</code> calls <code>delete</code> on a <code>Shape*</code> when it goes out of scope &#8212; so it has the exact same requirement. If <code>Shape</code> lacks a virtual destructor, the <code>Circle</code> part leaks even through a smart pointer. <b>A polymorphic base class needs a virtual destructor; the smart pointer doesn't save you from this one.</b>`),
+sub("Pure virtual functions, abstract classes, interfaces"),
+p(`<code>virtual double area() const = 0;</code> &#8212; the <code>= 0</code> makes it a <b>pure virtual</b> function: a declaration with no (required) definition that every concrete derived class <em>must</em> override. A class with at least one pure virtual function is <b>abstract</b>: you cannot instantiate it (<code>Shape s;</code> won't compile), only derive from it and hold it through a pointer or reference. That's exactly right for <code>Shape</code> &#8212; "a shape" with no specific kind has no area, so the base should refuse to exist on its own.`),
+p(`An <b>interface</b>, in C++, is just an abstract class where <em>every</em> function is pure virtual and there's no data &#8212; the equivalent of Java's <code>interface</code> or a Go interface, built out of the same virtual machinery. It's a pure contract: "anything claiming to be a <code>Drawable</code> must provide <code>draw()</code>." There's no <code>interface</code> keyword; the pattern is the feature.`),
+code(`struct Drawable {                 // an interface: all pure virtual, no data
+    virtual void draw() const = 0;
+    virtual ~Drawable() = default;   // still need the virtual dtor
+};
+
+struct Sprite : Drawable {
+    void draw() const override { /* blit pixels */ }
+};
+
+// Drawable d;                       // ERROR: cannot instantiate an abstract class
+std::vector<std::unique_ptr<Drawable>> scene;   // but you CAN hold them polymorphically
+scene.push_back(std::make_unique<Sprite>());`),
+sub("override and final: cheap insurance"),
+p(`<code>override</code> looks like a comment but it's a compile-time assertion: "this function really does override a virtual function in a base." If it doesn't &#8212; you misspelled the name, got the signature subtly wrong, forgot a <code>const</code> &#8212; the compiler errors instead of silently creating a <em>new, unrelated</em> function that never gets called. This bug is nastier than it sounds, because without <code>override</code> the code compiles fine and just dispatches to the base version forever. Put <code>override</code> on every override; it costs nothing and catches a whole class of silent dispatch bugs.`),
+worked("override turns a silent bug into a compile error","The signature is wrong &#8212; the base <code>render</code> is <code>const</code>, the derived one isn't &#8212; so it does not override; it's a brand-new function. Without <code>override</code> this compiles, and every <code>Base&amp;</code> call quietly runs <code>Base::render</code>. With <code>override</code>, the compiler rejects it and you fix the signature.",
+`struct Widget {
+    virtual void render() const { /* base */ }
+};
+
+struct Button : Widget {
+    void render() { /* ... */ }              // NOT const -> does NOT override!
+    // Silent bug: this is a new function. Base& calls still hit Widget::render.
+
+    void render() const override { /* ... */ }  // with 'override', mismatch = compile error
+};`),
+p(`<code>final</code> is the complement: <code>void render() const final;</code> forbids any further derived class from overriding it, and <code>struct Leaf final : Base</code> forbids deriving from <code>Leaf</code> at all. Beyond expressing intent, <code>final</code> can help the optimizer <em>devirtualize</em> &#8212; if a call is on a <code>final</code> type, the compiler knows the exact target and can skip the vtable, even inline it. Worth a sentence when the topic of virtual-call cost comes up.`),
+sub("Object slicing: the by-value trap"),
+p(`This is the pitfall that bites people who understand everything above. Polymorphism works through pointers and references because they leave the object where it is &#8212; vptr intact, full derived object untouched. The moment you copy a derived object <em>into a base-typed value</em>, you <b>slice</b> it: only the base subobject is copied, the derived members are dropped on the floor, and the destination's vptr is the <em>base's</em> vptr. The result is a genuine <code>Base</code>, not a <code>Derived</code> wearing a base label &#8212; so virtual calls on it dispatch to <code>Base</code>.`),
+svg("polymorphism_slice","Hold a derived object by reference (left) and the whole object survives &#8212; vptr intact, virtual calls reach the override. Copy it into a base-sized value (right) and the derived part is sliced off and the vptr is reset to the base, so virtual dispatch quietly stops working."),
+worked("Slicing happens on copy-into-base","Pass by reference and <code>area()</code> dispatches to <code>Circle</code>. Pass (or assign) by value into a <code>Shape</code> and the <code>Circle</code> part is sliced away: the parameter is a plain <code>Shape</code> with the base vptr, so the virtual call resolves to <code>Shape</code> (here, it wouldn't even compile, because <code>Shape</code> is abstract &#8212; but with a concrete base it compiles and silently does the wrong thing). The rule: pass polymorphic types by <code>const&amp;</code> or by pointer, never by value.",
+`void byRef(const Shape& s)  { std::cout << s.area(); }   // OK: dispatches to real type
+// void byVal(Shape s)      { ... }                      // would SLICE the argument
+
+Circle c{2.0};
+byRef(c);                      // -> Circle::area, correct
+
+// Assignment slices too:
+struct Animal { virtual std::string speak() const { return "..."; } virtual ~Animal()=default; };
+struct Dog : Animal { std::string speak() const override { return "woof"; } };
+
+Dog d;
+Animal a = d;                  // SLICE: copies only the Animal part, vptr = Animal's
+std::cout << a.speak();        // "..." -- NOT "woof". The Dog-ness is gone.
+
+const Animal& ref = d;         // no slice
+std::cout << ref.speak();      // "woof" -- dispatches to Dog`),
+note(`&#128161;`,`Why containers of base values slice`,`<code>std::vector&lt;Shape&gt;</code> stores <code>Shape</code> <em>values</em>, so pushing a <code>Circle</code> slices it &#8212; and it can't even hold an abstract base. To store polymorphic objects in a container you store <em>pointers</em>: <code>vector&lt;unique_ptr&lt;Shape&gt;&gt;</code> (owning) or <code>vector&lt;Shape*&gt;</code> (non-owning). This is the same ownership-by-pointer rule from the RAII lesson, now forced on you by polymorphism.`),
+sub("RTTI: typeid and dynamic_cast"),
+p(`Most of the time you call virtual functions and never ask "what type is this, really?" &#8212; that's the whole point of dispatch. But occasionally you genuinely need to recover the concrete type from a base pointer: you have a <code>Shape*</code> and you need the one specific thing only a <code>Circle</code> can do. That's a <b>downcast</b>, and the safe tool is <code>dynamic_cast</code>, part of C++'s <em>RTTI</em> (Run-Time Type Information &#8212; the type metadata the compiler attaches to polymorphic classes, reachable via the vtable).`),
+p(`<code>dynamic_cast&lt;Circle*&gt;(p)</code> asks at runtime, "does <code>p</code> actually point at a <code>Circle</code> (or something derived from one)?" If yes, you get a usable <code>Circle*</code>; <b>if no, you get <code>nullptr</code></b> &#8212; so you check and branch. The reference form <code>dynamic_cast&lt;Circle&amp;&gt;(ref)</code> can't return null, so on failure it <b>throws <code>std::bad_cast</code></b> instead. That null-vs-throw split is a favorite interview detail: pointers fail to <code>nullptr</code>, references fail by throwing.`),
+worked("A safe downcast with the null check","<code>dynamic_cast</code> on a pointer returns null when the object isn't the type you asked for, so the canonical form is the cast-and-check inside an <code>if</code>. <code>static_cast</code> here would be a lie &#8212; it would hand back a <code>Circle*</code> with no runtime check, and using it on a non-Circle is undefined behavior.",
+`void describe(const Shape& s) {
+    std::cout << "area = " << s.area() << '\\n';        // works for every Shape
+
+    // Need something only a Circle has? Ask safely:
+    if (const auto* c = dynamic_cast<const Circle*>(&s)) {
+        std::cout << "radius = " << c->r << '\\n';      // runs only if s really is a Circle
+    }
+    // else: not a Circle; c was nullptr; we simply skip the Circle-only branch
+}
+
+// Reference form fails differently:
+try {
+    const Circle& c = dynamic_cast<const Circle&>(s);  // throws std::bad_cast if not a Circle
+    use(c);
+} catch (const std::bad_cast&) { /* handle wrong type */ }`),
+pit("Reaching for dynamic_cast is often a design smell","A chain of <code>if (dynamic_cast&lt;A*&gt;) ... else if (dynamic_cast&lt;B*&gt;) ...</code> is usually a virtual function trying to be born. If you're switching on the concrete type to decide behavior, that behavior probably wants to be a <code>virtual</code> method the types override &#8212; then the dispatch is the vtable's job and the casts disappear. <code>dynamic_cast</code> earns its place for genuine \"is this the special case?\" queries, not as a substitute for designing the interface."),
+sub("The real cost of virtual, and when engines avoid it"),
+p(`Virtual is cheap but not free, and naming the costs precisely is what separates a senior answer. A virtual call is an <b>indirect call through a function pointer</b>, and that has three concrete downsides versus a direct call. First, the target isn't known at compile time, so the call <b>can't be inlined</b> &#8212; and lost inlining often costs more than the indirection itself, because it blocks the optimizer from seeing through the call. Second, it touches the <b>vptr</b>, an extra memory read that can be a <b>cache miss</b> if the object isn't hot. Third, the indirect jump can <b>stall the branch predictor</b> when the target varies. One virtual call is nanoseconds; a virtual call in a loop over a million objects, fighting the cache and the inliner every iteration, is a measurable hit.`),
+p(`That's why a game engine deliberately <em>avoids</em> virtual in hot loops. The classic offender is an array of <code>unique_ptr&lt;Entity&gt;</code> with a <code>virtual update()</code>: every iteration chases a pointer to a heap object (cache miss), reads its vptr (another miss), and makes an un-inlinable indirect call. <b>Data-oriented design</b> flips it &#8212; store the data for each system in flat, contiguous arrays (a "structure of arrays") and run a tight non-virtual loop over each. The CPU streams through cache-friendly memory and the inliner does its job. The polymorphism moves <em>up</em>, to the level of "which system processes this array," not "what is each individual object."`),
+idea("Composition and static dispatch over inheritance","Two related moves an engine reaches for. <b>Prefer composition to deep inheritance</b>: an entity that <em>has-a</em> set of components (a <code>Transform</code>, a <code>Sprite</code>, a <code>Collider</code>) is more flexible and more cache-friendly than a tall <code>GameObject &#8594; Character &#8594; Enemy &#8594; Boss</code> hierarchy of virtual overrides &#8212; this is the core of the entity-component pattern. And <b>prefer static dispatch where the type is known</b>: templates, overloading, or <code>std::variant</code> + <code>std::visit</code> give you polymorphism the compiler resolves at compile time, with full inlining and no vtable. Use virtual when the set of types is open and runtime-decided; use static dispatch when it's closed and known."),
+sub("CRTP: polymorphism without the vtable"),
+p(`Worth knowing the name even if you only touch it briefly. <b>CRTP</b> &#8212; the Curiously Recurring Template Pattern &#8212; is compile-time polymorphism: a base class templated on its own derived type, <code>struct Circle : Shape&lt;Circle&gt;</code>. The base can call into the derived type's methods (via a <code>static_cast</code> to <code>Derived*</code>) with the exact target resolved at compile time &#8212; so you get override-like customization with <b>no vptr, no vtable, no indirect call, and full inlining</b>. The trade-off is that it's static: the type must be known at compile time, so you lose the open-ended runtime extensibility that real virtual gives you. It's the tool when you want the polymorphism shape but can't afford the dispatch cost. The full mechanics belong to the Templates deep dive; here, just be able to name it as "static polymorphism via CRTP" when the cost of virtual comes up.`),
+sub("Pitfalls to name before they name them"),
+pit("Missing virtual destructor","If a class will ever be deleted through a base pointer (including by a <code>unique_ptr&lt;Base&gt;</code> or <code>shared_ptr&lt;Base&gt;</code>), its destructor must be <code>virtual</code>. Otherwise only the base destructor runs, the derived part leaks, and it's formally undefined behavior. The fix is one keyword: <code>virtual ~Base() = default;</code>. Conversely, if a class is <em>not</em> a polymorphic base, don't add a virtual destructor &#8212; it forces a vptr onto every object for nothing."),
+pit("Object slicing on copy-by-value","Copying or passing a derived object into a base-typed <em>value</em> drops the derived part and resets the vptr to the base, so virtual dispatch silently stops working. Pass polymorphic types by <code>const&amp;</code> or by pointer, and store them in containers as <code>unique_ptr&lt;Base&gt;</code>, never as <code>Base</code> values."),
+pit("Calling a virtual function from a constructor or destructor","During <code>Base</code>'s constructor, the object <em>is not yet</em> a <code>Derived</code> &#8212; the vptr still points at <code>Base</code>'s vtable, because the derived part hasn't been built. So a virtual call made from a base constructor (or destructor, where it's symmetric &#8212; the derived part is already gone) dispatches to the <b>current</b> type, not the most-derived one. It looks like it should call the override; it doesn't. Don't call virtual functions during construction or destruction; if you need type-specific setup, do it after the object is fully built (e.g. a separate <code>init()</code>)."),
+cx(`A virtual call is O(1) &#8212; one extra indirection (vptr &#8594; vtable slot &#8594; jump) versus a direct call. The cost isn't the cycle count; it's the lost inlining, the vptr cache miss, and the branch-predictor stall, which is why hot loops avoid it. Per-object space cost: one vptr (one pointer) per polymorphic object, plus one shared vtable per class.`),
+idea("Say it like this in the interview","\"Runtime polymorphism is a base pointer or reference calling a derived override, resolved at runtime. The mechanism: each polymorphic class has one vtable of function pointers, and each object stores a hidden vptr to its class's vtable, set in the constructor &#8212; a virtual call is an indirect jump through that vptr at a fixed slot index. A polymorphic base needs a <code>virtual</code> destructor, or deleting through the base pointer only runs the base destructor and leaks the derived part &#8212; that's undefined behavior. Pure virtual <code>= 0</code> makes the class abstract; an all-pure-virtual class is an interface. I put <code>override</code> on every override so signature mismatches are compile errors. The trap is object slicing &#8212; copying a derived object into a base value drops the derived part &#8212; so I pass polymorphic types by <code>const&amp;</code> or pointer. For a safe downcast I use <code>dynamic_cast</code>: null on failure for pointers, throws for references. And virtual isn't free &#8212; an un-inlinable indirect call plus a vptr cache miss &#8212; so in hot loops I avoid it, preferring data-oriented layouts, composition, or static dispatch like templates and CRTP.\" That arc &#8212; mechanism, virtual dtor, abstract/interface, override, slicing, dynamic_cast, cost &#8212; covers the whole topic and every standard follow-up.")
+]},
+{group:"C++ Deep Dives",num:"⇄",id:"typesystem",color:"#6366F1",title:"Casts, const & the Type System",badge:"C++ deep dive",blocks:[
+  cue(`You already know what a cast is &#8212; you write them in engine code every day. What interviews probe is whether you reach for the <em>right</em> one and can say why. C++ gives you four named casts, each a different promise to the compiler, and a fifth C-style form that quietly does whatever it takes. This lesson sorts them out, then deepens the <code>const</code> story from the Pointers and Value-vs-Reference lessons and the <code>auto</code>/<code>decltype</code> deduction rules that trip people up. The payoff: you stop guessing which cast to type, and you can defend every one out loud.`),
+  p(`Casting is just telling the compiler "treat this value as a different type." The danger is that "different type" covers a huge range &#8212; from a totally safe <code>int</code>&#8594;<code>long</code> widening, to a reinterpret-the-bits-and-pray reach across unrelated pointer types. C++ deliberately splits that range into four <em>named</em> casts so the danger is visible in the source. The name you type <em>is</em> the documentation: a reader (and a <code>grep</code>) can see exactly which kind of risk you took. That's the whole reason the named casts exist and the C-style <code>(T)x</code> is discouraged &#8212; one hides the risk, the others announce it.`),
+  svg("typesystem_casts","The four named casts, ordered safe to dangerous &#8212; and the punchline at the bottom: a C-style <code>(T)x</code> is silently <em>any</em> of them, whichever the compiler can make compile. The color is the safety: green you reach for freely, red you reach for almost never."),
+  sub("static_cast — the everyday, compile-time cast"),
+  p(`<code>static_cast&lt;T&gt;</code> is the one you'll type most. It performs conversions the compiler can verify are <em>meaningful</em> at compile time: numeric conversions (<code>int</code>&#8594;<code>double</code>, <code>double</code>&#8594;<code>int</code> truncating, <code>long</code>&#8594;<code>int</code> narrowing), conversions between related class types, an explicit <code>enum</code>&#8594;<code>int</code>, and converting a <code>void*</code> back to the exact pointer type it came from. It will also do an up-cast (derived&#8594;base, always safe) or a down-cast (base&#8594;derived) &#8212; but the down-cast comes with <em>no runtime check</em>. You are asserting "I know this base pointer really points at a Derived"; if you're wrong, you get undefined behavior.`),
+  code(`double pi = 3.99;
+int n = static_cast<int>(pi);          // 3 -- explicit, intentional truncation
+
+int total = 7, parts = 2;
+double avg = static_cast<double>(total) / parts;  // 3.5, not integer 3
+
+void* raw = operator new(sizeof(int)); // raw storage
+int* p = static_cast<int*>(raw);       // void* back to the exact type: fine
+
+Base* b = getBase();
+Derived* d = static_cast<Derived*>(b); // down-cast: NO runtime check.
+                                       // UB if b isn't actually a Derived.`),
+  note("&#128161;","Why an explicit cast at all, if the conversion is legal?",`<code>int n = pi;</code> compiles too (with a narrowing warning). Writing <code>static_cast&lt;int&gt;(pi)</code> instead says <em>"yes, I meant to truncate"</em> &#8212; it silences the warning <em>because you acknowledged it</em>, and it leaves a searchable marker at the lossy spot. The cast isn't changing what happens; it's recording that the loss was deliberate. That's the same "make intent checkable" habit as const-correctness, applied to conversions.`),
+  sub("dynamic_cast — the safe, runtime-checked downcast"),
+  p(`When you genuinely don't know whether a base pointer points at a particular derived type, <code>static_cast</code> is the wrong tool &#8212; it can't check, so a wrong guess is UB. <code>dynamic_cast&lt;T*&gt;</code> is the right one: it consults the object's runtime type information and only succeeds if the object really is (or derives from) <code>T</code>. The cost is a runtime lookup; the payoff is safety. This is the cast that makes "is this generic <code>Entity*</code> actually a <code>Projectile</code>?" answerable safely at runtime. (It's the same tool the Polymorphism lesson covers from the object-model side.)`),
+  p(`One precondition: <code>dynamic_cast</code> only works across a <em>polymorphic</em> hierarchy &#8212; the base class must have at least one <code>virtual</code> function (usually a <code>virtual</code> destructor). That virtual-ness is what gives each object a hidden type tag (the vtable pointer) for the cast to inspect. On a non-polymorphic type it won't even compile. And the failure behavior depends on what you're casting:`),
+  ul([
+    `<b>Pointer form</b> &#8212; on failure it returns <code>nullptr</code>. So the idiom is cast-then-check: <code>if (auto* d = dynamic_cast&lt;Derived*&gt;(b)) { use d }</code>. The <code>nullptr</code> branch is your "it wasn't that type" path.`,
+    `<b>Reference form</b> &#8212; a reference can't be null, so there's nothing to return on failure. Instead it <em>throws</em> <code>std::bad_cast</code>. Use the reference form only when failure is genuinely exceptional and you're prepared to catch it.`,
+  ]),
+  worked("dynamic_cast vs static_cast on the same downcast","Same intent &#8212; turn a Base* into a Derived* &#8212; but two different contracts. <code>static_cast</code> trusts you and is free; <code>dynamic_cast</code> verifies and costs a lookup. Reach for <code>dynamic_cast</code> precisely when you can't prove the type yourself; reach for <code>static_cast</code> when you already can (and want the speed).",
+`struct Shape { virtual ~Shape() = default; };   // virtual -> polymorphic
+struct Circle : Shape { double r; };
+
+double areaIfCircle(Shape* s) {
+    // We don't KNOW it's a Circle, so check at runtime:
+    if (auto* c = dynamic_cast<Circle*>(s))      // nullptr if not a Circle
+        return 3.14159 * c->r * c->r;
+    return 0.0;                                   // it was some other Shape
+
+    // static_cast<Circle*>(s) here would compile and run, but if s
+    // pointed at a Square it would read garbage as 'r' -> UB.
+}`),
+  note("&#128221;","Needing dynamic_cast a lot is a design smell",`A scattering of <code>dynamic_cast</code>s asking "which subclass is this?" is often a sign a <code>virtual</code> function wants to exist instead &#8212; let each derived type override <code>area()</code> and call <code>s-&gt;area()</code> with no cast at all. <code>dynamic_cast</code> is the right tool for the occasional "is this the one special type I need to handle?" check, not a substitute for polymorphism. Saying that distinction out loud is a senior signal.`),
+  sub("const_cast — add or strip const, nothing else"),
+  p(`<code>const_cast&lt;T&gt;</code> is the only cast that can add or remove <code>const</code> (or <code>volatile</code>) qualifiers &#8212; and it can do <em>nothing else</em>; it can't change the underlying type. You'll mostly see it stripping <code>const</code> off a pointer or reference to pass into an older or third-party API that takes a non-const parameter but doesn't actually modify the argument. That use is legitimate. The trap is the other one:`),
+  pit("Writing through a stripped const can be undefined behavior",`Stripping <code>const</code> and then <em>reading</em> is fine. Stripping it and then <em>writing</em> is only fine if the object underneath was <em>not originally declared const</em>. If you <code>const_cast</code> away const on something that truly is a <code>const</code> object and then modify it, that's undefined behavior &#8212; the compiler may have placed it in read-only memory or constant-folded reads of it. <code>const_cast</code> changes your <em>view</em> of the object; it does not change what the object actually is.`),
+  code(`void legacyApi(char* s);               // old API, doesn't modify s but isn't const-correct
+
+void callIt(const std::string& text) {
+    // We KNOW legacyApi only reads; strip const to satisfy its signature:
+    legacyApi(const_cast<char*>(text.c_str()));   // OK: no write happens
+}
+
+const int k = 42;
+int* p = const_cast<int*>(&k);
+*p = 99;                                // UNDEFINED BEHAVIOR: k was truly const`),
+  note("&#128221;","const_cast is a confession, not a tool",`Reaching for <code>const_cast</code> usually means a <code>const</code>-correctness mistake exists <em>somewhere</em> &#8212; a function that should have taken <code>const&amp;</code> didn't. The clean fix is to make the API const-correct. When you can't (it's not your code), <code>const_cast</code> is the escape hatch &#8212; but treat each one as something to justify in review, not a default move. If you're stripping const so you can <em>write</em>, stop: you almost certainly have a real bug.`),
+  sub("reinterpret_cast — raw bits, no safety net"),
+  p(`<code>reinterpret_cast&lt;T&gt;</code> is the sledgehammer: it tells the compiler "take these bits and pretend they're a <code>T</code>," with essentially no conversion logic and no checks. It's for reinterpreting raw pointer types &#8212; <code>char*</code>&#8594;<code>uint32_t*</code>, a pointer to/from an integer, hardware-register and serialization code. It does no pointer adjustment (unlike a base/derived <code>static_cast</code>, which can shift the address for multiple inheritance), so misusing it across a class hierarchy silently corrupts. As a game-engine dev you've used it for legit low-level work; the interview point is knowing it's the <em>last</em> resort, named precisely so it's easy to find and audit.`),
+  pit("reinterpret_cast and strict aliasing",`The deeper hazard: C++'s <em>strict aliasing</em> rule says the compiler may assume two pointers of unrelated types never refer to the same memory. So reading an object through a <code>reinterpret_cast</code>ed pointer of a different type (e.g. viewing a <code>float</code>'s storage as an <code>int</code>) is undefined behavior, and the optimizer is allowed to reorder or discard your accesses. The standard-blessed way to reinterpret bytes is <code>std::bit_cast&lt;T&gt;(x)</code> (C++20) or a <code>memcpy</code> into the target type &#8212; not a pointer reinterpret. <code>char*</code>/<code>std::byte*</code> are the one exception the rule allows to alias anything.`),
+  code(`float f = 1.5f;
+
+// WRONG: strict-aliasing UB -- reading f's bytes through an int*
+int bad = *reinterpret_cast<int*>(&f);
+
+// RIGHT: copy the bytes into an int, no aliasing violation
+int bits;
+std::memcpy(&bits, &f, sizeof bits);   // or std::bit_cast<int>(f) in C++20`),
+  sub("Why C-style casts (Type)x are discouraged"),
+  p(`A C-style cast <code>(Derived*)b</code> looks innocent, and that's exactly the problem. Under the hood the compiler tries, in order, <code>const_cast</code>, then <code>static_cast</code>, then <code>static_cast</code>-plus-<code>const_cast</code>, then <code>reinterpret_cast</code>, then that plus <code>const_cast</code> &#8212; and picks the first combination that <em>compiles</em>. So a single <code>(T)x</code> can quietly perform a <code>reinterpret_cast</code> when you only meant a <code>static_cast</code>, casting away const along the way, with zero indication in the source. You lose intent, you lose the ability to <code>grep</code> for the dangerous casts, and you lose the compiler's help catching the cases where <em>no</em> safe cast was possible.`),
+  ul([
+    `<b>Intent is invisible</b> &#8212; you can't tell a deliberate truncation from an accidental bit-reinterpretation by reading <code>(int)x</code>.`,
+    `<b>It's the most powerful cast, always</b> &#8212; it'll reach for <code>reinterpret_cast</code> if that's what it takes, so it never refuses the way a too-weak named cast would have warned you.`,
+    `<b>It's not searchable</b> &#8212; <code>grep reinterpret_cast</code> finds your risky casts; nothing finds the C-style ones hiding as <code>(T)x</code>.`,
+  ]),
+  pit("The C-style cast that's secretly a reinterpret_cast",`<code>(int*)somePtr</code> where <code>somePtr</code> is an unrelated pointer type compiles fine and does a <code>reinterpret_cast</code> &#8212; the single most dangerous cast &#8212; with no syntactic warning that anything risky happened. Write <code>static_cast</code> instead and the compiler will <em>reject</em> the unrelated-pointer conversion, forcing you to either fix the types or type <code>reinterpret_cast</code> explicitly and own it. The named cast failing to compile is a feature: it caught a mistake the C-style cast would have waved through.`),
+  idea("The cast decision in one breath",`Numeric or related-type conversion you can prove is right &#8594; <code>static_cast</code>. Downcast you can't prove, in a polymorphic hierarchy &#8594; <code>dynamic_cast</code> (check for <code>nullptr</code>). Only adding/removing const for a const-incorrect API &#8594; <code>const_cast</code> (and never write through one that was truly const). Raw bit reinterpretation at the hardware/serialization layer &#8594; <code>reinterpret_cast</code>, knowing the strict-aliasing rules. Never the C-style <code>(T)x</code> &#8212; it hides which of those four it actually did.`),
+  sub("Const-correctness, deepened"),
+  p(`The Pointers lesson distinguished <code>const int*</code> (pointer to const data) from <code>int* const</code> (const pointer), and the Value-vs-Reference lesson made <code>const&amp;</code> your default parameter. This section pushes <code>const</code> from "a parameter annotation" to "a property of your whole design." <code>const</code> isn't a hint &#8212; it's a compiler-enforced promise, and the more of your interfaces carry it, the more bugs become compile errors instead of runtime surprises.`),
+  sub("const member functions: what they promise"),
+  p(`A <code>const</code> after a member function's parameter list &#8212; <code>int size() const</code> &#8212; is a promise that calling it won't modify the object. Inside such a function <code>this</code> is a pointer to const, so the compiler rejects any write to a member. The payoff lands at the call site: <em>you can only call <code>const</code> member functions on a <code>const</code> object</em>. So if you ever want to pass an object as <code>const&amp;</code> (and you do, constantly), every method you call on it through that reference must be <code>const</code>. One missing <code>const</code> on an accessor poisons the whole const-correct chain above it.`),
+  pit("The direction that actually bites: non-const methods on a const object",`It's easy to state it backwards, so pin it down: a <code>const</code> object can only call <code>const</code> member functions. The error you'll hit is calling a <em>non-const</em> method through a <code>const</code> reference &#8212; e.g. a <code>getValue()</code> you forgot to mark <code>const</code>, called inside a function taking <code>const Widget&amp;</code>. The fix is almost always to add the missing <code>const</code> to the accessor, not to drop the <code>const</code> from the parameter. Mark every method that doesn't mutate as <code>const</code> from the start and this class of error disappears.`),
+  worked("A const-correct accessor and a const/non-const operator[] pair","Two ideas at once. First, <code>size()</code> is <code>const</code> because reading the size never mutates the buffer &#8212; so it's callable on a <code>const Vec&amp;</code>. Second, <code>operator[]</code> is <em>overloaded on constness</em>: the non-const version hands back a mutable reference so callers can assign; the const version returns a <code>const&amp;</code> so a const object stays read-only. The compiler picks the right one based on whether the object is const.",
+`class Vec {
+    int* data;
+    size_t n;
+public:
+    size_t size() const { return n; }          // const: promises no mutation
+
+    // non-const object -> writable element
+    int& operator[](size_t i)       { return data[i]; }
+    // const object -> read-only element
+    const int& operator[](size_t i) const { return data[i]; }
+};
+
+void demo(Vec& v, const Vec& cv) {
+    v[0] = 9;          // calls the non-const [] -> assignable
+    int x = cv[0];     // calls the const []     -> read-only, fine
+    // cv[0] = 9;      // ERROR: returns const int&, can't assign
+    cv.size();         // OK: size() is const, callable on a const object
+}`),
+  note("&#128161;","Why two operator[] overloads instead of one",`A single <code>int&amp; operator[]</code> can't be called on a <code>const Vec</code> (it's non-const), and a single <code>const int&amp; operator[] const</code> would forbid <em>writing</em> through a non-const Vec. You genuinely need both so that mutability propagates: a mutable container yields mutable elements, a const container yields const elements. This const/non-const overload pair is exactly how <code>std::vector</code>, <code>std::string</code>, and friends are written.`),
+  sub("mutable: the deliberate exception"),
+  p(`Occasionally a member <em>should</em> change inside a <code>const</code> function without breaking the promise &#8212; a cached computed value, a mutex you lock, a hit-counter. Mark that member <code>mutable</code> and it stays writable even through a <code>const</code> <code>this</code>. The promise <code>const</code> makes is about <em>logical</em> constness (the object's observable value is unchanged), and <code>mutable</code> is how you carve out an implementation detail that doesn't affect it. Use it sparingly and only for genuinely incidental state &#8212; abusing it to mutate real data through a <code>const</code> method is lying to every caller.`),
+  code(`class Cache {
+    mutable bool computed = false;     // bookkeeping, not logical state
+    mutable int  cached = 0;
+    int input;
+public:
+    int value() const {                // const: callers see no value change
+        if (!computed) {               // but we may fill the cache...
+            cached = expensive(input); // ...legal because both are 'mutable'
+            computed = true;
+        }
+        return cached;
+    }
+};`),
+  sub("auto deduction strips references and top-level const"),
+  p(`The Value-vs-Reference lesson flagged this; here's the rule stated sharply so you never get caught. Bare <code>auto</code> deduces by <em>value</em>: it drops the reference and the top-level <code>const</code> from the initializer, giving you a fresh, mutable copy. That's why <code>auto x = v[0];</code> copies the element even though <code>operator[]</code> returned an <code>int&amp;</code>, and why <code>auto y = cv[0];</code> gives you a mutable <code>int</code> even though the source was <code>const int&amp;</code>. If you want the alias, you ask for it explicitly with <code>auto&amp;</code> or <code>const auto&amp;</code>.`),
+  svg("typesystem_deduce","<code>auto</code> takes the value and throws away the <code>&amp;</code> and the top-level <code>const</code> &#8212; you get an independent, mutable copy. <code>decltype</code> keeps the declared type exactly, references and const included. When you wanted the reference from <code>auto</code>, spell it: <code>const auto&amp;</code>."),
+  code(`const int  k = 7;
+const int& r = k;
+
+auto        a = r;     // int          -- & and const both stripped; a is a copy
+auto&       b = r;     // const int&   -- you asked for a reference; const stays
+const auto& c = r;     // const int&   -- read-only alias, no copy
+auto*       p = &k;    // const int*   -- top-level const of the POINTER drops,
+                       //                 but the pointee stays const`),
+  note("&#128221;","Top-level vs low-level const &#8212; what exactly gets stripped",`<code>auto</code> drops only the <em>top-level</em> const (the constness of the variable itself) and the reference. It does <em>not</em> strip const that's part of what a pointer points <em>at</em>: deducing from a <code>const int*</code> still gives a <code>const int*</code>, because the pointee's const is "low-level," baked into the type. So <code>auto</code> on a pointer copies the pointer (fine, pointers are cheap) but faithfully keeps "points to const." This is the same top-level/low-level distinction as <code>int* const</code> vs <code>const int*</code> from the Pointers lesson.`),
+  sub("decltype preserves the exact declared type"),
+  p(`Where <code>auto</code> normalizes a type down to a value, <code>decltype</code> reports the type <em>exactly as declared</em> &#8212; references, const, and all. <code>decltype(r)</code> on the <code>const int& r</code> above is <code>const int&amp;</code>, not <code>int</code>. This is what you reach for in generic code when you need the return type to mirror whatever an expression really is &#8212; a wrapper that returns "the same kind of reference my callee returned" wants <code>decltype</code>, not <code>auto</code>, or it would silently turn a returned reference into a copy.`),
+  p(`There's a wrinkle worth knowing: <code>decltype</code> of a plain <em>name</em> like <code>decltype(x)</code> gives the declared type of <code>x</code>, but <code>decltype</code> of a more complex <em>expression</em> &#8212; including a name in extra parentheses, <code>decltype((x))</code> &#8212; yields an lvalue reference, <code>int&amp;</code>. That parenthesis-sensitivity is a famous gotcha. And <code>decltype(auto)</code> as a return type means "deduce like <code>decltype</code> would," i.e. preserve references and const, instead of the value-collapsing behavior of bare <code>auto</code> &#8212; the tool for perfect-forwarding a return value.`),
+  worked("auto vs decltype on the same expression","One initializer, three deductions. <code>auto</code> collapses to a value (you lose the reference and const). <code>decltype(name)</code> reproduces the declared type. <code>decltype((name))</code> &#8212; note the double parens &#8212; reports an lvalue reference because the expression is an lvalue. Knowing these three apart is exactly the kind of precise answer the type-system question is fishing for.",
+`std::vector<int> v = {10, 20, 30};
+const int& first = v[0];
+
+auto            a = first;   // int        -- value copy; & and const dropped
+decltype(first) d = first;   // const int& -- exact declared type: alias, read-only
+decltype(v[0])  e = v[0];    // int&       -- operator[] returns int&, preserved
+
+int y = 5;
+decltype(y)   m = y;         // int   -- declared type of the name y
+decltype((y)) n = y;         // int&  -- (y) is an lvalue expression -> reference!`),
+  note("&#128221;","decltype(auto) in one line",`Use <code>decltype(auto)</code> as a function's return type when you want to return <em>exactly</em> what an inner expression yields &#8212; reference-ness and const intact &#8212; rather than a copy. <code>decltype(auto) frontOf(C&amp; c) { return c.front(); }</code> hands back the real reference; writing <code>auto</code> there would have copied. It's the forwarding-return counterpart to the <code>auto&amp;</code> discipline at the call site.`),
+  sub("const propagates through your design"),
+  p(`Pull the threads together: <code>const</code> isn't a local choice, it's a property that flows. A function takes a parameter <code>const&amp;</code> &#8594; so it may only call <code>const</code> methods on it &#8594; so those methods must be marked <code>const</code> &#8594; and if they return pieces of the object, they should return <code>const&amp;</code> so the read-only-ness keeps flowing. Start const-correct at the leaves (mark every non-mutating method <code>const</code>) and the property composes all the way up; skip it anywhere and the chain breaks, forcing either a cascade of non-const signatures or a <code>const_cast</code> band-aid. Const-correctness is cheapest when it's there from the first line.`),
+  cx(`Named casts are <b>O(1)</b> at runtime &#8212; except <code>dynamic_cast</code>, which pays a small RTTI lookup &#8226; <code>static_cast</code> down-casts and <code>const_cast</code>/<code>reinterpret_cast</code> are compile-time-only reinterpretations &#8226; <code>const</code>, <code>auto</code>, and <code>decltype</code> are purely compile-time &#8212; zero runtime cost`),
+  sub("Saying it out loud in the interview"),
+  p(`This topic rewards precision over cleverness. If you're asked "what casts does C++ have and when do you use each," the strong answer names all four, pairs each with its one job, and volunteers the danger of the C-style cast unprompted. If <code>const</code> comes up, the strong answer connects const member functions, <code>const&amp;</code> parameters, and the const/non-const <code>operator[]</code> overload into one story about a promise the compiler enforces. And if <code>auto</code> vs <code>decltype</code> comes up, the crisp distinction &#8212; "<code>auto</code> deduces a value and strips reference and top-level const; <code>decltype</code> preserves the declared type exactly" &#8212; is most of the answer.`),
+  idea("Say it like this",`"C++ has four named casts so the risk is visible in the source. <code>static_cast</code> for related-type and numeric conversions I can prove are right, including down-casts with no runtime check. <code>dynamic_cast</code> for a down-cast I <em>can't</em> prove, in a polymorphic hierarchy &#8212; it's runtime-checked, returning <code>nullptr</code> for pointers or throwing <code>std::bad_cast</code> for references. <code>const_cast</code> only to add or strip const for a const-incorrect API &#8212; and writing through one that was originally const is undefined behavior. <code>reinterpret_cast</code> for raw bit reinterpretation at the hardware layer, mindful of strict aliasing. I avoid C-style <code>(T)x</code> because it silently tries all of these and picks whatever compiles, hiding intent. On const: a <code>const</code> member function promises not to mutate and is the only kind callable on a <code>const</code> object, which is why I mark every non-mutating method <code>const</code> and overload <code>operator[]</code> on constness. And <code>auto</code> deduces a value &#8212; it drops references and top-level const, so I write <code>auto&amp;</code> or <code>const auto&amp;</code> when I want the alias &#8212; whereas <code>decltype</code> preserves the exact declared type, which is what generic forwarding code needs."`)
+]},
+{group:"C++ Deep Dives",num:"‖",id:"concurrency",color:"#06B6D4",title:"Concurrency & Multithreading",badge:"C++ deep dive",blocks:[
+  cue(`Concurrency is the C++ topic where a game-engine background is pure advantage &#8212; you've shipped job systems and worried about cache lines, so you already <em>feel</em> what the standard library is formalizing. The interview job is to put precise vocabulary on that instinct: what a data race actually is (undefined behavior, not just a wrong number), when an <code>atomic</code> is enough and when you need a <code>mutex</code>, how deadlock arises and how lock ordering kills it, and why two counters on one cache line can quietly halve your throughput. Get those cold and the whole multithreading question set is yours.`),
+  p(`Threads exist for two reasons, and it's worth separating them. The first is <b>parallelism</b>: a modern CPU has many cores, and a single thread uses exactly one of them. To turn an 8-core machine's worth of silicon into 8&#215; throughput &#8212; updating thousands of entities, baking lightmaps, running physics islands &#8212; you split the work across threads that run <em>genuinely at the same time</em>. The second is <b>concurrency for latency hiding</b>: even on one core, while one thread blocks on I/O (a disk read, a network packet, a stream load), another can do useful work instead of the program sitting idle. Parallelism is about using more cores; concurrency is about not stalling. Threads serve both.`),
+  p(`The catch is that the moment two threads touch the same memory, you've left the comfortable world where the program does one thing at a time. Reads and writes from different threads can interleave in any order the hardware and compiler choose, and unless you've explicitly <em>synchronized</em> them, the result is not just unpredictable &#8212; it's undefined. Most of this lesson is about the small set of tools C++ gives you to impose order: <code>mutex</code>, <code>condition_variable</code>, <code>atomic</code>, and the memory model underneath them.`),
+  sub("std::thread — spawning and joining"),
+  p(`A <code>std::thread</code> starts running the instant you construct it, given any callable &#8212; a function pointer, a lambda, a functor &#8212; plus its arguments. From that point on, the new thread and the one that spawned it run independently. The one rule you must never forget: before a <code>std::thread</code> object is destroyed, you must <b>join</b> it (block until it finishes) or <b>detach</b> it (cut it loose to run on its own). Destroy a still-<em>joinable</em> thread and the runtime calls <code>std::terminate</code> &#8212; your whole process dies on the spot. This is deliberate: the language refuses to silently leak a running thread or silently kill one mid-work, so it forces you to state your intent.`),
+  code(`#include <thread>
+
+void work(int id) { /* ... runs on its own thread ... */ }
+
+std::thread t(work, 7);     // starts immediately, passes 7 as the argument
+// ... the spawning thread keeps going in parallel ...
+t.join();                   // block here until t finishes (the usual choice)
+// t.detach();              // alternative: let it run unsupervised, no join needed
+// if t is destroyed while still joinable -> std::terminate()`),
+  note(`&#128221;`,`join vs detach &#8212; and why RAII threads exist`,`<b>join</b> is what you want almost always: it makes the parent wait for the child, so the child's results are ready and its lifetime is bounded. <b>detach</b> says "I never need to wait for this" &#8212; fire-and-forget &#8212; but now the thread may outlive the data it captured by reference, which is its own footgun. Because forgetting to join is so easy (an early <code>return</code> or a thrown exception skips your <code>t.join()</code>), C++20 added <code>std::jthread</code>: an RAII thread that <em>joins itself in its destructor</em>. That's the RAII lesson applied to threads &#8212; tie the join to scope exit so it can't-not-happen.`),
+  sub("The data race — the bug at the center of everything"),
+  p(`Here's the precise definition, because interviewers want the precise definition. A <b>data race</b> occurs when two threads access the same memory location, <em>at least one access is a write</em>, and there's <em>no synchronization</em> ordering them. In C++ a data race is <b>undefined behavior</b> &#8212; full stop. This is the single most important sentence in the topic. It does not mean "you get a slightly wrong number." It means the standard places no constraints on what your program does: it may produce garbage, it may crash, it may work for a year and then corrupt memory in production, and the optimizer is allowed to assume races never happen and rewrite your code accordingly.`),
+  p(`The canonical example is two threads each incrementing one shared <code>int</code>. <code>counter++</code> looks atomic but isn't &#8212; it's three steps: read the value into a register, add one, write it back. Let two threads run that on the same variable and their three-step sequences interleave. Both read 41, both compute 42, both write 42 &#8212; two increments, but the counter only moved by one. An update was <em>lost</em>. Run it a million times and the final total is some unpredictable number well below two million.`),
+  svg("concurrency_race","Left: two threads run the read-modify-write of <code>counter++</code> and their steps interleave &#8212; both read 41, both write 42, so one of the two increments vanishes. This isn't merely a wrong count; an unsynchronized write is undefined behavior. Right: a mutex forces the whole read-modify-write to happen as one indivisible turn, so B starts from the value A actually wrote."),
+  worked("The race, and the mutex that fixes it","The top function has a genuine data race: two threads write <code>counter</code> with no synchronization, so the result is both wrong and undefined. The fix wraps the increment in a critical section guarded by a <code>std::mutex</code>. <code>lock_guard</code> is RAII: it locks on construction and unlocks in its destructor, so the lock is released at the closing brace &#8212; on every path, including an exception thrown inside the section.",
+`#include <mutex>
+#include <thread>
+
+long counter = 0;
+
+// BROKEN: data race -> undefined behavior, lost updates
+void raceVersion() {
+    for (int i = 0; i < 100000; ++i)
+        ++counter;              // unsynchronized read-modify-write on shared memory
+}
+
+std::mutex m;
+
+// CORRECT: the increment is a critical section, one thread at a time
+void safeVersion() {
+    for (int i = 0; i < 100000; ++i) {
+        std::lock_guard<std::mutex> lk(m);   // locks here (RAII)
+        ++counter;                            // exactly one thread inside at a time
+    }                                         // lk's dtor unlocks m here, always
+}`),
+  p(`Notice the shape: <code>lock_guard</code> is the exact same RAII idea as a smart pointer, just applied to a lock instead of memory. You never call <code>m.unlock()</code> by hand &#8212; leaving the scope releases it, so the "returned early and forgot to unlock &#8594; deadlock" bug simply can't happen. When you need to lock and unlock at finer granularity (or hand the lock to a <code>condition_variable</code>, below), reach for <code>std::unique_lock</code> instead &#8212; same RAII guarantee, but it can be unlocked, relocked, and moved.`),
+  note(`&#128221;`,`A mutex protects a critical section, not "a variable"`,`The mental model that keeps you out of trouble: a mutex doesn't guard data, it guards <em>code</em>. Everything you do while holding the lock happens with no other lock-holder interleaving &#8212; that's the critical section. The discipline is "every access to this shared state, read or write, takes the same lock." A reader that skips the lock because "I'm only reading" still races with a writer. One lock, every access, no exceptions.`),
+  sub("Deadlock — when locking goes wrong"),
+  p(`Locks solve races but introduce a new failure mode: <b>deadlock</b>. The classic recipe needs two locks and two threads. Thread A locks mutex 1 and then tries to lock mutex 2; Thread B, at the same moment, locks mutex 2 and then tries to lock mutex 1. Now A is blocked waiting for 2 (which B holds) and B is blocked waiting for 1 (which A holds). Each is waiting for a resource the other won't release until it finishes &#8212; which it never will. The threads are frozen forever, the program hangs, and there's no crash to point you at the cause.`),
+  svg("concurrency_deadlock","Left: A holds Lock 1 and wants Lock 2; B holds Lock 2 and wants Lock 1. The hold-and-wait arrows form a cycle, and a cycle is exactly a deadlock &#8212; neither thread can advance. Right: if every thread always acquires Lock 1 before Lock 2, there's no way to form the cycle, so the deadlock is structurally impossible."),
+  p(`The root cause is always the same: threads acquire multiple locks in <em>inconsistent orders</em>, which lets a wait-cycle form. There are two clean fixes, and naming both is a strong answer:`),
+  ul([
+    `<b>Consistent lock ordering.</b> Pick a global order for your locks and have <em>every</em> thread acquire them in that order. If everyone grabs Lock 1 before Lock 2, no thread can hold 2 while waiting for 1, so the cycle can't form. This is the discipline that scales to large codebases.`,
+    `<b>Take them atomically.</b> When you genuinely need two locks at once, don't acquire them one at a time &#8212; use <code>std::scoped_lock</code> (C++17), which locks all the mutexes you hand it using a deadlock-avoidance algorithm and unlocks them all (RAII) at scope exit. <code>std::lock(m1, m2)</code> is the pre-17 equivalent. Either way, there's no in-between state where you hold one and wait for the other.`,
+  ]),
+  worked("Deadlock, and the scoped_lock fix","The top pair of functions deadlocks under the wrong timing: <code>transfer</code> locks <code>a</code> then <code>b</code>, while a concurrent reverse transfer locks <code>b</code> then <code>a</code> &#8212; opposite orders, so they can form a cycle and freeze. The fix grabs both mutexes in one <code>scoped_lock</code>, which takes them atomically with deadlock avoidance, so order no longer matters and no cycle can form.",
+`#include <mutex>
+
+std::mutex mA, mB;
+
+// BROKEN: inconsistent lock order -> possible deadlock
+void transfer() {
+    std::lock_guard<std::mutex> l1(mA);   // locks mA first...
+    std::lock_guard<std::mutex> l2(mB);   // ...then mB
+    // ... another thread doing the reverse locks mB then mA -> deadlock
+}
+
+// CORRECT: take both at once, atomically, deadlock-free
+void transferSafe() {
+    std::scoped_lock lk(mA, mB);          // locks BOTH with deadlock avoidance
+    // ... critical section touching both ...
+}                                          // both unlocked here (RAII)`),
+  sub("std::condition_variable — producer / consumer"),
+  p(`Mutexes give you mutual exclusion, but they don't let one thread <em>wait for a condition</em> to become true without burning the CPU. The naive approach &#8212; loop checking a flag while holding nothing useful &#8212; is a "busy-wait" that pins a core spinning. A <b>condition variable</b> is the tool for "sleep until something I care about happens, then wake up." The textbook use is a producer/consumer queue: producers push work and notify; consumers wait until the queue is non-empty, then pop.`),
+  p(`Three rules make condition variables correct, and all three come up in interviews. First, you always pair the cv with a <code>mutex</code> and wait under a <code>unique_lock</code> &#8212; the cv atomically releases the lock while sleeping and re-acquires it on wake, so there's no gap for a missed update. Second, you wait on a <b>predicate in a loop</b>, not a bare wake-up: <code>cv.wait(lk, []{ return !queue.empty(); })</code>. This is non-negotiable because of <em>spurious wakeups</em> &#8212; a thread can return from <code>wait</code> without anyone notifying it, so you must re-check the actual condition and go back to sleep if it's still false. Third, the producer calls <code>notify_one</code> (wake one waiter) or <code>notify_all</code> (wake all) after changing the shared state.`),
+  worked("A producer/consumer queue","The consumer waits on a predicate &#8212; <code>wait</code> sleeps, releasing the lock, and only returns when <code>!q.empty()</code> is genuinely true, so spurious wakeups are handled for free by the loop the predicate form hides. The producer pushes under the lock and notifies.",
+`#include <queue>
+#include <mutex>
+#include <condition_variable>
+
+std::queue<int> q;
+std::mutex m;
+std::condition_variable cv;
+
+void producer(int item) {
+    {
+        std::lock_guard<std::mutex> lk(m);
+        q.push(item);                       // mutate shared state under the lock
+    }
+    cv.notify_one();                        // wake one waiting consumer
+}
+
+int consumer() {
+    std::unique_lock<std::mutex> lk(m);     // unique_lock: cv can release/reacquire it
+    cv.wait(lk, []{ return !q.empty(); });  // sleep until predicate true (loops internally)
+    int item = q.front();                   // guaranteed non-empty here
+    q.pop();
+    return item;
+}                                            // lock released at scope exit`),
+  pit("Always wait on a predicate, never a bare wait()","A plain <code>cv.wait(lk)</code> with no predicate is a bug magnet. Two ways it bites: a <em>spurious wakeup</em> returns from <code>wait</code> with the condition still false, and a <em>lost wakeup</em> happens if the producer notifies in the window before the consumer started waiting. The predicate overload &#8212; <code>cv.wait(lk, pred)</code> &#8212; fixes both: it checks the predicate before sleeping and re-checks after every wake, looping until it's actually true. If you ever write the no-predicate form, you must wrap it in your own <code>while (!condition) cv.wait(lk);</code> by hand."),
+  sub("std::atomic — lock-free for simple shared state"),
+  p(`A mutex is the right tool when a critical section spans several operations that must stay consistent together. But for a <em>single</em> shared value &#8212; a counter, a flag, a pointer swap &#8212; taking a lock is overkill. <code>std::atomic&lt;T&gt;</code> makes individual operations on <code>T</code> <b>indivisible</b>: an <code>atomic&lt;int&gt;</code>'s <code>++</code> is a single uninterruptible read-modify-write, so the lost-update race from earlier simply can't occur. On common platforms these compile to dedicated hardware instructions (a <code>lock xadd</code>, a compare-and-swap) with no OS-level lock involved &#8212; that's what "lock-free" means, and it's why an atomic counter is much faster than a mutex-guarded one under contention.`),
+  worked("An atomic counter — no mutex needed","Replacing <code>long counter</code> with <code>std::atomic&lt;long&gt;</code> makes <code>++counter</code> a single indivisible operation, so two threads hammering it never lose an update &#8212; no lock, no critical section, no deadlock risk. <code>fetch_add</code> is the explicit spelling of the same thing and returns the previous value. This is the right tool precisely because the invariant is a single variable.",
+`#include <atomic>
+#include <thread>
+
+std::atomic<long> counter{0};
+
+void bump() {
+    for (int i = 0; i < 100000; ++i)
+        ++counter;              // indivisible: no lost updates, no lock
+        // counter.fetch_add(1); // equivalent, returns the old value
+}
+
+std::atomic<bool> ready{false}; // atomic flags are the other common use
+// thread 1: ready = true;  thread 2: while (!ready) { /* spin or yield */ }`),
+  note(`&#128161;`,`Atomic suffices for one location; a mutex for an invariant across several`,`The decision rule worth memorizing: an <code>atomic</code> protects <em>one</em> memory location, so it's perfect for a counter or a flag. The moment your invariant spans <em>multiple</em> variables that must change together &#8212; "push to the queue <em>and</em> bump its size," "update the pointer <em>and</em> the length" &#8212; an atomic on each piece isn't enough, because another thread can observe the half-updated state between your two atomic ops. That's a <b>compound invariant</b>, and it needs a mutex so the whole update is one critical section. "One value &#8594; atomic; multiple values that move together &#8594; mutex" answers most "which do I use?" questions.`),
+  sub("The C++ memory model (awareness level)"),
+  p(`Underneath atomics sits the C++ memory model, and you should know it exists even if you never tune it. The issue: compilers and CPUs aggressively <em>reorder</em> memory operations for speed, and on a single thread that's invisible. Across threads it's very visible &#8212; one thread can see another's writes land in a surprising order. Atomics don't just make operations indivisible; they also establish <b>happens-before</b> ordering, which is the guarantee that if thread A writes <code>x</code> then publishes a flag, a thread B that sees the flag is also guaranteed to see the <code>x</code> write.`),
+  p(`By default every atomic operation is <b>sequentially consistent</b> (<code>memory_order_seq_cst</code>) &#8212; the strongest, most intuitive ordering: all threads agree on a single global order of atomic operations. That's the right default and what you should reach for. The weaker orderings &#8212; <code>memory_order_relaxed</code>, <code>acquire</code>, <code>release</code> &#8212; let experts trade ordering guarantees for speed in hot lock-free code, but they're a sharp tool: easy to get subtly wrong, hard to test. The interview-correct stance is "I default to sequential consistency and only reach for acquire/release or relaxed with a specific, measured reason and careful reasoning about happens-before."`),
+  sub("False sharing — the game-engine performance trap"),
+  p(`This is the one where your cache instincts pay off, and it's a great answer to "name a concurrency <em>performance</em> bug, not a correctness one." Cores don't share memory a byte at a time; they share it in <b>cache lines</b>, typically 64 bytes. When a core writes to a line, the cache-coherency protocol invalidates that line in every other core's cache. <b>False sharing</b> happens when two threads update two <em>different, unrelated</em> variables that happen to sit on the <em>same</em> cache line: each write invalidates the other core's copy, so the line ping-pongs between cores on the memory bus even though the threads never actually touch the same data. The program is correct but crawls.`),
+  p(`The fix is to pad or align the hot per-thread data so each lands on its own cache line. <code>alignas(64)</code> on the type, or padding bytes between the fields, separates them. The standard even exposes <code>std::hardware_destructive_interference_size</code> as the portable "cache line size" to align to. In an engine you'll see this with per-worker counters or per-thread accumulators packed into an array &#8212; spread them out and a stalled kernel suddenly scales.`),
+  worked("Two atomics, one cache line vs. padded","The top struct packs two per-thread counters adjacently, so they share a cache line: thread 0 incrementing <code>a</code> and thread 1 incrementing <code>b</code> fight over the same line and the loop runs far slower than it should &#8212; false sharing. The bottom struct aligns each counter to its own cache line, so the cores stop fighting and throughput scales with cores. Same correctness, very different speed.",
+`#include <atomic>
+#include <new>   // std::hardware_destructive_interference_size
+
+// SLOW: a and b share a cache line -> false sharing, the line ping-pongs
+struct Bad {
+    std::atomic<long> a{0};
+    std::atomic<long> b{0};     // ~8 bytes after a: same 64-byte line
+};
+
+// FAST: each counter sits alone on its own cache line
+struct Good {
+    alignas(64) std::atomic<long> a{0};
+    alignas(64) std::atomic<long> b{0};   // forced onto a separate line
+};
+// thread 0 hammers .a, thread 1 hammers .b -> no shared line, no contention`),
+  sub("std::async, futures, and thread pools (brief)"),
+  p(`You don't always manage threads by hand. <code>std::async</code> launches a callable that may run on another thread and hands you a <code>std::future&lt;T&gt;</code> &#8212; a handle to the not-yet-computed result; calling <code>.get()</code> blocks until it's ready and returns the value (or rethrows an exception the task threw). It's the simplest way to fire off "compute this elsewhere, collect it later." The honest caveat: <code>std::async</code> may or may not actually spawn a thread depending on the launch policy, and spawning a fresh OS thread per task is expensive.`),
+  p(`That's why real systems &#8212; and every game engine &#8212; use a <b>thread pool</b>: a fixed set of worker threads (usually about one per core) that pull tasks off a shared queue, which is exactly the producer/consumer pattern from earlier. You pay the thread-creation cost once at startup, then dispatch millions of small jobs onto the pool with no per-task thread overhead. If asked to "design a job system," that's the shape: a pool of workers consuming a concurrent queue, with futures (or a completion counter) to know when work is done.`),
+  sub("Pitfalls to name before they name them"),
+  pit("A data race is undefined behavior, not just a wrong number","This is the one to say out loud. An unsynchronized write to shared memory doesn't merely give you an off-by-some count &#8212; it's UB, so the compiler may assume it never happens and miscompile around it, and the program may crash, corrupt unrelated memory, or appear to work until it doesn't. \"It usually gives the right answer\" is not safety. Synchronize every shared access (mutex or atomic) or it's a bug, full stop."),
+  pit("Forgetting to join or detach calls std::terminate","Destroying a still-joinable <code>std::thread</code> kills the process via <code>std::terminate</code>. An early return or a thrown exception that skips your <code>t.join()</code> is enough to trigger it. Use <code>std::jthread</code> (RAII auto-join) or make sure every path joins/detaches &#8212; this is the RAII discipline applied to thread lifetime."),
+  pit("Deadlock from inconsistent lock order","Whenever a thread holds two locks, every thread must acquire them in the same global order, or a wait-cycle can freeze them all. Enforce a consistent order, or take multiple locks atomically with <code>std::scoped_lock</code>. And hold locks for as <em>short</em> a time as possible &#8212; a lock held across slow work (I/O, a long computation) serializes every other thread behind it and destroys the scalability you spun up threads to get."),
+  pit("volatile is NOT thread-safe","A classic trap. <code>volatile</code> tells the compiler \"don't optimize away reads/writes to this\" &#8212; it's for memory-mapped hardware registers, not threads. It gives you <em>no</em> atomicity and <em>no</em> ordering guarantees between threads, so <code>volatile int</code> shared across threads is still a data race and still UB. The C++ tool for cross-thread shared state is <code>std::atomic</code>, never <code>volatile</code>. Saying this distinction crisply is a reliable signal you actually understand the memory model."),
+  cx(`Uncontended <code>atomic</code> op <b>~a few ns</b> (lock-free) · <code>mutex</code> lock/unlock <b>more</b>, and worse under contention · a thread blocked on a held lock or a cv is <b>O(1) CPU</b> (it sleeps, doesn't spin) · false sharing turns cheap atomic writes into bus-bound <b>cache-line ping-pong</b>`),
+  idea("The crisp interview answer",`"Threads let me use multiple cores and hide I/O latency, but the moment two threads touch the same memory with at least one write and no synchronization, that's a data race &#8212; which is undefined behavior, not just a wrong value. To fix it I put shared access in a critical section with a <code>std::mutex</code>, taken via a RAII <code>lock_guard</code> so it always unlocks, even on an exception. For a single shared counter or flag I use <code>std::atomic</code> instead &#8212; lock-free and faster &#8212; reaching for a mutex only when an invariant spans several variables that must change together. Multiple locks risk deadlock from inconsistent ordering, so I either lock in a consistent global order or grab them atomically with <code>std::scoped_lock</code>. For 'wait until ready' I use a <code>condition_variable</code>, always waiting on a predicate in a loop to handle spurious wakeups. I default atomics to sequential consistency. And on the performance side I watch for false sharing &#8212; unrelated atomics on one cache line ping-ponging between cores &#8212; which I fix by aligning hot data to its own cache line with <code>alignas</code>. One thing I'm always precise about: <code>volatile</code> is not a threading tool; <code>std::atomic</code> is."`)
+]},
+{group:"C++ Deep Dives",num:"≣",id:"stl",color:"#DB2777",title:"The STL in Depth",badge:"C++ deep dive",blocks:[
+  cue(`Two questions show up in almost every C++ screen: "which container would you use here, and why?" and "what's iterator invalidation?" Both live in this lesson. You already use the STL every day; the goal here is to make the <em>reasoning</em> explicit &#8212; to turn "I'd use a vector" into "I'd use a vector because it's contiguous and I only append and index," and to know exactly which lines of code quietly invalidate your iterators.`),
+  p(`The Standard Template Library is three pieces that snap together: <b>containers</b> hold your data, <b>algorithms</b> do work on data, and <b>iterators</b> are the glue between them. The whole design rests on one elegant decoupling: algorithms don't know what container they're running on, and containers don't know what algorithms will run on them. They meet in the middle through iterators. That's why <code>std::sort</code> works on a <code>vector</code>, a <code>deque</code>, and a raw array without being rewritten for each &#8212; it never sees the container at all, only a pair of iterators marking "begin here, stop there."`),
+  p(`We'll take the three pieces in turn &#8212; containers and how to pick one, iterators and why they're the hinge the design turns on, then the <code>&lt;algorithm&gt;</code> toolbox &#8212; and finish on the bugs that actually cost people offers: iterator invalidation, <code>operator[]</code> silently inserting, and a few idioms (erase-remove, <code>emplace_back</code>, <code>string_view</code>) that read as fluency in the room.`),
+  sub("Part 1: containers — the families, and which to pick"),
+  p(`There are a lot of containers, but they cluster into four families, and almost every choice you'll make is "the default from the right family." The families differ in how they lay data out in memory, and that layout dictates which operations are cheap. This is the same memory-layout reasoning from the Arrays &amp; Hashing and Big-O lessons, applied across the whole library.`),
+  sub("Sequence containers — elements in a row"),
+  ul([
+    `<b><code>std::vector</code> &#8212; the default, full stop.</b> A single contiguous heap buffer (the exact array from the Arrays lesson). O(1) random access by index, amortized O(1) <code>push_back</code>, and the best cache behavior of any container because the elements are physically adjacent. Insert/erase in the middle is O(n) (everything shifts). Reach for it first and only switch when you have a concrete reason.`,
+    `<b><code>std::deque</code> &#8212; fast at both ends.</b> A double-ended queue: O(1) <code>push_front</code> <em>and</em> <code>push_back</code>, plus O(1) indexing. It's a sequence of fixed-size chunks rather than one buffer, so it loses a little cache locality and you can't assume contiguous storage. Use it when you genuinely add/remove at both ends &#8212; it's also the default engine under <code>std::queue</code> and <code>std::stack</code>.`,
+    `<b><code>std::list</code> &#8212; doubly-linked, rarely the answer.</b> O(1) insert/erase/splice <em>anywhere</em> given an iterator, and iterators stay valid across edits. But every node is a separate heap allocation with no locality, so iteration is cache-hostile and slow, and there's no indexing &#8212; <code>list[i]</code> doesn't exist. In practice a <code>vector</code> beats it even for "lots of middle inserts" until n is large, because pointer-chasing memory is so much slower than a contiguous walk. Name it when the question is about O(1) splicing; default away from it otherwise.`,
+    `<b><code>std::array&lt;T, N&gt;</code> &#8212; fixed-size, on the stack.</b> A compile-time-sized array with the STL interface (so algorithms accept it). No heap allocation, no resizing. Use it when the size is known at compile time and small.`,
+  ]),
+  sub("Associative containers — lookups by key"),
+  p(`Two families, and choosing between them is the single most common container decision in interviews &#8212; it's the ordered-vs-unordered call from the Arrays lesson, made concrete.`),
+  ul([
+    `<b>Ordered: <code>std::map</code> / <code>std::set</code></b> &#8212; a balanced binary search tree (red-black tree). Every operation &#8212; insert, find, erase &#8212; is <b>O(log n)</b>, the keys stay <em>sorted</em>, and you get ordered iteration plus range queries: <code>lower_bound</code>/<code>upper_bound</code> find the first key &#8805; or &gt; a value in O(log n). Use these when you need order or floor/ceiling lookups.`,
+    `<b>Unordered: <code>unordered_map</code> / <code>unordered_set</code></b> &#8212; a hash table. <b>O(1) average</b>, <b>O(n) worst case</b> on pathological collisions, and <em>no</em> ordering at all. This is the default for counting, seen-sets, and grouping &#8212; raw speed when you don't need sorted keys. Picking <code>map</code> when you don't need order costs you a log factor for nothing.`,
+  ]),
+  sub("Container adapters — a restricted view over another container"),
+  p(`These aren't new data structures; they're thin wrappers that expose only a specific interface on top of an underlying container (you met all three in their own lessons). They exist to make intent obvious in the code.`),
+  ul([
+    `<b><code>std::stack</code></b> &#8212; LIFO. <code>push</code>/<code>pop</code>/<code>top</code> only. Backed by a <code>deque</code> by default.`,
+    `<b><code>std::queue</code></b> &#8212; FIFO. <code>push</code>/<code>pop</code>/<code>front</code>. Also <code>deque</code>-backed &#8212; the workhorse of BFS.`,
+    `<b><code>std::priority_queue</code></b> &#8212; a binary heap. O(log n) push/pop, O(1) peek at the max (or min, with a comparator). Backed by a <code>vector</code>. The Heaps lesson is all about this one.`,
+  ]),
+  svg("stl_pick","Walk the three questions top-down: need a key lookup? then sorted vs not picks map vs unordered_map. No key lookup? then both-ends vs not picks deque vs vector. The honest default at the bottom-right is vector — reach past it only when one of these questions says you must."),
+  sub("The complexity table to have memorized"),
+  p(`If you remember one thing from this section, make it this. Interviewers ask "what's the complexity of inserting into X?" constantly, and a crisp answer signals you actually understand the structures rather than treating them as magic boxes.`),
+  ul([
+    `<b><code>vector</code></b> &#8212; index/back-push <b>O(1)</b> (push amortized) · middle insert/erase <b>O(n)</b> · find <b>O(n)</b>`,
+    `<b><code>deque</code></b> &#8212; index <b>O(1)</b> · push/pop front <em>and</em> back <b>O(1)</b> · middle insert/erase <b>O(n)</b>`,
+    `<b><code>list</code></b> &#8212; insert/erase/splice at a known position <b>O(1)</b> · index <b>n/a</b> · find <b>O(n)</b>`,
+    `<b><code>map</code> / <code>set</code></b> (tree) &#8212; insert/find/erase <b>O(log n)</b> · ordered iteration, <code>lower_bound</code> <b>O(log n)</b>`,
+    `<b><code>unordered_map</code> / <code>unordered_set</code></b> (hash) &#8212; insert/find/erase <b>O(1)</b> average, <b>O(n)</b> worst`,
+    `<b><code>priority_queue</code></b> (heap) &#8212; push/pop <b>O(log n)</b> · peek top <b>O(1)</b>`,
+  ]),
+  worked("A 'which container' walkthrough — reasoning out loud","This is the shape of a good interview answer: name the operations the problem needs, then pick the container whose cheap operations match. The comments are the reasoning you'd say aloud.",
+`// "Process a stream of jobs; sometimes pull from the front, sometimes the back."
+//   -> need O(1) at BOTH ends  -> std::deque
+std::deque<Job> jobs;
+
+// "Count how many times each word appears."
+//   -> key -> value, no order needed, want speed  -> unordered_map
+std::unordered_map<std::string, int> freq;
+
+// "Keep events sorted by timestamp; query the next event after time t."
+//   -> need sorted order + range query (lower_bound)  -> std::map (or std::set)
+std::map<long, Event> timeline;
+auto it = timeline.lower_bound(t);   // first event at time >= t, O(log n)
+
+// "Build a list of results, then index into it."
+//   -> append + random access, nothing fancy  -> std::vector (the default)
+std::vector<Result> out;`),
+  sub("Part 2: iterators — the glue, and why categories matter"),
+  p(`An iterator is a generalized pointer: an object that points at an element and knows how to move to the next one. <code>v.begin()</code> points at the first element, <code>v.end()</code> points <em>one past</em> the last (a sentinel, not a real element &#8212; never dereference it), and <code>++it</code> advances. The reason the whole STL hangs together is that algorithms are written purely in terms of iterators, so any container that can hand out iterators can run any compatible algorithm. That's the decoupling from the top of the lesson, made literal.`),
+  p(`The catch &#8212; and the part worth understanding &#8212; is that not all iterators can do the same things, and algorithms advertise what they require. Iterators come in <b>categories</b>, each a superset of the last:`),
+  ul([
+    `<b>Input / output</b> &#8212; single-pass, read-only or write-only (e.g. reading from a stream). Move forward, once.`,
+    `<b>Forward</b> &#8212; can pass over the data multiple times, one direction. (<code>forward_list</code>.)`,
+    `<b>Bidirectional</b> &#8212; can also go backward with <code>--it</code>. This is what <code>list</code>, <code>map</code>, and <code>set</code> give you.`,
+    `<b>Random-access</b> &#8212; can jump anywhere in O(1): <code>it + 5</code>, <code>it[3]</code>, compare with <code>&lt;</code>. Only the contiguous containers (<code>vector</code>, <code>deque</code>, <code>array</code>) provide this.`,
+  ]),
+  p(`Here's why that hierarchy is not academic. <code>std::sort</code> needs <b>random-access</b> iterators &#8212; it jumps around partitioning the range, so it must reach element <code>k</code> in O(1). A <code>std::list</code> only offers <em>bidirectional</em> iterators (you can step forward and back, but not leap), so <code>sort(list.begin(), list.end())</code> <b>won't even compile</b>. That's not a bug; it's the type system refusing an operation the container can't do efficiently. The fix is the member function <code>list.sort()</code>, which sorts in place by relinking nodes. Same story for <code>binary_search</code>, <code>lower_bound</code> on a raw range, and <code>nth_element</code>: they want random access, which is exactly why these algorithms pair naturally with <code>vector</code>.`),
+  note("📌","The compile error is a feature",`When <code>std::sort</code> on a <code>list</code> fails with a wall of template errors, the real message buried in there is "this iterator isn't random-access." The library is telling you the operation would be inefficient on this structure, so it declines rather than silently giving you an O(n&#178;) surprise. Knowing to reach for <code>list::sort()</code> &#8212; and <em>why</em> &#8212; is a small, senior-sounding detail.`),
+  sub("Part 3: iterator invalidation — the bug that costs offers"),
+  p(`This is the highest-value topic in the lesson, because it's the source of real, shipped, hard-to-find bugs &#8212; and a very common interview question. The rules come straight from how each container stores its data, so you can <em>derive</em> them rather than memorize a table.`),
+  p(`<b>For <code>vector</code>, the killer is reallocation.</b> Recall from the Arrays lesson that when a <code>vector</code> outgrows its capacity, it allocates a bigger buffer, moves every element across, and frees the old one. Any iterator, pointer, or reference you were holding still points at the <em>old, freed</em> buffer. So <b>any <code>push_back</code> that grows past capacity invalidates everything</b> &#8212; every iterator, every pointer, every reference into that vector. <code>erase</code> is gentler but still invalidates everything from the erased position onward, since those elements shift left.`),
+  svg("stl_invalidate","The vector was full (size == capacity). push_back has to allocate a new, larger buffer at a different address, move the elements, and free the old one. The iterator <code>it</code> captured before the push still holds the old address — now freed — so using it is undefined behavior. reserve() up front prevents the realloc and keeps iterators valid."),
+  p(`<b>For node-based containers (<code>list</code>, <code>map</code>, <code>set</code>), iterators are far more stable.</b> Each element is its own heap node that never moves, so inserting or erasing one element leaves every <em>other</em> element's node &#8212; and therefore every other iterator &#8212; perfectly valid. The only iterator invalidated by an erase is the one pointing at the element you erased (it's now dangling, because that node is gone). This stability is one of the few genuine reasons to choose <code>list</code>: when you must hold iterators across many insertions and erasures.`),
+  worked("The classic invalidation bug — and three fixes","Holding a reference across a push_back is the textbook trap. The first version reads from freed memory the moment the vector reallocates. Each fix sidesteps it a different way; the reserve fix is the one that reads as 'I understand why this happens.'",
+`std::vector<int> v = {1, 2, 3, 4};   // suppose capacity == 4 (full)
+int& first = v[0];                   // reference into the buffer
+v.push_back(5);                      // FULL -> reallocates -> buffer moves
+int bad = first;                     // BUG: 'first' points at the freed buffer
+
+// Fix A — reserve up front so no reallocation happens (best when you know the size):
+std::vector<int> a = {1, 2, 3, 4};
+a.reserve(100);                      // one allocation; capacity won't grow under us
+int& f = a[0];
+a.push_back(5);                      // no realloc -> f stays valid
+
+// Fix B — don't hold the reference across the mutation; take a copy:
+int copy = v[0];                     // copy now, immune to reallocation
+v.push_back(6);
+
+// Fix C — re-fetch after the mutation instead of holding across it:
+v.push_back(7);
+int& fresh = v[0];                   // grab the reference AFTER the growth`),
+  pit("Erasing while iterating a vector in a loop",`The other half of the invalidation trap is structural: erasing inside a <code>for</code> loop. <code>v.erase(it)</code> invalidates <code>it</code> (and everything after it), so <code>++it</code> on the next line steps off a dead iterator. The fix is that <code>erase</code> <em>returns</em> the next valid iterator, so you write <code>it = v.erase(it);</code> and only <code>++it</code> when you didn't erase. Better still for value-based removal, use the erase-remove idiom below &#8212; it does the whole thing correctly in one line.`),
+  code(`// erase-during-iteration, done right (the returned iterator is the next valid one)
+for (auto it = v.begin(); it != v.end(); ) {
+    if (shouldRemove(*it)) it = v.erase(it);  // erase returns the next valid iterator
+    else                   ++it;              // only advance when we kept the element
+}`),
+  sub("Part 4: the &lt;algorithm&gt; toolbox"),
+  p(`<code>&lt;algorithm&gt;</code> is a kit of generic functions that all speak iterators, so they run on any suitable container. Reaching for them instead of hand-rolling loops is both faster to write and clearer to read &#8212; "show me you know the standard library" is a real interview signal. The ones worth knowing cold:`),
+  ul([
+    `<b><code>sort(first, last)</code></b> &#8212; sorts a random-access range in O(n log n). Pass a comparator for custom order: <code>sort(v.begin(), v.end(), greater&lt;&gt;())</code>.`,
+    `<b><code>find</code> / <code>count</code></b> &#8212; linear O(n) scans for a value or a tally.`,
+    `<b><code>lower_bound</code> / <code>upper_bound</code></b> &#8212; binary search on a <em>sorted</em> range, O(log n) on random-access iterators: first element &#8805; (or &gt;) a target. The building block of the Binary Search lesson.`,
+    `<b><code>accumulate(first, last, init)</code></b> &#8212; folds a range to one value (sum by default; pass an op for product, etc.). Lives in <code>&lt;numeric&gt;</code>.`,
+    `<b><code>transform</code></b> &#8212; applies a function to every element, writing results to an output range (a <code>map</code> in the functional sense).`,
+    `<b><code>all_of</code> / <code>any_of</code> / <code>none_of</code></b> &#8212; test a predicate across a range, short-circuiting.`,
+    `<b><code>min_element</code> / <code>max_element</code></b> &#8212; return an <em>iterator</em> to the smallest/largest; dereference for the value.`,
+  ]),
+  sub("The erase-remove idiom — the one that trips people up"),
+  p(`Here's the gotcha that catches even strong C++ developers, and it follows directly from the iterator rules. <code>std::remove(first, last, value)</code> does <b>not</b> erase anything &#8212; it can't, because an algorithm only has iterators, not the container, so it has no power to change the container's size. What it actually does is <em>shuffle</em>: it overwrites the unwanted elements by moving the kept elements forward, packing them at the front, and returns an iterator to the new logical end. Everything past that point is leftover junk. The vector is still the same length.`),
+  p(`To actually shrink the container, you pair <code>remove</code> with the container's <code>erase</code>, handing it the range from "new logical end" to "real end." That's the <b>erase-remove idiom</b>: <code>remove</code> does the shuffling, <code>erase</code> trims the tail. It's the idiomatic, correct, one-line way to delete all elements equal to a value (or matching a predicate, with <code>remove_if</code>).`),
+  worked("Erase-remove, and why remove alone is a bug","remove only compacts the kept elements to the front and returns the new end — it leaves the size unchanged, with stale values in the tail. The container's erase is what physically removes the tail. Forgetting the erase half is the classic mistake.",
+`std::vector<int> v = {1, 2, 3, 2, 4, 2};
+
+// WRONG — remove alone: v becomes {1, 3, 4, ?, ?, ?}, size still 6.
+std::remove(v.begin(), v.end(), 2);     // returns the new end, but we ignored it
+
+// RIGHT — erase-remove: remove shuffles, erase trims the tail.
+v.erase(std::remove(v.begin(), v.end(), 2), v.end());   // v == {1, 3, 4}, size 3
+
+// remove_if for a predicate (e.g. drop all evens):
+v.erase(std::remove_if(v.begin(), v.end(),
+                       [](int x){ return x % 2 == 0; }),
+        v.end());
+
+// C++20 tidies this into a free function (does both halves):
+// std::erase(v, 2);  std::erase_if(v, pred);`),
+  note("📌","C++20 finally fixed the footgun",`If your environment is C++20, <code>std::erase(v, value)</code> and <code>std::erase_if(v, pred)</code> do the whole erase-remove in one call &#8212; no iterator juggling. It's worth mentioning both: "I'd use the erase-remove idiom, or <code>std::erase</code> in C++20." Knowing the idiom <em>and</em> its modern replacement is exactly the kind of currency interviewers notice.`),
+  sub("emplace_back vs push_back, and views"),
+  p(`Two more fluency markers, both callbacks to earlier lessons. <code>push_back(x)</code> takes an already-built object and copies or moves it into the container. <code>emplace_back(args...)</code> forwards the constructor <em>arguments</em> and builds the element <em>in place</em>, inside the container's storage &#8212; skipping the temporary entirely. For a type that's cheap to move it's a wash, but for one that's expensive to construct, <code>emplace_back</code> avoids building-then-moving. This is the Move Semantics lesson cashing out: <code>push_back</code> of an lvalue copies, <code>push_back(std::move(x))</code> moves, and <code>emplace_back</code> constructs in place.`),
+  code(`std::vector<std::pair<int, std::string>> v;
+v.push_back({1, "hello"});          // builds a temporary pair, then moves it in
+v.emplace_back(1, "hello");         // constructs the pair directly in the buffer
+v.push_back(std::move(existing));   // move an existing object in (no deep copy)`),
+  p(`Finally, <b>non-owning views</b> &#8212; the modern way to pass data without copying, straight from the Value vs Reference lesson's "borrow, don't copy" rule. A <code>std::string_view</code> (C++17) is a <code>{pointer, length}</code> pair that looks at characters it doesn't own; a <code>std::span&lt;T&gt;</code> (C++20) does the same for any contiguous range. Taking a <code>string_view</code> parameter instead of <code>const std::string&amp;</code> means a string literal or a substring can be passed with <em>zero</em> allocation or copying &#8212; the view just records where the data is and how long it is.`),
+  code(`// Reads characters but copies nothing — accepts std::string, const char*, or a slice.
+size_t countVowels(std::string_view s) {     // a {ptr, len} view, not an owner
+    size_t n = 0;
+    for (char c : s)
+        if (std::string_view("aeiou").find(c) != std::string_view::npos) ++n;
+    return n;
+}
+// span<T> is the same idea for any contiguous buffer:
+int sum(std::span<const int> data) {          // views a vector, array, or C array
+    int total = 0;
+    for (int x : data) total += x;
+    return total;
+}`),
+  pit("A view does not own — outlive it and you dangle",`<code>string_view</code> and <code>span</code> are non-owning, so the data they point at must outlive the view. Returning a <code>string_view</code> into a local <code>std::string</code>, or holding one after the underlying <code>vector</code> reallocates, leaves you pointing at freed memory &#8212; the same dangling-reference failure as iterator invalidation, just wearing a different hat. Views are for <em>passing</em> data down, not for <em>storing</em> it.`),
+  sub("The pitfalls interviewers probe"),
+  pit("Iterator invalidation is the #1","Mutating a container while holding iterators/pointers/references into it is the most common STL bug. <code>vector</code>: any growing <code>push_back</code> invalidates everything; <code>erase</code> invalidates from the point on. Node-based (<code>list</code>/<code>map</code>/<code>set</code>): only the erased element's iterator dies. When in doubt, <code>reserve</code> first, or re-fetch after the mutation."),
+  pit("map operator[] silently inserts","Just like the Arrays lesson warned: <code>m[key]</code> on a missing key <em>default-constructs and inserts</em> an entry, so using it to <em>check</em> existence is a bug that quietly grows the map. To test membership without inserting, use <code>m.count(key)</code> or <code>m.find(key) != m.end()</code> (or <code>m.contains(key)</code> in C++20). The auto-insert is only what you want for <code>++m[key]</code> frequency counting."),
+  pit("unordered_map is O(1) average, not guaranteed","Hash containers are O(1) <em>average</em> but O(n) <em>worst case</em> when keys collide into one bucket. For adversarial or untrusted keys this matters; for normal data the standard hash spreads keys well. Saying \"average O(1), worst case O(n) on collisions\" out loud is the precise answer &#8212; and if worst-case guarantees matter, the tree-based <code>map</code> with its hard O(log n) is the safer pick."),
+  pit("sort on a list won't compile","<code>std::sort</code> needs random-access iterators; <code>list</code> only offers bidirectional ones, so the call fails to compile. Use the member <code>list.sort()</code>, which sorts by relinking nodes in place. Same restriction applies to <code>binary_search</code> and <code>nth_element</code> &#8212; they're random-access algorithms, which is why they live most naturally on <code>vector</code>."),
+  cx(`vector index <b>O(1)</b>, push <b>O(1)</b> amortized · map/set <b>O(log n)</b> · unordered_map <b>O(1)</b> avg / O(n) worst · sort <b>O(n log n)</b> · lower_bound <b>O(log n)</b> · find/count <b>O(n)</b>`),
+  idea("The interview answers, in order",`<b>"Which container?"</b> &#8212; "Default to <code>vector</code>: contiguous, O(1) index, amortized O(1) append, best cache behavior. <code>deque</code> if I need both ends, <code>unordered_map/set</code> for keyed lookups or counting, <code>map/set</code> when I need sorted order or range queries, and the adapters (<code>stack/queue/priority_queue</code>) to express intent." <b>"What's iterator invalidation?"</b> &#8212; "Mutating a container can invalidate iterators into it. For <code>vector</code>, a <code>push_back</code> that grows past capacity reallocates and invalidates everything; <code>erase</code> invalidates from that point on. Node-based containers only invalidate the erased element. I <code>reserve</code> when I know the size, and I use the erase-remove idiom &#8212; or <code>std::erase</code> in C++20 &#8212; for value removal, because <code>std::remove</code> alone only shuffles and doesn't change the size." Delivering both with the <em>why</em> attached is the whole game.`)
 ]},
 {group:"Beyond Code",num:"▦",id:"sysdesign",color:"#14B8A6",title:"System Design Basics",badge:"Week 10 · intro",blocks:[
   cue(`Even for a mid-level role, you'll often get a lightweight design round: "design a URL shortener," "design a rate limiter." It's not about a perfect answer — it's about structured thinking out loud.`),
