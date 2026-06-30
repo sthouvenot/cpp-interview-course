@@ -356,6 +356,160 @@ SVG.move=`<svg viewBox="0 0 620 220" role="img" aria-label="Copy versus move">
 <rect x="480" y="70" width="90" height="34" rx="7" fill="#E7F6ED" stroke="#16A34A"/><text x="525" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">b &#8594; [data]</text>
 <rect x="415" y="128" width="120" height="22" rx="5" fill="#E7F6ED" stroke="#16A34A"/><text x="475" y="143" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#16A34A">one buffer, reused</text>
 <text x="460" y="180" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#3c6b4f">no copying — O(1)</text></svg>`;
+SVG.bigo_drop=`<svg viewBox="0 0 620 250" role="img" aria-label="Why we drop constants and lower-order terms">
+<text x="310" y="30" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">3n&#178; + 50n + 200   &#8594;   O(n&#178;)</text>
+<rect x="40" y="54" width="540" height="150" rx="12" fill="#FBFBFE" stroke="#EDEEF6"/>
+<line x1="80" y1="184" x2="560" y2="184" stroke="#C9CAD9" stroke-width="1.5"/>
+<line x1="80" y1="64" x2="80" y2="184" stroke="#C9CAD9" stroke-width="1.5"/>
+<text x="320" y="220" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#6f6b8c">as n grows &#8594; only the leading term matters</text>
+<polyline points="84,182 180,178 280,170 380,156 480,134 556,104" fill="none" stroke="#16A34A" stroke-width="2.5"/>
+<polyline points="84,180 200,160 320,124 430,90 520,66 556,68" fill="none" stroke="#0EA5E9" stroke-width="2.5"/>
+<polyline points="84,170 200,150 320,110 420,76 510,70 556,70" fill="none" stroke="#FF8A3D" stroke-width="2.5"/>
+<text x="490" y="100" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">50n</text>
+<text x="500" y="60" font-family="JetBrains Mono,monospace" font-size="11" fill="#0EA5E9">3n&#178;</text>
+<text x="180" y="200" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#9d9ab0">200 (constant, flat)</text>
+<text x="424" y="64" font-family="JetBrains Mono,monospace" font-size="11" fill="#FF8A3D">total</text></svg>`;
+SVG.bigo_rec=`<svg viewBox="0 0 620 300" role="img" aria-label="Recursion tree for T of n equals 2 T of n over 2 plus O of n giving n log n">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">T(n) = 2&#183;T(n/2) + O(n)   &#8594;   O(n log n)</text>
+<g font-family="JetBrains Mono,monospace" font-size="11">
+<rect x="262" y="44" width="96" height="30" rx="7" fill="#E0F2FE" stroke="#0EA5E9"/><text x="310" y="64" text-anchor="middle" fill="#0c7fc4">n</text>
+<rect x="150" y="112" width="96" height="30" rx="7" fill="#E0F2FE" stroke="#0EA5E9"/><text x="198" y="132" text-anchor="middle" fill="#0c7fc4">n/2</text>
+<rect x="374" y="112" width="96" height="30" rx="7" fill="#E0F2FE" stroke="#0EA5E9"/><text x="422" y="132" text-anchor="middle" fill="#0c7fc4">n/2</text>
+<rect x="92" y="180" width="70" height="28" rx="6" fill="#EDE9FC" stroke="#8B5CF6"/><text x="127" y="199" text-anchor="middle" fill="#6D5BD0">n/4</text>
+<rect x="206" y="180" width="70" height="28" rx="6" fill="#EDE9FC" stroke="#8B5CF6"/><text x="241" y="199" text-anchor="middle" fill="#6D5BD0">n/4</text>
+<rect x="320" y="180" width="70" height="28" rx="6" fill="#EDE9FC" stroke="#8B5CF6"/><text x="355" y="199" text-anchor="middle" fill="#6D5BD0">n/4</text>
+<rect x="434" y="180" width="70" height="28" rx="6" fill="#EDE9FC" stroke="#8B5CF6"/><text x="469" y="199" text-anchor="middle" fill="#6D5BD0">n/4</text>
+<path d="M286 74 L210 112" stroke="#c9cad9" stroke-width="1.4"/><path d="M334 74 L410 112" stroke="#c9cad9" stroke-width="1.4"/>
+<path d="M180 142 L135 180" stroke="#c9cad9" stroke-width="1.4"/><path d="M216 142 L245 180" stroke="#c9cad9" stroke-width="1.4"/>
+<path d="M404 142 L359 180" stroke="#c9cad9" stroke-width="1.4"/><path d="M440 142 L465 180" stroke="#c9cad9" stroke-width="1.4"/>
+<text x="298" y="232" text-anchor="middle" font-family="Inter,sans-serif" font-size="13" fill="#9d9ab0">&#183; &#183; &#183;  down to size 1</text></g>
+<g font-family="Inter,sans-serif" font-size="11.5">
+<text x="588" y="63" text-anchor="end" fill="#16A34A">= n</text>
+<text x="588" y="131" text-anchor="end" fill="#16A34A">= n</text>
+<text x="588" y="199" text-anchor="end" fill="#16A34A">= n</text></g>
+<line x1="556" y1="76" x2="556" y2="208" stroke="#16A34A" stroke-width="1.4" stroke-dasharray="4 3"/>
+<text x="310" y="270" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#1B1838">each level does O(n) work  &#215;  log&#8322;n levels  =  O(n log n)</text>
+<text x="310" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#8a86a8">the tree halves each level, so its height is log&#8322;n</text></svg>`;
+SVG.pointers_const=`<svg viewBox="0 0 620 250" role="img" aria-label="const with pointers: what is locked depends on which side of the star const sits">
+<text x="310" y="28" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#6f6b8c">read it right-to-left: find the noun, then its adjectives</text>
+<rect x="24" y="46" width="278" height="84" rx="12" fill="#F4F2FF" stroke="#d9d2f5"/>
+<text x="163" y="72" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#6D5BD0">const int* p</text>
+<text x="163" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#5b4f86">pointer to const int</text>
+<text x="163" y="112" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">p = &amp;y  OK</text>
+<text x="163" y="126" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#E11D48">*p = 9  ERROR</text>
+<rect x="318" y="46" width="278" height="84" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="457" y="72" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#16A34A">int* const p</text>
+<text x="457" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">const pointer to int</text>
+<text x="457" y="112" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#E11D48">p = &amp;y  ERROR</text>
+<text x="457" y="126" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">*p = 9  OK</text>
+<rect x="24" y="146" width="278" height="78" rx="12" fill="#FFF5F6" stroke="#F6D5DC"/>
+<text x="163" y="172" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#E11D48">const int* const p</text>
+<text x="163" y="192" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a3b46">const pointer to const int</text>
+<text x="163" y="214" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#E11D48">both locked</text>
+<rect x="318" y="146" width="278" height="78" rx="12" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="457" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#6f6b8c">the const binds to whatever</text>
+<text x="457" y="190" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#6f6b8c">is on its <b>left</b> &#8212; unless</text>
+<text x="457" y="208" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#6f6b8c">nothing is, then its right.</text></svg>`;
+SVG.pointers_double=`<svg viewBox="0 0 620 200" role="img" aria-label="A pointer to a pointer is a chain of addresses ending at the value">
+<text x="310" y="28" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12.5" fill="#5B5BD6">int x = 42;  int* p = &amp;x;  int** pp = &amp;p;</text>
+<rect x="40" y="60" width="150" height="70" rx="10" fill="#fff" stroke="#5B5BD6"/>
+<text x="115" y="52" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#6f6b8c">pp</text>
+<text x="115" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#5B5BD6">0x..40</text>
+<text x="115" y="116" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#8a86a8">address of p</text>
+<rect x="235" y="60" width="150" height="70" rx="10" fill="#EEF0FF" stroke="#5B5BD6"/>
+<text x="310" y="52" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#6f6b8c">p</text>
+<text x="310" y="92" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#5B5BD6">0x..a4</text>
+<text x="310" y="116" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#8a86a8">address of x</text>
+<rect x="430" y="60" width="150" height="70" rx="10" fill="#E7F6ED" stroke="#16A34A" stroke-width="2"/>
+<text x="505" y="52" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#6f6b8c">x</text>
+<text x="505" y="96" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="20" font-weight="600" fill="#1B1838">42</text>
+<path d="M190 95 H233" stroke="#5B5BD6" stroke-width="2" marker-end="url(#ard)"/>
+<path d="M385 95 H428" stroke="#5B5BD6" stroke-width="2" marker-end="url(#ard)"/>
+<text x="310" y="158" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#6D5BD0">*pp &#8594; p &#160;&#160; **pp &#8594; 42</text>
+<text x="310" y="178" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8a86a8">each * follows one arrow to the right</text>
+<defs><marker id="ard" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#5B5BD6"/></marker></defs></svg>`;
+SVG.pointers_arith=`<svg viewBox="0 0 620 200" role="img" aria-label="An array name is a pointer to its first element; adding moves by whole elements">
+<text x="310" y="28" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12.5" fill="#5B5BD6">int a[4] = {10, 20, 30, 40};</text>
+<g font-family="JetBrains Mono,monospace" font-size="15">
+<rect x="90" y="70" width="100" height="46" fill="#EEF0FF" stroke="#5B5BD6"/><text x="140" y="99" text-anchor="middle" fill="#1B1838">10</text>
+<rect x="190" y="70" width="100" height="46" fill="#fff" stroke="#c9cad9"/><text x="240" y="99" text-anchor="middle" fill="#1B1838">20</text>
+<rect x="290" y="70" width="100" height="46" fill="#fff" stroke="#c9cad9"/><text x="340" y="99" text-anchor="middle" fill="#1B1838">30</text>
+<rect x="390" y="70" width="100" height="46" fill="#fff" stroke="#c9cad9"/><text x="440" y="99" text-anchor="middle" fill="#1B1838">40</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="11.5" fill="#6D5BD0">
+<text x="140" y="58" text-anchor="middle">a</text>
+<text x="240" y="58" text-anchor="middle">a+1</text>
+<text x="340" y="58" text-anchor="middle">a+2</text>
+<text x="440" y="58" text-anchor="middle">a+3</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="11" fill="#8a86a8">
+<text x="140" y="134" text-anchor="middle">*a</text>
+<text x="240" y="134" text-anchor="middle">*(a+1)</text>
+<text x="340" y="134" text-anchor="middle">*(a+2)</text>
+<text x="440" y="134" text-anchor="middle">*(a+3)</text></g>
+<text x="310" y="170" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#3a3660">a[i] is literally *(a + i) &#8212; the index is pointer arithmetic in disguise</text>
+<text x="310" y="190" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8a86a8">a+2 jumps 2&#215;sizeof(int) bytes, not 2 bytes &#8212; the type sets the stride</text></svg>`;
+SVG.mental_deepcopy=`<svg viewBox="0 0 620 270" role="img" aria-label="b = a deep-copies the vector buffer">
+<text x="310" y="26" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#6f6b8c">vector&lt;int&gt; b = a;   &#8212;   independent copy, not an alias</text>
+<rect x="24" y="46" width="280" height="200" rx="12" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="164" y="70" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#5B5BD6">the handle (on the stack)</text>
+<rect x="54" y="86" width="100" height="58" rx="8" fill="#EEF0FF" stroke="#5B5BD6"/><text x="104" y="78" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#6f6b8c">a</text>
+<text x="104" y="112" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#5B5BD6">ptr,size,cap</text><text x="104" y="130" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#8a86a8">&#8594; 0xA0</text>
+<rect x="174" y="86" width="100" height="58" rx="8" fill="#EEF0FF" stroke="#5B5BD6"/><text x="224" y="78" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#6f6b8c">b</text>
+<text x="224" y="112" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#5B5BD6">ptr,size,cap</text><text x="224" y="130" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#8a86a8">&#8594; 0xB0</text>
+<text x="164" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">two small handles, three words each</text>
+<rect x="54" y="190" width="100" height="32" rx="7" fill="#fff" stroke="#a9b4e0"/><text x="104" y="211" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#5B5BD6">buffer @ 0xA0</text>
+<rect x="174" y="190" width="100" height="32" rx="7" fill="#E7F6ED" stroke="#16A34A"/><text x="224" y="211" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#16A34A">buffer @ 0xB0</text>
+<path d="M104 144 V188" stroke="#5B5BD6" stroke-width="1.6" marker-end="url(#mdc1)"/>
+<path d="M224 144 V188" stroke="#16A34A" stroke-width="1.6" marker-end="url(#mdc2)"/>
+<rect x="332" y="46" width="264" height="200" rx="12" fill="#FFF5F6" stroke="#F6D5DC"/>
+<text x="464" y="70" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#E11D48">the buffers (on the heap)</text>
+<text x="464" y="92" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a3b46">a's elements</text>
+<g font-family="JetBrains Mono,monospace" font-size="12">
+<rect x="356" y="100" width="42" height="30" fill="#fff" stroke="#d9b0ba"/><text x="377" y="120" text-anchor="middle" fill="#1B1838">5</text>
+<rect x="398" y="100" width="42" height="30" fill="#fff" stroke="#d9b0ba"/><text x="419" y="120" text-anchor="middle" fill="#1B1838">8</text>
+<rect x="440" y="100" width="42" height="30" fill="#fff" stroke="#d9b0ba"/><text x="461" y="120" text-anchor="middle" fill="#1B1838">2</text>
+<rect x="482" y="100" width="42" height="30" fill="#fff" stroke="#d9b0ba"/><text x="503" y="120" text-anchor="middle" fill="#1B1838">9</text></g>
+<text x="464" y="166" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a3b46">b's elements &#8212; a second, separate array</text>
+<g font-family="JetBrains Mono,monospace" font-size="12">
+<rect x="356" y="176" width="42" height="30" fill="#FCE7EC" stroke="#E11D48" stroke-dasharray="4 3"/><text x="377" y="196" text-anchor="middle" fill="#E11D48">5</text>
+<rect x="398" y="176" width="42" height="30" fill="#FCE7EC" stroke="#E11D48" stroke-dasharray="4 3"/><text x="419" y="196" text-anchor="middle" fill="#E11D48">8</text>
+<rect x="440" y="176" width="42" height="30" fill="#FCE7EC" stroke="#E11D48" stroke-dasharray="4 3"/><text x="461" y="196" text-anchor="middle" fill="#E11D48">2</text>
+<rect x="482" y="176" width="42" height="30" fill="#FCE7EC" stroke="#E11D48" stroke-dasharray="4 3"/><text x="503" y="196" text-anchor="middle" fill="#E11D48">9</text></g>
+<text x="464" y="232" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" font-weight="600" fill="#E11D48">every element copied &#8212; O(n)</text>
+<defs><marker id="mdc1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#5B5BD6"/></marker><marker id="mdc2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker></defs></svg>`;
+SVG.mental_passing=`<svg viewBox="0 0 620 320" role="img" aria-label="Parameter passing decision table">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">how to take a parameter &#8212; the five choices</text>
+<g font-family="JetBrains Mono,monospace" font-size="11.5">
+<rect x="20" y="42" width="200" height="44" rx="9" fill="#F0FBF5" stroke="#16A34A"/>
+<text x="120" y="64" text-anchor="middle" fill="#0f7a36" font-weight="600">const T&amp;</text>
+<text x="120" y="80" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#3c6b4f">read it, don't copy</text>
+<rect x="232" y="42" width="368" height="44" rx="9" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="248" y="62" font-family="Inter,sans-serif" font-size="11.5" fill="#3a3660">DEFAULT for any container/large type you only read.</text>
+<text x="248" y="78" font-family="Inter,sans-serif" font-size="10.5" fill="#6f6b8c">No copy, can't mutate the caller's object. Cost: zero.</text>
+<rect x="20" y="96" width="200" height="44" rx="9" fill="#EEF0FF" stroke="#5B5BD6"/>
+<text x="120" y="118" text-anchor="middle" fill="#4b3fc0" font-weight="600">T&amp;</text>
+<text x="120" y="134" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#5b4f86">mutate in place</text>
+<rect x="232" y="96" width="368" height="44" rx="9" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="248" y="116" font-family="Inter,sans-serif" font-size="11.5" fill="#3a3660">You need to change the caller's object (out-param, sort).</text>
+<text x="248" y="132" font-family="Inter,sans-serif" font-size="10.5" fill="#6f6b8c">No copy. Caller sees the edits. Can't bind a temporary.</text>
+<rect x="20" y="150" width="200" height="44" rx="9" fill="#FFF7EC" stroke="#FF8A3D"/>
+<text x="120" y="172" text-anchor="middle" fill="#c2660f" font-weight="600">T   (by value)</text>
+<text x="120" y="188" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#9c5a14">cheap, or need a copy</text>
+<rect x="232" y="150" width="368" height="44" rx="9" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="248" y="170" font-family="Inter,sans-serif" font-size="11.5" fill="#3a3660">int/double/pointer, OR you want your own copy to mutate.</text>
+<text x="248" y="186" font-family="Inter,sans-serif" font-size="10.5" fill="#6f6b8c">Copies. Free for small types, O(n) for containers.</text>
+<rect x="20" y="204" width="200" height="44" rx="9" fill="#F4F2FF" stroke="#8B5CF6"/>
+<text x="120" y="226" text-anchor="middle" fill="#6D5BD0" font-weight="600">T&amp;&amp;</text>
+<text x="120" y="242" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#5b4f86">take ownership</text>
+<rect x="232" y="204" width="368" height="44" rx="9" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="248" y="224" font-family="Inter,sans-serif" font-size="11.5" fill="#3a3660">Sink: you'll keep/store the argument (move into a member).</text>
+<text x="248" y="240" font-family="Inter,sans-serif" font-size="10.5" fill="#6f6b8c">Binds rvalues. Steal the buffer, don't copy it.</text>
+<rect x="20" y="258" width="200" height="44" rx="9" fill="#FFF0F2" stroke="#E11D48"/>
+<text x="120" y="280" text-anchor="middle" fill="#c01c3f" font-weight="600">T*</text>
+<text x="120" y="296" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#9c4a5a">might be absent</text>
+<rect x="232" y="258" width="368" height="44" rx="9" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="248" y="278" font-family="Inter,sans-serif" font-size="11.5" fill="#3a3660">The argument is optional (nullptr) or you walk/reseat it.</text>
+<text x="248" y="294" font-family="Inter,sans-serif" font-size="10.5" fill="#6f6b8c">Can be null &#8212; caller must guard. Used for list/tree nodes.</text>
+</g></svg>`;
 const plan=[
   ["Week 1","Foundations · Big-O · Pointers","how"],
   ["Week 2","Arrays · Two Pointers · Windows","arrays"],
@@ -386,21 +540,54 @@ const course=[
   p(`Each lesson is its own page. Move with the sidebar, or the Previous / Next buttons at the bottom of every page. For each pattern, read the lesson, do the Easy to feel the shape, the Medium to make it stick, and the Hard only when the Medium feels routine. Check problems off and watch the ring fill.`),
 ]},
 {group:"Week 1 · Foundations",num:"∞",id:"bigo",color:"#0EA5E9",title:"Big-O & Complexity",badge:"Week 1 · Foundations",blocks:[
-  cue(`Almost every interview ends with "what's the time and space complexity?" If you can't answer crisply, a correct solution still loses points. This is the vocabulary the whole field speaks in.`),
-  p(`Big-O describes how the work an algorithm does <em>grows</em> as the input gets bigger. It deliberately ignores constant factors and hardware. We don't care that one machine is twice as fast; we care that doubling the input doubles the work (linear), barely changes it (logarithmic), or quadruples it (quadratic). That growth shape is what decides whether your code finishes in milliseconds or melts on a large input.`),
-  svg("bigo","The same input size, wildly different costs. The gap between O(n) and O(n²) is small for tiny inputs and catastrophic for large ones — which is why interviewers push you from one to the other."),
+  cue(`Almost every interview ends with "what's the time and space complexity?" If you can't answer crisply, a correct solution still loses points. Worse, you can't <em>choose</em> between approaches without it. This is the vocabulary the whole field reasons in — and the one tool that tells you, before you run anything, whether a solution will survive a large input.`),
+  p(`Big-O describes how the work an algorithm does <em>grows</em> as the input gets bigger. It deliberately ignores constant factors and hardware. We don't care that one machine is twice as fast or that one loop has a few extra instructions; we care about the <em>shape</em> of the growth — whether doubling the input doubles the work (linear), barely changes it (logarithmic), or quadruples it (quadratic). That shape is what decides whether your code finishes in milliseconds or melts on a large input.`),
+  sub("What growth actually means"),
+  p(`Forget the formalism for a second. The whole point of Big-O is a single question: <em>if I double the input, what happens to the running time?</em> That ratio is the entire personality of an algorithm. A linear algorithm doubles. A quadratic one quadruples. A logarithmic one adds one cheap step. An exponential one doubles in <em>cost</em> every time you add a single element. Here's what that feels like as <code>n</code> grows from 10 to a million:`),
+  ul([
+    `<b>O(1)</b> — 1 step, always. n=10 or n=1,000,000: still 1.`,
+    `<b>O(log n)</b> — about 3, 10, then 20 steps. Going from a thousand to a million adds only ~10 steps. This barely notices your input.`,
+    `<b>O(n)</b> — 10, then 1,000, then 1,000,000 steps. Doubling n doubles the work. Honest and predictable.`,
+    `<b>O(n log n)</b> — ~33, then ~10,000, then ~20,000,000. A little worse than linear; still completely practical at a million.`,
+    `<b>O(n&#178;)</b> — 100, then 1,000,000, then a <em>trillion</em>. A million-element input is already hopeless: that loop will not finish.`,
+    `<b>O(2&#8319;)</b> — 1,024 at n=10, and at n=64 it exceeds the number of atoms estimated in the observable universe. Usable only for tiny n.`,
+  ]),
+  idea("The mental shortcut",`You don't multiply out operations in your head. You ask one thing: <em>"when the input doubles, does the work stay flat, double, or square?"</em> Flat is O(log n) or O(1), doubling is O(n), squaring is O(n&#178;). That single reflex covers most of what interviewers want to hear.`),
+  svg("bigo","The same input size, wildly different costs. The gap between O(n) and O(n&#178;) is small for tiny inputs and catastrophic for large ones &#8212; which is exactly why interviewers push you from one to the other."),
+  sub("The definition, made friendly"),
+  p(`Formally, an algorithm is O(f(n)) if, beyond some input size, its running time is at most a constant multiple of f(n). The phrase that matters in that sentence is <em>at most a constant multiple</em>. It's an upper bound on growth, with constant factors deliberately allowed to vanish. That's why we follow two rules every single time: <b>drop the constants</b>, and <b>drop the lower-order terms</b>.`),
+  p(`<em>Drop constants:</em> O(2n), O(500n), and O(n/3) are all just O(n). The factor depends on your machine, your compiler, and how you counted "an operation" &#8212; none of which says anything about how the algorithm <em>scales</em>. <em>Drop lower-order terms:</em> O(n&#178; + n) is just O(n&#178;), because once n is large the n&#178; term dwarfs the n. We keep only the single fastest-growing piece, because that piece eventually decides everything.`),
+  svg("bigo_drop","Three terms of <code>3n&#178; + 50n + 200</code> plotted separately. The constant is flat, the linear term grows, but the quadratic term outruns both &#8212; so for large n the total <em>is</em> the n&#178; curve. That's why we throw the rest away and call it O(n&#178;)."),
+  note("&#9888;&#65039;","Big-O is an upper bound, not the whole story",`Strictly, Big-O (O) is an upper bound, Big-Omega (&#937;) a lower bound, and Big-Theta (&#920;) a tight bound that's both. In interviews everyone says "Big-O" and means the tight bound &#8212; "this is O(n log n)" is understood as "it grows like n log n." You won't be docked for the informality, but knowing the distinction exists is a nice senior signal if sorting comes up.`),
   sub("The growth rates you must know on sight"),
   ul([
-    `<b>O(1) — constant.</b> The work doesn't depend on input size. Array index, hash map lookup, pushing to a stack. The gold standard.`,
-    `<b>O(log n) — logarithmic.</b> Each step throws away half the remaining data. Binary search, balanced-tree operations. Doubling n adds just one step — absurdly scalable.`,
-    `<b>O(n) — linear.</b> You touch each element a constant number of times. A single loop over an array. Usually the target for "process every item" problems.`,
-    `<b>O(n log n) — linearithmic.</b> The speed limit for comparison sorting (<code>sort()</code>), and where many "sort then sweep" solutions land.`,
-    `<b>O(n²) — quadratic.</b> A loop inside a loop — every pair. Fine for small n, a red flag for large n. Most pattern work is about escaping this.`,
-    `<b>O(2ⁿ) / O(n!) — exponential / factorial.</b> Trying every subset or permutation. Backtracking lives here; you survive it only by pruning hard.`,
+    `<b>O(1) &#8212; constant.</b> The work doesn't depend on input size. Array index, hash map lookup, pushing to a stack. The gold standard.`,
+    `<b>O(log n) &#8212; logarithmic.</b> Each step throws away half the remaining data. Binary search, balanced-tree operations. Doubling n adds just one step &#8212; absurdly scalable.`,
+    `<b>O(n) &#8212; linear.</b> You touch each element a constant number of times. A single loop over an array. Usually the target for "process every item" problems.`,
+    `<b>O(n log n) &#8212; linearithmic.</b> The speed limit for comparison sorting (<code>sort()</code>), and where many "sort then sweep" solutions land.`,
+    `<b>O(n&#178;) &#8212; quadratic.</b> A loop inside a loop &#8212; every pair. Fine for small n, a red flag for large n. Most pattern work is about escaping this.`,
+    `<b>O(2&#8319;) / O(n!) &#8212; exponential / factorial.</b> Trying every subset or permutation. Backtracking lives here; you survive it only by pruning hard.`,
   ]),
-  sub("How to actually compute it"),
-  p(`Count the loops over the input and how they nest. One pass over the array is O(n). A loop nested inside another, both over the array, is O(n·n) = O(n²). A loop that halves its range each step contributes a log n factor. Sequential (non-nested) steps add, so O(n) + O(n) is still O(n); nested steps multiply. And we keep only the dominant term: O(n² + n) is just O(n²), because for large n the n² swamps everything else.`),
-  worked("Reading complexity off code","Two nested loops over the same array means every pair is visited — n choices for i times n for j. That's the classic O(n²) you'll be asked to beat.",
+  p(`It helps to attach each rate to a line of C++ you'd actually recognize on sight. Same loops, six different growth shapes:`),
+  code(`v[i];                                  // O(1)    one indexed access, no scan
+for (int x : v) sum += x;              // O(n)    one pass, touch each element once
+
+while (lo < hi) {                      // O(log n) halve the range each step
+    int mid = (lo + hi) / 2;
+    if (v[mid] < target) lo = mid + 1;
+    else                 hi = mid;
+}
+
+sort(v.begin(), v.end());              // O(n log n)  the comparison-sort speed limit
+
+for (int i = 0; i < n; i++)            // O(n^2)   every pair: n choices of i
+    for (int j = i + 1; j < n; j++)    //          times ~n choices of j
+        consider(v[i], v[j]);
+
+subsets(v, 0);                         // O(2^n)   each element in or out -> 2^n combos`),
+  sub("How to actually read it off code"),
+  p(`Counting complexity is mechanical once you internalize three rules. <b>Sequential steps add;</b> nested steps multiply. Two separate loops over the array are O(n) + O(n) = O(n). A loop inside a loop, both over the array, is O(n &#183; n) = O(n&#178;). <b>A loop that halves its range</b> each step contributes a log n factor. <b>Keep only the dominant term</b> at the end. Walk through the structure of the code, multiply nested loops, add sequential blocks, drop everything but the leader.`),
+  worked("Reading complexity off nested loops","Two nested loops over the same array means every pair is visited &#8212; n choices for i times n for j. That's the classic O(n&#178;) you'll be asked to beat. Note the inner loop starts at i+1: it runs ~n/2 times on average, but constants drop, so it's still O(n&#178;).",
 `vector<int> v = {...};            // size n
 for (int i = 0; i < v.size(); i++) {       // runs n times
     for (int j = i + 1; j < v.size(); j++) // runs ~n times each
@@ -408,70 +595,282 @@ for (int i = 0; i < v.size(); i++) {       // runs n times
             return {i, j};
 }
 // total: n * n = O(n^2) time, O(1) extra space`),
+  worked("Sequential beats nested: sort then sweep","A sort followed by a single pass is O(n log n) + O(n). The two phases are sequential, so they ADD, and the n log n dominates &#8212; the final answer is O(n log n), not O(n&#178;). People misread this as nested because there's a loop after the sort; it isn't.",
+`sort(v.begin(), v.end());          // O(n log n)
+int dupes = 0;
+for (int i = 1; i < v.size(); i++) // O(n) -- one sweep, sequential
+    if (v[i] == v[i - 1]) dupes++;
+// O(n log n) + O(n) = O(n log n) time, O(1) or O(n) space (depends on sort)`),
+  worked("A halving loop is O(log n), and nesting one makes O(n log n)","An inner loop whose counter multiplies (or whose range halves) runs about log n times, not n times. Put that inside an O(n) outer loop and you get O(n log n) &#8212; the same shape as a sort, reached a different way.",
+`for (int i = 0; i < n; i++)        // O(n) outer
+    for (int j = 1; j < n; j *= 2) // O(log n): j doubles, ~log2(n) iterations
+        work(i, j);
+// total: n * log n = O(n log n)`),
+  sub("Recursion: count the tree, not the lines"),
+  p(`Recursion trips people up because the work isn't written as visible loops &#8212; it's hidden in the call tree. The trick is to count two things: how many calls happen, and how much each one does. For a single chain of recursion (factorial, walking a linked list recursively), there are n calls each doing O(1), so it's O(n) time and &#8212; this part is easy to forget &#8212; O(n) <em>space</em> for the call stack, because all n frames are live at once.`),
+  p(`For branching recursion, sketch the call tree and add up the work per level. The canonical case is divide-and-conquer like merge sort: <code>T(n) = 2&#183;T(n/2) + O(n)</code> &#8212; two half-size subproblems plus O(n) to combine them. Each level of the tree does O(n) total work, and the tree is log&#8322;n levels deep (because halving repeatedly reaches 1 in log&#8322;n steps), so the whole thing is O(n) &#215; log n = O(n log n). You don't need the Master Theorem in an interview; you need to picture the tree.`),
+  svg("bigo_rec","The recursion tree for <code>T(n) = 2T(n/2) + O(n)</code>. Each level's boxes sum to n units of work, and halving gives log&#8322;n levels &#8212; so the total is O(n log n). Sketching this tree out loud is exactly how you'd justify merge sort's complexity in the room."),
+  note("&#128161;","Exponential recursion has a recurrence too",`Naive recursive Fibonacci is <code>T(n) = T(n-1) + T(n-2) + O(1)</code> &#8212; the tree branches in two and barely shrinks, giving roughly O(2&#8319;). Recognizing that this recurrence is exponential (and that memoizing collapses it to O(n)) is a textbook dynamic-programming setup you'll meet again in Week 8.`),
   sub("Don't forget space"),
-  p(`Space complexity counts the <em>extra</em> memory you allocate as input grows — not the input itself. A hash map holding up to n entries is O(n) space. Recursion costs O(depth) for the call stack: a balanced tree is O(log n) deep, a linked list recursion is O(n) deep. Interviewers love the time-vs-space trade: Two Sum goes from O(n²) time / O(1) space to O(n) time / O(n) space by spending memory on a hash map to buy speed.`),
-  sub("Amortized complexity — the one interviewers use to separate the field"),
-  p(`Some operations are <em>usually</em> cheap but <em>occasionally</em> expensive, and amortized analysis describes their average cost across a whole sequence of calls. The textbook example is <code>vector::push_back</code>. A vector keeps a fixed-size buffer; most push_backs just drop the new element into an empty slot — O(1). But when the buffer fills up, the vector allocates a bigger one (typically <em>double</em> the size), copies every existing element across, and frees the old buffer — an O(n) operation. So a single push_back is, every so often, genuinely O(n).`),
-  p(`Yet because the capacity <em>doubles</em> each time, those expensive resizes happen rarely and geometrically less often as the vector grows. Add up all the copying across n pushes and the total is bounded by about 2n — so the average cost per push_back works out to O(1). That's what "amortized O(1)" means: not every call is constant, but the average over a long run provably is. This is one of the most common C++ interview questions precisely because it separates people who memorized "push_back is O(1)" from people who understand <em>why</em>.`),
-  note("⚖️","Amortized vs average-case",`These two get confused constantly. <b>Amortized</b> is averaged over a sequence of operations and holds as a worst-case guarantee — push_back is amortized O(1) no matter what you do. <b>Average-case</b> depends on the input distribution — a hash map lookup is average-case O(1), but a pathological set of keys could in theory degrade it toward O(n). Naming the right one out loud signals real understanding.`),
-  pit("The trap that costs offers","Calling <code>.substr()</code>, copying a vector, or building a new string inside a loop quietly adds an O(n) factor you forgot to count. A loop that looks O(n) but copies an n-length string each iteration is secretly O(n²). Always ask: what does each line <em>really</em> cost?"),
-  note("📌","Say it like this in the room",`"This runs in O(n log n) time because of the sort, and O(n) space for the hash map." One clean sentence. Practice saying the complexity of every solution you write — out loud — until it's automatic.`),
+  p(`Space complexity counts the <em>extra</em> memory you allocate as input grows &#8212; not the input itself. A hash map holding up to n entries is O(n) space. A few scalar variables are O(1), no matter how big n is. And the one people forget: <b>recursion costs O(depth) for the call stack</b>. A balanced tree recursion is O(log n) deep; a linked-list or skewed-tree recursion is O(n) deep and can literally blow the stack on a large input. Always account for the stack as part of your space answer.`),
+  p(`Interviewers love the time-vs-space trade, so be ready to name it. Two Sum goes from O(n&#178;) time / O(1) space to O(n) time / O(n) space by spending memory on a hash map to buy speed. "I can make this faster by using O(n) extra space for a map" is exactly the sentence that shows you're reasoning about both axes on purpose, not by accident.`),
+  sub("Amortized complexity &#8212; the one interviewers use to separate the field"),
+  p(`Some operations are <em>usually</em> cheap but <em>occasionally</em> expensive, and amortized analysis describes their average cost across a whole sequence of calls. The textbook example is <code>vector::push_back</code>. A vector keeps a fixed-size buffer; most push_backs just drop the new element into an empty slot &#8212; O(1). But when the buffer fills up, the vector allocates a bigger one (typically <em>double</em> the size), copies every existing element across, and frees the old buffer &#8212; an O(n) operation. So a single push_back is, every so often, genuinely O(n).`),
+  p(`Yet because the capacity <em>doubles</em> each time, those expensive resizes happen rarely and geometrically less often as the vector grows. Add up all the copying across n pushes and the total is bounded by about 2n &#8212; so the average cost per push_back works out to O(1). That's what "amortized O(1)" means: not every call is constant, but the average over a long run provably is. This is one of the most common C++ interview questions precisely because it separates people who memorized "push_back is O(1)" from people who understand <em>why</em>.`),
+  worked("Why doubling gives amortized O(1)","The cost of all the copies across n pushes is 1 + 2 + 4 + ... + n &#8212; a geometric series that sums to less than 2n, not n&#178;. Spread that total over n pushes and each one costs O(1) on average. This is also why reserving up front matters: it skips every resize.",
+`vector<int> v;
+v.reserve(n);                  // pre-size the buffer ONCE: now zero resizes
+for (int i = 0; i < n; i++)
+    v.push_back(i);            // every push is a true O(1) -- no reallocation
+// without reserve: still amortized O(1), but ~log2(n) resizes happen along the way
+
+// the geometric sum behind it:
+// 1 + 2 + 4 + ... + n  <  2n   -> total copying is O(n), so O(1) per push`),
+  note("&#9878;&#65039;","Amortized vs average-case",`These two get confused constantly. <b>Amortized</b> is averaged over a sequence of operations and holds as a worst-case guarantee &#8212; push_back is amortized O(1) no matter what you do. <b>Average-case</b> depends on the input distribution &#8212; a hash map lookup is average-case O(1), but a pathological set of keys could in theory degrade it toward O(n). Naming the right one out loud signals real understanding.`),
+  sub("Best, worst, and average &#8212; when they differ"),
+  p(`A single algorithm can have different complexities depending on the input. Quicksort is O(n log n) on average but O(n&#178;) in the worst case (an already-sorted input with a naive pivot). A hash lookup is O(1) average, O(n) worst (everything collides into one bucket). When you state complexity, default to the <em>worst case</em> unless asked otherwise &#8212; that's the guarantee an interviewer cares about &#8212; but flag it if the average is meaningfully better and likely in practice. "Average O(1), worst case O(n) if the hashes collide" is a crisp, honest answer.`),
+  pit("The trap that costs offers","Calling <code>.substr()</code>, copying a vector, or building a new string inside a loop quietly adds an O(n) factor you forgot to count. A loop that looks O(n) but copies an n-length string each iteration is secretly O(n&#178;). Hidden costs also hide inside innocent-looking STL calls &#8212; <code>s.find(...)</code>, inserting into the middle of a vector, or <code>string + string</code> in a loop. Always ask: what does each line <em>really</em> cost?"),
+  pit("Counting a constant as a variable","Not every loop is O(n). A loop that runs a fixed number of times &#8212; over the 26 letters of the alphabet, or 32 bits of an int &#8212; is O(1) with respect to your input, no matter how large n gets. Conversely, an inner loop bounded by some <em>other</em> input m is O(m), giving O(n&#183;m) total, not O(n&#178;). Be precise about which quantity each loop actually depends on."),
+  sub("Saying it in the room"),
+  p(`Stating complexity out loud is a learnable reflex, and interviewers listen for it. The format is always the same: <em>"This is O(&#8230;) time and O(&#8230;) space, because &#8230;"</em> &#8212; the "because" is what earns the points, since it proves you derived it rather than guessed. Practice attaching that one sentence to every solution you write until it's automatic.`),
+  note("&#128204;","Say it like this in the room",`"This runs in O(n log n) time because of the sort, and O(n) space for the hash map." Or: "It's O(n) time &#8212; one pass &#8212; and O(1) space; I'm only keeping a couple of pointers." One clean sentence, always with the reason. If you've improved an earlier approach, say the trade explicitly: "the brute force was O(n&#178;); I traded O(n) space for a hash map to get it to O(n)."`),
+  note("&#10067;","The Big-O questions you'll actually be asked",`Have one-liners ready for the classics: <b>"What's the complexity of <code>push_back</code>?"</b> &#8212; amortized O(1), because the buffer doubles. <b>"Of looking up in an <code>unordered_map</code>?"</b> &#8212; O(1) average, O(n) worst on collisions. <b>"Of <code>std::sort</code>?"</b> &#8212; O(n log n). <b>"Of inserting into a <code>map</code> (red-black tree)?"</b> &#8212; O(log n). <b>"Can you do better than O(n&#178;)?"</b> &#8212; almost always the cue to reach for a hash map, two pointers, or sorting first.`),
+  cx(`On sight: <b>O(1)</b> &#8226; <b>O(log n)</b> &#8226; <b>O(n)</b> &#8226; <b>O(n log n)</b> &#8226; <b>O(n&#178;)</b> &#8226; <b>O(2&#8319;)</b> &#8212; nested multiplies, sequential adds, keep the leader`)
 ]},
 {group:"Week 1 · Foundations",num:"→*",id:"pointers",color:"#5B5BD6",title:"Pointers & Memory",badge:"Week 1 · C++ deep dive",blocks:[
-  cue(`Pointers feel like the scary part of C++. They're not — a pointer is just a variable that stores a memory address. You need them for linked lists and trees, and understanding them is what finally makes references, smart pointers, and "Two Pointers" click. We do this <em>before</em> those topics on purpose.`),
-  p(`Every variable your program creates lives somewhere in memory, at a numeric location called its <em>address</em>. Normally you refer to a variable by its name and never think about where it physically sits. A pointer flips that around: it's a variable whose value <em>is</em> an address — it "points at" another variable by holding its location.`),
+  cue(`Pointers feel like the scary part of C++. They're not &#8212; a pointer is just a variable that stores a memory address. You need them for linked lists and trees, they're the foundation under references and smart pointers, and they're what makes "Two Pointers" click. We do this <em>before</em> all of that on purpose, and we go deep: by the end you should be able to whiteboard pointer arithmetic, <code>const</code> placement, and use-after-free without flinching.`),
+  sub("The mental model: memory is a giant array of cells"),
+  p(`Picture your program's memory as one enormous array of byte-sized cells, each with a numeric index called its <em>address</em>. Every variable you declare is just a named region of those cells. When you write <code>int x = 42;</code>, the compiler reserves four consecutive bytes somewhere, labels that location <code>x</code>, and writes <code>42</code> into it. Normally you refer to <code>x</code> by name and never think about the address. A pointer flips that around: it's a variable whose <em>value is an address</em> &#8212; it doesn't hold <code>42</code>, it holds "the location where the 42 lives."`),
+  p(`Hold that picture &#8212; boxes (variables) sitting at numbered addresses, and pointers as arrows from one box to another &#8212; and almost every pointer bug and trick becomes something you can <em>see</em> rather than memorize.`),
   sub("The two operators: &amp; and *"),
-  p(`Two operators are the whole game. <code>&amp;</code> (address-of) gives you the address of a variable. <code>*</code> (dereference) takes an address and gives you the value living there. They're inverses of each other.`),
+  p(`Two operators are the whole game. <code>&amp;</code> (address-of) gives you the address of a variable. <code>*</code> (dereference) takes an address and gives you the value living there. They're inverses: <code>*(&amp;x)</code> is just <code>x</code> again.`),
   code(`int x = 42;
 int* p = &x;     // p holds the ADDRESS of x   (int* reads as "pointer to int")
 cout << *p;      // dereference: follow the address -> prints 42
-*p = 100;        // write THROUGH the pointer  -> x is now 100`),
+*p = 100;        // write THROUGH the pointer  -> x is now 100
+cout << p;       // prints the address itself, e.g. 0x7ffe...a4`),
   svg("pointer","A pointer stores an address (left) that refers to where the real variable lives (right). <code>&amp;x</code> gets that address; <code>*p</code> follows it back to the value. Picture boxes and arrows and pointers stop being mysterious."),
-  p(`One source of early confusion: the <code>*</code> symbol does two different jobs. In a <em>declaration</em>, <code>int* p</code> means "p is a pointer." In an <em>expression</em>, <code>*p</code> means "dereference p." Same character, two roles — once you notice which context you're in, it reads cleanly.`),
+  p(`One source of early confusion: the <code>*</code> symbol does two different jobs. In a <em>declaration</em>, <code>int* p</code> means "p is a pointer." In an <em>expression</em>, <code>*p</code> means "dereference p." Same character, two roles &#8212; once you notice which context you're in, it reads cleanly.`),
+  sub("Declaration syntax: int* p vs int *p, and the one-line trap"),
+  p(`<code>int* p</code> and <code>int *p</code> and <code>int * p</code> are <em>identical</em> to the compiler &#8212; whitespace around the <code>*</code> is cosmetic. The <code>int*</code> style groups the star with the type ("pointer-to-int p"); the <code>int *p</code> style groups it with the name. Pick one and be consistent; this course uses <code>int* p</code>. But there is a real gotcha hiding behind that choice:`),
+  code(`int* a, b;     // SURPRISE: a is int*, but b is a plain int
+int *a, *b;    // both pointers -- the star binds to the NAME, not the type
+int *a, b, *c; // a and c are pointers, b is an int`),
+  pit(`The star binds to the name, not the type`,`In a multi-variable declaration the <code>*</code> applies only to the identifier it sits next to. <code>int* a, b;</code> reads to a human like "two int pointers," but <code>b</code> is an ordinary <code>int</code>. This is exactly why many style guides say <b>declare one pointer per line</b> &#8212; it sidesteps the ambiguity entirely. If an interviewer writes <code>int* a, b;</code> on the whiteboard and asks what <code>b</code> is, the answer is <code>int</code>.`),
   sub("nullptr and the #1 pointer crash"),
-  p(`A pointer can point at nothing — that's <code>nullptr</code>. Dereferencing a null pointer (or any invalid one) is undefined behavior, almost always a crash (a "segfault"). The single most common pointer bug in interviews is dereferencing null. The discipline is simple and you should make it automatic: before you ever write <code>*p</code> or <code>p-&gt;something</code>, be sure <code>p</code> isn't null.`),
+  p(`A pointer can point at nothing &#8212; that's <code>nullptr</code> (prefer it over the old <code>NULL</code> or a bare <code>0</code>; <code>nullptr</code> is properly typed and won't be mistaken for an integer in overload resolution). Dereferencing a null pointer (or any invalid one) is undefined behavior, almost always a crash (a "segfault"). The single most common pointer bug in interviews is dereferencing null. The discipline is simple and you should make it automatic: before you ever write <code>*p</code> or <code>p-&gt;something</code>, be sure <code>p</code> isn't null.`),
   code(`ListNode* node = nullptr;
 if (node != nullptr) {       // guard first
     use(node->val);          // now it's safe to follow the pointer
 }`),
-  sub("Stack vs heap — where memory comes from"),
-  p(`Local variables live on the <em>stack</em>: created automatically when a function runs, destroyed automatically when it returns. Fast and effortless, but their lifetime is tied to the scope they're in. The <em>heap</em> is a large pool you allocate from explicitly with <code>new</code>, and whatever you put there lives until you <code>delete</code> it. You reach for the heap when an object must outlive the function that created it — like the nodes of a linked list or tree, which have to persist after the function that built them returns.`),
+  note(`&#129504;`,`An uninitialized pointer is worse than null`,`A null pointer at least crashes <em>predictably</em>. A pointer you declared but never assigned (<code>int* p;</code> then <code>*p = 5;</code>) holds whatever garbage was in that stack slot &#8212; it might point at random valid-looking memory and corrupt something far away, producing a bug that shows up nowhere near its cause. Always initialize pointers, to <code>nullptr</code> if you have nothing else yet.`),
+  sub("Pointer arithmetic and the array/pointer duality"),
+  p(`Here is the fact that ties arrays and pointers together: an array name decays into a pointer to its first element, and indexing is <em>defined</em> in terms of pointer arithmetic. <code>a[i]</code> is literally <code>*(a + i)</code>. Adding <code>1</code> to a pointer does not add one byte &#8212; it advances by one whole element, <code>sizeof(element)</code> bytes. The pointer's type is what sets that stride.`),
+  code(`int a[4] = {10, 20, 30, 40};
+int* p = a;          // a decays to &a[0]
+cout << *p;          // 10
+cout << *(p + 2);    // 30   -- p+2 skips two ints, i.e. 8 bytes
+cout << a[2];        // 30   -- same thing: a[2] == *(a + 2)
+cout << p[2];        // 30   -- a pointer can be indexed too
+
+// the duality even makes this legal (and cursed):
+cout << 2[a];        // 30   -- because 2[a] == *(2 + a) == *(a + 2)`),
+  svg("pointers_arith","An array name is a pointer to its first element, and <code>a[i]</code> is shorthand for <code>*(a + i)</code>. Each step of pointer arithmetic moves by one whole element &#8212; the element type sets the byte stride, which is why the same <code>+1</code> means 4 bytes for <code>int*</code> and 8 for <code>double*</code>."),
+  p(`This is also why a raw array passed to a function "loses its size": the parameter is really a pointer, so <code>sizeof</code> inside the function gives the size of a pointer, not the array. It's the single biggest reason interview and production code reaches for <code>std::vector</code> and <code>std::array</code> instead of raw C arrays.`),
+  sub("const and pointers: read right-to-left"),
+  p(`<code>const</code> next to a pointer trips people up because there are two different things it could be locking: the thing pointed at, or the pointer itself. The reliable way to parse any declaration is to <em>read it right-to-left from the variable name</em>, treating <code>const</code> as binding to whatever is immediately to its left (or, if nothing is to its left, to its right).`),
+  code(`int x = 1, y = 2;
+
+const int* p   = &x;   // "pointer to const int": can't change *p, can repoint p
+int* const q   = &x;   // "const pointer to int": can change *q, can't repoint q
+const int* const r = &x; // both locked: can't change *r and can't repoint r
+
+p = &y;     // OK   -- repointing the pointer is allowed
+*p = 9;     // ERROR -- the int it points at is const through p
+q = &y;     // ERROR -- q itself is const
+*q = 9;     // OK   -- the int is writable through q`),
+  svg("pointers_const","Where <code>const</code> sits decides what is frozen. <code>const int*</code> protects the pointed-to value (you may still repoint); <code>int* const</code> freezes the pointer (you may still write through it); <code>const int* const</code> freezes both. Read right-to-left from the name and it is unambiguous every time."),
+  note(`&#128221;`,`Why const int* is everywhere`,`<code>const int*</code> (pointer-to-const) is the common one: it's how a function says "I'll read through this pointer but never modify what it points at." It's the pointer cousin of passing <code>const vector&lt;int&gt;&amp;</code>. Reach for it on any pointer parameter you only read from &#8212; it documents intent and lets the caller pass pointers to const data.`),
+  sub("void* and double pointers, briefly"),
+  p(`A <code>void*</code> is a "pointer to anything" &#8212; an address with the type stripped off. You can't dereference it (the compiler doesn't know the element size) until you cast it back to a real type. It shows up in C-style APIs, <code>memcpy</code>, and type-erased callbacks. In modern C++ you rarely need it; templates and <code>std::any</code> usually express the same idea with type safety. Know what it is so it doesn't surprise you, then prefer not to write it.`),
+  p(`A <em>pointer to a pointer</em> (<code>int**</code>) is exactly what it sounds like: a variable holding the address of a pointer. Each <code>*</code> follows one arrow. You meet it when a function needs to modify the caller's <em>pointer</em> (not just the pointed-to value) &#8212; for example, allocating a node and storing it into the caller's <code>head</code> &#8212; and in arrays-of-pointers like the classic <code>int main(int argc, char** argv)</code>.`),
+  code(`int x = 42;
+int*  p  = &x;     // p points at x
+int** pp = &p;     // pp points at p
+
+cout << *pp;       // prints p (an address)
+cout << **pp;      // prints 42 -- follow two arrows`),
+  svg("pointers_double","A double pointer is a chain of addresses: <code>pp</code> holds the address of <code>p</code>, which holds the address of <code>x</code>. Each <code>*</code> peels off one level &#8212; <code>*pp</code> is <code>p</code>, <code>**pp</code> is the <code>42</code>. The same indirection is why modifying a caller's pointer needs a pointer-to-pointer (or a reference-to-pointer)."),
+  note(`&#128161;`,`The idiomatic modern alternative`,`You'll see <code>int**</code> in C and older C++ for "let the function change my pointer." In modern C++ the cleaner spelling is a <em>reference to a pointer</em>: <code>void push(ListNode*&amp; head)</code> reads better than <code>void push(ListNode** head)</code> and drops a layer of <code>*</code> at every use. Recognize both; write the reference version.`),
+  sub("Stack vs heap: where memory comes from"),
+  p(`Local variables live on the <em>stack</em>: created automatically when a function runs, destroyed automatically when it returns. Fast and effortless, but their lifetime is tied to the scope they're in. The <em>heap</em> is a large pool you allocate from explicitly with <code>new</code>, and whatever you put there lives until you <code>delete</code> it. You reach for the heap when an object must outlive the function that created it &#8212; like the nodes of a linked list or tree, which have to persist after the function that built them returns.`),
   svg("heap","Stack memory is automatic and scope-bound; heap memory is manual and lives until you free it. Data structures live on the heap because their nodes must outlast the function that created them."),
-  code(`int* p = new int(5);   // allocate one int on the heap
+  code(`int* p = new int(5);      // allocate one int on the heap
 // ... use *p ...
-delete p;              // you must free it yourself, or it leaks`),
-  pit("Two classic heap bugs","A <b>memory leak</b> is allocating with <code>new</code> and never <code>delete</code>-ing — the memory is never reclaimed and your program bloats. A <b>dangling pointer</b> (use-after-free) is using a pointer after its memory was freed or went out of scope — for example, returning the address of a local variable, whose stack slot vanishes the moment the function returns. Both are undefined behavior, and both are exactly why modern C++ prefers smart pointers, which free automatically. That's the next C++ lesson."),
-  sub("Pointers vs references — when to use which"),
-  p(`A <em>reference</em> (<code>int&amp; r = x;</code>) is an alias — a second name for an existing variable. It can't be null and can't be reseated to refer to something else; it must bind to a valid object the moment it's created. A <em>pointer</em> is a variable that holds an address — it can be null, and you can repoint it at different things over time. Rule of thumb: reach for a reference when you always have a valid object and won't reassign it (function parameters, range-based for loops); reach for a pointer when the target might be absent (null) or you need to walk or reassign it, like traversing a linked list.`),
+delete p;                 // free a single object
+
+int* arr = new int[10];   // allocate an array on the heap
+delete[] arr;             // arrays need delete[], not delete`),
+  pit(`Match new with delete, new[] with delete[]`,`Using <code>delete</code> on memory you got from <code>new[]</code> (or vice versa) is undefined behavior, even though it often "looks" fine. This bookkeeping is exactly the kind of thing humans forget under interview pressure &#8212; which is the whole motivation for smart pointers, where the right cleanup is chosen for you. We cover those in the RAII &amp; Smart Pointers lesson; for now, every <code>new</code> you write should have a matching <code>delete</code> you can point to.`),
+  sub("Leaks, dangling pointers, and use-after-free"),
+  p(`Two failure modes account for most heap bugs. A <b>memory leak</b> is allocating with <code>new</code> and never <code>delete</code>-ing &#8212; the memory is never reclaimed and a long-running program bloats until it dies. A <b>dangling pointer</b> is a pointer that still holds an address whose memory has already been freed or gone out of scope; using it is <em>use-after-free</em>, classic undefined behavior. The nastiest version is returning the address of a local variable:`),
+  worked("A dangling-pointer bug and its fix","The local <code>result</code> lives on the stack frame of <code>makeBad</code>. The instant the function returns, that frame is gone and the returned pointer dangles &#8212; it points at memory that's been reclaimed and may now hold anything. The fix is to give the value a lifetime that outlives the call: return by value, or allocate on the heap (and, in real code, hand back a smart pointer so it's freed automatically).",
+`int* makeBad() {
+    int result = 99;
+    return &result;        // BUG: &result dangles the moment we return
+}                          // 'result' is destroyed here
+
+// Fix 1 -- return by value; the caller gets its own copy:
+int makeGood() {
+    int result = 99;
+    return result;         // safe: a value, not an address into a dead frame
+}
+
+// Fix 2 -- if it truly must outlive the call, allocate on the heap.
+// In modern C++ you'd return unique_ptr<int> so cleanup is automatic.
+int* makeOnHeap() {
+    return new int(99);    // caller owns it and must delete it
+}`),
+  pit("Set freed pointers to nullptr","After <code>delete p;</code>, <code>p</code> still holds the old (now invalid) address &#8212; it's dangling. A second <code>delete p;</code> is a double-free (undefined behavior), and any later <code>*p</code> is use-after-free. Assigning <code>p = nullptr;</code> right after <code>delete</code> turns a silent corruption into a loud, predictable null-deref crash, and makes a second delete a harmless no-op. Better still, let a smart pointer own it and never write the <code>delete</code> at all."),
+  sub("Pointers vs references &#8212; binding, reseating, idiom"),
+  p(`A <em>reference</em> (<code>int&amp; r = x;</code>) is an alias &#8212; a second name for an existing variable. It must bind to a valid object the moment it's created, it can't be null, and it can't be <em>reseated</em> to refer to something else afterward (assigning to a reference assigns to the referent, it doesn't repoint the reference). A <em>pointer</em> is a variable that holds an address: it can be null, can start uninitialized, and you can repoint it at different objects over time.`),
+  ul([
+    `<b>Can it be null / absent?</b> Pointer yes, reference no. If "no object" is a legal state, you need a pointer (or <code>std::optional</code>).`,
+    `<b>Will you reseat it?</b> Walking a linked list means repointing <code>cur</code> each step &#8212; that <em>requires</em> a pointer. A reference can't be moved.`,
+    `<b>Just aliasing one known object?</b> Reach for a reference &#8212; function parameters you won't reassign, range-based <code>for</code> loops, returning access to a member. It's cleaner and can't be null.`,
+  ]),
+  idea(`The one-line rule`,`Use a <em>reference</em> when you always have exactly one valid object and won't repoint it; use a <em>pointer</em> when the target may be absent (null) or you need to move it around. References are for "this <em>is</em> that object"; pointers are for "this <em>locates</em> an object, possibly none, possibly a different one later."`),
+  sub("Using pointers to modify or \"return\" through parameters"),
+  p(`Because C++ passes by value by default, a function can't change a caller's variable just by taking it as a parameter &#8212; it gets a copy. Passing a <em>pointer</em> (or reference) hands the function the caller's actual location, so writes land on the original. This is how you "return" more than one value, or modify in place.`),
+  worked("Swap through pointers","The textbook demonstration of why pointers matter. Pass the addresses of two variables; dereference to read and write the originals. A by-value version would only swap the function's private copies and the caller would see nothing change. (In real C++ you'd take <code>int&amp;</code> parameters &#8212; same mechanism, cleaner syntax &#8212; but the pointer version makes the indirection explicit.)",
+`void swap(int* a, int* b) {
+    int tmp = *a;     // read through a
+    *a = *b;          // write the caller's first variable
+    *b = tmp;         // write the caller's second variable
+}
+
+int x = 1, y = 2;
+swap(&x, &y);         // pass ADDRESSES, not values
+// now x == 2, y == 1`),
+  worked("Modify in place through a pointer parameter","A second common shape: the function reaches through the pointer to mutate the caller's data directly, returning nothing. The pointer is the channel that lets the change escape the function.",
+`// Double every element of a C-style array in place.
+void doubleAll(int* arr, int n) {
+    for (int i = 0; i < n; i++)
+        arr[i] *= 2;          // arr[i] == *(arr + i); writes the caller's array
+}
+
+int data[4] = {1, 2, 3, 4};
+doubleAll(data, 4);           // 'data' decays to a pointer to its first element
+// data is now {2, 4, 6, 8}`),
   sub("The arrow operator (you'll type this constantly)"),
-  p(`When a pointer points at a struct or class, <code>p-&gt;member</code> is shorthand for <code>(*p).member</code> — dereference, then access the field. In linked-list and tree problems, <code>node-&gt;val</code>, <code>node-&gt;next</code>, and <code>node-&gt;left</code> are everywhere. It's just "follow the pointer, then grab the field."`),
-  worked("Walking a linked list","A linked list is just nodes connected by pointers. Traversing one is the canonical pointer loop: look at the node you're pointing at, then move the pointer to the next node, until you fall off the end (null).",
+  p(`When a pointer points at a struct or class, <code>p-&gt;member</code> is shorthand for <code>(*p).member</code> &#8212; dereference, then access the field. The parentheses matter: <code>*p.member</code> would parse as <code>*(p.member)</code>, which is wrong, so the <code>-&gt;</code> arrow exists to make the common case clean. In linked-list and tree problems, <code>node-&gt;val</code>, <code>node-&gt;next</code>, and <code>node-&gt;left</code> are everywhere. It's just "follow the pointer, then grab the field."`),
+  worked("Walking a linked list","A linked list is just nodes connected by pointers. Traversing one is the canonical pointer loop: look at the node you're pointing at, then move the pointer to the next node, until you fall off the end (null). Notice how every piece of this lesson shows up at once &#8212; a reseatable pointer, the null check, and the arrow operator.",
 `// struct ListNode { int val; ListNode* next; };
 int sumList(ListNode* head) {
     int total = 0;
-    ListNode* cur = head;          // a pointer we'll advance
+    ListNode* cur = head;          // a pointer we'll advance (reseatable!)
     while (cur != nullptr) {        // stop when we run off the end
-        total += cur->val;          // read the current node
+        total += cur->val;          // read the current node's field
         cur = cur->next;            // move the pointer forward
     }
     return total;
 }`),
-  idea("The whole model in one picture",`A pointer is an address; <code>&amp;</code> gets an address, <code>*</code> follows one. Picture variables as boxes sitting at addresses and pointers as arrows between them. Once that image is solid, linked lists and trees aren't scary data structures — they're just boxes connected by arrows, and every traversal is "follow the arrow to the next box."`),
+  sub("The bridge to smart pointers"),
+  p(`Everything painful above &#8212; remembering to <code>delete</code>, matching <code>new[]</code> with <code>delete[]</code>, nulling dangling pointers, avoiding double-frees &#8212; is manual bookkeeping the compiler could do for you. That's the entire pitch of <em>smart pointers</em> (<code>unique_ptr</code>, <code>shared_ptr</code>), which own a heap allocation and free it automatically when they go out of scope. In modern C++ you almost never write a raw <code>new</code>/<code>delete</code> in application code; raw pointers survive as <em>non-owning</em> "I'm just looking at this" handles. We build that up properly in the RAII &amp; Smart Pointers lesson &#8212; this lesson is the raw-pointer foundation it stands on.`),
+  sub("What interviewers actually ask about pointers"),
+  p(`Pointer questions in interviews cluster into a handful of predictable shapes. None of them are about exotic syntax &#8212; they're about whether you understand lifetime and indirection well enough not to write a crash.`),
+  ul([
+    `<b>"What's the difference between a pointer and a reference?"</b> &#8212; the null/reseat/binding answer above. Have it crisp; it's almost a guaranteed warm-up.`,
+    `<b>Read or write a <code>const</code> pointer declaration.</b> "What can I change here?" Right-to-left parsing gets you the answer every time.`,
+    `<b>Spot the bug.</b> Returning the address of a local, using after free, leaking, or the <code>m[key]</code>-style accidental mutation. They want you to <em>see</em> the dangling lifetime.`,
+    `<b>Linked-list and tree traversal.</b> The reseatable-pointer loop with a null guard &#8212; the bread and butter of Weeks 4&#8211;5, and the reason this lesson comes first.`,
+    `<b>"How would you avoid managing this memory by hand?"</b> &#8212; the smart-pointer answer. Saying "I'd use <code>unique_ptr</code> so it frees automatically" signals modern-C++ fluency.`,
+  ]),
+  idea("The whole model in one picture",`A pointer is an address; <code>&amp;</code> gets an address, <code>*</code> follows one, and each extra <code>*</code> follows one more arrow. Picture variables as boxes sitting at addresses and pointers as arrows between them. Lifetime is the other half: a pointer is only as valid as the thing it points at is alive. Hold both ideas &#8212; indirection and lifetime &#8212; and linked lists, trees, <code>const</code> puzzles, and use-after-free bugs all become things you can see instead of memorize.`),
+  cx(`Dereference / pointer arithmetic <b>O(1)</b> &#8212; pointers are about indirection and lifetime, not asymptotic cost`)
 ]},
 {group:"Week 1 · Foundations",num:"=",id:"mental",color:"#8B5CF6",title:"Value vs Reference Semantics",badge:"Week 1 · C++ deep dive",blocks:[
-  cue(`The previous lesson covered pointers — indirection and memory. This one covers the other half of the C++ mental model: <em>copying</em>. Knowing exactly when C++ duplicates your data is what stops the language from surprising you, and stops you from writing accidental O(n) work.`),
-  p(`Unlike Python or JavaScript, C++ variables hold <em>values</em>, not references, by default. When you write <code>b = a</code> for a vector, C++ makes a full, independent copy of every element. When you pass a vector into a function by value, same thing — the function gets its own private duplicate. This is why a function can "modify the array" and you see no change outside: it changed its copy. It's also a silent performance trap, because copying a big container is O(n) work you never asked for.`),
-  svg("copyref","Left: passing a container by value duplicates the whole thing. Right: a const reference points at the original — no copy, no cost. The <code>&amp;</code> is the entire difference."),
-  sub("References: the fix for accidental copies"),
-  p(`An <code>&amp;</code> on a parameter means "this is the same object, not a copy." Passing <code>const vector&lt;int&gt;&amp; v</code> lets the function read the original directly with zero copying — the <code>const</code> promises it won't modify it. Drop the <code>const</code> and you can modify the caller's data in place. This is the idiom you'll use constantly:`),
-  code(`void readOnly(const vector<int>& v);   // sees original, can't change it, no copy
-void modify(vector<int>& v);           // changes the caller's vector directly
-void wasteful(vector<int> v);          // copies the whole vector — usually a mistake`),
-  p(`The same logic drives the loop forms. <code>for (int x : v)</code> copies each element into <code>x</code> (fine for ints, wasteful for strings or vectors). <code>for (auto&amp; x : v)</code> binds <code>x</code> to the real element, so you avoid the copy and can modify in place. When in doubt with non-trivial types, reach for <code>auto&amp;</code>.`),
-  sub("auto, and letting the compiler do the typing"),
-  p(`<code>auto</code> tells the compiler to infer the type. It's not laziness — it's how you write <code>auto it = m.find(key)</code> without spelling out <code>unordered_map&lt;int,int&gt;::iterator</code>. Combined with structured bindings, <code>for (auto&amp; [key, val] : m)</code> unpacks each map entry into two named variables. These two features are why modern C++ reads far cleaner than the textbook version you may remember.`),
-  idea("The whole model in one line",`C++ copies by default; an <code>&amp;</code> says "same object, don't copy." Once you can predict where copies happen, the language stops surprising you — and you stop writing accidental O(n) work.`),
-  pit("Interview-day reflex",`If you catch yourself passing a <code>vector</code>, <code>string</code>, or any container into a function, pause: should that be <code>const&amp;</code>? Nine times out of ten, yes. Saying "I'll take this by const reference to avoid a copy" unprompted is a small thing that signals real C++ fluency.`),
+  cue(`The previous lesson covered pointers &#8212; indirection and addresses. This one covers the other half of the C++ mental model: <em>copying</em>. Knowing exactly when C++ duplicates your data is what stops the language from surprising you, stops you from writing accidental O(n) work, and gives you a vocabulary interviewers listen for. Get this one habit right and half of "is your C++ idiomatic?" is already answered.`),
+  p(`Unlike Python or JavaScript, C++ variables hold <em>values</em>, not references, by default. In Python, <code>b = a</code> just makes <code>b</code> a second name for the same list; mutating through one is visible through the other. In C++, <code>b = a</code> for a vector makes <code>b</code> a full, independent copy &#8212; a brand-new array with every element duplicated. Change <code>b</code> and <code>a</code> is untouched. That single difference is the root of nearly every "why didn't my change show up?" and every "why is this so slow?" surprise a Python-trained engineer hits in C++.`),
+  sub("What a copy actually is"),
+  p(`A <code>vector&lt;int&gt;</code> is really two things: a tiny <em>handle</em> on the stack (three words &#8212; a pointer to the data, a size, and a capacity) and a separate <em>buffer</em> on the heap holding the elements. When you copy a vector, C++ does a <em>deep copy</em>: it allocates a fresh buffer and copies every element across, then points the new handle at it. The two vectors now own two independent arrays. That's why the copy costs O(n) &#8212; the work is proportional to how many elements there are.`),
+  svg("mental_deepcopy",`<code>b = a</code> duplicates the heap buffer, not just the handle. <code>a</code> and <code>b</code> end up owning two separate arrays at two different addresses &#8212; changing one never touches the other. The deep copy is the O(n) cost hiding behind one innocent <code>=</code>.`),
+  note("&#128161;","Compare this to a reference",`A reference is the opposite: <code>vector&lt;int&gt;&amp; r = a;</code> creates <em>no</em> new buffer and copies <em>nothing</em>. <code>r</code> is just a second name for the same handle, pointing at the same heap array. Writing through <code>r</code> writes through <code>a</code>. A copy is "make me my own array"; a reference is "let me touch yours."`),
+  sub("Value vs reference vs pointer, side by side"),
+  p(`Three ways to name data, three different contracts. This is the trio interviewers expect you to distinguish cleanly:`),
+  code(`vector<int> a = {5, 8, 2, 9};
+
+vector<int>  b = a;   // VALUE: deep copy. b is its own array. O(n).
+vector<int>& r = a;   // REFERENCE: alias. Same array. No copy. Can't be null, can't reseat.
+vector<int>* p = &a;  // POINTER: holds a's address. Can be null, can be repointed. Use *p / p->.`),
+  ul([
+    `<b>Value</b> &#8212; an independent copy. Safe (nobody else can change it under you), but you pay O(n) to make it for a container.`,
+    `<b>Reference</b> &#8212; an alias for an existing object. Zero cost, but it <em>must</em> bind to a real object at creation, can never be null, and can never be re-bound to something else.`,
+    `<b>Pointer</b> &#8212; a variable holding an address. The flexible one: it can be null, can be reassigned to point elsewhere, and is how you walk a linked list or tree. The price of that flexibility is you must check it for null before dereferencing.`,
+  ]),
+  idea("The mental shortcut",`Value = "my own." Reference = "yours, renamed." Pointer = "an address I can move around and that might point at nothing." Pick the weakest one that does the job: prefer references over pointers whenever the object always exists and you won't reseat.`),
+  sub("Passing into functions: the default that bites"),
+  p(`Function parameters follow the exact same rules, and pass-by-value is the default. When you write <code>void f(vector&lt;int&gt; v)</code>, calling <code>f(big)</code> deep-copies <code>big</code> into <code>v</code> &#8212; a silent O(n) allocation and element-copy on every call. The function then operates on its private duplicate, which is also why mutating <code>v</code> inside <code>f</code> leaves the caller's vector untouched. Two surprises (slow, and "my changes vanished") from one root cause.`),
+  svg("copyref","Left: passing a container by value duplicates the whole thing &#8212; O(n) wasted work the caller never asked for. Right: a <code>const&amp;</code> parameter points at the original, copying nothing. The <code>&amp;</code> is the entire difference."),
+  worked("The accidental copy, and the one-character fix","Both functions read the vector and return its sum &#8212; identical behavior. But the first deep-copies the whole vector on every call (O(n) time and a heap allocation), and the second copies nothing. On a million-element vector called in a loop, that difference is the gap between instant and visibly slow. The fix is literally one <code>const&amp;</code>.",
+`long sumSlow(vector<int> v) {          // by value: deep-copies v on entry
+    long total = 0;                     // (a fresh heap buffer + n copies)
+    for (int x : v) total += x;
+    return total;
+}
+
+long sumFast(const vector<int>& v) {   // const ref: binds to the original, no copy
+    long total = 0;                     // const promises we won't modify it
+    for (int x : v) total += x;
+    return total;
+}
+// sumFast is the idiomatic default for "read a container."`),
+  sub("The full decision table"),
+  p(`Five ways to take a parameter, each a different answer to two questions: <em>do I need a copy?</em> and <em>do I need to change the caller's object?</em> Memorize the defaults; reason about the edges.`),
+  svg("mental_passing",`The five parameter forms and when to reach for each. <code>const T&amp;</code> is your default for anything bigger than a pointer that you only read. Pass by value only for cheap types or when you genuinely want your own copy to mutate.`),
+  ul([
+    `<b><code>const T&amp;</code> &#8212; read-only, no copy.</b> The default for vectors, strings, maps, and any large object you only inspect. Costs nothing and can't accidentally mutate the caller.`,
+    `<b><code>T&amp;</code> &#8212; mutate in place.</b> Use when the function's job is to change the caller's object: an out-parameter, an in-place sort, "fill this buffer." No copy; the caller sees the edits.`,
+    `<b><code>T</code> (by value) &#8212; cheap types or "I need my own."</b> For <code>int</code>, <code>double</code>, a pointer, an iterator &#8212; copying is free, so don't bother with a reference. Also correct when you deliberately want a private copy to modify without touching the caller's.`,
+    `<b><code>T&amp;&amp;</code> &#8212; an rvalue reference, take ownership.</b> A "sink" parameter: you intend to keep the argument (store it in a member). Binds to temporaries and moved-from objects so you can <em>steal</em> their buffer instead of copying. The deep dive is the Move Semantics lesson.`,
+    `<b><code>T*</code> &#8212; a pointer, maybe absent.</b> Use when the argument is optional (can be <code>nullptr</code>) or you'll walk/reseat it &#8212; the natural choice for linked-list and tree nodes. Caller must guard against null.`,
+  ]),
+  note("&#128221;","Why not just always pass by value and trust the compiler?",`For small, trivially-copyable types (<code>int</code>, <code>double</code>, a raw pointer, a <code>std::string_view</code>), do pass by value &#8212; a reference would just add an indirection for no benefit. The <code>const&amp;</code> rule is specifically about types whose copy is non-trivial: containers, strings, big structs. When you're unsure how heavy a type is, <code>const&amp;</code> is the safe default that never makes things worse.`),
+  sub("What b = a actually invokes"),
+  p(`Two operations sit behind that humble <code>=</code>, and naming them is interview gold. <code>vector&lt;int&gt; b = a;</code> calls the <em>copy constructor</em> &#8212; build a new object as a copy of an existing one. <code>b = a;</code> when <code>b</code> already exists calls the <em>copy assignment operator</em> &#8212; throw away <code>b</code>'s current contents and overwrite them with a copy of <code>a</code>. For a vector, both deep-copy the buffer; the difference is only whether <code>b</code> was being created or already had data to discard.`),
+  p(`For your own classes the compiler generates these member-by-member for free, which is exactly right when your members are values (an <code>int</code>, a <code>vector</code>) &#8212; copying the object copies each member. It goes wrong the moment a member is a <em>raw owning pointer</em>: the default copy duplicates the pointer value, so two objects now point at the same heap block, and both will try to <code>delete</code> it. That's the classic double-free, and it's the reason the smart-pointer and Rule-of-Zero ideas in the RAII lesson exist &#8212; let members that manage their own copying (like <code>vector</code> and <code>unique_ptr</code>) do the work, and you never write these by hand.`),
+  pit("The shallow-copy trap",`If a class owns a resource through a raw pointer and you let the default copy happen, you get a <em>shallow</em> copy: both objects share one buffer, then both free it &#8212; double-free, use-after-free, corruption. The cure is almost never "write a careful copy constructor"; it's "stop owning through raw pointers." Hold a <code>vector</code>, <code>string</code>, or <code>unique_ptr</code> instead and correct copying (or a deleted copy) comes for free.`),
+  sub("Return by value is cheap now"),
+  p(`A natural worry: if copies are O(n), isn't <em>returning</em> a big vector from a function ruinous? It used to be. Today it's free in practice. The compiler elides the copy entirely (RVO &#8212; return value optimization, mandatory for temporaries since C++17), or, failing that, <em>moves</em> the vector out &#8212; stealing its heap buffer instead of copying it. So <code>vector&lt;int&gt; build()</code> returning a freshly built vector is the idiomatic, fast style. Write the clear code; the language stopped charging you for it.`),
+  note("&#128161;","Forward reference",`<em>Why</em> the move is O(1) &#8212; how stealing a buffer works, what <code>std::move</code> really does, and when an rvalue reference binds &#8212; is the whole Move Semantics lesson. For now just trust the rule: return big objects by value, and don't contort your code to avoid it.`),
+  svg("move","Copy (left) duplicates the heap buffer &#8212; two arrays, O(n). Move (right) steals the pointer &#8212; one buffer changes hands, O(1). Returning a local by value uses the right-hand path, which is why return-by-value is cheap."),
+  sub("References in the loop forms"),
+  p(`The range-based <code>for</code> is where copy-vs-reference bites people most, because the cost is invisible until you profile. <code>for (int x : v)</code> copies each element into <code>x</code> &#8212; fine for <code>int</code>, quietly wasteful for <code>string</code> or <code>vector</code>. <code>for (auto&amp; x : v)</code> binds <code>x</code> to the real element: no copy, and you can mutate in place. <code>for (const auto&amp; x : v)</code> is the read-only version &#8212; no copy, no accidental writes. Reach for one of the reference forms by default with non-trivial element types.`),
+  worked("Mutating in place with auto&","To double every value in a vector, the loop variable must <em>be</em> the element, not a copy of it. <code>auto&amp;</code> binds to the real element so the write lands in the vector. With a plain <code>auto</code> (or <code>int</code>) you'd double a throwaway copy each iteration and the vector would come out unchanged &#8212; a genuinely common bug.",
+`void doubleAll(vector<int>& v) {       // T&: we intend to modify the caller's vector
+    for (auto& x : v)                   // auto&: x IS each element, not a copy
+        x *= 2;                         // writes straight into v
+}
+
+// for (auto x : v) x *= 2;  // BUG: doubles a copy, v is untouched
+// for (const auto& x : v)   // read-only: no copy, but you couldn't write x`),
+  sub("auto deduces the value &#8212; it drops & and const"),
+  p(`One <code>auto</code> gotcha worth burning in: bare <code>auto</code> always deduces a <em>value</em> type, stripping references and top-level <code>const</code>. So <code>auto x = v[0];</code> copies the element even though <code>v[0]</code> is a reference into the vector. If you wanted to alias it, you must say so: <code>auto&amp; x = v[0];</code> to bind, or <code>const auto&amp; x = v[0];</code> to bind read-only. The same applies in structured bindings &#8212; <code>auto [k, val]</code> copies each pair, <code>auto&amp; [k, val]</code> aliases it.`),
+  code(`auto       x  = v[0];   // COPY of the element (auto drops the reference)
+auto&      r  = v[0];   // alias: writes to r hit the vector
+const auto& cr = v[0];  // read-only alias, no copy
+
+for (auto& [key, val] : m)   // alias each entry -> can modify val in place
+    val++;                    // bumps the real value in the map`),
+  p(`Structured bindings (<code>auto [a, b] = pair;</code>) unpack a pair, tuple, or struct into named variables, and pair beautifully with iterating a map: <code>for (auto&amp; [key, val] : m)</code> reads far cleaner than <code>it-&gt;first</code> / <code>it-&gt;second</code>. Combined with <code>auto</code> for iterators &#8212; <code>auto it = m.find(key)</code> instead of spelling out <code>unordered_map&lt;int,int&gt;::iterator</code> &#8212; this is why modern C++ reads so much lighter than the textbook version.`),
+  note("&#128221;","References as members (briefly)",`You <em>can</em> make a reference a class member, but it's usually a trap: a reference member must be bound in the constructor's init list, can never be reseated, and makes the class non-assignable. When you want "this object refers to another that lives elsewhere," a pointer (or <code>std::reference_wrapper</code>) is almost always the better tool because it can be reseated and copied. Keep value members for things you own; use pointers for things you merely observe.`),
+  sub("Const-correctness as a habit"),
+  p(`<code>const</code> isn't decoration &#8212; it's a promise the compiler enforces, and it's how you make "read-only" a checkable fact instead of a comment. Mark a parameter <code>const&amp;</code> and any accidental write is a compile error, not a runtime surprise. Mark a member function <code>const</code> and it can be called on const objects and promises not to mutate the instance. The payoff compounds: const-correct code documents intent, prevents whole categories of bugs, and lets you pass things by <code>const&amp;</code> all the way down. Make it the default and add mutability only where you need it.`),
+  idea("The whole model in one line",`C++ copies by default; an <code>&amp;</code> says "same object, don't copy"; <code>const</code> says "and I won't change it." Once you can predict where copies happen, the language stops surprising you &#8212; and you stop writing accidental O(n) work.`),
+  sub("Saying it out loud in the interview"),
+  p(`This lesson is unusually high-leverage for interviews because the right move is a <em>verbal reflex</em>, not a trick. When you reach for a function that takes a container, say it: "I'll take this by const reference to avoid a copy." When you write a range-for over strings, narrate "<code>const auto&amp;</code> so we don't copy each one." When you return a vector you built, mention "return by value is fine here &#8212; RVO or a move makes it cheap." None of these change your answer; all of them signal that you think about copies the way a working C++ engineer does.`),
+  pit("Interview-day reflex",`If you catch yourself passing a <code>vector</code>, <code>string</code>, or any container into a function, pause: should that be <code>const&amp;</code>? Nine times out of ten, yes. And if you're looping over non-trivial elements, should it be <code>const auto&amp;</code> or <code>auto&amp;</code> instead of a plain copy? Saying these unprompted is a small thing that signals real C++ fluency &#8212; the kind that separates "wrote correct code" from "wrote the code we'd want shipped."`),
+  cx(`Copying a container is <b>O(n)</b> · a reference or pointer is <b>O(1)</b> · return-by-value is <b>O(1)</b> via RVO/move`)
 ]},
 {group:"Week 1 · Foundations",num:"00",id:"syntax",color:"#6366F1",title:"The Syntax You Actually Need",badge:"Reference · keep open",blocks:[
   cue(`Open any problem and the language should feel invisible. If you can declare a vector, loop it, use a hash map, and reach for the right &lt;algorithm&gt; call, you can write 90% of interview solutions. Skim this, then keep it open while you solve.`),
