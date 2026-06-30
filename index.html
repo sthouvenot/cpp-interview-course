@@ -69,7 +69,6 @@
   .lh-week{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#fff;background:var(--accent);padding:5px 12px;border-radius:20px;font-weight:600}
   .lh-count{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
   .lh-title{font-family:"Space Grotesk",sans-serif;font-weight:700;font-size:clamp(30px,5vw,46px);letter-spacing:-.02em;margin:0;line-height:1.04}
-  .soonpill{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10.5px;font-weight:600;letter-spacing:.04em;color:var(--muted);background:#fff;border:1px dashed #cfd0e2;border-radius:20px;padding:4px 12px;margin:16px 0 2px}
   .pager{display:flex;justify-content:space-between;gap:14px;margin:54px 0 72px;border-top:1px solid var(--line);padding-top:24px}
   .pager .pg{display:flex;flex-direction:column;gap:3px;text-decoration:none;padding:13px 18px;border:1px solid var(--line);border-radius:13px;background:#fff;max-width:47%;transition:transform .12s,border-color .12s,box-shadow .12s}
   .pager .pg:hover{transform:translateY(-2px);border-color:#cdcde0;box-shadow:var(--shadow)}
@@ -1533,6 +1532,378 @@ SVG.exceptions_ladder=`<svg viewBox="0 0 620 320" role="img" aria-label="The exc
 <text x="34" y="164" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#5B5BD6" transform="rotate(-90 34 164)">stronger &#8594;</text>
 <text x="310" y="304" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">pick the strongest rung you can afford; document which one each function offers</text>
 <defs><marker id="exl" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#5B5BD6"/></marker></defs></svg>`;
+/* --- bits --- */
+SVG.bits_mask=`<svg viewBox="0 0 620 300" role="img" aria-label="An 8-bit value with a mask applied: AND, OR and XOR each produce a different result bit by bit">
+<text x="310" y="26" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" fill="#6f6b8c">one byte, bit 7 (MSB) on the left down to bit 0 (LSB) on the right</text>
+<g font-family="JetBrains Mono,monospace" font-size="14">
+<text x="60" y="62" font-family="Space Grotesk,sans-serif" font-size="12.5" fill="#5B5BD6">x</text>
+<rect x="120" y="46" width="44" height="34" fill="#EEF0FF" stroke="#5B5BD6"/><text x="142" y="69" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="164" y="46" width="44" height="34" fill="#fff" stroke="#c9cad9"/><text x="186" y="69" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="208" y="46" width="44" height="34" fill="#EEF0FF" stroke="#5B5BD6"/><text x="230" y="69" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="252" y="46" width="44" height="34" fill="#EEF0FF" stroke="#5B5BD6"/><text x="274" y="69" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="296" y="46" width="44" height="34" fill="#fff" stroke="#c9cad9"/><text x="318" y="69" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="340" y="46" width="44" height="34" fill="#EEF0FF" stroke="#5B5BD6"/><text x="362" y="69" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="384" y="46" width="44" height="34" fill="#fff" stroke="#c9cad9"/><text x="406" y="69" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="428" y="46" width="44" height="34" fill="#fff" stroke="#c9cad9"/><text x="450" y="69" text-anchor="middle" fill="#9d9ab0">0</text>
+<text x="60" y="110" font-family="Space Grotesk,sans-serif" font-size="12.5" fill="#16A34A">mask</text>
+<rect x="120" y="94" width="44" height="34" fill="#fff" stroke="#c9cad9"/><text x="142" y="117" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="164" y="94" width="44" height="34" fill="#fff" stroke="#c9cad9"/><text x="186" y="117" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="208" y="94" width="44" height="34" fill="#fff" stroke="#c9cad9"/><text x="230" y="117" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="252" y="94" width="44" height="34" fill="#E7F6ED" stroke="#16A34A"/><text x="274" y="117" text-anchor="middle" fill="#0f7a36">1</text>
+<rect x="296" y="94" width="44" height="34" fill="#fff" stroke="#c9cad9"/><text x="318" y="117" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="340" y="94" width="44" height="34" fill="#E7F6ED" stroke="#16A34A"/><text x="362" y="117" text-anchor="middle" fill="#0f7a36">1</text>
+<rect x="384" y="94" width="44" height="34" fill="#fff" stroke="#c9cad9"/><text x="406" y="117" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="428" y="94" width="44" height="34" fill="#E7F6ED" stroke="#16A34A"/><text x="450" y="117" text-anchor="middle" fill="#0f7a36">1</text></g>
+<line x1="60" y1="142" x2="480" y2="142" stroke="#E7E8F2" stroke-width="1.5"/>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<text x="60" y="174" font-family="Space Grotesk,sans-serif" font-size="11.5" fill="#0EA5E9">x &amp; mask</text>
+<rect x="120" y="158" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="142" y="179" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="164" y="158" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="186" y="179" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="208" y="158" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="230" y="179" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="252" y="158" width="44" height="30" fill="#E1F0FB" stroke="#0EA5E9"/><text x="274" y="179" text-anchor="middle" fill="#0b6e9e">1</text>
+<rect x="296" y="158" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="318" y="179" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="340" y="158" width="44" height="30" fill="#E1F0FB" stroke="#0EA5E9"/><text x="362" y="179" text-anchor="middle" fill="#0b6e9e">1</text>
+<rect x="384" y="158" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="406" y="179" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="428" y="158" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="450" y="179" text-anchor="middle" fill="#9d9ab0">0</text>
+<text x="496" y="178" font-family="Inter,sans-serif" font-size="11" fill="#6f6b8c">keep only masked bits</text>
+<text x="60" y="216" font-family="Space Grotesk,sans-serif" font-size="11.5" fill="#8B5CF6">x | mask</text>
+<rect x="120" y="200" width="44" height="30" fill="#EEF0FF" stroke="#5B5BD6"/><text x="142" y="221" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="164" y="200" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="186" y="221" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="208" y="200" width="44" height="30" fill="#EEF0FF" stroke="#5B5BD6"/><text x="230" y="221" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="252" y="200" width="44" height="30" fill="#F3EDFB" stroke="#8B5CF6"/><text x="274" y="221" text-anchor="middle" fill="#6b3fb0">1</text>
+<rect x="296" y="200" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="318" y="221" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="340" y="200" width="44" height="30" fill="#EEF0FF" stroke="#5B5BD6"/><text x="362" y="221" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="384" y="200" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="406" y="221" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="428" y="200" width="44" height="30" fill="#F3EDFB" stroke="#8B5CF6"/><text x="450" y="221" text-anchor="middle" fill="#6b3fb0">1</text>
+<text x="496" y="220" font-family="Inter,sans-serif" font-size="11" fill="#6f6b8c">force masked bits ON</text>
+<text x="60" y="258" font-family="Space Grotesk,sans-serif" font-size="11.5" fill="#E11D48">x ^ mask</text>
+<rect x="120" y="242" width="44" height="30" fill="#EEF0FF" stroke="#5B5BD6"/><text x="142" y="263" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="164" y="242" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="186" y="263" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="208" y="242" width="44" height="30" fill="#EEF0FF" stroke="#5B5BD6"/><text x="230" y="263" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="252" y="242" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="274" y="263" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="296" y="242" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="318" y="263" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="340" y="242" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="362" y="263" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="384" y="242" width="44" height="30" fill="#fff" stroke="#c9cad9"/><text x="406" y="263" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="428" y="242" width="44" height="30" fill="#FCE2E8" stroke="#E11D48"/><text x="450" y="263" text-anchor="middle" fill="#b21338">1</text>
+<text x="496" y="262" font-family="Inter,sans-serif" font-size="11" fill="#6f6b8c">flip masked bits</text></g></svg>`;
+SVG.bits_clearlow=`<svg viewBox="0 0 620 250" role="img" aria-label="The expression n AND n minus 1 clears the lowest set bit: subtracting one flips the trailing zeros and the lowest one, and the AND wipes that run out">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#1B1838">n &amp; (n - 1)  clears the lowest set bit</text>
+<g font-family="JetBrains Mono,monospace" font-size="14">
+<text x="60" y="74" font-family="Space Grotesk,sans-serif" font-size="12.5" fill="#5B5BD6">n</text>
+<text x="118" y="58" font-family="Inter,sans-serif" font-size="10.5" fill="#9d9ab0">= 12</text>
+<rect x="170" y="56" width="40" height="34" fill="#EEF0FF" stroke="#5B5BD6"/><text x="190" y="79" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="210" y="56" width="40" height="34" fill="#EEF0FF" stroke="#5B5BD6"/><text x="230" y="79" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="250" y="56" width="40" height="34" fill="#FCE2E8" stroke="#E11D48" stroke-width="2.5"/><text x="270" y="79" text-anchor="middle" fill="#b21338" font-weight="600">1</text>
+<rect x="290" y="56" width="40" height="34" fill="#fff" stroke="#c9cad9"/><text x="310" y="79" text-anchor="middle" fill="#9d9ab0">0</text>
+<text x="350" y="79" font-family="Inter,sans-serif" font-size="11" fill="#E11D48">&#8592; lowest set bit</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="14">
+<text x="60" y="134" font-family="Space Grotesk,sans-serif" font-size="12.5" fill="#16A34A">n-1</text>
+<text x="118" y="118" font-family="Inter,sans-serif" font-size="10.5" fill="#9d9ab0">= 11</text>
+<rect x="170" y="116" width="40" height="34" fill="#EEF0FF" stroke="#5B5BD6"/><text x="190" y="139" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="210" y="116" width="40" height="34" fill="#EEF0FF" stroke="#5B5BD6"/><text x="230" y="139" text-anchor="middle" fill="#1B1838">1</text>
+<rect x="250" y="116" width="40" height="34" fill="#fff" stroke="#c9cad9"/><text x="270" y="139" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="290" y="116" width="40" height="34" fill="#E7F6ED" stroke="#16A34A" stroke-width="2"/><text x="310" y="139" text-anchor="middle" fill="#0f7a36">1</text>
+<text x="350" y="139" font-family="Inter,sans-serif" font-size="11" fill="#16A34A">trailing run flipped</text></g>
+<line x1="170" y1="166" x2="490" y2="166" stroke="#E7E8F2" stroke-width="1.5"/>
+<g font-family="JetBrains Mono,monospace" font-size="14">
+<text x="60" y="200" font-family="Space Grotesk,sans-serif" font-size="12.5" fill="#0EA5E9">n &amp; (n-1)</text>
+<text x="118" y="222" font-family="Inter,sans-serif" font-size="10.5" fill="#9d9ab0">= 8</text>
+<rect x="170" y="182" width="40" height="34" fill="#E1F0FB" stroke="#0EA5E9"/><text x="190" y="205" text-anchor="middle" fill="#0b6e9e">1</text>
+<rect x="210" y="182" width="40" height="34" fill="#E1F0FB" stroke="#0EA5E9"/><text x="230" y="205" text-anchor="middle" fill="#0b6e9e">1</text>
+<rect x="250" y="182" width="40" height="34" fill="#fff" stroke="#c9cad9"/><text x="270" y="205" text-anchor="middle" fill="#9d9ab0">0</text>
+<rect x="290" y="182" width="40" height="34" fill="#fff" stroke="#c9cad9"/><text x="310" y="205" text-anchor="middle" fill="#9d9ab0">0</text>
+<text x="350" y="205" font-family="Inter,sans-serif" font-size="11" fill="#6f6b8c">lowest 1 gone &#8212; one fewer set bit</text></g></svg>`;
+
+/* --- math --- */
+SVG.math_sieve=`<svg viewBox="0 0 620 360" role="img" aria-label="The Sieve of Eratosthenes: a grid of 2 to 31 with multiples of 2, 3 and 5 crossed out and the surviving primes circled">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">Sieve of Eratosthenes &#8212; cross out every multiple, what survives is prime</text>
+<text x="310" y="48" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">start at 2, strike all its multiples; jump to the next un-struck number; repeat</text>
+<defs>
+<marker id="msv" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#c9cad9"/></marker>
+</defs>
+<g font-family="JetBrains Mono,monospace" font-size="14">
+<text x="92" y="78" text-anchor="middle" font-size="11" fill="#9d9ab0">2</text>
+<text x="148" y="78" text-anchor="middle" font-size="11" fill="#9d9ab0">3</text>
+<text x="204" y="78" text-anchor="middle" font-size="11" fill="#9d9ab0">4</text>
+<text x="260" y="78" text-anchor="middle" font-size="11" fill="#9d9ab0">5</text>
+<text x="316" y="78" text-anchor="middle" font-size="11" fill="#9d9ab0">6</text>
+<text x="372" y="78" text-anchor="middle" font-size="11" fill="#9d9ab0">7</text>
+<text x="428" y="78" text-anchor="middle" font-size="11" fill="#9d9ab0">8</text>
+<text x="484" y="78" text-anchor="middle" font-size="11" fill="#9d9ab0">9</text>
+<text x="540" y="78" text-anchor="middle" font-size="11" fill="#9d9ab0">10</text>
+</g>
+<g font-family="JetBrains Mono,monospace" font-size="14" text-anchor="middle">
+<circle cx="92" cy="104" r="18" fill="#16A34A" stroke="#0f7a36"/><text x="92" y="109" fill="#fff" font-weight="600">2</text>
+<circle cx="148" cy="104" r="18" fill="#16A34A" stroke="#0f7a36"/><text x="148" y="109" fill="#fff" font-weight="600">3</text>
+<rect x="186" y="86" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="204" y="109" fill="#b9bac9">4</text>
+<circle cx="260" cy="104" r="18" fill="#16A34A" stroke="#0f7a36"/><text x="260" y="109" fill="#fff" font-weight="600">5</text>
+<rect x="298" y="86" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="316" y="109" fill="#b9bac9">6</text>
+<circle cx="372" cy="104" r="18" fill="#16A34A" stroke="#0f7a36"/><text x="372" y="109" fill="#fff" font-weight="600">7</text>
+<rect x="410" y="86" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="428" y="109" fill="#b9bac9">8</text>
+<rect x="466" y="86" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="484" y="109" fill="#b9bac9">9</text>
+<rect x="522" y="86" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="540" y="109" fill="#b9bac9">10</text>
+<circle cx="92" cy="160" r="18" fill="#fff" stroke="#0EA5E9"/><text x="92" y="165" fill="#1B1838">11</text>
+<rect x="130" y="142" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="148" y="165" fill="#b9bac9">12</text>
+<circle cx="204" cy="160" r="18" fill="#fff" stroke="#0EA5E9"/><text x="204" y="165" fill="#1B1838">13</text>
+<rect x="242" y="142" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="260" y="165" fill="#b9bac9">14</text>
+<rect x="298" y="142" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="316" y="165" fill="#b9bac9">15</text>
+<rect x="354" y="142" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="372" y="165" fill="#b9bac9">16</text>
+<circle cx="428" cy="160" r="18" fill="#fff" stroke="#0EA5E9"/><text x="428" y="165" fill="#1B1838">17</text>
+<rect x="466" y="142" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="484" y="165" fill="#b9bac9">18</text>
+<circle cx="540" cy="160" r="18" fill="#fff" stroke="#0EA5E9"/><text x="540" y="165" fill="#1B1838">19</text>
+<rect x="74" y="198" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="92" y="221" fill="#b9bac9">20</text>
+<rect x="130" y="198" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="148" y="221" fill="#b9bac9">21</text>
+<rect x="186" y="198" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="204" y="221" fill="#b9bac9">22</text>
+<circle cx="260" cy="216" r="18" fill="#fff" stroke="#0EA5E9"/><text x="260" y="221" fill="#1B1838">23</text>
+<rect x="298" y="198" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="316" y="221" fill="#b9bac9">24</text>
+<rect x="354" y="198" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="372" y="221" fill="#b9bac9">25</text>
+<rect x="410" y="198" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="428" y="221" fill="#b9bac9">26</text>
+<rect x="466" y="198" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="484" y="221" fill="#b9bac9">27</text>
+<rect x="522" y="198" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="540" y="221" fill="#b9bac9">28</text>
+<circle cx="92" cy="272" r="18" fill="#fff" stroke="#0EA5E9"/><text x="92" y="277" fill="#1B1838">29</text>
+<rect x="130" y="254" width="36" height="36" rx="8" fill="#EEEFF6" stroke="#dfe0ea"/><text x="148" y="277" fill="#b9bac9">30</text>
+<circle cx="204" cy="272" r="18" fill="#fff" stroke="#0EA5E9"/><text x="204" y="277" fill="#1B1838">31</text>
+</g>
+<g font-family="Inter,sans-serif" font-size="11.5">
+<circle cx="288" cy="270" r="8" fill="#16A34A"/><text x="304" y="274" fill="#3a3660">small primes that did the striking</text>
+<circle cx="288" cy="294" r="8" fill="#fff" stroke="#0EA5E9" stroke-width="2"/><text x="304" y="298" fill="#3a3660">survivors &#8212; also prime</text>
+<rect x="280" y="312" width="16" height="16" rx="4" fill="#EEEFF6" stroke="#dfe0ea"/><text x="304" y="324" fill="#3a3660">struck out: a multiple of something smaller</text>
+</g>
+<text x="310" y="350" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" font-weight="600" fill="#16A34A">each composite gets struck by its prime factors &#8594; O(n log log n) total</text>
+</svg>`;
+SVG.math_fastpow=`<svg viewBox="0 0 620 320" role="img" aria-label="A fast-exponentiation tree: a to the 13 broken into squarings using the binary expansion of 13 as 1101">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">Fast exponentiation: a&#8313;&#179; from the bits of 13 = 1101&#8322;</text>
+<text x="310" y="48" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">square the base each step; multiply it in only where a bit is 1 &#8594; ~log&#8322;n multiplies, not n</text>
+<g font-family="JetBrains Mono,monospace" font-size="13" text-anchor="middle">
+<rect x="60" y="84" width="116" height="40" rx="9" fill="#FFF3E6" stroke="#FF8A3D"/><text x="118" y="109" fill="#b3540f">a&#185; = a</text>
+<rect x="60" y="160" width="116" height="40" rx="9" fill="#FFF3E6" stroke="#FF8A3D"/><text x="118" y="185" fill="#b3540f">a&#178;</text>
+<rect x="60" y="236" width="116" height="40" rx="9" fill="#FFF3E6" stroke="#FF8A3D"/><text x="118" y="261" fill="#b3540f">a&#8308;</text>
+</g>
+<text x="118" y="148" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#9d9ab0">square</text>
+<text x="118" y="224" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#9d9ab0">square</text>
+<path d="M118 124 V158" stroke="#c9cad9" stroke-width="1.8"/>
+<path d="M118 200 V234" stroke="#c9cad9" stroke-width="1.8"/>
+<rect x="60" y="288" width="116" height="26" rx="7" fill="#FFF3E6" stroke="#FF8A3D"/><text x="118" y="306" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="13" fill="#b3540f">a&#8312;</text>
+<path d="M118 276 V286" stroke="#c9cad9" stroke-width="1.8"/>
+<g font-family="JetBrains Mono,monospace" font-size="12.5">
+<text x="220" y="78" font-size="11.5" fill="#9d9ab0">bit (low &#8594; high)</text>
+<text x="380" y="78" font-size="11.5" fill="#9d9ab0">running result</text>
+<rect x="220" y="92" width="40" height="28" rx="6" fill="#E9FBEF" stroke="#16A34A"/><text x="240" y="111" text-anchor="middle" fill="#15803d" font-weight="600">1</text>
+<text x="272" y="111" fill="#3a3660">a&#185; in</text>
+<text x="380" y="111" fill="#16A34A" font-weight="600">a&#185;</text>
+<rect x="220" y="128" width="40" height="28" rx="6" fill="#FBFBFE" stroke="#dfe0ea"/><text x="240" y="147" text-anchor="middle" fill="#b9bac9">0</text>
+<text x="272" y="147" fill="#9d9ab0">skip</text>
+<text x="380" y="147" fill="#9d9ab0">a&#185;</text>
+<rect x="220" y="164" width="40" height="28" rx="6" fill="#E9FBEF" stroke="#16A34A"/><text x="240" y="183" text-anchor="middle" fill="#15803d" font-weight="600">1</text>
+<text x="272" y="183" fill="#3a3660">a&#8308; in</text>
+<text x="380" y="183" fill="#16A34A" font-weight="600">a&#185;&#183;a&#8308; = a&#8309;</text>
+<rect x="220" y="200" width="40" height="28" rx="6" fill="#E9FBEF" stroke="#16A34A"/><text x="240" y="219" text-anchor="middle" fill="#15803d" font-weight="600">1</text>
+<text x="272" y="219" fill="#3a3660">a&#8312; in</text>
+<text x="380" y="219" fill="#16A34A" font-weight="600">a&#8309;&#183;a&#8312; = a&#185;&#179;</text>
+</g>
+<path d="M260 106 H372" stroke="#c9cad9" stroke-width="1.5" marker-end="url(#mfp)"/>
+<path d="M260 178 H372" stroke="#c9cad9" stroke-width="1.5" marker-end="url(#mfp)"/>
+<path d="M260 214 H372" stroke="#c9cad9" stroke-width="1.5" marker-end="url(#mfp)"/>
+<defs><marker id="mfp" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#c9cad9"/></marker></defs>
+<text x="420" y="272" font-family="Inter,sans-serif" font-size="11.5" fill="#3a3660">13 = 8 + 4 + 1</text>
+<text x="420" y="292" font-family="Inter,sans-serif" font-size="11.5" fill="#3a3660">so a&#185;&#179; = a&#8312; &#183; a&#8308; &#183; a&#185;</text>
+<text x="420" y="312" font-family="JetBrains Mono,monospace" font-size="11" font-weight="600" fill="#16A34A">4 squarings, 3 multiplies</text>
+</svg>`;
+
+/* --- greedy --- */
+SVG.greedy_jump=`<svg viewBox="0 0 620 270" role="img" aria-label="Jump Game: a single left-to-right pass tracks the farthest reachable index, which expands as it sweeps the array">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">one pass, one number: how far can I still reach?</text>
+<text x="40" y="56" font-family="Inter,sans-serif" font-size="11.5" fill="#9d9ab0">nums = max jump length from each cell</text>
+<g font-family="JetBrains Mono,monospace" font-size="13" fill="#1B1838" text-anchor="middle">
+<rect x="60" y="68" width="62" height="40" rx="7" fill="#E7F6ED" stroke="#16A34A" stroke-width="1.8"/><text x="91" y="93">2</text>
+<rect x="130" y="68" width="62" height="40" rx="7" fill="#E7F6ED" stroke="#16A34A" stroke-width="1.8"/><text x="161" y="93">3</text>
+<rect x="200" y="68" width="62" height="40" rx="7" fill="#E7F6ED" stroke="#16A34A" stroke-width="1.8"/><text x="231" y="93">1</text>
+<rect x="270" y="68" width="62" height="40" rx="7" fill="#E7F6ED" stroke="#16A34A" stroke-width="1.8"/><text x="301" y="93">1</text>
+<rect x="340" y="68" width="62" height="40" rx="7" fill="#E7F6ED" stroke="#16A34A" stroke-width="1.8"/><text x="371" y="93">4</text>
+<rect x="410" y="68" width="62" height="40" rx="7" fill="#FFF3E6" stroke="#F59E0B" stroke-width="1.8"/><text x="441" y="93">0</text>
+<rect x="480" y="68" width="62" height="40" rx="7" fill="#FFF3E6" stroke="#F59E0B" stroke-width="1.8"/><text x="511" y="93">0</text>
+</g>
+<g font-family="JetBrains Mono,monospace" font-size="9.5" fill="#9d9ab0" text-anchor="middle">
+<text x="91" y="122">i=0</text><text x="161" y="122">i=1</text><text x="231" y="122">i=2</text><text x="301" y="122">i=3</text><text x="371" y="122">i=4</text><text x="441" y="122">i=5</text><text x="511" y="122">i=6</text>
+</g>
+<text x="40" y="158" font-family="Inter,sans-serif" font-size="11.5" fill="#0c7fc4">farthest reachable so far (grows as we sweep)</text>
+<line x1="60" y1="178" x2="542" y2="178" stroke="#E7E8F2" stroke-width="1.5"/>
+<rect x="60" y="170" width="62" height="16" rx="4" fill="#0EA5E9" opacity="0.18"/>
+<rect x="60" y="170" width="132" height="16" rx="4" fill="#0EA5E9" opacity="0.18"/>
+<rect x="60" y="170" width="412" height="16" rx="4" fill="#0EA5E9" opacity="0.18"/>
+<g font-family="JetBrains Mono,monospace" font-size="10" fill="#0c7fc4" text-anchor="middle">
+<text x="91" y="206">reach=2</text><text x="161" y="206">reach=4</text><text x="371" y="206">reach=8</text>
+</g>
+<text x="310" y="240" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#16A34A">at i=4 the frontier (8) clears the last index &#8594; reachable</text>
+<text x="310" y="260" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#9d9ab0">if reach ever falls behind i, you are stranded &#8594; false</text></svg>`;
+SVG.greedy_activity=`<svg viewBox="0 0 620 280" role="img" aria-label="Activity selection on a number line: sorting by end time and always keeping the earliest finisher yields the largest non-overlapping set">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">sort by end, keep the earliest finisher, skip anything that conflicts</text>
+<text x="40" y="54" font-family="Inter,sans-serif" font-size="11.5" fill="#9d9ab0">five activities as bars on a timeline (sorted by end time)</text>
+<g font-family="JetBrains Mono,monospace" font-size="10.5">
+<rect x="60" y="66" width="150" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A" stroke-width="2"/><text x="135" y="83" text-anchor="middle" fill="#0f7a36" font-weight="600">[1, 4] keep</text>
+<rect x="120" y="98" width="170" height="24" rx="6" fill="#FFF0F2" stroke="#E11D48" stroke-width="1.6"/><text x="205" y="115" text-anchor="middle" fill="#c01840">[3, 5] starts 3 &lt; 4 &#8594; drop</text>
+<rect x="230" y="130" width="150" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A" stroke-width="2"/><text x="305" y="147" text-anchor="middle" fill="#0f7a36" font-weight="600">[5, 7] keep</text>
+<rect x="290" y="162" width="130" height="24" rx="6" fill="#FFF0F2" stroke="#E11D48" stroke-width="1.6"/><text x="355" y="179" text-anchor="middle" fill="#c01840">[6, 8] 6 &lt; 7 &#8594; drop</text>
+<rect x="420" y="194" width="140" height="24" rx="6" fill="#E7F6ED" stroke="#16A34A" stroke-width="2"/><text x="490" y="211" text-anchor="middle" fill="#0f7a36" font-weight="600">[8, 10] keep</text>
+</g>
+<line x1="60" y1="234" x2="560" y2="234" stroke="#E7E8F2" stroke-width="1.5"/>
+<g font-family="JetBrains Mono,monospace" font-size="10" fill="#0c7fc4">
+<line x1="135" y1="226" x2="135" y2="242" stroke="#0EA5E9" stroke-width="1.4"/><text x="135" y="256" text-anchor="middle">free@4</text>
+<line x1="305" y1="226" x2="305" y2="242" stroke="#0EA5E9" stroke-width="1.4"/><text x="305" y="256" text-anchor="middle">free@7</text>
+</g>
+<text x="310" y="276" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#16A34A">3 kept &#8212; the earliest finisher always leaves the most room for the rest</text></svg>`;
+
+/* --- dsu --- */
+SVG.dsu_compress=`<svg viewBox="0 0 620 320" role="img" aria-label="A tall parent-pointer chain before find versus a flat one after path compression, where every node points straight at the root">
+<text x="160" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#5B5BD6">before find(3) &#8212; a tall chain</text>
+<text x="460" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#16A34A">after find(3) &#8212; flattened</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<path d="M160 168 L160 122" stroke="#c9cad9" stroke-width="2" marker-end="url(#dsuArrL)"/>
+<path d="M160 226 L160 180" stroke="#c9cad9" stroke-width="2" marker-end="url(#dsuArrL)"/>
+<path d="M160 284 L160 238" stroke="#c9cad9" stroke-width="2" marker-end="url(#dsuArrL)"/>
+<circle cx="160" cy="100" r="22" fill="#EEF0FE" stroke="#5B5BD6" stroke-width="2"/><text x="160" y="105" text-anchor="middle" fill="#1B1838" font-weight="600">0</text><text x="196" y="105" font-size="10" fill="#9d9ab0">root</text>
+<circle cx="160" cy="158" r="22" fill="#fff" stroke="#5B5BD6" stroke-width="1.6"/><text x="160" y="163" text-anchor="middle" fill="#1B1838">1</text>
+<circle cx="160" cy="216" r="22" fill="#fff" stroke="#5B5BD6" stroke-width="1.6"/><text x="160" y="221" text-anchor="middle" fill="#1B1838">2</text>
+<circle cx="160" cy="274" r="22" fill="#fff" stroke="#5B5BD6" stroke-width="1.6"/><text x="160" y="279" text-anchor="middle" fill="#1B1838">3</text></g>
+<text x="160" y="312" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#9d9ab0">find(3) walks 3 &#8594; 2 &#8594; 1 &#8594; 0: three hops</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<path d="M430 172 L444 124" stroke="#2DD4A7" stroke-width="2" marker-end="url(#dsuArrG)"/>
+<path d="M460 188 L460 124" stroke="#2DD4A7" stroke-width="2" marker-end="url(#dsuArrG)"/>
+<path d="M490 172 L476 124" stroke="#2DD4A7" stroke-width="2" marker-end="url(#dsuArrG)"/>
+<circle cx="460" cy="100" r="22" fill="#E9FBF4" stroke="#16A34A" stroke-width="2"/><text x="460" y="105" text-anchor="middle" fill="#1B1838" font-weight="600">0</text><text x="496" y="105" font-size="10" fill="#9d9ab0">root</text>
+<circle cx="412" cy="194" r="22" fill="#fff" stroke="#16A34A" stroke-width="1.6"/><text x="412" y="199" text-anchor="middle" fill="#1B1838">1</text>
+<circle cx="460" cy="210" r="22" fill="#fff" stroke="#16A34A" stroke-width="1.6"/><text x="460" y="215" text-anchor="middle" fill="#1B1838">2</text>
+<circle cx="508" cy="194" r="22" fill="#fff" stroke="#16A34A" stroke-width="1.6"/><text x="508" y="199" text-anchor="middle" fill="#1B1838">3</text></g>
+<text x="460" y="312" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#9d9ab0">every node on the path now points straight at 0: one hop forever after</text>
+<defs>
+<marker id="dsuArrL" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#c9cad9"/></marker>
+<marker id="dsuArrG" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0 0 L7 3 L0 6 Z" fill="#2DD4A7"/></marker>
+</defs></svg>`;
+SVG.dsu_union=`<svg viewBox="0 0 620 290" role="img" aria-label="Union by size hangs the smaller tree under the larger tree's root so the merged tree stays shallow">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#0EA5E9">union by size &#8594; small tree hangs under the big root</text>
+<text x="148" y="58" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0EA5E9">size 4</text>
+<text x="372" y="58" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#8B5CF6">size 2</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<path d="M120 110 L86 162" stroke="#c9cad9" stroke-width="2"/>
+<path d="M120 110 L154 162" stroke="#c9cad9" stroke-width="2"/>
+<path d="M86 184 L86 222" stroke="#c9cad9" stroke-width="2"/>
+<circle cx="120" cy="88" r="20" fill="#EAF6FF" stroke="#0EA5E9" stroke-width="2"/><text x="120" y="93" text-anchor="middle" fill="#1B1838" font-weight="600">a</text>
+<circle cx="86" cy="172" r="20" fill="#fff" stroke="#0EA5E9" stroke-width="1.6"/><text x="86" y="177" text-anchor="middle" fill="#1B1838">b</text>
+<circle cx="154" cy="172" r="20" fill="#fff" stroke="#0EA5E9" stroke-width="1.6"/><text x="154" y="177" text-anchor="middle" fill="#1B1838">c</text>
+<circle cx="86" cy="232" r="20" fill="#fff" stroke="#0EA5E9" stroke-width="1.6"/><text x="86" y="237" text-anchor="middle" fill="#1B1838">d</text></g>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<path d="M372 110 L372 162" stroke="#c9cad9" stroke-width="2"/>
+<circle cx="372" cy="88" r="20" fill="#F1ECFE" stroke="#8B5CF6" stroke-width="2"/><text x="372" y="93" text-anchor="middle" fill="#1B1838" font-weight="600">x</text>
+<circle cx="372" cy="172" r="20" fill="#fff" stroke="#8B5CF6" stroke-width="1.6"/><text x="372" y="177" text-anchor="middle" fill="#1B1838">y</text></g>
+<text x="248" y="150" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="22" fill="#16A34A">&#8594;</text>
+<text x="248" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#6f6b8c">unite(a, x)</text>
+<g font-family="JetBrains Mono,monospace" font-size="13">
+<path d="M520 110 L486 162" stroke="#16A34A" stroke-width="2"/>
+<path d="M520 110 L554 162" stroke="#16A34A" stroke-width="2"/>
+<path d="M520 110 L520 162" stroke="#16A34A" stroke-width="2" stroke-dasharray="4 3"/>
+<path d="M486 184 L486 222" stroke="#16A34A" stroke-width="2"/>
+<path d="M520 184 L520 222" stroke="#16A34A" stroke-width="2"/>
+<circle cx="520" cy="88" r="20" fill="#E9FBF4" stroke="#16A34A" stroke-width="2"/><text x="520" y="93" text-anchor="middle" fill="#1B1838" font-weight="600">a</text>
+<circle cx="486" cy="172" r="20" fill="#fff" stroke="#16A34A" stroke-width="1.6"/><text x="486" y="177" text-anchor="middle" fill="#1B1838">b</text>
+<circle cx="554" cy="172" r="20" fill="#fff" stroke="#16A34A" stroke-width="1.6"/><text x="554" y="177" text-anchor="middle" fill="#1B1838">c</text>
+<circle cx="520" cy="172" r="20" fill="#F1ECFE" stroke="#8B5CF6" stroke-width="1.6"/><text x="520" y="177" text-anchor="middle" fill="#1B1838">x</text>
+<circle cx="486" cy="232" r="20" fill="#fff" stroke="#16A34A" stroke-width="1.6"/><text x="486" y="237" text-anchor="middle" fill="#1B1838">d</text>
+<circle cx="520" cy="232" r="20" fill="#fff" stroke="#8B5CF6" stroke-width="1.6"/><text x="520" y="237" text-anchor="middle" fill="#1B1838">y</text></g>
+<text x="310" y="276" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6f6b8c">x's root joins a's root &#8212; hanging the big tree under the small one would have made it taller for no reason</text></svg>`;
+
+/* --- lambdas --- */
+SVG.lambdas_desugar=`<svg viewBox="0 0 620 300" role="img" aria-label="A lambda desugars into a hidden struct with the captured variables as members and the body as operator()">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">a lambda is just a struct the compiler writes for you</text>
+<rect x="20" y="48" width="270" height="222" rx="12" fill="#FBFBFE" stroke="#E7E8F2"/>
+<text x="155" y="72" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#8B5CF6">what you write</text>
+<rect x="40" y="88" width="230" height="92" rx="8" fill="#F5F3FF" stroke="#C4B5FD"/>
+<text x="56" y="112" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">int n = 5;</text>
+<text x="56" y="134" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#7C3AED">auto add = [n](int x) {</text>
+<text x="56" y="154" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#7C3AED">    return x + n;</text>
+<text x="56" y="174" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#7C3AED">};</text>
+<text x="155" y="206" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#1B1838">add(10)  &#8594;  15</text>
+<text x="155" y="230" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8a86a8">[n] captured by value;</text>
+<text x="155" y="248" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#8a86a8">(int x) is the call's parameter</text>
+<path d="M295 159 H325" stroke="#8B5CF6" stroke-width="2.4" marker-end="url(#lds)"/>
+<text x="310" y="150" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#8B5CF6">compiler</text>
+<rect x="330" y="48" width="270" height="222" rx="12" fill="#F5F3FF" stroke="#C4B5FD"/>
+<text x="465" y="72" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#7C3AED">the hidden closure type</text>
+<text x="348" y="98" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#9d9ab0">struct __Lambda {</text>
+<rect x="360" y="108" width="226" height="26" rx="6" fill="#fff" stroke="#A855F7"/>
+<text x="372" y="125" font-family="JetBrains Mono,monospace" font-size="11" fill="#A855F7">int n;</text>
+<text x="470" y="125" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" fill="#A855F7">&#8592; capture becomes a member</text>
+<rect x="360" y="142" width="226" height="74" rx="6" fill="#fff" stroke="#16A34A"/>
+<text x="372" y="162" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">int operator()(int x) const {</text>
+<text x="372" y="182" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">    return x + n;</text>
+<text x="372" y="202" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">}</text>
+<text x="585" y="190" text-anchor="end" font-family="Inter,sans-serif" font-size="10" fill="#16A34A">&#8592; body becomes operator()</text>
+<text x="348" y="232" font-family="JetBrains Mono,monospace" font-size="11.5" fill="#9d9ab0">};</text>
+<text x="465" y="256" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#6f6b8c">add is one instance of this type</text>
+<defs><marker id="lds" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#8B5CF6"/></marker></defs></svg>`;
+SVG.lambdas_capture=`<svg viewBox="0 0 620 270" role="img" aria-label="Capture by value owns a snapshot copy and stays safe; capture by reference points back at the original and dangles if it dies">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">[=] copies a snapshot &#183; [&amp;] aliases the original</text>
+<rect x="20" y="44" width="280" height="206" rx="12" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="160" y="68" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#16A34A">[=] by value &#8212; owns a copy</text>
+<rect x="50" y="86" width="100" height="44" rx="8" fill="#fff" stroke="#a9d6bb"/><text x="100" y="104" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#6f6b8c">original</text><text x="100" y="121" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#1B1838">x = 7</text>
+<rect x="172" y="86" width="100" height="44" rx="8" fill="#E7F6ED" stroke="#16A34A"/><text x="222" y="104" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#16A34A">snapshot</text><text x="222" y="121" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#16A34A">x = 7</text>
+<path d="M152 108 H170" stroke="#16A34A" stroke-width="2" marker-end="url(#lc1)"/>
+<text x="160" y="160" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">frozen at creation; later changes</text>
+<text x="160" y="178" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">to the original don't reach it</text>
+<text x="160" y="212" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#16A34A">safe to outlive the original</text>
+<text x="160" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#5e8a6f">cost: the copy can be expensive</text>
+<rect x="320" y="44" width="280" height="206" rx="12" fill="#FFF5F6" stroke="#F6D5DC"/>
+<text x="460" y="68" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" font-weight="600" fill="#E11D48">[&amp;] by reference &#8212; aliases it</text>
+<rect x="350" y="86" width="100" height="44" rx="8" fill="#fff" stroke="#d9b0ba" stroke-dasharray="4 3"/><text x="400" y="104" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#E11D48">original (gone)</text><text x="400" y="121" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#E11D48">freed</text>
+<rect x="472" y="86" width="100" height="44" rx="8" fill="#FCE7EC" stroke="#E11D48"/><text x="522" y="104" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#E11D48">&amp;ref</text><text x="522" y="121" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" fill="#E11D48">&#8594; ?</text>
+<path d="M470 108 H452" stroke="#E11D48" stroke-width="2" marker-end="url(#lc2)"/>
+<text x="460" y="160" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a3b46">holds no copy &#8212; just an address</text>
+<text x="460" y="178" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#7a3b46">into the original's storage</text>
+<text x="460" y="212" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#E11D48">dangles if the original dies</text>
+<text x="460" y="236" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#9c6671">reads freed memory &#8212; UB</text>
+<defs><marker id="lc1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#16A34A"/></marker><marker id="lc2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0L6 3L0 6z" fill="#E11D48"/></marker></defs></svg>`;
+
+/* --- essentials --- */
+SVG.essentials_layout=`<svg viewBox="0 0 620 320" role="img" aria-label="A struct of char, int, char takes 12 bytes because of alignment padding; reordering the members to int, char, char packs it into 8 bytes">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">same three members &#8212; layout decides the size</text>
+<text x="160" y="58" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#E11D48">struct { char a; int b; char c; }  &#8594; 12 bytes</text>
+<text x="62" y="80" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#9d9ab0">offset 0&#160;&#160;&#160;1&#160;&#160;&#160;2&#160;&#160;&#160;3&#160;&#160;&#160;4&#160;&#160;&#160;5&#160;&#160;&#160;6&#160;&#160;&#160;7</text>
+<rect x="40" y="86" width="34" height="34" rx="5" fill="#FBEFD6" stroke="#E8950C"/><text x="57" y="108" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#C2790B">a</text>
+<rect x="76" y="86" width="102" height="34" rx="5" fill="#F4F2FF" stroke="#cabdf0" stroke-dasharray="4 3"/><text x="127" y="108" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8a86a8">padding &#215;3</text>
+<rect x="180" y="86" width="138" height="34" rx="5" fill="#EAF6FF" stroke="#0EA5E9"/><text x="249" y="108" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0c7fc4">b (int, 4)</text>
+<rect x="320" y="86" width="34" height="34" rx="5" fill="#FBEFD6" stroke="#E8950C"/><text x="337" y="108" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#C2790B">c</text>
+<rect x="356" y="86" width="102" height="34" rx="5" fill="#F4F2FF" stroke="#cabdf0" stroke-dasharray="4 3"/><text x="407" y="108" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#8a86a8">tail pad &#215;3</text>
+<text x="249" y="146" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#7a3b46">b must sit at a 4-aligned offset &#8594; 3 pad after a; struct padded up to 12</text>
+<text x="160" y="196" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#16A34A">struct { int b; char a; char c; }  &#8594; 8 bytes</text>
+<text x="62" y="218" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#9d9ab0">offset 0&#160;&#160;&#160;1&#160;&#160;&#160;2&#160;&#160;&#160;3&#160;&#160;&#160;4&#160;&#160;&#160;5&#160;&#160;&#160;6&#160;&#160;&#160;7</text>
+<rect x="40" y="224" width="138" height="34" rx="5" fill="#EAF6FF" stroke="#0EA5E9"/><text x="109" y="246" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#0c7fc4">b (int, 4)</text>
+<rect x="180" y="224" width="34" height="34" rx="5" fill="#E7F6ED" stroke="#16A34A"/><text x="197" y="246" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">a</text>
+<rect x="216" y="224" width="34" height="34" rx="5" fill="#E7F6ED" stroke="#16A34A"/><text x="233" y="246" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#16A34A">c</text>
+<rect x="252" y="224" width="68" height="34" rx="5" fill="#F0FBF5" stroke="#BFE6CF" stroke-dasharray="4 3"/><text x="286" y="246" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#5e8a6f">pad &#215;2</text>
+<text x="180" y="284" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#3c6b4f">int first (already 4-aligned), then the two chars fit in the gap &#8594; only 2 tail pad</text>
+<text x="310" y="308" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#8a86a8">largest member first &#8594; fewer gaps. Same fields, two-thirds the size.</text></svg>`;
+SVG.essentials_static=`<svg viewBox="0 0 620 250" role="img" aria-label="The four meanings of the static keyword in C plus plus, grouped by where it appears">
+<text x="310" y="26" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="14" font-weight="600" fill="#1B1838">one keyword, four jobs &#8212; the context tells you which</text>
+<rect x="30" y="46" width="270" height="84" rx="11" fill="#F0FBF5" stroke="#BFE6CF"/>
+<text x="48" y="70" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#16A34A">static at file scope</text>
+<text x="48" y="92" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">internal linkage &#8212; this name is</text>
+<text x="48" y="108" font-family="Inter,sans-serif" font-size="11.5" fill="#3c6b4f">private to its translation unit</text>
+<text x="48" y="124" font-family="JetBrains Mono,monospace" font-size="10" fill="#5e8a6f">static int helper() { ... }</text>
+<rect x="320" y="46" width="270" height="84" rx="11" fill="#EAF6FF" stroke="#bfe1f7"/>
+<text x="338" y="70" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#0c7fc4">static local variable</text>
+<text x="338" y="92" font-family="Inter,sans-serif" font-size="11.5" fill="#2b6585">one instance, built once on first</text>
+<text x="338" y="108" font-family="Inter,sans-serif" font-size="11.5" fill="#2b6585">use, persists across calls</text>
+<text x="338" y="124" font-family="JetBrains Mono,monospace" font-size="10" fill="#3b73a0">static int n = 0;  // inside fn</text>
+<rect x="30" y="140" width="270" height="84" rx="11" fill="#F4F2FF" stroke="#d9d2f5"/>
+<text x="48" y="164" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#6D5BD0">static data member</text>
+<text x="48" y="186" font-family="Inter,sans-serif" font-size="11.5" fill="#7d72a6">one copy shared by ALL objects</text>
+<text x="48" y="202" font-family="Inter,sans-serif" font-size="11.5" fill="#7d72a6">of the class, not per-object</text>
+<text x="48" y="218" font-family="JetBrains Mono,monospace" font-size="10" fill="#9a90c0">static inline int count = 0;</text>
+<rect x="320" y="140" width="270" height="84" rx="11" fill="#FFF7EC" stroke="#f3dcae"/>
+<text x="338" y="164" font-family="JetBrains Mono,monospace" font-size="12" font-weight="600" fill="#C2790B">static member function</text>
+<text x="338" y="186" font-family="Inter,sans-serif" font-size="11.5" fill="#8a6516">no this pointer &#8212; called on the</text>
+<text x="338" y="202" font-family="Inter,sans-serif" font-size="11.5" fill="#8a6516">class, not on an instance</text>
+<text x="338" y="218" font-family="JetBrains Mono,monospace" font-size="10" fill="#b07d1a">Widget::create();</text></svg>`;
+
 const plan=[
   ["Foundations","Big-O · Pointers · Memory · Syntax","bigo"],
   ["Core Patterns","Arrays · Two Pointers · Sliding Window","arrays"],
@@ -2939,8 +3310,8 @@ names.emplace_back("built-in-place"); // construct the string directly inside th
   p(`This is the classic "looks easy, has a real trap" problem. The tempting solution is to check, at each node, that <code>node->left->val &lt; node->val &lt; node->right->val</code> &#8212; a purely <em>local</em> comparison of a node against its two immediate children. It's wrong, and it's a beloved interview filter precisely because the bug only shows up on the right input.`),
   pit("The local check is not enough",`The BST rule isn't "each node beats its kids" &#8212; it's that <em>every</em> node in the left subtree is smaller and <em>every</em> node in the right subtree is larger. Consider root 10, with right child 15, whose left child is 6. Locally each parent-child pair looks fine (15 &gt; 10, and 6 &lt; 15). But 6 sits in 10's <em>right</em> subtree while being smaller than 10, so the tree is not a valid BST. The local check misses it because 6 and 10 are never directly compared. You need each node validated against a range inherited from <em>all</em> its ancestors, not just its parent.`),
   p(`The fix carries a valid <code>(min, max)</code> range down the recursion. The root may be anything; as you recurse left, the current node becomes the new <em>upper</em> bound (everything left of it must be smaller); as you recurse right, it becomes the new <em>lower</em> bound. A node is valid only if it falls strictly inside the window it inherited &#8212; which encodes the constraints of every ancestor, not just the parent.`),
-  worked("Validate BST with min/max bounds","Each call carries the open interval the node must live in. Going left tightens the max to the current value; going right tightens the min. Using nullable bounds (or LONG_MIN/LONG_MAX) sidesteps overflow when a node's value sits at the int extremes. O(n) time, O(h) stack.",
-`bool valid(TreeNode* node, long lo, long hi) {
+  worked("Validate BST with min/max bounds","Each call carries the open interval the node must live in. Going left tightens the max to the current value; going right tightens the min. Using a guaranteed-wide type (long long with LLONG_MIN/LLONG_MAX) sidesteps overflow when a node's value sits at the int extremes — note that long is only 32-bit on Windows/MSVC, so long long is the portable choice. O(n) time, O(h) stack.",
+`bool valid(TreeNode* node, long long lo, long long hi) {
     if (!node) return true;                       // empty subtree is valid
     if (node->val <= lo || node->val >= hi)
         return false;                             // outside inherited window
@@ -2949,7 +3320,7 @@ names.emplace_back("built-in-place"); // construct the string directly inside th
 }
 
 bool isValidBST(TreeNode* root) {
-    return valid(root, LONG_MIN, LONG_MAX);       // root: no bounds yet
+    return valid(root, LLONG_MIN, LLONG_MAX);     // root: no bounds yet
 }`),
   idea("The in-order shortcut",`There's a slicker validation: do an <em>in-order</em> traversal and check the values come out strictly increasing. It works for the exact reason from the diagram &#8212; in-order of a valid BST is sorted, so the first time you see a value that isn't greater than the previous one, the BST property is broken. Mention both approaches in an interview: the min/max recursion shows you understand the ancestor constraints, and the in-order check shows you remember the sorted-traversal fact. Either is O(n).`),
   sub("Putting it together"),
@@ -3667,6 +4038,406 @@ pit("State the boundary convention up front",`Almost every interval bug traces b
 cx(`Merge / insert / scheduling: time <b>O(n log n)</b> — the sort dominates; the sweep after it is <b>O(n)</b>. Space <b>O(n)</b> for the output (O(1) extra beyond it). Insert-into-sorted is <b>O(n)</b> outright, since the input is already ordered and needs no sort. Sweep-line meeting rooms: <b>O(n log n)</b> for the sort or the heap operations.`),
 {t:"probs",items:[["Merge Intervals","merge-intervals","med"],["Insert Interval","insert-interval","med"],["Non-overlapping Intervals","non-overlapping-intervals","med"]]}
 ]},
+{group:"Data Structures & Algorithms",num:"14",id:"bits",color:"#5B5BD6",title:"Bit Manipulation",badge:"Pattern",blocks:[
+cue(`<b>Spot it when:</b> the problem talks about <em>bits, parity, XOR, or powers of two</em>; or asks you to do arithmetic <em>without</em> <code>+</code>/<code>-</code>; or the constraint is "n &#8804; 20-ish" and you need to enumerate <em>every subset</em> of a small set. The other tell is space: when a <code>set&lt;int&gt;</code> of small values would do but you want it to be a single integer you can compare, hash, and pass around for free.`),
+p(`If you ship a game engine you already think in bits &#8212; collision layers, input flags, packed vertex attributes, an <code>enum class</code> of feature toggles OR'd together. Interview "bit manipulation" is the same muscle, just dressed up as puzzles. The whole topic rests on one fact you already know: an integer is a fixed-width row of bits, and the bitwise operators let you read and rewrite any subset of those bits in a single O(1) machine instruction. Everything below is a consequence of that.`),
+sub("Binary, and how negatives are stored"),
+p(`A 32-bit <code>int</code> is 32 bits, each worth a power of two: bit <code>i</code> contributes <code>2&#8305;</code> when it's set. So <code>13</code> is <code>1101</code> &#8212; <code>8 + 4 + 1</code>. The rightmost bit (value <code>2&#8304; = 1</code>) is the <em>least-significant bit</em> (LSB, "bit 0"); the leftmost is the <em>most-significant bit</em> (MSB). When we draw a byte we put bit 7 on the left and bit 0 on the right, matching how you'd write the number.`),
+p(`Negatives use <b>two's complement</b>, and understanding it kills a whole class of confusion. The top bit is the <em>sign bit</em>: for a signed type, if it's set the value is negative. To get <code>-n</code>, you <em>flip every bit and add one</em> &#8212; that's literally what the hardware does, and it's why <code>-n == ~n + 1</code>. The payoff: addition, subtraction, and comparison all work on the same bit patterns with no special-casing for sign, and there's exactly one zero. The cost: the range is asymmetric &#8212; a 32-bit <code>int</code> runs <code>-2&#8311;&#185;</code> to <code>2&#8311;&#185; - 1</code>, so <code>INT_MIN</code> has no positive twin (negating it overflows).`),
+note("📐","Why -n == ~n + 1, concretely",`Take <code>n = 5</code> = <code>...00000101</code>. Flip every bit: <code>~5</code> = <code>...11111010</code> (that's <code>-6</code>). Add one: <code>...11111011</code> = <code>-5</code>. The "flip and add one" rule isn't a convention to memorize &#8212; it falls out of wanting <code>n + (-n) == 0</code> in fixed width, where the carry off the top is simply discarded. This identity is the engine behind the <code>n &amp; -n</code> trick later, so it's worth seeing once.`),
+sub("The operators"),
+p(`There are four bitwise operators and two shifts. They work bit-by-bit (or, for shifts, by sliding the whole row), and each is a single instruction:`),
+ul([
+  `<b><code>&amp;</code> (AND)</b> &#8212; output bit is 1 only where <em>both</em> inputs are 1. Use it to <em>test</em> or <em>keep</em> bits (masking).`,
+  `<b><code>|</code> (OR)</b> &#8212; output bit is 1 where <em>either</em> input is 1. Use it to <em>turn bits on</em>.`,
+  `<b><code>^</code> (XOR)</b> &#8212; output bit is 1 where the inputs <em>differ</em>. Use it to <em>flip</em> bits, and for the cancellation trick below.`,
+  `<b><code>~</code> (NOT)</b> &#8212; flips every bit (unary). <code>~0</code> is all-ones.`,
+  `<b><code>&lt;&lt;</code> (left shift)</b> &#8212; <code>x &lt;&lt; k</code> slides every bit up by <code>k</code> positions, filling the bottom with zeros. This <em>multiplies by 2&#7503;</em>: <code>1 &lt;&lt; 4</code> is <code>16</code>.`,
+  `<b><code>&gt;&gt;</code> (right shift)</b> &#8212; slides bits down by <code>k</code>. For unsigned (and non-negative signed) values this is integer division by <code>2&#7503;</code>.`,
+]),
+svg("bits_mask","The same byte x run through three operations against one mask. AND keeps only the masked bits (everything else goes to zero); OR forces the masked bits on; XOR flips them. Pick the operator by what you want to do to the bits the mask selects: keep, set, or toggle."),
+note("📌","Operator precedence will bite you",`The bitwise operators bind <em>looser</em> than <code>==</code> and the arithmetic operators &#8212; a historical wart in C and C++. So <code>x &amp; 1 == 0</code> parses as <code>x &amp; (1 == 0)</code> = <code>x &amp; 0</code> = <code>0</code>, which is never what you meant. <b>Parenthesize bitwise sub-expressions:</b> write <code>(x &amp; 1) == 0</code>. When in doubt, wrap it.`),
+sub("XOR: the cancellation trick"),
+p(`XOR has three properties that make it the star of interview bit problems: <code>a ^ a == 0</code> (a value cancels itself), <code>a ^ 0 == a</code> (zero is the identity), and it's <em>commutative and associative</em> (order doesn't matter). Put those together and a beautiful thing happens: if you XOR a whole pile of numbers together, every value that appears an <em>even</em> number of times cancels to zero, and whatever's left is the value that appeared an <em>odd</em> number of times.`),
+p(`That's the entire idea behind "Single Number": every element appears twice except one. XOR them all, the pairs annihilate, and the lone element survives &#8212; in one pass, O(1) space, no hash set.`),
+worked("Single Number via XOR","Fold the whole array with XOR. Pairs cancel (a ^ a = 0); the unpaired value is left standing because XOR with 0 is identity. No extra memory, one pass &#8212; strictly better than the hash-set solution an interviewer expects first.",
+`int singleNumber(const vector<int>& nums) {
+    int acc = 0;                      // 0 is the XOR identity
+    for (int x : nums) acc ^= x;      // pairs cancel: a ^ a == 0
+    return acc;                       // the lone odd-count value remains
+}`),
+idea("The XOR swap (a party trick, not production code)",`You can swap two ints with no temporary: <code>a ^= b; b ^= a; a ^= b;</code>. After step one <code>a</code> holds <code>a^b</code>; the next two lines use the cancellation to untangle them. It's a fun thing to be able to derive on a whiteboard, and it shows you <em>understand</em> XOR. But never ship it: it's slower than a <code>std::swap</code> (which the compiler turns into a register exchange), and it silently breaks if <code>a</code> and <code>b</code> are the <em>same</em> variable &#8212; you'd zero it out.`),
+sub("Single-bit surgery: check, set, clear, toggle"),
+p(`The workhorse idiom is a <em>mask</em> with exactly one bit on: <code>1 &lt;&lt; i</code> has a single 1 at position <code>i</code>. AND with it to read a bit, OR to set, XOR to flip, and AND-with-the-inverse to clear. These four are the alphabet of every bit problem &#8212; commit them to muscle memory:`),
+code(`// Operate on bit i of x (i = 0 is the least-significant bit):
+bool on   = (x >> i) & 1;     // CHECK: shift bit i down, isolate it
+x |=  (1 << i);               // SET:    force bit i on
+x &= ~(1 << i);               // CLEAR:  force bit i off (mask of all-1s except bit i)
+x ^=  (1 << i);               // TOGGLE: flip bit i
+
+int lowest = x & -x;          // ISOLATE lowest set bit (two's complement magic)
+x &= (x - 1);                 // CLEAR   lowest set bit`),
+note("📌","Read CHECK and CLEAR slowly",`<code>(x &gt;&gt; i) &amp; 1</code> works because shifting bit <code>i</code> down to position 0 and ANDing with <code>1</code> throws away everything else &#8212; you're left with just that bit, as a clean <code>0</code> or <code>1</code>. For CLEAR, <code>~(1 &lt;&lt; i)</code> is "all ones except bit <code>i</code>," so ANDing keeps every other bit untouched and zeroes only bit <code>i</code>. Most masking is just one of these two patterns wearing a costume.`),
+sub("Power-of-two and the lowest set bit"),
+p(`Here's where two's complement pays off in clean one-liners. A power of two has <em>exactly one</em> bit set. Subtracting one from such a number flips that bit off and turns every bit <em>below</em> it on &#8212; so <code>n</code> and <code>n - 1</code> share no bits, and <code>n &amp; (n - 1) == 0</code>. For anything that isn't a power of two (more than one bit set), that AND leaves the higher bits and is non-zero.`),
+code(`bool isPowerOfTwo(int n) {
+    return n > 0 && (n & (n - 1)) == 0;   // exactly one bit set
+}`),
+p(`The same <code>n &amp; (n - 1)</code> is a Swiss-army move: it <em>clears the lowest set bit</em>. Subtracting one flips the trailing zeros to ones and the lowest one to zero; ANDing with the original wipes that whole run out, leaving every higher bit intact. Its cousin <code>n &amp; -n</code> does the opposite &#8212; it <em>isolates</em> the lowest set bit (because <code>-n</code> is <code>~n + 1</code>, which agrees with <code>n</code> in exactly the lowest set bit and the zeros below it). Hold these two side by side: one removes the lowest 1, the other extracts it.`),
+svg("bits_clearlow","Why n &amp; (n-1) clears the lowest set bit. For n = 12 (1100), the lowest 1 sits at bit 2. Subtracting one borrows through the trailing zeros, flipping them up and turning that lowest 1 off; ANDing the two rows keeps only the higher bits, giving 8 (1000) &#8212; exactly n with its lowest 1 erased."),
+sub("Counting set bits"),
+p(`"How many 1 bits?" (the <em>population count</em>) shows up constantly &#8212; as a sub-step in bitmask DP, in Hamming-distance problems, in "count bits for 0..n." The naive way checks all 32 positions. <b>Brian Kernighan's trick</b> is tighter: repeatedly do <code>n &amp;= (n - 1)</code> to strip off the lowest set bit, counting iterations. The loop runs once per set bit, not once per position &#8212; so a number with three 1s takes three iterations regardless of width.`),
+worked("Count set bits (Kernighan)","Each n &= (n - 1) erases exactly one set bit (the lowest), so the loop body runs as many times as there are 1s. Faster than scanning all 32 positions when the value is sparse, and it's the canonical thing to write when asked.",
+`int popcount(unsigned n) {
+    int count = 0;
+    while (n) {            // stop as soon as no bits remain
+        n &= (n - 1);      // clear the lowest set bit
+        ++count;           // ...and tally it
+    }
+    return count;
+}`),
+note("📌","Don't reinvent it in real code",`Interviewers like Kernighan, but production C++ has this built in. C++20 gives you <code>std::popcount(x)</code> from <code>&lt;bit&gt;</code> (requires an unsigned type), and GCC/Clang have long offered <code>__builtin_popcount</code> / <code>__builtin_popcountll</code>. These compile to a single <code>POPCNT</code> instruction on modern hardware. The same header has <code>std::countr_zero</code> (trailing zeros &#8212; the index of the lowest set bit), <code>std::countl_zero</code>, and <code>std::has_single_bit</code> (the power-of-two test). Know the hand-rolled version <em>and</em> the library name.`),
+sub("An integer as a set"),
+p(`This is the conceptual leap that turns bit tricks into a <em>pattern</em>. An <code>int</code> is 32 bits, so it can represent a subset of <code>{0, 1, &#8230;, 31}</code>: bit <code>i</code> set means "element <code>i</code> is in the set." A <code>long long</code> stretches that to 64 elements. Now every set operation becomes one bitwise op on a single integer &#8212; which is why bitmask states are so cheap to store, compare, and use as map keys:`),
+ul([
+  `<b>Membership</b>: <code>(mask &gt;&gt; i) &amp; 1</code> &#8212; is element <code>i</code> present?`,
+  `<b>Add</b> element <code>i</code>: <code>mask |= (1 &lt;&lt; i)</code>.`,
+  `<b>Remove</b> element <code>i</code>: <code>mask &amp;= ~(1 &lt;&lt; i)</code>.`,
+  `<b>Union</b> of two sets: <code>a | b</code>. <b>Intersection</b>: <code>a &amp; b</code>. <b>Difference</b> a&#8722;b: <code>a &amp; ~b</code>.`,
+  `<b>Size</b> of the set: the popcount of the mask. <b>Empty?</b> <code>mask == 0</code>.`,
+]),
+p(`Compared to a <code>std::set&lt;int&gt;</code> this is dramatically faster &#8212; no nodes, no hashing, no allocation, and the whole set fits in a register. The catch is the universe must be <em>small</em> (&#8804; 32 or 64 elements) and the elements must map to small indices. Interview constraints like "1 &#8804; n &#8804; 20" are practically a neon sign saying <em>"pack the state into a bitmask."</em>`),
+sub("Enumerating subsets"),
+p(`Because a subset <em>is</em> just an integer in <code>[0, 2&#8319;)</code>, you can enumerate <em>all</em> <code>2&#8319;</code> subsets of an <code>n</code>-element set by counting from <code>0</code> up to <code>2&#8319; - 1</code>. Each value of <code>s</code> is itself a subset; bit <code>i</code> of <code>s</code> tells you whether element <code>i</code> is in it. That single loop replaces a recursive subset-generation backtrack &#8212; same answer space, no call stack:`),
+worked("Iterate every subset of n elements","s ranges over all 2^n bit patterns; for each, test bit i to see if element i is included. This is the iterative twin of the subsets backtracking template &#8212; reach for it when n is small and you want flat, allocation-free enumeration.",
+`// Print every subset of {0, 1, ..., n-1}.  n must be small (<= ~20).
+for (int s = 0; s < (1 << n); ++s) {       // each s is one subset
+    for (int i = 0; i < n; ++i)
+        if (s & (1 << i))                  // is element i in this subset?
+            use(i);
+    // ... s is fully built here ...
+}`),
+p(`A subtler tool: iterating only the <em>submasks</em> of a given mask <code>m</code> (the subsets of the elements <code>m</code> already contains). The idiom <code>for (int s = m; s; s = (s - 1) &amp; m)</code> walks every non-empty submask in descending order. The <code>(s - 1) &amp; m</code> step is the magic: <code>s - 1</code> borrows past the lowest set bit, and ANDing with <code>m</code> snaps the result back to bits that live in <code>m</code> &#8212; so you skip straight to the next valid submask without touching bits outside <code>m</code>.`),
+code(`// Visit every submask of m (every subset of the bits m has set).
+for (int s = m; s; s = (s - 1) & m) {
+    // s is a non-empty subset of m's bits
+}
+// Total work across all m of width n is 3^n, not 4^n -- a classic count.`),
+sub("Bitmask DP, in one breath"),
+p(`The headline application of "integer as a set" is <b>bitmask dynamic programming</b>: when the DP <em>state</em> is "which elements have I used so far," you pack that subset into an integer and index a table by it. The Travelling Salesman problem is the canonical case &#8212; <code>dp[mask][i]</code> is the cheapest path that has visited exactly the cities in <code>mask</code> and currently sits at city <code>i</code>. Transitions add one city: <code>mask | (1 &lt;&lt; next)</code>. The whole table is <code>2&#8319; &#215; n</code>, which is why these problems always cap <code>n</code> around 15&#8211;20.`),
+p(`You don't need to master TSP for most interviews, but recognizing the shape is the win: <em>"the state is a subset of a small set"</em> &#8594; bitmask DP. The provided hard problem below, "Shortest Path Visiting All Nodes," is exactly this &#8212; a BFS whose state is <code>(node, visited-mask)</code>, where the mask records which of the &#8804; 12 nodes you've already touched.`),
+note("🧠","The framing that signals seniority",`When you spot a small universe, say the line out loud: "n is at most 20, so I'll represent the set of used elements as a bitmask in an <code>int</code> &#8212; membership is a shift-and-AND, adding an element is an OR, and I can use the mask directly as a DP/visited key." Naming the encoding and its O(1) operations up front is exactly the move that reads as "this person has done this before."`),
+pit("Shifting by &#8805; the type width is undefined behavior",`Callback to the Undefined Behavior lesson: in C++, <code>x &lt;&lt; k</code> or <code>x &gt;&gt; k</code> where <code>k</code> is negative or <code>&#8805;</code> the bit-width of <code>x</code>'s type is <b>undefined behavior</b> &#8212; not "wraps to zero." For a 32-bit <code>int</code>, <code>1 &lt;&lt; 32</code> is UB, and on x86 it may even compute <code>1</code> because the CPU masks the shift count to 5 bits. Never shift by the full width; if you need "all bits," build it a safer way.`),
+pit("1 &lt;&lt; 31 overflows a signed int",`<code>1</code> is a signed <code>int</code>, so <code>1 &lt;&lt; 31</code> shifts a 1 <em>into the sign bit</em> &#8212; signed overflow, which is UB. If you're masking a 32-bit value or need bit 31+, use an <em>unsigned</em> or wider literal: <code>1u &lt;&lt; 31</code>, or <code>1LL &lt;&lt; 40</code> for a 64-bit mask. This is the single most common bit bug in interviews: people write <code>1 &lt;&lt; i</code> for a 64-element set and silently lose every element past 31. Make the literal match the width you intend.`),
+pit("Mind signed vs unsigned, especially on right shift",`Right-shifting a <em>negative</em> signed value is implementation-defined (in practice an arithmetic shift that copies the sign bit down) &#8212; so <code>-8 &gt;&gt; 1</code> is <em>not</em> a clean "divide by two" the way it is for unsigned. And mixing signed and unsigned in a bitwise expression triggers the usual conversions, which can turn a small negative into a huge unsigned value. When you're treating an integer as a bag of bits rather than a number, prefer <code>unsigned</code> / <code>uint32_t</code> / <code>uint64_t</code> so shifts and <code>~</code> behave predictably.`),
+idea("The interview reflexes worth having pre-loaded",`Five patterns cover almost everything: (1) <em>cancellation</em> &#8212; XOR a stream to find the odd-one-out; (2) <em>single-bit masks</em> &#8212; <code>1 &lt;&lt; i</code> to check/set/clear/toggle; (3) <em>lowest-bit tricks</em> &#8212; <code>n &amp; (n-1)</code> clears it, <code>n &amp; -n</code> isolates it, and <code>n &amp; (n-1) == 0</code> tests power-of-two; (4) <em>popcount</em>, hand-rolled (Kernighan) or <code>std::popcount</code>; (5) <em>int-as-set</em> for subset enumeration and bitmask DP when the universe is &#8804; 20. Recognize which one the problem is wearing and the code is short.`),
+cx(`Every operator &#8212; <code>&amp; | ^ ~ &lt;&lt; &gt;&gt;</code> &#8212; is <b>O(1)</b> on a machine word &#183; Kernighan popcount is <b>O(set bits)</b> &#183; enumerating all subsets is <b>O(2&#8319; &#183; n)</b> &#183; all submasks across a width-n universe is <b>O(3&#8319;)</b>`),
+{t:"probs",items:[["Single Number","single-number","easy"],["Sum of Two Integers","sum-of-two-integers","med"],["Shortest Path Visiting All Nodes","shortest-path-visiting-all-nodes","hard"]]}
+]},
+{group:"Data Structures & Algorithms",num:"15",id:"math",color:"#0D9488",title:"Math & Number Theory",badge:"Pattern",blocks:[
+cue(`<b>Spot it when:</b> the problem is about <em>divisibility, primes, remainders, or huge powers</em> &#8212; "is it prime," "count primes up to n," "greatest common divisor," "return the answer modulo 1e9+7," "compute <code>x</code> raised to <code>n</code>." These aren't really algorithm puzzles; they're <em>number-theory facts plus careful integer arithmetic</em>. The whole game is knowing the four or five classic tools and not letting <code>int</code> silently overflow underneath you.`),
+p(`You ship real numeric code, so none of these ideas are new &#8212; what's new is that interview number-theory problems reward a handful of <em>named</em> techniques and punish one specific carelessness: integer overflow. This lesson collects the toolkit (GCD, primes &amp; the sieve, modular arithmetic, fast exponentiation) and then spends real time on the overflow traps, because that's where otherwise-correct solutions die on the big test cases.`),
+sub("GCD and LCM &#8212; Euclid in three lines"),
+p(`The greatest common divisor of <code>a</code> and <code>b</code> is the largest integer dividing both. Euclid's insight is one line: <code>gcd(a, b) = gcd(b, a % b)</code>, recursing until the remainder hits zero, at which point the other operand <em>is</em> the answer. The intuition: any common divisor of <code>a</code> and <code>b</code> also divides <code>a % b</code> (since <code>a % b = a - q&#183;b</code>), so replacing <code>a</code> with <code>a % b</code> never loses a common divisor &#8212; but the numbers shrink fast, so it terminates in <code>O(log(min(a,b)))</code> steps.`),
+code(`int gcd(int a, int b) {
+    while (b != 0) {           // Euclid: replace (a, b) with (b, a % b)
+        int t = a % b;
+        a = b;
+        b = t;
+    }
+    return a;                  // when remainder is 0, a holds the gcd
+}`),
+note("📌","C++17 ships it &#8212; don't hand-roll unless asked","<code>&lt;numeric&gt;</code> gives you <code>std::gcd(a, b)</code> and <code>std::lcm(a, b)</code> since C++17. In real code, use them. In an interview, mention they exist (it signals you know the standard library), then write Euclid by hand if the interviewer wants to see the mechanism. Both are the right answer in their context."),
+p(`The least common multiple follows from GCD: <code>lcm(a, b) = a / gcd(a, b) * b</code>. Read the ordering carefully &#8212; <b>divide before you multiply.</b> The mathematically equivalent <code>a * b / gcd(a, b)</code> computes <code>a * b</code> first, which can overflow even when the true <code>lcm</code> fits comfortably. Dividing <code>a</code> by the gcd first keeps the intermediate value small. This is a textbook example of the broader rule running through this whole lesson: <em>the order of integer operations matters because intermediates can overflow.</em>`),
+code(`long long lcm(long long a, long long b) {
+    return a / std::gcd(a, b) * b;   // divide FIRST, then multiply -> no overflow blowup
+    // NOT a * b / std::gcd(a, b)    // a * b can overflow before the divide ever runs
+}`),
+sub("Primes: trial division, then the sieve"),
+p(`To test whether a single <code>n</code> is prime, try dividing by every candidate up to <code>&#8730;n</code>. Why stop at the square root? If <code>n = p &#183; q</code> with <code>p &#8804; q</code>, then <code>p &#8804; &#8730;n</code> &#8212; so if no divisor exists at or below <code>&#8730;n</code>, none exists above it either. That single observation turns an <code>O(n)</code> scan into <code>O(&#8730;n)</code>.`),
+code(`bool isPrime(long long n) {
+    if (n < 2) return false;                    // 0 and 1 are not prime
+    for (long long i = 2; i * i <= n; ++i)      // i * i <= n is the sqrt bound, no float
+        if (n % i == 0) return false;           // found a divisor -> composite
+    return true;
+}`),
+note("📌","<code>i * i &lt;= n</code> beats <code>i &lt;= sqrt(n)</code>","Writing the bound as <code>i * i &lt;= n</code> keeps everything in integer arithmetic &#8212; no <code>sqrt</code> call, no floating-point rounding that could let <code>i</code> stop one short and miss a divisor. Just make sure <code>i</code> is wide enough that <code>i * i</code> doesn't overflow; for <code>n</code> near <code>INT_MAX</code>, use <code>long long</code> as above."),
+p(`When you need <em>all</em> primes up to <code>n</code> (or "how many primes below <code>n</code>"), don't test each number separately &#8212; that's <code>O(n&#8730;n)</code>. Use the <b>Sieve of Eratosthenes</b>: assume everything is prime, then walk the primes in order and strike out their multiples. Each composite gets crossed off by its prime factors; what's never struck is prime. The total work is <code>O(n log log n)</code> &#8212; effectively linear &#8212; because the multiples thin out as the primes grow.`),
+svg("math_sieve","Walking 2,3,5,&#8230; and striking every multiple. 4 dies as a multiple of 2; 9 as a multiple of 3; 25 as a multiple of 5. Whatever survives the strikes is prime."),
+worked("Sieve of Eratosthenes &#8212; count primes below n","Start striking each prime p from p*p (everything smaller was already struck by a smaller prime), and step by p. The is_prime[i] vector is the whole data structure. This is the direct, fast answer to LeetCode's Count Primes.",
+`int countPrimes(int n) {
+    if (n < 3) return 0;                         // no primes below 2
+    std::vector<bool> is_prime(n, true);
+    is_prime[0] = is_prime[1] = false;           // 0 and 1 are not prime
+    for (int p = 2; (long long)p * p < n; ++p) { // only need to sieve up to sqrt(n)
+        if (!is_prime[p]) continue;              // p already struck -> skip
+        for (int m = p * p; m < n; m += p)       // start at p*p; smaller multiples already gone
+            is_prime[m] = false;                 // strike every multiple of p
+    }
+    int count = 0;
+    for (int i = 2; i < n; ++i)
+        if (is_prime[i]) ++count;                // survivors are prime
+    return count;
+}`),
+pit("Off-by-one at the sieve bound","Two boundary calls decide correctness. First, count primes <em>below</em> <code>n</code> means the array is sized <code>n</code> and you mark indices <code>0 &#8230; n-1</code> &#8212; mixing up &quot;below n&quot; vs &quot;up to and including n&quot; is the classic off-by-one here. Second, the outer loop only needs <code>p * p &lt; n</code>: once <code>p</code> exceeds <code>&#8730;n</code>, every remaining multiple <code>p * p</code> is already past the end, so iterating further is wasted work (and <code>p * p</code> can overflow <code>int</code> if you don't widen it)."),
+sub("Modular arithmetic &#8212; why \"answer mod 1e9+7\""),
+p(`Counting problems love to ask for "the number of ways, modulo 1e9+7." That modulus isn't decoration &#8212; it's there <em>because the true answer would overflow any fixed-width integer.</em> Instead of returning an astronomically large count, you return its remainder mod a large prime, and the problem is designed so you can keep everything reduced mod <code>m</code> at every step. The reason that works is the distributive laws of modular arithmetic:`),
+ul([
+  `<code>(a + b) % m = ((a % m) + (b % m)) % m</code> &#8212; you can reduce before <em>or</em> after adding.`,
+  `<code>(a * b) % m = ((a % m) * (b % m)) % m</code> &#8212; same for multiplication.`,
+  `<code>(a - b) % m</code> can go negative in C++ (the sign follows the dividend), so write <code>((a - b) % m + m) % m</code> to land back in <code>[0, m)</code>.`,
+]),
+p(`<code>1e9+7</code> specifically is a prime just under <code>2&#179;&#185;</code>, chosen so that the sum of two reduced values still fits in a 32-bit <code>int</code> &#8212; but their <em>product</em> does not, and that's the trap.`),
+pit("The overflow that kills modular solutions: a*b before the mod","This is the single most common bug in modular problems. <code>(a * b) % m</code> where <code>a</code> and <code>b</code> are each near <code>1e9</code> computes a product near <code>10&#185;&#8312;</code> &#8212; which overflows a 32-bit <code>int</code> (max ~<code>2.1&#215;10&#8313;</code>) <em>and</em> would overflow even before the <code>% m</code> runs. Signed overflow is <b>undefined behavior</b> (callback to the UB lesson: the optimizer may assume it never happens), so you don't even get a reliable wrong answer. The fix is to widen one operand to <code>long long</code> <em>before</em> multiplying: <code>(long long)a * b % m</code>. The multiply then happens in 64-bit, which holds <code>10&#185;&#8312;</code> easily."),
+code(`const long long MOD = 1'000'000'007;
+
+long long add(long long a, long long b) { return (a + b) % MOD; }
+long long mul(long long a, long long b) { return a * b % MOD; }   // a, b already < MOD -> product < 10^18, fits in long long
+long long sub(long long a, long long b) { return ((a - b) % MOD + MOD) % MOD; }  // keep it non-negative`),
+sub("Fast exponentiation &#8212; a&#8319; in O(log n)"),
+p(`"Compute <code>x</code> to the <code>n</code>" by multiplying <code>x</code> by itself <code>n</code> times is <code>O(n)</code> &#8212; far too slow when <code>n</code> is <code>10&#8313;</code>, and it overflows immediately without a mod. <b>Binary exponentiation</b> does it in <code>O(log n)</code> by squaring. The trick is the binary expansion of the exponent: <code>a&#185;&#179; = a&#8312; &#183; a&#8308; &#183; a&#185;</code> because <code>13 = 1101&#8322; = 8 + 4 + 1</code>. So you walk the bits of <code>n</code> from low to high, keep squaring the base (<code>a, a&#178;, a&#8308;, a&#8312;, &#8230;</code>), and fold the current square into the result only where the bit is set.`),
+svg("math_fastpow","13 in binary is 1101, i.e. 8+4+1. Square the base at each step; multiply it into the running result only on the set bits. Four squarings and three multiplies replace twelve multiplications."),
+worked("modpow: (base^exp) mod m without overflow","Loop over the bits of exp. When the low bit is set, fold the current square into result; then square the base and shift. Every product is widened to long long before the mod, so nothing overflows. This is the workhorse behind modular combinatorics and modular inverses.",
+`long long modpow(long long base, long long exp, long long mod) {
+    long long result = 1;
+    base %= mod;                                 // reduce once up front
+    while (exp > 0) {
+        if (exp & 1)                             // current bit set -> fold this power in
+            result = result * base % mod;        // long long product, then reduce
+        base = base * base % mod;                // square the base for the next bit
+        exp >>= 1;                               // move to the next bit
+    }
+    return result;
+}`),
+p(`The exact same skeleton without the <code>% mod</code> solves LeetCode's <em>Pow(x, n)</em> for <code>double</code> &#8212; with one wrinkle: <code>n</code> can be negative, and negating it is where overflow strikes again.`),
+worked("Pow(x, n) for double &#8212; mind the negative exponent","Same square-and-fold loop on a double. The catch: when n is negative you want x^(-n), but -INT_MIN overflows. Promote to long long BEFORE negating so n = -(long long)n is safe.",
+`double myPow(double x, int n) {
+    long long e = n;                 // widen first
+    if (e < 0) { x = 1.0 / x; e = -e; }   // -e is safe in long long; -INT_MIN would NOT be safe in int
+    double result = 1.0;
+    while (e > 0) {
+        if (e & 1) result *= x;      // fold in current square
+        x *= x;                      // square the base
+        e >>= 1;
+    }
+    return result;
+}`),
+sub("Integer overflow awareness &#8212; the through-line"),
+p(`Every section above tripped over the same hazard, so make it explicit. In C++, <b>signed integer overflow is undefined behavior</b> &#8212; not "wraps around to a negative number," but genuinely UB the optimizer is allowed to assume never happens (callback to the Undefined Behavior lesson). Unsigned overflow <em>is</em> defined (modular wraparound), which is occasionally useful but easy to misuse. The defensive habits:`),
+ul([
+  `<b>Widen before you multiply.</b> <code>(long long)a * b</code>, not <code>(long long)(a * b)</code> &#8212; the cast must happen <em>before</em> the multiply, or the <code>int</code> product has already overflowed.`,
+  `<b>Use the no-overflow midpoint.</b> <code>mid = lo + (hi - lo) / 2</code>, never <code>(lo + hi) / 2</code> &#8212; the same idiom you learned in Binary Search, for the same reason: <code>lo + hi</code> can overflow.`,
+  `<b>Divide before multiplying</b> when a factor cancels &#8212; the <code>lcm</code> trick: <code>a / g * b</code>, not <code>a * b / g</code>.`,
+  `<b>Reach for <code>long long</code> deliberately</b> when accumulating sums or counting up to large bounds; don't wait for the big test case to expose an <code>int</code> that was always too small.`,
+]),
+pit("INT_MIN is not symmetric &#8212; abs/negate can be UB","Two's-complement asymmetry: <code>INT_MIN</code> is <code>-2147483648</code> but <code>INT_MAX</code> is only <code>2147483647</code>, so <code>+2147483648</code> isn't representable. That makes <code>-INT_MIN</code> and <code>std::abs(INT_MIN)</code> <b>undefined behavior</b> &#8212; the positive value doesn't exist as an <code>int</code>. Any problem that negates a number (reverse-integer, the negative exponent in <em>Pow</em>, normalizing signs) must handle <code>INT_MIN</code> specially or widen to <code>long long</code> before negating. Interviewers probe this exact edge."),
+pit("Integer division truncates toward zero","<code>7 / 2 == 3</code> and <code>-7 / 2 == -3</code> &#8212; C++ integer division truncates toward zero, and <code>%</code> takes the sign of the dividend (<code>-7 % 2 == -1</code>). When you need a ceiling, write <code>(a + b - 1) / b</code> for non-negative values (the same ceil-division idiom from the Binary Search / Koko example). When you need a remainder that's always non-negative (common in modular and hashing code), write <code>((x % m) + m) % m</code>."),
+idea("Name the tool out loud","These problems are pattern-matched on the prompt: \"mod 1e9+7\" &#8594; keep everything reduced, widen before multiplying. \"x to the n\" or \"&#8230; mod m\" with huge n &#8594; binary exponentiation. \"primes up to n\" &#8594; sieve; \"is this one prime\" &#8594; trial division to &#8730;n. \"gcd / lcm / reduce a fraction\" &#8594; Euclid. Saying the name first turns a blank-page problem into filling in a template you already know cold."),
+cx(`Euclid GCD <b>O(log min(a,b))</b> &#183; trial-division primality <b>O(&#8730;n)</b> &#183; Sieve of Eratosthenes <b>O(n log log n)</b> time, <b>O(n)</b> space &#183; binary exponentiation <b>O(log n)</b>`),
+{t:"probs",items:[["Happy Number","happy-number","easy"],["Count Primes","count-primes","med"],["Max Points on a Line","max-points-on-a-line","hard"]]}
+]},
+{group:"Data Structures & Algorithms",num:"16",id:"greedy",color:"#16A34A",title:"Greedy",badge:"Pattern",blocks:[
+cue(`<b>Spot it when:</b> the problem asks for a <em>best</em> outcome &#8212; max activities, min jumps, fewest coins, can-I-reach-the-end &#8212; and you can see a rule that picks the obviously-best choice <em>right now</em> without looking ahead: take the earliest-finishing meeting, jump as far as you can, hand the smallest cookie to the least greedy child. If a simple "always do X next" rule seems to solve it, you're looking at a greedy algorithm &#8212; but the catch is proving that rule is actually right.`),
+p(`A <b>greedy algorithm</b> builds an answer one step at a time, and at every step it makes the choice that looks best <em>at that moment</em> &#8212; the local optimum &#8212; and then never reconsiders it. No backtracking, no table of subproblems, no second-guessing. You commit to each decision and move on. That's the entire mechanism, and it's why greedy solutions are usually short and fast: a single pass, often after a sort, with a couple of running variables.`),
+p(`The whole difficulty of greedy is not writing it &#8212; the code is trivial. It's <em>knowing you're allowed to be greedy</em>. Committing to the locally-best move only produces the globally-best answer for a specific, lucky class of problems. For everything else, a choice that looks best now quietly paints you into a corner later, and the greedy answer is confidently wrong. So this lesson is really two skills: recognizing the handful of classic greedy shapes, and &#8212; the part that separates a real answer from a guess &#8212; being able to argue that greed is safe here.`),
+note(`&#128221;`,"You have already seen greedy",`The Intervals lesson's <code>eraseOverlapIntervals</code> &#8212; "sort by <code>end</code>, always keep the earliest finisher" &#8212; <em>is</em> a greedy algorithm; we just didn't name the strategy. This lesson names it and gives you the tool to know <em>when</em> that move is provably correct, so you can reach for it on a problem you haven't seen before instead of only recognizing the ones you have.`),
+sub("Why greedy is dangerous: the locally-best move can be globally wrong"),
+p(`Here is the trap, made concrete, because internalizing it is worth more than any single algorithm. Suppose you're making change with coin denominations <code>{1, 3, 4}</code> and you want to make 6 with the fewest coins. The greedy rule "always take the largest coin that fits" grabs a 4, leaving 2, then two 1s: <b>three coins</b> (4 + 1 + 1). But the real optimum is <b>two coins</b> (3 + 3). Greedy took the locally-biggest bite and missed it. That largest-coin rule <em>does</em> work for real currency (US coins are designed so it does), which is exactly what makes the trap insidious &#8212; it looks right, it passes your hand-traced examples, and then a denomination set you didn't try breaks it.`),
+p(`The general coin-change problem is therefore a <b>dynamic-programming</b> problem, not a greedy one &#8212; which is precisely the coin-change worked example from the DP lesson. That's the fault line between the two strategies, and it's worth saying out loud:`),
+ul([
+  `<b>Greedy</b> commits to one choice per step and never revisits it. It works <em>only</em> when the locally-optimal choice is provably part of a globally-optimal answer.`,
+  `<b>Dynamic programming</b> keeps every promising option alive &#8212; it explores all the choices at each step and remembers the best of each subproblem, so a locally-worse move that pays off later is never thrown away.`,
+  `<b>The decision rule:</b> if a locally-best choice can ever be globally wrong (like grabbing the biggest coin), you need DP's bookkeeping. If you can <em>prove</em> the locally-best choice is always safe, greedy gives you the same answer far faster.`,
+]),
+idea("Greedy is DP that got lucky","Think of greedy as the special case where you don't need the table: at every step there's a single choice you can prove is optimal, so you never have to remember the alternatives. When that proof exists, greedy collapses DP's O(n&#183;states) work into one O(n) (or O(n log n)) pass. When it doesn't, you fall back to DP. So the real question is never \"can I code this greedily\" &#8212; it's \"can I prove the greedy choice is safe.\""),
+sub("Proving greedy is correct: the two arguments interviewers want"),
+p(`You will not be handed a problem labeled "this one is greedy-safe." You have to make the case yourself, and there are two standard ways to do it. You don't need a formal proof in an interview &#8212; you need to <em>say the argument convincingly</em> for the specific problem, which signals you know greedy isn't a guess.`),
+p(`<b>The exchange argument.</b> This is the workhorse. Assume some optimal solution exists that does <em>not</em> make your greedy choice. Show that you can swap your greedy choice into it &#8212; replacing whatever the optimal did at that step &#8212; <em>without making the solution any worse</em>. If every such swap is harmless, then there's an optimal solution that agrees with greedy at that step; repeat the argument and greedy matches optimal all the way down. Activity selection is the clean example: take the meeting that finishes earliest. If some optimal schedule used a later-finishing first meeting instead, swap in the earliest finisher &#8212; it frees the room at least as soon, so every later meeting that fit still fits. The swap never hurts, so keeping the earliest finisher is safe.`),
+p(`<b>"Greedy stays ahead."</b> The other framing: show that after every step, the partial solution greedy has built is at least as good, by the relevant measure, as the partial solution of <em>any</em> other strategy at that same step. If greedy is never behind at any point, it can't be behind at the end. Jump Game fits this exactly &#8212; at each index, greedy's "farthest reachable so far" is provably &#8805; what any other choice of jumps could have reached by that index, so if <em>anyone</em> can reach the end, greedy's frontier reaches it too.`),
+note(`&#129504;`,"The honest workflow under pressure",`When a greedy rule occurs to you, do two things before trusting it. <b>First, try to break it:</b> spend thirty seconds hunting a small counterexample (the <code>{1,3,4}</code> coins took one). If you find one, greedy is dead &#8212; reach for DP. <b>Second, if you can't break it, sketch the exchange argument:</b> "swapping my choice into any optimal solution doesn't make it worse, so my choice is safe." Counterexample-or-proof is the entire discipline. A greedy answer with neither is a coin flip you got away with.`),
+sub("Classic instance 1: interval scheduling / activity selection"),
+p(`The canonical greedy problem, and the one whose proof you should be able to recite. Given a set of intervals (meetings, jobs), select the <em>most</em> that don't overlap. The greedy rule: <em>sort by <code>end</code> time, then walk left to right keeping any interval that starts at or after the last kept interval's end.</em> Always taking the earliest finisher leaves the maximum room on the timeline for everything after it &#8212; that's the exchange argument from above. This is the same move as the Intervals lesson's <code>eraseOverlapIntervals</code> (which counts the ones you <em>drop</em> instead of the ones you keep &#8212; two sides of the identical greedy).`),
+svg("greedy_activity","Activity selection: sorted by end time, greedily keep the earliest finisher and skip anything that starts before your current free time. Each kept interval frees the timeline as early as possible, which is exactly why the earliest-finisher rule is optimal &#8212; the exchange argument made visual."),
+worked("Maximum non-overlapping activities","Sort by END time so 'earliest finisher' is the first element of each run. Carry the end of the last kept activity; take the next one only if it starts on or after that. The count of kept activities is the largest possible conflict-free set. This is activity selection in its 'keep' form; eraseOverlapIntervals is the same loop counting removals.",
+`int maxActivities(vector<vector<int>>& intervals) {
+    if (intervals.empty()) return 0;
+    sort(intervals.begin(), intervals.end(),
+         [](const vector<int>& a, const vector<int>& b) {
+             return a[1] < b[1];               // sort by END time
+         });
+    int kept = 1;                              // always keep the first (earliest finisher)
+    int prevEnd = intervals[0][1];             // when the room frees up
+    for (int i = 1; i < (int)intervals.size(); i++) {
+        if (intervals[i][0] >= prevEnd) {      // starts after we're free -> no conflict
+            kept++;                            // greedily take it
+            prevEnd = intervals[i][1];         // advance the boundary
+        }
+        // else: it overlaps -> skip it, never reconsider
+    }
+    return kept;
+}`),
+pit("Sorting by the wrong key silently breaks it","Activity selection needs sort-by-<code>end</code>; sort by <code>start</code> (or by duration, a tempting wrong guess) and the earliest-finisher invariant evaporates &#8212; the loop still runs and returns a confidently wrong count. The sort key <em>is</em> the algorithm here. Before writing the comparator, state which quantity makes your greedy choice well-defined, and sort by exactly that. Mixing up start-vs-end is the single most common greedy/interval bug."),
+sub("Classic instance 2: Jump Game (greedy reachability in one pass)"),
+p(`You're given an array where <code>nums[i]</code> is the maximum jump length from index <code>i</code>; starting at index 0, can you reach the last index? The naive instinct is to try every jump length from every cell &#8212; exponential, or a DP over "is cell <code>i</code> reachable." But there's a greedy one-pass insight that kills it: <em>track a single number, the farthest index reachable so far.</em> Sweep left to right; at each index <code>i</code> that you can actually reach, extend the frontier to <code>max(frontier, i + nums[i])</code>. If the frontier ever falls behind the current index, you're stranded &#8212; you can't even step onto <code>i</code>, so the answer is no. If the frontier ever reaches the last index, the answer is yes.`),
+p(`Why is this greedy choice safe? It's "greedy stays ahead": <code>reach</code> is, at every index, the farthest any sequence of jumps could possibly get you by that point &#8212; we never throw away reachability, we only ever take the max. So if the destination is reachable by <em>any</em> route, <code>reach</code> reaches it too. We never had to know <em>which</em> jumps; tracking the frontier is enough.`),
+svg("greedy_jump","Jump Game in one pass: reach holds the farthest index reachable so far, growing by max(reach, i + nums[i]) at each cell you can stand on. As long as reach keeps up with i you can keep moving; the moment it clears the last index you're done. If reach ever lags behind i, you're stranded."),
+worked("Jump Game: can you reach the last index?","One pass, one variable. reach = farthest index reachable so far. If i ever exceeds reach, you can't even stand on i, so you're stuck -> false. The instant reach covers the last index, you're guaranteed home -> true. No DP table, no trying individual jump lengths: O(n) time, O(1) space.",
+`bool canJump(const vector<int>& nums) {
+    int reach = 0;                             // farthest index reachable so far
+    int n = nums.size();
+    for (int i = 0; i < n; i++) {
+        if (i > reach) return false;           // stranded: can't even reach i
+        reach = max(reach, i + nums[i]);       // greedily extend the frontier
+        if (reach >= n - 1) return true;       // frontier already covers the goal
+    }
+    return true;                               // single-element array, etc.
+}`),
+idea("The same frontier counts minimum jumps","Jump Game II ('fewest jumps to the end') is the same frontier idea with one more variable: track the end of the <em>current</em> jump's range, and every time <code>i</code> reaches it, you're forced to take a jump &#8212; so increment the jump count and extend the range to the farthest you saw. Still one greedy pass, still O(n). Recognizing that reachability and min-jumps share a frontier is the kind of connection that makes a greedy problem feel obvious instead of clever."),
+sub("Classic instance 3: Gas Station (the unique start after the last deficit)"),
+p(`A circular route of stations: <code>gas[i]</code> is the fuel you pick up at station <code>i</code>, <code>cost[i]</code> is the fuel to drive from <code>i</code> to <code>i+1</code>. Find a starting station you can drive the full loop from, or report it's impossible. Two greedy facts crack it. <b>Feasibility:</b> if total gas &#8805; total cost, a valid start <em>exists</em> (and is unique if you want one answer); if total is negative, no start works, period. <b>Where:</b> sweep once tracking a running tank; whenever the tank goes negative at station <code>i</code>, <em>no</em> station from your last candidate start through <code>i</code> can be the answer &#8212; so the next viable start is <code>i + 1</code>. Reset the tank and keep going. The answer is the station right after the <em>last</em> place you ran a deficit.`),
+p(`The greedy leap is that "if you ran out somewhere between <code>start</code> and <code>i</code>, then no station in that whole stretch could have made it either." That's an exchange-style argument: any earlier candidate had even less fuel reaching <code>i</code> than <code>start</code> did (it had to pay the costs to <em>get</em> to <code>start</code> first), so if <code>start</code> failed, they all fail &#8212; you can skip the entire stretch in one move instead of re-trying each. That's what turns an O(n&#178;) "try every start" into a single O(n) pass.`),
+worked("Gas Station: one pass to the unique start","total tracks overall feasibility (>= 0 means an answer exists). tank tracks the run from the current candidate start; the moment it dips below zero, every station from start..i is disqualified, so the only remaining candidate is i+1 and tank resets. Because a valid start is guaranteed to exist when total >= 0, the last candidate you set is the answer.",
+`int canCompleteCircuit(const vector<int>& gas, const vector<int>& cost) {
+    int total = 0;        // sum of (gas - cost) over the whole loop: feasibility
+    int tank = 0;         // running tank from the current candidate start
+    int start = 0;        // current candidate starting station
+    for (int i = 0; i < (int)gas.size(); i++) {
+        int diff = gas[i] - cost[i];
+        total += diff;
+        tank  += diff;
+        if (tank < 0) {   // can't reach i+1 from 'start' -> none of start..i can
+            start = i + 1; // next viable candidate is just past the failure
+            tank  = 0;     // start fresh from there
+        }
+    }
+    return total >= 0 ? start : -1;   // feasible iff total >= 0; then 'start' is it
+}`),
+sub("Classic instance 4: two-pointer greedy (Assign Cookies)"),
+p(`Some greedy problems pair the strategy with the Two Pointers pattern: sort both inputs, then walk a pointer up each, greedily matching as you go. <b>Assign Cookies</b> is the model. Each child has a greed factor <code>g[i]</code> (the smallest cookie that satisfies them); each cookie has a size <code>s[j]</code>. Maximize the number of satisfied children. Greedy rule: sort both, then give the <em>smallest</em> cookie that can satisfy the <em>least-greedy remaining</em> child. Don't waste a big cookie on a child a small one would have pleased &#8212; that's the exchange argument again (swapping in the smallest sufficient cookie never satisfies fewer children).`),
+worked("Assign Cookies: sort both, march two pointers","Sort children by greed and cookies by size. Pointer i walks children, j walks cookies. If the current cookie satisfies the current child (s[j] >= g[i]), match them and advance both; otherwise the cookie was too small for even the least-greedy unserved child, so discard it and advance j only. The number of children advanced past is the answer.",
+`int findContentChildren(vector<int>& g, vector<int>& s) {
+    sort(g.begin(), g.end());                  // children by greed, ascending
+    sort(s.begin(), s.end());                  // cookies by size, ascending
+    int i = 0, j = 0;                          // i -> children, j -> cookies
+    while (i < (int)g.size() && j < (int)s.size()) {
+        if (s[j] >= g[i]) i++;                 // smallest sufficient cookie -> satisfy child
+        j++;                                   // either way, this cookie is used up
+    }
+    return i;                                  // children satisfied
+}`),
+note(`&#128202;`,"Sort-then-sweep is the greedy signature",`Three of the four classics here open with a sort. That's not a coincidence: sorting is how you <em>make the greedy choice well-defined</em> &#8212; "earliest finisher," "least-greedy child," "smallest sufficient cookie" only mean something once the data is ordered by the right key. When a greedy rule is on the tip of your tongue, the first question is almost always "sorted by what?" Get that key right and the sweep after it is four lines.`),
+sub("The pitfalls that sink greedy solutions"),
+pit("Assuming greedy works without proving it (the #1 trap)","This is the mistake that fails real interviews. A greedy rule that looks right and isn't &#8212; largest-coin change on <code>{1,3,4}</code>, picking intervals by duration, taking the highest-value item in 0/1 knapsack &#8212; will pass the examples you hand-traced and then break on a case you didn't. Never submit a greedy answer you haven't either <em>proven</em> safe (exchange argument) or <em>failed to break</em> after a genuine hunt for a counterexample. \"It seems to work on my examples\" is not a reason; it's how you get a confidently wrong solution."),
+pit("Reaching for greedy when the problem actually needs DP","If a locally-optimal choice can be globally suboptimal, greedy is the wrong tool and no amount of cleverness in the rule will save it &#8212; you need DP's habit of keeping every option alive. The tells that you've crossed the line: future choices depend on the <em>combination</em> of earlier ones (0/1 knapsack &#8212; whether to take an item depends on capacity left, which depends on all prior takes), or a worse-looking move now enables a much better one later. When the greedy choice and the optimal choice can diverge, stop and build the DP table (callback to the DP lesson)."),
+pit("Sorting by the wrong key, or forgetting to sort","Most greedy bugs are sort bugs. The algorithm's correctness rides entirely on ordering by the quantity that makes the greedy choice valid &#8212; <code>end</code> for scheduling, greed/size for cookies. Sort by start instead of end, by value instead of value-per-weight, or forget the sort entirely, and the sweep runs cleanly and returns nonsense. Pin down the sort key from the proof: whatever quantity your exchange argument compares is the key you sort on."),
+idea("The interview narration that lands","Say the strategy and the justification together: \"This looks greedy &#8212; the rule is take the earliest finisher / extend the farthest reach. Let me check it's safe: swapping my choice into any optimal solution doesn't make it worse [or: I tried to find a counterexample and couldn't], so I'll commit to it.\" Naming the greedy choice AND voicing the exchange argument (or the counterexample hunt) in one breath is the difference between looking like you guessed and looking like you proved it. The proof is the skill; the loop is bookkeeping."),
+cx(`Usually <b>O(n)</b> for a pure one-pass greedy (Jump Game, Gas Station), or <b>O(n log n)</b> when a sort sets up the choice (activity selection, Assign Cookies) &#8212; the sort dominates and the sweep is <b>O(n)</b>. Space is typically <b>O(1)</b> beyond the input, or <b>O(n)</b> if the sort isn't in place. The win over DP is real: a provably-safe greedy turns an O(n&#183;states) table into a single pass.`),
+{t:"probs",items:[["Assign Cookies","assign-cookies","easy"],["Jump Game","jump-game","med"],["Candy","candy","hard"]]}
+]},
+{group:"Data Structures & Algorithms",num:"17",id:"dsu",color:"#0EA5E9",title:"Union-Find (DSU)",badge:"Pattern",blocks:[
+cue(`<b>Spot it when:</b> the problem is about <em>grouping</em> &#8212; "are these two in the same group?", "merge these two groups", "how many groups are there?" &#8212; and the groups <em>grow as you go</em>, usually because edges or equivalences arrive one at a time. Tell-tale phrasing: <em>connected, same component, redundant edge, friend circles, accounts merge, equivalent</em>. If a plain BFS/DFS would force you to re-traverse the whole graph every time a new edge shows up, reach for Union-Find instead.`),
+p(`<b>Union-Find</b> &#8212; also called a <b>disjoint-set union (DSU)</b> &#8212; is a tiny, almost embarrassingly small structure that answers two questions about a partition of <code>n</code> items into non-overlapping groups, both in <em>effectively constant time</em>: "are <code>x</code> and <code>y</code> in the same group?" and "merge the groups of <code>x</code> and <code>y</code>." That's the entire interface &#8212; <code>find</code> and <code>union</code> &#8212; and yet it's the cleanest tool for a whole family of connectivity problems that graph traversal handles clumsily.`),
+p(`The reason it earns its place next to BFS/DFS is <em>incrementality</em>. A graph traversal answers "is everything connected?" by walking the whole graph once, which is great when the graph is fixed. But when edges <em>stream in</em> &#8212; add an edge, ask "are these two connected now?", add another, ask again &#8212; re-running BFS from scratch on every query is O(V + E) per query. DSU updates its answer as each edge arrives and answers each query in near-O(1). That "maintain connectivity online" ability is the thing a plain traversal can't do cheaply, and it's exactly what these problems test.`),
+sub("The representation: a parent[] array, sets identified by their root"),
+p(`The whole structure is one array: <code>vector&lt;int&gt; parent</code>, where <code>parent[x]</code> is "the node <code>x</code> points to." Follow those pointers and you climb a little tree; the node at the top &#8212; the one that points to itself, <code>parent[r] == r</code> &#8212; is the <b>root</b>, and the root <em>is</em> the identity of the set. Two items are in the same set if and only if they climb to the <em>same root</em>. There's no separate "set object"; a set is just "everyone who reaches root <code>r</code>."`),
+p(`At the start every item is its own group, so every node is its own root: <code>parent[i] = i</code> for all <code>i</code>. As you union things, roots get linked under other roots, and the forest of one-node trees coalesces into fewer, larger trees. The shape of those trees is bookkeeping you'll work hard to keep <em>shallow</em> &#8212; because the cost of every operation is the cost of climbing to a root, and a tall, stringy tree is the enemy.`),
+code(`struct DSU {
+    vector<int> parent;                 // parent[x] = the node x points to
+    DSU(int n) : parent(n) {
+        for (int i = 0; i < n; i++)
+            parent[i] = i;              // everyone starts as their own root
+    }
+};`),
+sub("find(x): climb to the root, then flatten the path"),
+p(`<b>find(x)</b> answers "which set is <code>x</code> in?" by returning the root of <code>x</code>'s tree. The naive version just walks up: while <code>x</code> isn't its own parent, step to <code>parent[x]</code>; return where you land. The cost of that walk is the <em>depth</em> of <code>x</code> &#8212; which is why we care so much about keeping trees short.`),
+p(`The optimization that makes <code>find</code> cheap is <b>path compression</b>: while you're climbing anyway, re-point every node you pass <em>directly</em> at the root. The walk happens once; afterward, every node on that path is one hop from the root, so the next <code>find</code> on any of them is flat. It's a self-improving cache &#8212; the structure pays down its own depth as a side effect of being queried.`),
+svg("dsu_compress","Before find(3) the set is a degenerate chain: reaching the root 0 from node 3 takes three hops. Path compression re-points 1, 2, and 3 straight at 0 during that single climb, so every later find on them is a single hop. The walk you had to do anyway flattens the tree for free."),
+code(`int find(int x) {
+    if (parent[x] != x)
+        parent[x] = find(parent[x]);    // recurse to root, then point x AT it
+    return parent[x];                   // x now hangs directly off the root
+}`),
+note("📌","Why &quot;point at the root&quot; and not &quot;move one step up&quot;",`The recursive form above sets <code>parent[x]</code> to the <em>final</em> root returned from deeper in the recursion, so <em>every</em> node on the path gets re-parented to the root in one pass &#8212; full compression. A common weaker variant is <em>path halving</em> (<code>parent[x] = parent[parent[x]]</code> in a loop), which compresses half as aggressively but avoids recursion and the call stack. Both give the same near-constant amortized bound; the recursive full-compression version is the one to write on a whiteboard because it reads as plain intent.`),
+sub("union(x, y): link the roots, smaller tree under larger"),
+p(`<b>union(x, y)</b> merges the two sets. You don't touch <code>x</code> and <code>y</code> directly &#8212; you find <em>their roots</em> and point one root at the other. If the two roots are already equal, they're already one set and there's nothing to do (this "nothing to do" case is itself useful &#8212; hold that thought for cycle detection). Linking is one assignment: <code>parent[rootA] = rootB</code>.`),
+p(`But <em>which</em> root goes under which matters enormously. Attach carelessly and you can build exactly the tall chain that path compression exists to undo. The fix is <b>union by size</b> (or by rank): always hang the <em>smaller</em> tree under the <em>larger</em> tree's root. A node's depth only increases when the tree it's in gets hung under another &#8212; so by always re-parenting the smaller side, you minimize how many nodes get deepened, and tree height stays logarithmic even before compression helps.`),
+svg("dsu_union","unite(a, x) merges a size-4 tree and a size-2 tree. Union by size hangs the smaller tree's root (x, the purple one) under the larger tree's root (a), so only x and y get one level deeper. Doing it the other way &#8212; the big tree under the small root &#8212; would have deepened four nodes for nothing."),
+p(`<b>Rank vs size:</b> <em>size</em> tracks how many nodes are in each tree; <em>rank</em> tracks an upper bound on tree height. Both work and both give the same asymptotic guarantee; size is a hair more intuitive ("more nodes = keep it as the parent") and is what most people reach for. Pick one and be consistent. A nice touch: have <code>unite</code> <em>return a bool</em> &#8212; <code>true</code> if it actually merged two distinct sets, <code>false</code> if they were already together. That return value is the hook half these problems hang on.`),
+worked("The full DSU class (compression + union by size)","This is the whole structure you'd write in an interview: a parent array, a size array, find with path compression, and unite that links smaller-under-larger and returns whether a merge happened. Memorize this shape; everything below is just calling it.",
+`struct DSU {
+    vector<int> parent, size;
+    int groups;                              // live count of distinct sets
+
+    DSU(int n) : parent(n), size(n, 1), groups(n) {
+        for (int i = 0; i < n; i++)
+            parent[i] = i;                   // n singletons, n groups
+    }
+
+    int find(int x) {                        // root of x's set, with compression
+        if (parent[x] != x)
+            parent[x] = find(parent[x]);     // re-point x straight at the root
+        return parent[x];
+    }
+
+    bool unite(int x, int y) {               // returns true iff a real merge happened
+        int rx = find(x), ry = find(y);
+        if (rx == ry) return false;          // already same set -> no-op
+        if (size[rx] < size[ry]) swap(rx, ry);   // rx is the BIGGER root
+        parent[ry] = rx;                     // hang smaller (ry) under bigger (rx)
+        size[rx] += size[ry];                // bigger tree absorbs the smaller
+        groups--;                            // two sets became one
+        return true;
+    }
+
+    bool connected(int x, int y) { return find(x) == find(y); }
+};`),
+note("📌","The complexity claim: near-O(&#945;(n)), effectively constant",`With <em>both</em> path compression and union by size/rank, a sequence of <code>m</code> operations on <code>n</code> items runs in <b>O(m &#945;(n))</b>, where &#945; is the <em>inverse Ackermann function</em>. &#945;(n) grows so glacially that for any <code>n</code> you could ever allocate &#8212; atoms-in-the-universe <code>n</code> &#8212; it's at most 4. So per-operation cost is treated as <b>amortized constant</b> in practice. The catch is the word <em>both</em>: drop either optimization and the bound degrades. With neither, <code>find</code> on a degenerate chain is O(n).`),
+sub("Killer use 1 — counting connected components incrementally"),
+p(`This is the most direct payoff. You want "how many separate groups remain?" as edges get added. Start a counter at <code>n</code> (every item alone). Every time <code>unite</code> <em>actually merges</em> two distinct sets &#8212; i.e. returns <code>true</code> &#8212; decrement it. That's it: the counter is always the current component count, maintained in near-O(1) per edge. The DSU above already tracks this in <code>groups</code>.`),
+worked("Number of Provinces (count components)","isConnected[i][j] == 1 means city i and j are directly linked. Union every such pair; the surviving group count is the number of provinces. No traversal, no visited array &#8212; just merge and read the counter.",
+`int findCircleNum(const vector<vector<int>>& isConnected) {
+    int n = isConnected.size();
+    DSU dsu(n);
+    for (int i = 0; i < n; i++)
+        for (int j = i + 1; j < n; j++)      // upper triangle is enough
+            if (isConnected[i][j] == 1)
+                dsu.unite(i, j);             // merge the two cities' provinces
+    return dsu.groups;                       // distinct sets = provinces
+}`),
+sub("Killer use 2 — cycle detection in an undirected graph"),
+p(`Here's where the <code>bool</code> return earns its keep. Process the edges of an undirected graph one at a time, uniting each edge's endpoints. If <code>unite(u, v)</code> finds <code>u</code> and <code>v</code> <em>already in the same set</em> &#8212; returns <code>false</code> &#8212; then there was already a path between them, and this edge <code>u&#8211;v</code> closes a <b>cycle</b>. The first such edge is the redundant one. No DFS, no back-edge bookkeeping; the "already connected" case <em>is</em> the cycle test.`),
+worked("Redundant Connection (the edge that closes a cycle)","A tree on n nodes has exactly n-1 edges; one extra edge was added, creating a single cycle. Union the edges in order; the first edge whose endpoints are already connected is the culprit to return.",
+`vector<int> findRedundantConnection(const vector<vector<int>>& edges) {
+    DSU dsu(edges.size() + 1);               // nodes are 1-indexed -> size n+1
+    for (const auto& e : edges) {
+        if (!dsu.unite(e[0], e[1]))          // already same set -> this edge made a cycle
+            return e;                        // the redundant connection
+    }
+    return {};                               // (problem guarantees one exists)
+}`),
+note("📌","1-indexed nodes: size the array n+1, not n","Problems like <em>Redundant Connection</em> label nodes <code>1..n</code>, not <code>0..n-1</code>. If you build a DSU of size <code>n</code> you'll index <code>parent[n]</code> out of bounds the moment a node labelled <code>n</code> shows up &#8212; undefined behavior, not a clean crash. Allocate <code>n + 1</code> slots and ignore index 0, or normalize the labels to zero-based up front. Decide which at the top and write it down; this off-by-one is the single most common DSU bug after forgetting compression."),
+sub("Killer use 3 — Kruskal's MST (greedy, cycle-skipping)"),
+p(`Union-Find is the engine inside <b>Kruskal's minimum spanning tree</b>. The algorithm: sort all edges by weight ascending, then walk them cheapest-first and <code>unite</code> each edge's endpoints &#8212; <em>unless</em> they're already in the same set, in which case adding the edge would form a cycle, so you skip it. Take an edge exactly when <code>unite</code> returns <code>true</code>. After processing, the accepted edges form the MST. DSU is what makes the "would this edge form a cycle?" check O(&#945;(n)) instead of a graph search per edge.`),
+code(`// Kruskal's MST: greedily take the cheapest edge that doesn't close a cycle.
+long long kruskal(int n, vector<array<int,3>>& edges) {  // each edge = {w, u, v}
+    sort(edges.begin(), edges.end());        // cheapest weight first
+    DSU dsu(n);
+    long long total = 0;
+    for (auto& [w, u, v] : edges)
+        if (dsu.unite(u, v))                 // true == u,v were separate -> safe to add
+            total += w;                      // edge joins the tree; skip it otherwise
+    return total;                            // weight of the minimum spanning tree
+}`),
+idea("The fourth use: grid and equivalence grouping",`Anytime a problem says "these are the same / equivalent / interchangeable," DSU groups them. Equations like <code>a == b, b == c</code> then a query "<code>a == c</code>?" &#8212; union the equals, then <code>connected(a, c)</code>. Grids count too: treat each cell as a node and <code>unite</code> adjacent same-colored cells to count islands or regions (a flood-fill alternative). The mental trigger is the same every time: <em>I'm partitioning things into equivalence classes and querying membership &#8212; that's DSU.</em>`),
+sub("Common pitfalls"),
+pit("Skipping path compression and/or union by size",`The two optimizations aren't optional polish &#8212; they're what makes the structure fast. With <em>neither</em>, a sequence of unions can build a single linked-list-shaped tree of depth <code>n</code>, and every <code>find</code> walks the whole thing: O(n) per op, O(n&#178;) overall. You'll pass the small tests and time out on the big one. Always write both; they're four extra lines combined.`),
+pit("Reading parent[x] directly instead of calling find(x)",`Only <em>roots</em> are canonical set identifiers. <code>parent[x]</code> is just x's immediate pointer &#8212; one step up a possibly-tall tree, not the set's identity. Comparing <code>parent[a] == parent[b]</code> or unioning on raw parents gives wrong answers and corrupts the structure. To ask "same set?" you must compare <code>find(a) == find(b)</code>; to merge, you must link the <em>roots</em> <code>find(a)</code> and <code>find(b)</code>.`),
+pit("Off-by-one: 0-indexed vs 1-indexed node ids",`Mismatching the DSU's size to the problem's labelling is a classic. 1-indexed nodes (<code>1..n</code>) need a DSU of size <code>n + 1</code>; an <code>m&#215;n</code> grid flattened to <code>row * cols + col</code> needs <code>rows * cols</code> slots. Get this wrong and you either index out of bounds (UB) or quietly leave a phantom node 0 in its own group, inflating your component count by one.`),
+pit("Uniting by hanging the larger tree under the smaller root",`If you ignore size/rank and always do <code>parent[find(x)] = find(y)</code> in a fixed direction, you can repeatedly attach big trees under tiny ones, deepening many nodes each time and rebuilding the degenerate chain you were trying to avoid. The rule is one-directional: <em>smaller (or lower-rank) root goes under the larger</em>. The <code>if (size[rx] &lt; size[ry]) swap(rx, ry);</code> line in the class is doing exactly this &#8212; don't drop it.`),
+idea("The interview framing",`Say the recipe out loud before coding: <em>"This is a grouping problem &#8212; I'll use Union-Find. parent array, find with path compression, union by size, and unite returns whether it actually merged. I'll count components by starting at n and decrementing on each real merge"</em> (or <em>"detect the cycle by watching for unite to return false"</em>). Stating the structure, both optimizations, the &#945;(n) bound, and which return value drives the answer &#8212; in one breath &#8212; is exactly the fluency signal interviewers want.`),
+cx(`With path compression <em>and</em> union by size/rank, <code>find</code> and <code>union</code> are <b>O(&#945;(n))</b> amortized &#8212; inverse Ackermann, effectively constant (&#8804; 4 for any real <code>n</code>). Space is <b>O(n)</b> for the parent (and size) arrays. Building a DSU is O(n); Kruskal's is dominated by the edge sort at <b>O(E log E)</b>.`),
+{t:"probs",items:[["Number of Provinces","number-of-provinces","med"],["Redundant Connection","redundant-connection","med"],["Couples Holding Hands","couples-holding-hands","hard"]]}
+]},
 {group:"C++ Deep Dives",num:"◇",id:"polymorphism",color:"#7C3AED",title:"Polymorphism & the Object Model",badge:"C++ deep dive",blocks:[
 cue(`Two questions you will almost certainly be asked: "What is a virtual function and how does it work under the hood?" and "Why does a base class need a virtual destructor?" Both are really one question about the C++ <em>object model</em> &#8212; what a polymorphic object actually looks like in memory and what happens when you call through a base pointer. This chapter builds that model from the ground up, then turns it into answers you can deliver without hesitating. It leans hard on RAII (virtual destructors) and Pointers (calling through a base pointer), so those lessons are the prerequisites.`),
 p(`<em>Polymorphism</em> means "many forms": one piece of code that works with many concrete types through a shared interface. C++ gives you two flavors, and the interview cares that you know they're different. <b>Static (compile-time) polymorphism</b> &#8212; templates and overloading &#8212; the compiler picks the exact function at compile time, so there's zero runtime cost. <b>Dynamic (runtime) polymorphism</b> &#8212; virtual functions &#8212; the <em>actual</em> type isn't known until runtime, so the call is resolved then, through a level of indirection. This chapter is mostly about the second kind, because that's where the object model, the vtable, and all the classic pitfalls live.`),
@@ -4127,7 +4898,7 @@ struct Good {
   ul([
     `<b><code>std::stack</code></b> &#8212; LIFO. <code>push</code>/<code>pop</code>/<code>top</code> only. Backed by a <code>deque</code> by default.`,
     `<b><code>std::queue</code></b> &#8212; FIFO. <code>push</code>/<code>pop</code>/<code>front</code>. Also <code>deque</code>-backed &#8212; the workhorse of BFS.`,
-    `<b><code>std::priority_queue</code></b> &#8212; a binary heap. O(log n) push/pop, O(1) peek at the max (or min, with a comparator). Backed by a <code>vector</code>. The Heaps lesson is all about this one.`,
+    `<b><code>std::priority_queue</code></b> &#8212; a binary heap. O(log n) push/pop, O(1) peek at the top &#8212; a <em>max</em>-heap by default (<code>std::less</code>), or a min-heap if you pass <code>std::greater</code> as the comparator. Backed by a <code>vector</code>. The Heaps lesson is all about this one.`,
   ]),
   svg("stl_pick","Walk the three questions top-down: need a key lookup? then sorted vs not picks map vs unordered_map. No key lookup? then both-ends vs not picks deque vs vector. The honest default at the bottom-right is vector — reach past it only when one of these questions says you must."),
   sub("The complexity table to have memorized"),
@@ -4629,7 +5400,7 @@ void safe(const Input& in) {
 `// optional: a value, or nothing (no reason given)
 std::optional<int> parseInt(std::string_view s) {
     int out;
-    auto [p, ec] = std::from_chars(s.begin(), s.end(), out);
+    auto [ptr, ec] = std::from_chars(s.data(), s.data() + s.size(), out);
     if (ec != std::errc{}) return std::nullopt;   // failure -> empty
     return out;                                    // success -> the value
 }
@@ -4658,6 +5429,293 @@ else
   pit("Throwing from a destructor calls std::terminate","If a second exception is thrown while one is already unwinding the stack, C++ has no way to handle both and calls <code>std::terminate</code> &#8212; instant, handler-less death. Because destructors fire during unwinding, a destructor that throws is the textbook way to trigger this. Wrap any fallible cleanup inside the destructor in its own <code>try/catch</code> and absorb the error there; a destructor should always exit normally."),
   cx(`Happy path with exceptions enabled: <b>~zero cost</b> (no overhead until something throws) &#183; the throw + unwind path: <b>slow and hard to bound</b> &#183; error codes / <code>optional</code> / <code>expected</code>: a predictable check on <em>every</em> call &#8212; the trade those who disable exceptions are buying.`),
   idea("Say it like this",`"<code>throw</code> starts stack unwinding: the runtime walks up the call stack looking for a matching <code>catch</code>, and as it leaves each frame it runs every local's destructor &#8212; which is exactly why RAII makes the error path leak-free and why C++ needs no <code>finally</code>. I catch by <code>const&amp;</code> to avoid slicing the exception, derive my exception types from <code>std::exception</code>, and rethrow with a bare <code>throw;</code> to keep the dynamic type. I think in terms of the safety ladder &#8212; nothrow, strong, basic, none &#8212; and reach for copy-and-swap when I need the strong guarantee. I mark moves and swaps <code>noexcept</code> so <code>std::vector</code> can move instead of copy on reallocation. And I know when <em>not</em> to use them: game and embedded and HFT code often builds with <code>-fno-exceptions</code> for binary size, predictable latency, and explicit control flow, and reports errors with codes, <code>std::optional</code>, or <code>std::expected</code> instead. Exceptions earn their place in constructors, at rare failure points, and at library boundaries &#8212; and you never throw from a destructor, or you get <code>std::terminate</code>."`)
+]},
+{group:"C++ Deep Dives",num:"λ",id:"lambdas",color:"#9333EA",title:"Lambdas & std::function",badge:"C++ deep dive",blocks:[
+cue(`<b>You've already used these everywhere</b> &#8212; the comparator in <code>sort(v.begin(), v.end(), [](auto a, auto b){ return a &gt; b; })</code>, the visitor in the islands DFS, the predicate in <code>find_if</code>. Interviewers reach for lambdas constantly, then probe the part underneath: <em>what does <code>[&amp;]</code> actually capture, and when does it blow up?</em> This lesson makes the thing you've been using by feel precise enough to explain.`),
+  p(`A lambda looks like new syntax, but it isn't a new <em>kind</em> of thing. The single idea that unlocks the whole topic: <b>a lambda is syntactic sugar for an anonymous function object</b> &#8212; a struct with an <code>operator()</code>. When you write a lambda, the compiler generates a hidden struct, turns the captured variables into its data members, and turns the body into its <code>operator()</code>. Everything that's confusing about lambdas &#8212; captures, <code>mutable</code>, why each one has a weird unnamable type, why <code>std::function</code> exists &#8212; falls straight out of "it's just a struct." Hold onto that and the rest is detail.`),
+  sub("The anatomy: [captures](params) -> ret { body }"),
+  p(`A lambda has four parts, and only the first two come up much. <code>[captures]</code> lists the surrounding variables the lambda needs to remember &#8212; this is the part with all the subtlety. <code>(params)</code> is an ordinary parameter list, exactly like a function's. <code>-&gt; ret</code> is an optional explicit return type; you almost never write it, because the compiler deduces the return type from the <code>return</code> statements (the same <code>auto</code> deduction from the Templates lesson). <code>{ body }</code> is the code that runs when you call it.`),
+  code(`int n = 5;
+
+auto add   = [n](int x) -> int { return x + n; };  // all four parts spelled out
+auto add2  = [n](int x) { return x + n; };          // return type deduced (int)
+auto greet = []{ std::cout << "hi"; };              // no captures, no params
+
+add(10);     // 15 — calls operator() with x = 10
+greet();     // "hi"`),
+  p(`The captures are what separate a lambda from a plain function. <code>greet</code> captures nothing, so it's barely more than a free function. <code>add</code> captures <code>n</code>, so it has to <em>remember</em> a value from the enclosing scope between the moment it's created and the moment it's called &#8212; and a function can't remember anything. That memory is the whole reason the compiler builds a struct: the captured variables become its members, and the bundle of "code + remembered state" is what's properly called a <b>closure</b>.`),
+  svg("lambdas_desugar","A lambda with a capture desugars into a hidden struct: the captured variable n becomes a data member, and the body becomes operator(). The lambda object you store (add) is one instance of that generated type — code plus the state it closed over."),
+  sub("It's just a functor — the equivalent hand-written struct"),
+  p(`The fastest way to make this concrete is to write the struct by hand and put it next to the lambda. They compile to essentially the same thing; the lambda is the compiler doing the boilerplate for you. Once you've seen the pair, captures stop being magic &#8212; they're obviously just constructor arguments stored as fields.`),
+  worked("The lambda and the functor it desugars to, side by side","Both versions hold an n and add it to their argument. The lambda's [n] capture is the functor's member plus the constructor that initializes it; the lambda's body is the functor's operator(). This is literally what the compiler generates — including operator() being const by default, which is why a by-value capture is read-only inside the body unless you say mutable.",
+`int n = 5;
+
+// --- the lambda ---
+auto add = [n](int x) { return x + n; };
+
+// --- the equivalent functor the compiler writes for you ---
+struct AddN {
+    int n;                                       // the captured variable, as a member
+    int operator()(int x) const { return x + n; }// the body, as a const call operator
+};
+AddN add2{5};                                    // capture == constructing with n = 5
+
+add(10);     // 15
+add2(10);    // 15 — identical`),
+  sub("Capture modes: the part interviewers probe hardest"),
+  p(`The capture list controls <em>how</em> each remembered variable is stored in that hidden struct &#8212; as a copy, or as a reference. This is the highest-value section because it's where the bugs live and where the questions concentrate. The two defaults:`),
+  ul([
+    `<b><code>[=]</code> &#8212; capture by value.</b> Each used variable is <em>copied</em> into the closure: a snapshot taken at the moment the lambda is created. Later changes to the original don't show up inside the lambda, and the lambda is safe to outlive the original because it owns its own copies.`,
+    `<b><code>[&amp;]</code> &#8212; capture by reference.</b> Each used variable is stored as a <em>reference</em> (an alias) to the original. The lambda sees later changes, and changes it makes are visible outside &#8212; but it holds no copy, only an address, so the original must outlive the lambda or you're reading freed memory.`,
+  ]),
+  p(`You're rarely all-or-nothing. You can name exactly which variables to capture and how: <code>[x, &amp;y]</code> captures <code>x</code> by value and <code>y</code> by reference. You can set a default and override one: <code>[&amp;, x]</code> means "everything by reference, but <code>x</code> by value," and <code>[=, &amp;out]</code> means "everything by value, but <code>out</code> by reference." Naming specific captures is usually clearer than a blanket default &#8212; it documents exactly what the closure touches, which is also how you avoid accidentally capturing something by reference that you didn't mean to.`),
+  svg("lambdas_capture","By value ([=]) the lambda owns a snapshot copy taken at creation — it's frozen and safe to outlive the original. By reference ([&]) the lambda holds only an address into the original's storage, so if the original dies first, the lambda reads freed memory. Same dangling-reference family as iterator invalidation and returning a reference to a local."),
+  sub("Capturing this — and capturing *this"),
+  p(`Inside a member function, a lambda often needs the object's data members. Writing <code>[this]</code> captures the <code>this</code> <em>pointer</em> &#8212; so the lambda can read and write the object's members, but it holds a raw pointer and dangles the instant the object is destroyed. <code>[*this]</code> (C++17) instead captures a <em>copy of the whole object</em> into the closure, which is the safe choice when the lambda will outlive the object &#8212; an async callback, say. The distinction matters: <code>[=]</code> inside a member function captures <code>this</code> by pointer too, not the members by value, which surprises people.`),
+  code(`struct Widget {
+    int id = 42;
+    auto makeReader() {
+        return [this] { return id; };   // captures the THIS POINTER (id read via this)
+    }                                    // dangles if the Widget dies before the lambda runs
+    auto makeSafe() {
+        return [*this] { return id; };  // captures a COPY of the whole Widget — safe to outlive
+    }
+};`),
+  sub("Init-capture: new variables, and capture by move"),
+  p(`Sometimes you want a closure member that isn't just a copy of an existing variable &#8212; you want to compute it, rename it, or (crucially) <em>move</em> something into the lambda. <b>Init-capture</b> (C++14), also called generalized capture, lets you introduce a new closure member with an initializer: <code>[n = compute()]</code> creates a member <code>n</code> initialized from <code>compute()</code>. The left side is a brand-new name living in the closure; the right side is any expression.`),
+  p(`The killer use is <b>capture by move</b>. A move-only type like <code>std::unique_ptr</code> can't be captured by <code>[=]</code> &#8212; that would copy it, and it isn't copyable. Init-capture is how you get ownership <em>into</em> the lambda: <code>[p = std::move(ptr)]</code> move-constructs the closure's <code>p</code> from <code>ptr</code>, transferring the pointer (straight from the Move Semantics lesson). After this, the lambda owns the resource; the original <code>ptr</code> is null.`),
+  worked("Moving a unique_ptr into a lambda with init-capture","[p = std::move(data)] move-constructs a closure member p from data — the unique_ptr's buffer is transferred into the lambda, no copy (a unique_ptr can't be copied anyway). The lambda now owns the resource and can be stored, returned, or run later; the original data is left null. This is the standard way to hand an owned resource to a deferred callback.",
+`auto data = std::make_unique<std::vector<int>>(1'000'000);
+
+// Move the unique_ptr INTO the closure — the lambda now owns the vector:
+auto task = [p = std::move(data)]() {
+    return p->size();           // p is the closure's own member, moved-from 'data'
+};
+// data is now null; 'task' owns the buffer and can be stored or run later.
+task();                          // 1000000`),
+  sub("mutable: by-value captures are read-only by default"),
+  p(`Recall the desugared functor: its <code>operator()</code> was <code>const</code>. That's the default, and it has a consequence people trip on &#8212; <em>a by-value captured variable is read-only inside the lambda body</em>. Trying to modify it doesn't change the original (it's a copy, after all) <em>and</em> won't even compile, because you can't mutate a member from a <code>const</code> method. Marking the lambda <code>mutable</code> drops the <code>const</code> on <code>operator()</code>, letting the body modify its own captured copies. It still only touches the copies &#8212; the originals outside are untouched either way.`),
+  code(`int count = 0;
+
+auto a = [count]      { return ++count; };  // ERROR: count is read-only (const operator())
+auto b = [count]() mutable { return ++count; };  // OK: mutates the closure's OWN copy
+
+b();   // 1
+b();   // 2  — the closure remembers its copy across calls
+// 'count' out here is still 0 — b only ever touched its private copy`),
+  note("&#128221;","mutable changes the copy, not the original",`<code>mutable</code> is easy to misread as "let the lambda change the outside variable." It doesn't &#8212; that's what <code>[&amp;]</code> is for. <code>mutable</code> only lets a by-value capture modify <em>its own copy</em> inside the body, which is occasionally what you want for a small piece of per-call state (like the running counter above). If you actually need to affect the original, capture it by reference instead.`),
+  sub("Generic lambdas: auto parameters are a template"),
+  p(`Since C++14 a lambda parameter can be <code>auto</code>: <code>[](auto a, auto b){ return a &lt; b; }</code>. This is a <b>generic lambda</b>, and it's exactly the Templates lesson in miniature &#8212; the compiler makes <code>operator()</code> a <em>template</em>, so the lambda works for any argument types that support the operations in the body. One comparator works for <code>int</code>, <code>double</code>, <code>std::string</code>, your own type. It's the same compile-time, duck-typed genericity as a function template, just spelled with <code>auto</code> instead of <code>template&lt;class T&gt;</code>.`),
+  code(`// One generic comparator, instantiated per type at the call site:
+auto less = [](const auto& a, const auto& b) { return a < b; };
+
+std::sort(ints.begin(),    ints.end(),    less);  // operator()<int>
+std::sort(strings.begin(), strings.end(), less);  // operator()<std::string>`),
+  sub("Lambdas as STL comparators and predicates"),
+  p(`This is where lambdas earn their keep day to day, and the reason they appear all over the course's worked code. Most of <code>&lt;algorithm&gt;</code> takes a callable &#8212; a comparator that says "is a before b?", or a predicate that says "does this element match?" &#8212; and a lambda is the natural way to spell one inline, right where it's used, without a named helper function cluttering the file. Three you'll write constantly:`),
+  code(`std::vector<int> v = {5, 2, 8, 1, 9, 3};
+
+// 1) sort with a custom comparator — descending:
+std::sort(v.begin(), v.end(), [](int a, int b) { return a > b; });
+
+// 2) find_if with a predicate — first element > 4:
+auto it = std::find_if(v.begin(), v.end(), [](int x) { return x > 4; });
+
+// 3) a priority_queue ordered by a captured rule (min-heap of pairs by .second):
+auto cmp = [](const auto& a, const auto& b) { return a.second > b.second; };
+std::priority_queue<std::pair<int,int>,
+                    std::vector<std::pair<int,int>>,
+                    decltype(cmp)> pq(cmp);`),
+  note("&#128221;","The priority_queue comparator is the fiddly one",`<code>std::sort</code> takes the comparator as a runtime argument, so a bare lambda just works. <code>std::priority_queue</code> takes the comparator as a <em>template type parameter</em>, so you have to name the lambda's type with <code>decltype(cmp)</code> and pass the instance to the constructor (because each lambda has its own unnamable type &#8212; see the next section). It's a small ceremony worth recognizing, since the priority_queue comparator is a recurring interview stumble (it's the engine under the Heaps lesson).`),
+  sub("Every lambda has its own unnamable type"),
+  p(`Here's the fact that motivates the rest of the lesson. <b>Each lambda expression has its own unique, compiler-generated type</b> &#8212; that hidden struct &#8212; and you can't write the type's name, because it doesn't have one you can spell. Two lambdas with <em>identical</em> bodies are still two different types. That's fine when you store a lambda in <code>auto x = ...</code> (the compiler knows the type even though you can't name it), but it becomes a problem the moment you need a <em>named</em> type: a class member, a function parameter that isn't a template, or a container holding several different callables. You can't write <code>SomeLambdaType</code> in a declaration, because there's no such name.`),
+  sub("std::function: type erasure for callables"),
+  p(`<code>std::function&lt;int(int)&gt;</code> is the fix. It's a polymorphic wrapper that can hold <em>any</em> callable matching a given signature &#8212; a lambda, a function pointer, a functor, a member function &#8212; behind one nameable type. The technique is called <b>type erasure</b>: <code>std::function</code> erases the specific type of whatever you put in, exposing only "a thing you can call with an <code>int</code> that returns an <code>int</code>." That's exactly what lets you store heterogeneous callables together, or declare a callback member without making the whole class a template.`),
+  worked("Storing different callables in one vector<std::function>","Each lambda below has a distinct, unnamable type — so a vector<that type> is impossible to declare. std::function<int(int)> erases the differences: all three lambdas (and the plain function) share the one wrapper type, so they sit in one container and you can call them in a loop. This is the canonical reason to reach for std::function.",
+`int triple(int x) { return x * 3; }      // a plain function
+
+int bias = 100;
+std::vector<std::function<int(int)>> ops;
+
+ops.push_back([](int x){ return x + 1; });        // one lambda type...
+ops.push_back([](int x){ return x * x; });        // ...a different lambda type...
+ops.push_back([bias](int x){ return x + bias; }); // ...and one that captures...
+ops.push_back(triple);                            // ...and a plain function pointer.
+
+for (auto& f : ops)
+    std::cout << f(10) << ' ';                     // 11 100 110 30`),
+  note("&#128161;","A captureless lambda converts to a plain function pointer",`One handy special case: a lambda that captures <em>nothing</em> has no state to carry, so it implicitly converts to an ordinary function pointer &#8212; <code>int(*fp)(int) = [](int x){ return x*2; };</code> compiles. The moment it captures anything, it has state and that conversion is gone (you need <code>std::function</code> or a template). It's why C-style callback APIs that take a function pointer accept captureless lambdas but reject capturing ones.`),
+  sub("The cost of std::function — and when to skip it"),
+  p(`<code>std::function</code> isn't free, and this trade-off is the interview payoff because it's the <em>same</em> compile-time-vs-runtime decision as templates-vs-virtual from the Templates lesson. Wrapping a callable in <code>std::function</code> may <b>heap-allocate</b> (to store a capturing lambda that doesn't fit its small-buffer optimization) and always calls through an <b>indirect</b> jump &#8212; the call can't be inlined, because the wrapper hides which function it's really holding. That's real overhead on a hot path.`),
+  p(`The alternative is to pass the lambda as a <em>template parameter</em> instead of erasing it: a function template like <code>template&lt;class F&gt; void each(F f)</code> takes the lambda by its real type, so the compiler knows exactly which <code>operator()</code> to call and <em>inlines</em> it &#8212; zero overhead, same as hand-written code. That's how <code>std::sort</code> and the rest of <code>&lt;algorithm&gt;</code> take their comparators: as template parameters, so the comparison inlines into the sort. The rule of thumb mirrors the Templates lesson exactly: <em>reach for a template parameter when you can resolve the callable at compile time (the inlinable, zero-cost path), and reach for <code>std::function</code> only when you genuinely need to store or pass a callable behind one runtime type</em> &#8212; a member, a heterogeneous container, an across-an-ABI-boundary callback.`),
+  code(`// Zero-overhead: F is the lambda's real type, so f(x) inlines into the loop.
+template<class F>
+void forEach(const std::vector<int>& v, F f) { for (int x : v) f(x); }
+
+// Type-erased: holds any int(int) behind one runtime type — but indirect, maybe heap.
+void run(const std::function<int(int)>& f);   // can't inline f; pays the wrapper cost
+
+// Inside a class, you usually need the named type — std::function is the practical choice:
+struct Button { std::function<void()> onClick; };   // can't be 'auto' or a raw lambda type`),
+  sub("The central pitfall: the dangling capture-by-reference"),
+  p(`If you remember one hazard from this lesson, make it this one &#8212; it's the same dangling-reference family as iterator invalidation and returning a reference to a local (the Pointers and STL lessons), wearing a lambda costume. A <code>[&amp;]</code> lambda holds <em>references</em> to its captured variables, not copies. If the lambda outlives those variables &#8212; it's stored, returned, or queued, and runs after the enclosing scope ends &#8212; every captured reference now points at freed memory, and using it is undefined behavior.`),
+  worked("Returning a lambda that captured a local by reference — a dangling read","make_adder returns a lambda capturing the local n by reference. The instant make_adder returns, n's stack slot is reclaimed, so the returned lambda's reference dangles — calling it reads freed memory (UB), exactly like returning the address of a local. The fix is to capture n by value, [n], so the closure owns its own copy and is safe to outlive the function.",
+`// BUG — captures the local n by reference, then outlives it:
+auto make_adder(int n) {
+    return [&n](int x) { return x + n; };   // &n refers to a local about to die
+}                                            // n's stack frame is gone on return
+auto add = make_adder(5);
+add(10);                                     // UB: reads freed memory where n was
+
+// FIX — capture by value so the closure owns its own copy:
+auto make_adder_ok(int n) {
+    return [n](int x) { return x + n; };    // [n] copies n into the closure — safe
+}`),
+  pit("[&] is the trap; default to [=] (or name captures) for anything that escapes its scope",`The rule that prevents the bug: a lambda that's <em>called immediately and locally</em> (like a <code>sort</code> comparator) is fine with <code>[&amp;]</code> &#8212; nothing outlives anything. But any lambda that <em>escapes</em> its scope &#8212; returned, stored in a member, pushed onto a callback list, handed to another thread &#8212; must not hold references to locals. Capture those by value (<code>[=]</code> or named, or by move for owned resources), so the closure carries its own state. When in doubt about lifetime, copy.`),
+  pit("[=] copies can be quietly expensive, and [this] is a raw pointer","Two subtler edges. First, <code>[=]</code> copies <em>each</em> captured variable &#8212; capture a big <code>std::vector</code> or <code>std::string</code> by value and you've paid a deep copy you may not have noticed, so name captures or capture a view when the data is large. Second, <code>[this]</code> (and <code>[=]</code> inside a member function) captures a <em>raw pointer</em> to the object, not its data; if the object is destroyed before the lambda runs, that pointer dangles just like any other. Use <code>[*this]</code> to capture a copy of the object when the lambda may outlive it."),
+  cx(`A lambda is a struct &#8212; constructing and calling it is <b>free</b>; passed as a template parameter the call <b>inlines</b> (zero overhead, like <code>std::sort</code>'s comparator). Wrapping in <code>std::function</code> costs a possible <b>heap allocation</b> + an <b>indirect call</b> &#8212; the same compile-time-vs-runtime trade as templates vs virtual.`),
+  idea("Say it like this",`"A lambda is syntactic sugar for an anonymous functor &#8212; the compiler generates a hidden struct whose members are the captured variables and whose <code>operator()</code> is the body, so a lambda is a <em>closure</em>: code plus the state it captured. Captures are the crux: <code>[=]</code> copies a snapshot into the closure (safe to outlive the original), <code>[&amp;]</code> stores references (sees changes, but dangles if the original dies first) &#8212; and init-capture <code>[p = std::move(ptr)]</code> is how you move a <code>unique_ptr</code> in. By-value captures are <code>const</code> in the body unless I mark the lambda <code>mutable</code>; <code>auto</code> parameters make it a generic, template-like lambda. Each lambda has its own unnamable type, so to store mixed callables behind one type I wrap them in <code>std::function</code> &#8212; type erasure, at the cost of a possible heap allocation and an indirect call, versus passing the lambda as a template parameter which inlines. The one trap I watch for is a <code>[&amp;]</code> lambda that escapes its scope &#8212; that's a dangling reference, same as returning the address of a local, so anything that's stored or returned I capture by value."`)
+]},
+{group:"C++ Deep Dives",num:"✦",id:"essentials",color:"#0891B2",title:"C++ Language Essentials",badge:"C++ deep dive",blocks:[
+cue(`This chapter gathers the high-frequency "small" C++ questions &#8212; the ones that aren't a whole topic on their own but show up constantly and quietly separate the candidates who <em>use</em> C++ from the ones who <em>know</em> it. Five of them: scoped enums, operator overloading, the four meanings of <code>static</code>, the initialization minefield, and object layout. None is hard once you've seen it; all of them have a trap an interviewer can spring if you're hand-wavy. You ship engine code, so most of this is muscle memory &#8212; the goal here is to attach <em>precise words</em> to what you already do, so the answers come out clean and confident.`),
+p(`Each section is self-contained &#8212; read them in any order. Several lean on earlier deep dives: linkage and the build model from the <em>Undefined Behavior</em> lesson, strict aliasing and <code>const</code> from the <em>Type System</em> lesson, and the construct-then-destruct discipline from <em>RAII</em>. Where a callback helps, it's noted.`),
+
+sub("1 · Enums: prefer enum class"),
+p(`A plain <code>enum</code> is the C-style one: it dumps its enumerators into the <em>enclosing</em> scope and they implicitly convert to <code>int</code>. Both of those are footguns. The scope leak means two enums can't share an enumerator name &#8212; declare <code>enum Color { Red, ... }</code> and <code>enum Fruit { Apple, ... }</code> and you can never have <code>Red</code> in one and, say, an <code>Apple</code>-style <code>Red</code>-named value in the other without a clash. The implicit-to-<code>int</code> conversion means <code>Color</code> and <code>Fruit</code> values silently compare equal, get added together, and index arrays &#8212; nonsense the compiler happily accepts.`),
+p(`A <b>scoped enum</b> &#8212; <code>enum class</code>, since C++11 &#8212; fixes both. Its enumerators are scoped to the enum's name (<code>Color::Red</code>, never a bare <code>Red</code>), so there's no name leakage and no clashes. And it does <em>not</em> implicitly convert to <code>int</code>: to get the underlying number you must say <code>static_cast&lt;int&gt;(c)</code> explicitly. That sounds like friction, but it's the good kind &#8212; it stops the accidental <code>if (color == fruit)</code> bugs at compile time. You can also pin the <b>underlying type</b>: <code>enum class E : uint8_t { ... }</code> guarantees a one-byte representation, which matters for packed structs, network protocols, and save formats. <b>Default to <code>enum class</code>;</b> reach for a plain <code>enum</code> only when you genuinely want the implicit int (e.g. a set of bit-flag constants you OR together).`),
+code(`enum class Color : uint8_t { Red, Green, Blue };   // scoped, 1 byte, no int leak
+
+Color c = Color::Red;                  // must qualify -> Color::Red
+// int n = c;                          // ERROR: no implicit conversion
+int n = static_cast<int>(c);           // 0 -- you must ask explicitly
+
+// if (c == 0) ...                     // ERROR: Color is not an int (good!)
+if (c == Color::Red) { /* ... */ }     // compare enum to enum, as intended
+
+// --- plain enum, for contrast ---
+enum Old { On, Off };                  // On and Off leak into THIS scope
+int bad = On + Off;                    // compiles -- implicit int, usually a bug`),
+note(`&#128221;`,`When a plain enum still earns its place`,`Bit-flag sets are the honest exception: <code>enum Flags { Visible = 1, Solid = 2, Static = 4 };</code> wants the implicit <code>int</code> so <code>Visible | Solid</code> just works. With <code>enum class</code> you'd have to overload <code>operator|</code> yourself (or <code>static_cast</code> every combine), which is sometimes worth it for type safety and sometimes overkill. Know the trade-off so you can defend either choice &#8212; "plain enum here because it's a flag set I OR together" is a fine answer.`),
+
+sub("2 · Operator overloading"),
+p(`Operator overloading lets your type plug into the syntax built-in types already use: <code>a + b</code>, <code>a == b</code>, <code>v[i]</code>, <code>cout &lt;&lt; a</code>. It's not decoration &#8212; it's often <em>required</em> to use your type with the standard library. The two that earn their keep first are <b><code>operator==</code></b> and <b><code>operator&lt;</code></b>: a type needs <code>operator&lt;</code> (a strict weak ordering) to be a <code>std::map</code>/<code>std::set</code> key or to be <code>std::sort</code>ed, and <code>operator==</code> to be found, deduplicated, or used as a <code>std::unordered_*</code> key (alongside a hash). Define those and your type behaves like a value the library understands.`),
+p(`There's a member-vs-free-function choice. A <b>member</b> operator has the left operand as <code>this</code> &#8212; natural for asymmetric, mutating, or access operators like <code>operator[]</code>, <code>operator=</code>, <code>operator+=</code>. A <b>free (non-member) function</b> is the right home for <em>symmetric</em> operators like <code>operator+</code> and <code>operator==</code>: as a free function, both operands are ordinary parameters, so an implicit conversion can apply to <em>either</em> side (<code>2 + money</code> works, not just <code>money + 2</code>). A member <code>operator+</code> can only convert the right operand, which quietly breaks symmetry. And <code>operator&lt;&lt;</code> for streaming <em>must</em> be free: its left operand is the <code>std::ostream</code>, which isn't your class, so you couldn't make it a member of <code>ostream</code> even if you wanted to.`),
+worked("A small value type with the comparison operators","A <code>Money</code> type that's safe to sort and to use as a map key. <code>operator==</code> and <code>operator&lt;</code> are free functions taking <code>const&amp;</code> &#8212; symmetric, no copies. <code>operator+</code> returns a <em>new value</em> (by value, never a reference to a local), and <code>operator+=</code> is a member because it mutates the left operand. Note how the comparisons read like plain English once defined.",
+`struct Money {
+    long cents = 0;
+};
+
+// symmetric comparisons -> free functions, const& params
+bool operator==(const Money& a, const Money& b) { return a.cents == b.cents; }
+bool operator<(const Money& a, const Money& b)  { return a.cents < b.cents; }
+
+// symmetric arithmetic -> free function, returns a NEW value (by value!)
+Money operator+(const Money& a, const Money& b) { return Money{a.cents + b.cents}; }
+
+// mutating -> member; returns *this by reference for chaining
+struct Wallet {
+    Money balance;
+    Wallet& operator+=(const Money& m) { balance = balance + m; return *this; }
+};
+
+std::set<Money> prices;                 // works: Money has operator<
+std::sort(items.begin(), items.end());  // works: uses operator< on Money`),
+p(`Since <b>C++20</b> there's a shortcut that removes most of this boilerplate: the <b>three-way comparison operator</b>, <code>operator&lt;=&gt;</code> (the "spaceship"). Default it &#8212; <code>auto operator&lt;=&gt;(const T&amp;) const = default;</code> &#8212; and the compiler generates <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code> for you by comparing members in declaration order. Pair it with a defaulted <code>operator==</code> (which <code>&lt;=&gt;</code> does <em>not</em> generate &#8212; equality is separate so it can be optimized) and your type is fully ordered and comparable in two lines. This is the modern default for a plain value type; reach for hand-written operators only when the ordering isn't just "compare the members in order."`),
+code(`struct Version {
+    int major, minor, patch;
+    auto operator<=>(const Version&) const = default;  // gives < > <= >= for free
+    bool operator==(const Version&) const = default;   // == is separate; default it too
+};
+// Now Version is sortable, usable as a map key, and == comparable -- all member-wise.
+
+Version a{1, 4, 0}, b{1, 5, 0};
+bool older = a < b;                     // true -- compares major, then minor, then patch`),
+pit("Two operator-overloading traps interviewers love","First: <b>returning a reference where you need a value.</b> <code>operator+</code> must return a <em>new</em> object by value &#8212; returning <code>T&amp;</code> to a local is a dangling reference, and returning <code>*this</code> would mutate the left operand instead of producing a sum. (Move semantics make the by-value return cheap, so there's no cost reason to cheat.) Second: <b>making a symmetric operator a member.</b> A member <code>operator==</code> or <code>operator+</code> only lets the compiler convert the <em>right</em> operand, so <code>money + 2</code> compiles but <code>2 + money</code> doesn't &#8212; an asymmetry that surprises callers. Symmetric operators want to be free functions (or in C++20, a defaulted <code>&lt;=&gt;</code>/<code>==</code> member, which the language treats symmetrically anyway)."),
+
+sub("3 · The four meanings of static"),
+p(`<code>static</code> is the most overloaded keyword in C++ &#8212; it means four genuinely different things depending on where you write it. Interviewers ask precisely because mixing them up signals shaky fundamentals. Here are all four, by context.`),
+svg("essentials_static","One keyword, four jobs, decided by where it appears: at file scope it's internal linkage; on a local variable it's a single lazily-initialized instance that persists; on a data member it's one copy shared by the whole class; on a member function it's a function with no <code>this</code>."),
+p(`<b>(a) At file scope &#8212; internal linkage.</b> A <code>static</code> function or variable at namespace scope is private to its <em>translation unit</em>: other <code>.cpp</code> files can't see it, and the linker won't collide its name with an identically-named symbol elsewhere. This is the linkage story from the <em>Undefined Behavior &amp; Build Model</em> lesson &#8212; <code>static</code> (or an unnamed namespace) is how you keep a helper truly local and avoid ODR clashes across files.`),
+p(`<b>(b) A local <code>static</code> variable &#8212; one instance, lazily initialized, persists across calls.</b> Declared inside a function, a <code>static</code> local is constructed <em>once</em>, on first reaching its declaration, and survives until program exit &#8212; it is <em>not</em> recreated each call. Crucially, since C++11 that first-time initialization is <b>thread-safe</b>: the runtime guarantees exactly one thread runs the initializer while others wait. That makes the local-static the backbone of the <b>construct-on-first-use</b> idiom, which also fixes the <em>static initialization order fiasco</em>.`),
+worked("A local static counter, and the construct-on-first-use fix","Top: a <code>static</code> local that counts calls &#8212; initialized once, retains its value. Bottom: the order fiasco. Two <em>global</em> statics in different translation units have <b>undefined</b> initialization order, so a global that uses another global during startup may read it before it's built. Wrapping the object in a function makes it a <em>local</em> static &#8212; built on first use, guaranteed ready before anyone touches it.",
+`int nextId() {
+    static int counter = 0;     // built ONCE, on first call; persists after
+    return ++counter;           // 1, 2, 3, ... across separate calls
+}
+
+// --- the static init order fiasco ---
+// In a.cpp:  Config globalConfig;            // order of these two across TUs
+// In b.cpp:  Logger  globalLogger(globalConfig);  // is UNDEFINED -> maybe reads
+//                                                 // globalConfig before it exists
+
+// fix: construct-on-first-use -- a function-local static is built on first call
+Config& config() {
+    static Config instance;     // created the first time config() runs, then reused
+    return instance;            // every caller gets the same, fully-built object
+}`),
+note(`&#128221;`,`Don't rely on cross-TU static init order &#8212; ever`,`The order in which <em>global/namespace-scope</em> statics across different translation units are initialized is unspecified by the standard. So a global whose constructor reads another global from a different <code>.cpp</code> is a startup-crash waiting to happen. The construct-on-first-use idiom (a function returning a reference to a function-<em>local</em> static) sidesteps it entirely: the dependency is built the first time it's needed, in the right order by construction. This is the idiom behind most hand-rolled singletons.`),
+p(`<b>(c) A <code>static</code> data member &#8212; one shared instance for the whole class.</b> A non-static member exists once <em>per object</em>; a <code>static</code> data member exists <em>once for the entire class</em>, shared by every instance (and accessible as <code>ClassName::member</code> with no object at all). Classically you declare it in the class and <em>define</em> it once out-of-line in a <code>.cpp</code> &#8212; but since <b>C++17</b> you can mark it <code>static inline</code> and initialize it right in the header, no separate definition needed. Use it for class-wide state: an instance counter, a shared default, a registry.`),
+p(`<b>(d) A <code>static</code> member function &#8212; no <code>this</code>.</b> It belongs to the class but has no object: it can't touch non-static members (there's no instance to touch) and you call it as <code>ClassName::func()</code>. It's the right shape for factory functions, helpers that logically group under the class, and anything you'd pass as a plain function pointer (no hidden <code>this</code> parameter to get in the way).`),
+code(`struct Widget {
+    static inline int liveCount = 0;        // (c) one shared counter, C++17 inline init
+    int id;
+
+    Widget()  { id = ++liveCount; }
+    ~Widget() { --liveCount; }
+
+    static int howMany() { return liveCount; }  // (d) no this; reads the shared member
+    // static int bad() { return id; }          // ERROR: no object -> no 'id'
+};
+
+Widget a, b, c;
+int n = Widget::howMany();                  // 3 -- called on the class, not an instance`),
+
+sub("4 · Initialization: braces, order, and the vexing parse"),
+p(`C++ has more ways to initialize an object than any language has a right to, and a few of them are traps. The modern advice is to prefer <b>brace (uniform) initialization</b> &#8212; <code>T x{...}</code> &#8212; for two concrete reasons. First, braces <b>forbid narrowing conversions</b>: <code>int x{3.5};</code> won't compile (a <code>double</code> &#8594; <code>int</code> loses data), whereas <code>int x(3.5);</code> silently truncates to 3. That's a real bug caught for free. Second, braces work uniformly across scalars, aggregates, and containers, so you can default-init members consistently.`),
+pit("The vector{N} vs vector(N) gotcha","Braces have one sharp edge: if a type has an <code>std::initializer_list</code> constructor, braces <em>strongly prefer</em> it. So <code>std::vector&lt;int&gt; v{3};</code> is a vector with <b>one element, the value 3</b> &#8212; the initializer-list constructor wins. But <code>std::vector&lt;int&gt; v(3);</code> with parens is a vector of <b>three zeros</b> &#8212; the (size) constructor. Same with <code>{3, 4}</code> (two elements) vs <code>(3, 4)</code>. This bites everyone once. Rule of thumb: use parens when you mean a <em>count/size</em> argument, braces when you mean <em>contents</em>."),
+p(`The subtler trap &#8212; and a genuine bug source in real code &#8212; is <b>member initialization order</b>. Class members are constructed in the order they are <em>declared in the class</em>, <b>not</b> the order you list them in the constructor's initializer list. If one member's initializer reads another, the declaration order is what actually runs, so you can read an as-yet-uninitialized member and not notice. Good compilers warn (<code>-Wreorder</code>), but the rule is the thing to know cold.`),
+worked("The member-init-order trap","<code>Bad</code> looks correct &#8212; the init list initializes <code>size</code> from <code>n</code>, then <code>data</code> from <code>size</code>. But members are built in <em>declaration</em> order, and <code>data</code> is declared <em>first</em>, so it's initialized from <code>size</code> <b>before <code>size</code> exists</b> &#8212; reading garbage. <code>Good</code> declares the members in dependency order so declaration order matches intent. The fix is always to order the <em>declarations</em>, never to trust the init-list order.",
+`struct Bad {
+    int* data;          // declared FIRST -> initialized FIRST
+    int  size;          // declared second
+    Bad(int n) : size(n), data(new int[size]) { }
+    //            ^ init list says size first, but 'data' is built first,
+    //              reading 'size' before it's set -> garbage size. Bug.
+};
+
+struct Good {
+    int  size;          // declare in dependency order: size before data
+    int* data;
+    Good(int n) : size(n), data(new int[size]) { }   // now correct
+};`),
+note(`&#128221;`,`The most vexing parse, in one line`,`<code>Widget w();</code> does <em>not</em> create a default-constructed <code>Widget</code> &#8212; the compiler reads it as the declaration of a <em>function</em> <code>w</code> taking no args and returning <code>Widget</code>. It's "vexing" because it looks exactly like construction. Brace-init dodges it: <code>Widget w{};</code> is unambiguously an object. Same reason <code>Widget w(Foo());</code> can be parsed as a function declaration &#8212; use braces and the ambiguity disappears.`),
+p(`Two more tools worth a sentence each. <b>Default member initializers</b> &#8212; <code>int id = 0;</code> right in the class body &#8212; give every constructor a baseline so you can't forget to init a member; an init-list entry overrides it when needed. And <code>std::initializer_list</code> is the mechanism behind <code>{...}</code> contents: a constructor taking <code>std::initializer_list&lt;T&gt;</code> is what lets <code>vector&lt;int&gt; v{1,2,3}</code> and your own container types accept a braced list of elements.`),
+
+sub("5 · Object layout: why sizeof surprises you"),
+p(`For a game-engine candidate this is a likely probe, because cache behavior <em>is</em> performance and layout <em>is</em> cache behavior. The headline: <b><code>sizeof</code> a struct is almost never the sum of its members.</b> The compiler inserts <b>padding</b> so that each member sits at an offset that satisfies its <b>alignment</b> &#8212; a 4-byte <code>int</code> must start at an address divisible by 4, an 8-byte <code>double</code> at one divisible by 8, and so on, because the hardware loads aligned data faster (and on some architectures, only aligned). The struct as a whole is then padded up to a multiple of its <em>largest member's</em> alignment, so that arrays of the struct keep every element aligned.`),
+p(`The classic surprise is <code>struct { char a; int b; char c; }</code>. You'd guess 1 + 4 + 1 = 6 bytes; it's actually <b>12</b>. <code>a</code> takes offset 0, but <code>b</code> needs a 4-aligned offset, so 3 padding bytes go in after <code>a</code> to push <code>b</code> to offset 4. <code>c</code> lands at offset 8, and then the struct is padded to 12 (a multiple of 4, <code>int</code>'s alignment) so arrays stay aligned. <b>Reorder largest-to-smallest</b> &#8212; <code>{ int b; char a; char c; }</code> &#8212; and the two chars pack into the gap after the int: 8 bytes, a third smaller, same data.`),
+svg("essentials_layout","The same three fields, two orders. As declared {char, int, char}, padding after the first char pushes the int to a 4-aligned offset and the struct rounds up to 12 bytes. Reordered to {int, char, char}, the int is already aligned and the two chars share the tail &#8212; 8 bytes. Largest member first means fewer gaps."),
+worked("The struct whose size surprises you, and the fix","Print the sizes and the reordering pays for itself. <code>alignof</code> tells you the alignment that drives the padding; reordering members from largest to smallest alignment minimizes the gaps. In a struct you allocate by the million (particles, entities, vertices), shrinking 12 &#8594; 8 is a third less memory traffic and a third more per cache line.",
+`struct Wasteful {       // char, int, char
+    char a;             // offset 0
+    int  b;             // offset 4  (3 bytes padding after 'a')
+    char c;             // offset 8
+};                      // padded to 12
+
+struct Tight {          // int, char, char  -- largest first
+    int  b;             // offset 0
+    char a;             // offset 4
+    char c;             // offset 5
+};                      // padded to 8
+
+static_assert(sizeof(Wasteful) == 12);
+static_assert(sizeof(Tight)    == 8);
+// alignof(int) == 4 is what forces b to a 4-aligned offset in both`),
+p(`Three nearby tools complete the picture. <b><code>alignof(T)</code></b> reports a type's required alignment; <b><code>alignas(N)</code></b> forces a stricter one &#8212; <code>alignas(64) struct CacheLine { ... };</code> pins an object to a 64-byte cache-line boundary, the standard trick for avoiding false sharing in the <em>Concurrency</em> lesson. <b>Bit-fields</b> pack several small fields into the bits of one integer &#8212; <code>unsigned flag : 1;</code> uses a single bit &#8212; handy for dense flag sets or wire formats, at the cost of unspecified bit ordering across compilers.`),
+note(`&#128221;`,`Unions and the active-member rule`,`A <code>union</code> overlays all its members in <em>one shared storage</em>, sized to its largest member &#8212; only one member is "active" (holds a valid value) at a time. Writing one member and reading a <em>different</em> one is <b>type punning</b>, and outside a few blessed cases it's the same <em>strict-aliasing</em> undefined behavior from the <em>Type System</em> lesson &#8212; the compiler may assume the two members never alias. To reinterpret bytes safely, use <code>std::bit_cast</code> (C++20) or <code>memcpy</code>, not a union read of an inactive member. For a tagged value that's safe and ergonomic, reach for <code>std::variant</code> instead of a hand-rolled union.`),
+cx(`Layout facts to keep crisp: padding is inserted so each member meets its alignment, and the struct is padded up to its largest member's alignment &#8226; reorder members largest-to-smallest to minimize padding &#8226; <code>alignof</code> reads alignment, <code>alignas</code> forces it &#8226; <code>sizeof</code>, <code>alignof</code>, and all of this are compile-time &#8212; zero runtime cost, but real memory and cache cost.`),
+
+idea("Say it like this in the interview",`On <b>enums</b>: "I default to <code>enum class</code> &#8212; scoped names, no implicit <code>int</code> conversion so no accidental comparisons, and a specifiable underlying type like <code>: uint8_t</code> for packing; plain <code>enum</code> only for bit-flag sets I OR together." On <b>operators</b>: "<code>operator==</code> and <code>operator&lt;</code> make a type usable as a map key or sortable; symmetric ones like <code>+</code> and <code>==</code> are free functions so conversions apply to both sides, and <code>&lt;&lt;</code> must be free; in C++20 I default <code>operator&lt;=&gt;</code> to generate the relational operators and default <code>==</code> alongside it." On <b><code>static</code></b>: "four meanings &#8212; internal linkage at file scope, a single lazily-built persistent variable as a local, one shared instance as a data member, and a no-<code>this</code> function as a member; the function-local static is also the construct-on-first-use fix for the init-order fiasco." On <b>initialization</b>: "brace-init prevents narrowing and dodges the most vexing parse, but watch <code>vector&lt;int&gt;{3}</code> (one element) vs <code>(3)</code> (three zeros); and members are constructed in <em>declaration</em> order, not init-list order &#8212; a classic bug." On <b>layout</b>: "<code>sizeof</code> isn't the sum of members &#8212; alignment forces padding, and the struct rounds up to its largest member's alignment, so I order members largest-to-smallest to shrink hot structs." Each of those is a complete, senior-sounding answer on its own.`)
 ]},
 {group:"Beyond Code",num:"▦",id:"sysdesign",color:"#14B8A6",title:"System Design Basics",badge:"intro",blocks:[
   cue(`Even for a mid-level role, you'll often get a lightweight design round: "design a URL shortener," "design a rate limiter." It's not about a perfect answer — it's about structured thinking out loud.`),
@@ -4828,7 +5886,6 @@ function renderHome(){setActive("");page.className=reduce?"":"anim";page.innerHT
 function renderLesson(s,i){
   const N=course.length;
   let h=`<div class="lesson-head" style="--accent:${s.color}"><div class="lh-meta"><span class="lh-week">${s.group}</span><span class="lh-count">Lesson ${i+1} of ${N}</span></div><h1 class="lh-title">${s.title}</h1></div>`;
-  if(s.badge&&s.badge.indexOf("coming")>=0)h+=`<div class="soonpill">&#9675; Concise lesson &mdash; ask me to expand this one into full depth</div>`;
   h+=`<div class="lesson">${renderBlocks(s.blocks,s.color)}</div>`;
   const ldone=doneLessons.has(s.id);
   h+=`<div class="lessondone"><button class="donebtn${ldone?' done':''}" id="lessonDoneBtn"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></span><span id="lessonDoneTxt">${ldone?'Lesson completed':'Mark this lesson complete'}</span></button></div>`;
